@@ -1,10 +1,6 @@
 from itertools import product,permutations
 from math import comb,prod,sqrt,factorial
 
-# def conjugate(ntuple):
-#     conj_ntuple = '0'*ntuple.count('1')+'1'*ntuple.count('0')
-#     return conj_ntuple
-
 class Multiplet:
     def __init__(self,spin,space):
         self.spin = spin
@@ -44,6 +40,10 @@ class Amplitude:
 
     #def __eq__(self,other):
     #    return self.gen_ntuple == other.gen_ntuple
+
+    #def conjugate(ntuple):
+        #conj_ntuple = '0'*ntuple.count('1')+'1'*ntuple.count('0')
+        #return conj_ntuple
     
 class AmplitudePair(Amplitude):
     def __init__(self,amp,out_lt):
@@ -173,33 +173,3 @@ class Lattice:
                 lattice_copy,sum_rule = sum_rules_from_lattice(lattice_copy,b,d,l)
                 sum_rules.append(sum_rule)
         return sum_rules
-
-'''
-class SumRule:
-    def __init__(self,subspace,b,n):
-        self.b = b
-        self.nodes = self.remove_dups(subspace)
-        self.yp_coords = self.find_yp_coords()
-        self.mb_factors = self.calc_mb_factors()
-    
-    def remove_dups(self,subspace):
-        if self.b < 2:
-            return subspace
-        else:
-            nodes = []
-            for node in subspace:
-                node_sorted = [x for x in node]
-                node_sorted.sort()
-                if node == node_sorted:
-                    nodes.append(node)
-            return nodes
-
-    def find_yp_coords(self,n):
-        yp_coords = []
-        for node in self.nodes:
-            node_spl = node[n:]
-            yp_coord = []
-            for i in range(len(node_spl)):
-                yp_coord.append(node_spl.count(i))
-        return yp_coords
-'''
