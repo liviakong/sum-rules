@@ -1,0 +1,104 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      3426,         96]
+NotebookOptionsPosition[      2605,         73]
+NotebookOutlinePosition[      3036,         90]
+CellTagsIndexPosition[      2993,         87]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"file", " ", "=", " ", 
+  RowBox[{
+  "File", "[", 
+   "\"\<C:\\\\Users\\\\livia\\\\Downloads\\\\Research\\\\Sum_Rules\\\\Code\\\\\
+test_file.py\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.9337714123330173`*^9, 3.9337714793641624`*^9}, {
+  3.9337717952813663`*^9, 3.93377179603887*^9}},
+ CellLabel->"In[46]:=",ExpressionUUID->"35c3bda3-c018-d74e-aca9-f77e306a0358"],
+
+Cell[BoxData[
+ RowBox[{"File", "[", 
+  TemplateBox[{
+   "\"C:\\\\Users\\\\livia\\\\Downloads\\\\Research\\\\Sum_Rules\\\\Code\\\\\
+test_file.py\""},
+   "FileArgument"], "]"}]], "Output",
+ CellChangeTimes->{{3.9337714653589725`*^9, 3.9337714811362095`*^9}, {
+   3.9337716459525337`*^9, 3.933771688284849*^9}, {3.9337717184601154`*^9, 
+   3.933771741935648*^9}, 3.933771803955229*^9, {3.9337718376772766`*^9, 
+   3.933771864577076*^9}, 3.9337719734570885`*^9, 3.933772008723402*^9, 
+   3.9337723929967422`*^9},
+ CellLabel->"Out[46]=",ExpressionUUID->"8a34b635-6cf8-fe4b-b6c4-c41cb13eda85"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ExternalEvaluate", "[", 
+  RowBox[{"\"\<Python\>\"", ",", 
+   RowBox[{"{", "file", "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.933772028013365*^9, 3.9337720282742805`*^9}, {
+  3.9337723197865257`*^9, 3.933772319971424*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"2526edae-2cca-a448-8c6c-bc50c64373e4"],
+
+Cell[BoxData[
+ RowBox[{"{", "4", "}"}]], "Output",
+ CellChangeTimes->{{3.9337718065643883`*^9, 3.933771867181631*^9}, 
+   3.933771975864023*^9, {3.933772011221834*^9, 3.9337720292452736`*^9}, {
+   3.933772389687359*^9, 3.933772399964346*^9}, 3.9337731344658394`*^9},
+ CellLabel->"Out[48]=",ExpressionUUID->"90e7a145-c179-1d47-8a78-92cf0b72511f"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+  "Input", "[", 
+   "\"\<Input representations as comma-separated lists (ex. 1/2,1).\>\"", 
+   "]"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.933781749045784*^9, 3.933781788591423*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"5407d710-94e6-3843-9ef9-627b2f7aa01a"]
+},
+WindowSize->{949, 521},
+WindowMargins->{{-5.5, Automatic}, {Automatic, -5.5}},
+Magnification:>1. Inherited,
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e03b12aa-5778-b240-96e5-c53c354475ef"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 390, 8, 28, "Input",ExpressionUUID->"35c3bda3-c018-d74e-aca9-f77e306a0358"],
+Cell[969, 32, 587, 11, 38, "Output",ExpressionUUID->"8a34b635-6cf8-fe4b-b6c4-c41cb13eda85"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1593, 48, 330, 6, 28, "Input",ExpressionUUID->"2526edae-2cca-a448-8c6c-bc50c64373e4"],
+Cell[1926, 56, 345, 5, 32, "Output",ExpressionUUID->"90e7a145-c179-1d47-8a78-92cf0b72511f"]
+}, Open  ]],
+Cell[2286, 64, 315, 7, 28, "Input",ExpressionUUID->"5407d710-94e6-3843-9ef9-627b2f7aa01a"]
+}
+]
+*)
+
