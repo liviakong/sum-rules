@@ -1,5 +1,5 @@
 #from sr_classes import *
-from fractions import Fraction
+#from fractions import Fraction
 from itertools import product,permutations
 from math import comb,prod,sqrt,factorial
 
@@ -50,37 +50,35 @@ class Amplitude:
 class AmplitudePair(Amplitude):
     def __init__(self,amp,out_lt):
         super().__init__(amp.gen_ntuple,out_lt)
-        self.gen_coord = self.map_to_gen_coord() #can turn into helper function
-        self.gen_coords = self.all_gen_coords()
+        self.gen_coords = self.map_to_gen_coords()
         self.y_coord = self.map_to_y_coord() #can turn into helper function
-        self.mu = self.calc_mu()
+        self.mu = self.calc_mu() #[a, b], mu = sqrt(a)*b
     
-    def map_to_gen_coord(self):
+    def map_to_gen_coords(self):
         gen_coord = []
         for i,ntuple in enumerate(self.gen_ntuple[1:]):
             n_minus = ntuple.count('0')
             if n_minus != 0:
                 gen_coord += [i+1]*n_minus
-        return gen_coord
-    
-    def all_gen_coords(self):
-        gen_coords = [list(i) for i in (permutations(self.gen_coord))]
+        
+        gen_coords = [list(i) for i in (permutations(gen_coord))]
         return gen_coords
     
-    def map_to_y_coord(self):
+    def map_to_y_coord(self): #necessary?
         y_coord = []
         for ntuple in self.gen_ntuple[1:]:
             y_coord.append(ntuple.count('0'))
         return y_coord
     
     def calc_mu(self):
-        mu_js = []
+        mu_j_sqrts = []
+        mu_j_facts = []
         for ntuple in self.gen_ntuple:
             y_j = ntuple.count('0')
             bin_coeff = comb(len(ntuple),y_j)
-            mu_j = sqrt(bin_coeff)*factorial(y_j)
-            mu_js.append(mu_j)
-        mu = prod(mu_js)
+            mu_j_sqrts.append(bin_coeff)
+            mu_j_facts.append(factorial(y_j))
+        mu = [prod(mu_j_sqrts),prod(mu_j_facts)]
         return mu
 
 class System:
@@ -128,6 +126,24 @@ class System:
         for amp in self.amps:
             amplitude_pairs.append(AmplitudePair(amp,self.out_lt))
         return amplitude_pairs
+    
+    def extract_amplitudes(self):
+        math_amps = []
+        i = 0
+        j = 0
+        while i < 2**(self.n-1):
+            while j < len(self.amp_pairs):
+                for amp in self.amp_pairs:
+                    while i < amp.number:
+                        math_amps.append([0,0,0,0,[0,0]])
+                        i += 1
+                    math_amps.append([amp.number, amp.gen_ntuple, amp.gen_coords[0],
+                                      amp.q, amp.mu])
+                    i += 1
+                    j += 1
+            math_amps.append([0,0,0,0,[0,0]])
+            i += 1
+        return math_amps
 
 class SumRule:
     def __init__(self,subspace,b,l):
@@ -175,11 +191,34 @@ class Lattice:
                 lattice_copy,sum_rule = sum_rules_from_lattice(lattice_copy,b,d,l)
                 sum_rules.append(sum_rule)
         return sum_rules
+    
+    def extract_sr(self,n):
+        sr_flat = []
+        i = 0
+        while i < self.d+1:
+            sr_b = []
+            for sr in self.sum_rules:
+                if sr.b == i:
+                    amps = []
+                    for amp in sr.amp_pairs:
+                        amps.append(amp.number)
+                    sr_b.append(amps)
+            sr_flat.append(sr_b)
+            i += 1
+        
+        math_sr = []
+        for b in sr_flat:
+            sr_b = []
+            for sr in b:
+                sr_row = [0]*(2**(n-1))
+                for i in range(len(sr_row)):
+                    sr_row[i] = sr.count(i)
+                sr_b.append(sr_row)
+            math_sr.append(sr_b)
+        return math_sr
 
-def form_reps(in_reps,h_rep,out_reps):
-    inputs = [str(input) for input in [in_reps,h_rep,out_reps]]
+def form_reps(inputs):
     sys_reps = []
-
     for i,input in enumerate(inputs):
         if i == 0:
             state = 'in'
@@ -188,18 +227,19 @@ def form_reps(in_reps,h_rep,out_reps):
         else:
             state = 'out'
         
-        reps = input.split(',')
-        reps = [float(Fraction(rep)) for rep in reps] if reps != [''] else []
-        reps = [rep for rep in reps if rep != 0]
+        reps = [rep for rep in input if rep != 0]
         reps = [Multiplet(rep,state) for rep in reps]
         
         sys_reps += reps
 
-    if sum([2*rep.spin for rep in sys_reps]) % 2 != 0:
-        raise ValueError('Invalid process. Please enter a system with non-zero amplitudes.')
+    n_doublets = sum([2*rep.spin for rep in sys_reps])
+
+    if n_doublets % 2 != 0:
+        raise ValueError('Invalid process. Number of would-be doublets is '+str(n_doublets)+'. Please enter a system with an even number of doublets.')
     
     return sys_reps
 
+'''
 def print_sr_dec():
     for i in range(len(sr)):
         print('Breaking order: '+str(sr[i].b))
@@ -223,3 +263,5 @@ def print_sr_node():
         for j in range(len(sr[i].subspace)):
             str_lt.append(str(round(sr[i].amp_pairs[j].mu,5))+amp_comb+'['+str(sr[i].subspace[j])+']')
         print(*str_lt,sep=' + ',end=' = 0\n')
+
+'''
