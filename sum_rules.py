@@ -7,7 +7,11 @@ class Multiplet:
     def __init__(self,spin,space):
         self.spin = spin
         self.space = space
+        self.particles = self.form_particles()
         self.ntuples = self.form_ntuples()
+
+    def form_particles(self):
+        self
 
     def form_ntuples(self):
         spin = self.spin
@@ -25,11 +29,12 @@ class Multiplet:
 class Amplitude:
     def __init__(self,state,out_lt):
         self.gen_ntuple = state
-        self.number = self.bin_to_dec()
+        self.number = self.bin_to_dec(self.gen_ntuple)
         self.q = self.find_q(out_lt)
+        self.cg = [[1/2,1/2],[1/2,1/2],[1/2,1/2]]
     
-    def bin_to_dec(self):
-        return int(''.join(self.gen_ntuple),2)
+    def bin_to_dec(self,st):
+        return int(''.join(st),2)
     
     def find_q(self,out_lt):
         out_str_lt = []
@@ -38,7 +43,21 @@ class Amplitude:
         q = (-1)**(''.join(out_str_lt).count('0'))
         return q
 
-    #def rearrange(self): also, need check equal to conjugate
+    def symmetrize(self):
+        nt_str0 = self.gen_ntuple[0]
+        nt_str1 = self.gen_ntuple[1]
+        m0 = -1/2 if nt_str0 == '0' else 1/2
+        u1 = len(nt_str1)/2
+        m1 = -u1+nt_str1.count('1')
+        u = u1+1/2
+        m = m0+m1
+        self.cg = [[1/2,m0],[u1,m1],[u,m]]
+
+        self.gen_ntuple[0:2] = [''.join(self.gen_ntuple[0:2])]
+        self.gen_ntuple[0] = str(''.join(sorted(self.gen_ntuple[0])))
+        self.number = self.bin_to_dec(self.gen_ntuple)
+
+    #def rearrange(self): #also, need check equal to conjugate
 
     #def __eq__(self,other):
     #    return self.gen_ntuple == other.gen_ntuple
@@ -83,12 +102,23 @@ class AmplitudePair(Amplitude):
 
 class System:
     def __init__(self,reps):
-        self.reps = sorted(reps,key=lambda x: x.spin)
+        self.aux = False
+        self.reps = self.sort_aux(reps)
         self.out_lt = self.out_indices()
-        self.amps = self.form_amplitudes() #necessary?
+        self.amps = self.form_amplitudes() #combine with amp_pairs?
         self.n = self.find_n()
         self.p = self.find_p()
         self.amp_pairs = self.form_amplitude_pairs()
+    
+    def sort_aux(self,reps):
+        sorted_reps = sorted(reps,key=lambda x: x.spin)
+
+        if 1/2 not in [rep.spin for rep in sorted_reps]:
+            self.aux = True
+            sorted_reps[0] = Multiplet(sorted_reps[0].spin-1/2,sorted_reps[0].space)
+            sorted_reps.insert(0,Multiplet(1/2,"out"))
+        
+        return sorted_reps
     
     def out_indices(self):
         out_lt = []
@@ -127,6 +157,7 @@ class System:
             amplitude_pairs.append(AmplitudePair(amp,self.out_lt))
         return amplitude_pairs
     
+    '''
     def extract_amplitudes(self):
         math_amps = []
         i = 0
@@ -144,6 +175,20 @@ class System:
             math_amps.append([0,0,0,0,[0,0]])
             i += 1
         return math_amps
+    '''
+
+    def extract_amplitudes(self):
+        math_amps = []
+        for amp in self.amp_pairs:
+            math_amps.append([amp.number, amp.gen_ntuple, amp.gen_coords[0],
+                              amp.q, amp.mu, amp.cg])
+        return math_amps
+    
+    def symmetrize(self):
+        if self.aux == True:
+            for amp in self.amp_pairs:
+                amp.symmetrize()
+        return self
 
 class SumRule:
     def __init__(self,subspace,b,l):
@@ -186,12 +231,15 @@ class Lattice:
         l = self.lattice
         sum_rules = []
         for b in range(0,d+1):
+            sr_b = []
             lattice_copy = [x for x in l]
             while len(lattice_copy) > 0:
                 lattice_copy,sum_rule = sum_rules_from_lattice(lattice_copy,b,d,l)
-                sum_rules.append(sum_rule)
+                sr_b.append(sum_rule)
+            sum_rules.append(sr_b)
         return sum_rules
     
+    '''
     def extract_sr(self,n):
         sr_flat = []
         i = 0
@@ -216,6 +264,43 @@ class Lattice:
                 sr_b.append(sr_row)
             math_sr.append(sr_b)
         return math_sr
+    '''
+
+    def extract_sr(self,amps):
+        srs = self.sum_rules
+        sr_nums = []
+        for b in srs:
+            sr_b = []
+            for sr in b:
+                nums = [amp.number for amp in sr.amp_pairs]
+                sr_b.append(nums)
+            sr_nums.append(sr_b)
+        
+        math_sr = []
+        for b in sr_nums:
+            sr_b = []
+            sr_unique = []
+            for sr in b:
+                if sr not in sr_unique:
+                    sr_unique.append(sr)
+                    sr_row = [sr.count(amp) for amp in amps]
+                    sr_b.append(sr_row)
+            math_sr.append(sr_b)
+        return math_sr
+        '''
+        math_sr = []
+        for b in self.sum_rules:
+            sr_b = []
+            sr_unique = []
+            for sr in b:
+                if sr not in sr_unique:
+                    sr_unique.append(sr)
+                    sr_row = [sr.amp_pairs.count(amp) for amp in amps]
+                    sr_b.append(sr_row)
+            math_sr.append(sr_b)
+        return math_sr
+        '''
+        
 
 def form_reps(inputs):
     sys_reps = []
@@ -227,9 +312,11 @@ def form_reps(inputs):
         else:
             state = 'out'
         
+        #name = str(input[0])
+        #particles = [str(p) for p in input[1]]
+
         reps = [rep for rep in input if rep != 0]
         reps = [Multiplet(rep,state) for rep in reps]
-        
         sys_reps += reps
 
     n_doublets = sum([2*rep.spin for rep in sys_reps])
