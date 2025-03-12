@@ -31,7 +31,7 @@ class Amplitude:
         self.gen_ntuple = state
         self.number = self.bin_to_dec(self.gen_ntuple)
         self.q = self.find_q(out_lt)
-        self.cg = [[1/2,1/2],[1/2,1/2],[1/2,1/2]]
+        self.cg = [[1/2,1/2],[1/2,1/2],[1,1]]
     
     def bin_to_dec(self,st):
         return int(''.join(st),2)
@@ -44,28 +44,33 @@ class Amplitude:
         return q
 
     def symmetrize(self):
-        nt_str0 = self.gen_ntuple[0]
+        #nt_str0 = self.gen_ntuple[0]
         nt_str1 = self.gen_ntuple[1]
-        m0 = -1/2 if nt_str0 == '0' else 1/2
+        #m0 = -1/2 if nt_str0 == '0' else 1/2
+        m0 = -1/2 #can be made more general, doesn't need to be hardcoded for 1/2
+        u0 = 1/2
         u1 = len(nt_str1)/2
         m1 = -u1+nt_str1.count('1')
-        u = u1+1/2
+        u = u0+u1
         m = m0+m1
-        self.cg = [[1/2,m0],[u1,m1],[u,m]]
+        self.cg = [[u0,m0],[u1,m1],[u,m]]
 
-        self.gen_ntuple[0:2] = [''.join(self.gen_ntuple[0:2])]
-        self.gen_ntuple[0] = str(''.join(sorted(self.gen_ntuple[0])))
+        self.gen_ntuple[0:2] = [''.join(sorted(self.gen_ntuple[0:2]))]
+        #self.gen_ntuple[0] = str(''.join(sorted(self.gen_ntuple[0])))
+        #self.sort_irreps()
         self.number = self.bin_to_dec(self.gen_ntuple)
 
-    #def rearrange(self): #also, need check equal to conjugate
-
-    #def __eq__(self,other):
-    #    return self.gen_ntuple == other.gen_ntuple
-
-    #def conjugate(ntuple):
-        #conj_ntuple = '0'*ntuple.count('1')+'1'*ntuple.count('0')
-        #return conj_ntuple
+    def conjugate(self):
+        conj_ntuple = []
+        for irrep in self.gen_ntuple:
+            conj_irrep = ''.join(['1' if s == '0' else '0' for s in irrep])
+            conj_ntuple.append(conj_irrep)
+        conj_ntuple = [''.join(sorted(irrep)) for irrep in conj_ntuple]
+        return conj_ntuple
     
+    def __eq__(self,other):
+        return self.gen_ntuple == other.gen_ntuple
+
 class AmplitudePair(Amplitude):
     def __init__(self,amp,out_lt):
         super().__init__(amp.gen_ntuple,out_lt)
@@ -156,39 +161,38 @@ class System:
         for amp in self.amps:
             amplitude_pairs.append(AmplitudePair(amp,self.out_lt))
         return amplitude_pairs
-    
-    '''
-    def extract_amplitudes(self):
-        math_amps = []
-        i = 0
-        j = 0
-        while i < 2**(self.n-1):
-            while j < len(self.amp_pairs):
-                for amp in self.amp_pairs:
-                    while i < amp.number:
-                        math_amps.append([0,0,0,0,[0,0]])
-                        i += 1
-                    math_amps.append([amp.number, amp.gen_ntuple, amp.gen_coords[0],
-                                      amp.q, amp.mu])
-                    i += 1
-                    j += 1
-            math_amps.append([0,0,0,0,[0,0]])
-            i += 1
-        return math_amps
-    '''
 
     def extract_amplitudes(self):
-        math_amps = []
+        math_amps = [] #mathematica amplitudes
         for amp in self.amp_pairs:
             math_amps.append([amp.number, amp.gen_ntuple, amp.gen_coords[0],
                               amp.q, amp.mu, amp.cg])
         return math_amps
     
     def symmetrize(self):
-        if self.aux == True:
+        if self.aux:
             for amp in self.amp_pairs:
                 amp.symmetrize()
         return self
+    
+    def find_dups(self):
+        if len(self.amp_pairs) > 1:
+            conj_amps = []
+            for amp in self.amp_pairs:
+                conj_amps.append(amp.conjugate())
+
+            for i,amp in enumerate(self.amp_pairs[1:],start=1):
+                for j,conj_amp in enumerate(conj_amps[:i]):
+                    if amp.gen_ntuple == conj_amp:
+                        amp.number = self.amp_pairs[j].number
+        return self.extract_amplitudes()
+    
+    def find_self_conjugates(self):
+        self_conj_amps = []
+        for i,amp in enumerate(self.amp_pairs):
+            if amp.gen_ntuple == amp.conjugate():
+                self_conj_amps.append(i+1)
+        return self_conj_amps
 
 class SumRule:
     def __init__(self,subspace,b,l):
