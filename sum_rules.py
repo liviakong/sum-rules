@@ -1,7 +1,5 @@
-#from sr_classes import *
-#from fractions import Fraction
 from itertools import product,permutations
-from math import comb,prod,sqrt,factorial
+from math import comb,prod,factorial
 
 class Multiplet:
     '''
@@ -13,6 +11,7 @@ class Multiplet:
         nt_strs (list): Contains strings of '0's and '1's for each possible m
                         QM number, where -u <= m <= u
     '''
+
     def __init__(self,spin,space):
         self.spin = spin
         self.space = space # necessary to indicate in and h???
@@ -46,6 +45,7 @@ class Amplitude:
                    [[u1,m1],[u2,m2],[u,m]]. Set to evaluate to 1 by default and
                    changes only during symmetrization.
     '''
+
     def __init__(self,ntuple,out_lt):
         self.ntuple = ntuple
         self.number = self.bin_to_dec(self.ntuple)
@@ -93,6 +93,7 @@ class AmplitudePair(Amplitude): #combine subclass with parent class?
                            AmplitudePair along with all of its permutations
         mu (list): Written as [a,b], where the actual mu factor is sqrt(a)*b
     '''
+
     def __init__(self,amp,out_lt):
         super().__init__(amp.ntuple,out_lt)
         self.gen_coords = self.map_to_gen_coords()
@@ -131,6 +132,7 @@ class System:
         amp_pairs (list): Contains all AmplitudePairs (representing a-/s-type
                           amplitudes) for the System
     '''
+
     def __init__(self,reps):
         self.aux = False
         self.reps = self.sort_aux(reps)
@@ -224,17 +226,25 @@ class SumRule:
         amp_pairs (list): Contains AmplitudePairs corresponding to nodes (can
                           include duplicates)
     '''
+
     def __init__(self,subspace,b,lattice):
         self.b = b
         self.subspace = subspace
         self.amp_pairs = [lattice[x] for x in subspace]
 
-def match_subspace(node1,node2,n):
+def match_subspace(node1,node2,n_fix):
     '''
-    checks if node1 and node2 are in the same b-dim subspace (i.e. that they share n = d-b coordinates)
+    Inputs:
+        node1, node2 (str): Lattice node in comma-separated format
+        n_fix (int): Number of fixed coordinates
+    
+    Returns:
+        match (bool): True iff the first n_fix coordinates of node1 and node2 are
+                      equal. If n_fix = d-b, they are in the same b-dim subspace.
     '''
+
     match_list = []
-    for i in range(n):
+    for i in range(n_fix):
         match_list.append(node1.split(',')[i] == node2.split(',')[i])
     match = all(match_list)
     return match
@@ -244,11 +254,12 @@ def srs_from_lattice(l_copy,b,d,l):
     forms b-dim subspace, then forms sumrule obj
     modifies l_copy to remove subspace
     '''
-    n = d-b # all nodes that share d-b coordinates form a b-dim subspace, should prob use diff name
+
+    n_fix = d-b # all nodes that share d-b coordinates form a b-dim subspace
     subspace = []
     subspace.append(l_copy.pop(0))
     if len(l_copy) > 0:
-        subspace += [node for node in l_copy if match_subspace(subspace[0],node,n)]
+        subspace += [node for node in l_copy if match_subspace(subspace[0],node,n_fix)]
         l_copy = [node for node in l_copy if node not in subspace]
     sum_rule = SumRule(subspace,b,l)
     return l_copy,sum_rule
@@ -259,8 +270,9 @@ class Lattice:
         d (int): Lattice dimension
         lattice (dict): Contains all non-zero nodes (strs) as keys. Values are
                         AmplitudePairs corresponding to nodes.
-        sum_rules (list): Contains **********************
+        sum_rules (list): Contains lists of SumRules by order of breaking
     '''
+
     def __init__(self,system):
         self.d = int((system.n/2)-1)
         self.lattice = self.nodes(system)
@@ -286,27 +298,29 @@ class Lattice:
             sum_rules.append(sr_b)
         return sum_rules
 
-    def extract_sr(self,amps):
+    def extract_sr(self,amps): #amps is list of all possible amp numbers
+        # this first section uses self.sum_rules to make sr_nums
+        # sr_nums is a list of order b lists, each of which contain lists of the involved amplitude numbers
         srs = self.sum_rules
         sr_nums = []
-        for b in srs:
+        for b in srs: # b is list of order b SumRules
             sr_b = []
             for sr in b:
-                nums = [amp.number for amp in sr.amp_pairs]
+                nums = [amp.number for amp in sr.amp_pairs] # list of involved amplitude numbers
                 sr_b.append(nums)
             sr_nums.append(sr_b)
         
         math_sr = []
-        for b in sr_nums:
+        for b in sr_nums: # b is order b list of lists of amplitude numbers for sum rules
             sr_b = []
             sr_unique = []
-            for sr in b:
+            for sr in b: # sr is list of amplitude numbers for a single sum rule
                 if sr not in sr_unique:
                     sr_unique.append(sr)
-                    sr_row = [sr.count(amp) for amp in amps]
+                    sr_row = [sr.count(amp) for amp in amps] # how many times each amp appears in the sum rule
                     sr_b.append(sr_row)
             math_sr.append(sr_b)
-        return math_sr
+        return math_sr # list of order b matrices, rows of each matrix count number of times amp appears in a sum rule (these are just M factors)
 
 def form_reps(inputs):
     '''
