@@ -230,7 +230,7 @@ class SumRule:
         b (int): Dimension of subspace and breaking order of SumRule
         subspace (list): Contains nodes (strs)
         amp_pairs (list): Contains AmplitudePairs corresponding to nodes (can
-                          include duplicates) ************************************ might not anymore if using M
+                          include duplicates)
         M_values (list): Contains multiplicative factors (ints) encoding number
                          of times a node repeats in a SumRule. Ordered according
                          to System.amp_pairs.
@@ -240,7 +240,7 @@ class SumRule:
         self.b = b
         self.subspace = self.remove_zeros(lattice,subspace)
         self.amp_pairs = [lattice[node] for node in self.subspace]
-        self.M_values = self.ones(lattice) if (b < 2) else self.find_M_values(lattice,nfix)
+        self.M_values = self.unit(lattice) if (b == 0) else self.count_amps(lattice)
     
     def remove_zeros(self,lattice,subspace):
         new_subspace = []
@@ -249,36 +249,20 @@ class SumRule:
                 new_subspace.append(node)
         return new_subspace
 
-    def ones(self,lattice):
+    def unit(self,lattice):
         all_amps = list(lattice.values()) # technically not ordered though...
         M_values = [0]*len(all_amps)
-        for amp in self.amp_pairs:
-            i = all_amps.index(amp)
-            M_values[i] = 1
+        i = all_amps.index(self.amp_pairs[0])
+        M_values[i] = 1
         return M_values
 
-    def find_M_values(self,lattice,nfix):
-        amps = self.amp_pairs
-        all_amps = list(lattice.values()) # technically not ordered though...
-
-        yfix_lt = []
-        for node in self.subspace:
-            yfix = []
-            for i in range(len(amps[0].y_coord)):
-                yfix.append(node[:nfix].count(str(i+1)))
-            yfix_lt.append(yfix)
+    def count_amps(self,lattice):
+        sr_amps = self.amp_pairs
+        sys_amps = list(lattice.values()) # technically not ordered though...
         
         M_values = []
-        for amp in all_amps:
-            M = 0
-            if amp in amps:
-                i = amps.index(amp)
-                yp_coord = list(amp.y_coord - yfix_lt[i])
-                for k in range(len(yp_coord)):
-                    yp_coord[k] = factorial(int(yp_coord[k]))
-                M = int(factorial(self.b)/prod(yp_coord))
-            M_values.append(M)
-        
+        for amp in sys_amps:
+            M_values.append(sr_amps.count(amp))
         return M_values
 
 class Lattice:
@@ -309,81 +293,36 @@ class Lattice:
         latt = self.lattice
         sum_rules = []
         
-        sum_rules.append([SumRule(0,[node],latt) for node in latt]) # b = 0 case
+        # b = 0 case
+        sum_rules.append([SumRule(0,[node],latt) for node in latt])
 
-        if d > 0: # b = 1 case
-            # full lattice in np array form...
-            # np_latt = np.stack([x for x in np.ndindex((l,)*d)])
-            # np_latt.reshape(l**(d-1),l,d)
-            
+        # b >= 1 cases, full lattice in NumPy array form
+        if d > 0:
             dtype = np.uint8 if l <= 255 else np.uint64
-            np_latt_ind = np.indices((l,)*d,dtype=dtype)
-            np_latt = np_latt_ind.reshape(d,-1).T + 1
-            np_latt = np_latt.reshape((l**(d-1),l,d)) # each element is a list of coordinates within a shared 1-d subspace
+            np_latt = np.indices((l,)*d,dtype=dtype).reshape(d,-1).T + 1
+            np_latt = np.sort(np_latt,axis=1)
 
-            subspace_one = []
-            for np_subspace in np_latt:
-                subspace = [','.join(map(str,np.sort(coord))) for coord in np_subspace]
-                if subspace not in subspace_one:
-                    subspace_one.append(subspace)
+            for b in range(1,d+1):
+                np_latt = np_latt.reshape(l**(d-b),l**b,d) # each element is a list of coordinates within a shared b-dim subspace
+                np_b_subspaces = np.unique(np_latt,axis=0)
 
-            sr_ones = []
-            for subspace in subspace_one:
-                sr_one = SumRule(1,subspace,latt)
-                if any(M != 0 for M in sr_one.M_values):
-                    sr_ones.append(sr_one)
-            sum_rules.append(sr_ones)
-        
-        for b in range(2,d+1): # b >= 2
-            sr_b = []
-            latt_copy = list(latt.keys())
-            while len(latt_copy) > 0:
-                latt_copy,sum_rule = self.srs_from_lattice(latt_copy,b)
-                sr_b.append(sum_rule)
-            sum_rules.append(sr_b)
-        
+                b_srs = []
+                for subspace in np_b_subspaces:
+                    subspace = [','.join(map(str,coord)) for coord in subspace]
+                    b_sr = SumRule(b,subspace,latt)
+                    if any(M != 0 for M in b_sr.M_values):
+                        b_srs.append(b_sr)
+                sum_rules.append(b_srs)
+
         return sum_rules
 
-    def srs_from_lattice(self,latt_copy,b):
-        '''
-        forms b-dim subspace, then forms sumrule obj
-        modifies l_copy to remove subspace
-        '''
-        nfix = self.d-b # all nodes that share d-b coordinates form a b-dim subspace
-        subspace = []
-        subspace.append(latt_copy.pop(0))
-        if len(latt_copy) > 0:
-            subspace += [node for node in latt_copy if self.match_subspace(subspace[0],node,nfix)]
-            latt_copy = [node for node in latt_copy if node not in subspace]
-        sum_rule = SumRule(b,subspace,self.lattice,nfix)
-        return latt_copy,sum_rule
-
-    def match_subspace(self,node1,node2,nfix):
-        '''
-        Parameters:
-            node1 (str): Lattice node in comma-separated format
-            node2 (str): Lattice node in comma-separated format
-            nfix (int): Number of fixed coordinates
-        
-        Returns:
-            match (bool): True iff the first nfix coordinates of node1 and node2
-                          are equal. For nfix = d-b, this means they are in the
-                          same b-dim subspace.
-        '''
-
-        match_list = []
-        for i in range(nfix):
-            match_list.append(node1.split(',')[i] == node2.split(',')[i])
-        match = all(match_list)
-        return match
-
-    def extract_sr(self): # might need to add code back in to remove redundant srs
+    def extract_sr(self):
         math_sr = []
-        for b in self.sum_rules:
-            sr_b = []
-            for sr in b:
-                sr_b.append(sr.M_values)
-            math_sr.append(sr_b)
+        for b_srs in self.sum_rules:
+            b_sr_mat = []
+            for sr in b_srs:
+                b_sr_mat.append(sr.M_values)
+            math_sr.append(b_sr_mat)
         return math_sr
 
 def form_reps(inputs):
