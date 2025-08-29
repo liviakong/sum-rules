@@ -1,6 +1,7 @@
-from itertools import product
-from math import comb,prod,factorial
 import numpy as np
+from math import comb,prod,factorial
+from itertools import product
+from fractions import Fraction
 
 class Multiplet:
     '''
@@ -128,7 +129,7 @@ class AmplitudePair(Amplitude):
                     index = u_index_lt[j,1]
                     u_index_lt = np.delete(u_index_lt,j,0)
                 
-                if i < 2:
+                if i == 2:
                     index = 2*u+2-index # negates for in state and H
                 
                 state_indices.append(int(index))
@@ -142,7 +143,7 @@ class AmplitudePair(Amplitude):
         else:
             return "n/a"
     
-    def symmetrize(self):
+    def symmetrize(self,inputs):
         nt_str1 = self.ntuple[1]
         m0 = -1/2
         u0 = 1/2
@@ -155,6 +156,7 @@ class AmplitudePair(Amplitude):
         self.ntuple[0:2] = [''.join(sorted(self.ntuple[0:2]))]
         self.number = self.bin_to_dec(self.ntuple)
         self.indices = self.find_indices()
+        self.processes = self.find_processes(inputs)
 
 class System:
     '''
@@ -170,12 +172,13 @@ class System:
     '''
 
     def __init__(self,reps,inputs=[]):
+        self.inputs = inputs
         self.aux = False
         self.reps = self.sort_add_aux(reps)
         self.out_lt = self.out_indices()
         self.n = self.find_n()
         self.p = self.find_p()
-        self.amp_pairs = self.form_amp_pairs(inputs)
+        self.amp_pairs = self.form_amp_pairs()
         self.self_conj_amps = self.find_self_conj_amps()
     
     def sort_add_aux(self,reps):
@@ -207,7 +210,7 @@ class System:
         p = int(2*spin_sum-self.n/2)
         return p
     
-    def form_amp_pairs(self,inputs): # only forms i amplitudes to represent a-/s-type amplitudes
+    def form_amp_pairs(self): # only forms i amplitudes to represent a-/s-type amplitudes
         ntuples_lt = []
         for rep in self.reps:
             ntuples_lt.append(rep.nt_strs)
@@ -221,7 +224,7 @@ class System:
         
         amp_pairs = []
         for amp in amps:
-            amp_pairs.append(AmplitudePair(amp,self.out_lt,inputs))
+            amp_pairs.append(AmplitudePair(amp,self.out_lt,self.inputs))
         return amp_pairs
     
     def extract_amplitudes(self): # mathematica amplitudes
@@ -239,7 +242,7 @@ class System:
     
     def symmetrize(self):
         for amp in self.amp_pairs:
-            amp.symmetrize()
+            amp.symmetrize(self.inputs)
         self.aux = False
         return self
     
@@ -382,14 +385,6 @@ def define_system(inputs,phys=False):
     system = System(sys_reps,inputs) if phys else System(sys_reps)
     return system
 
-def extract_amps(system):
-    return system.extract_amplitudes()
-
-def num_amps(system): ################ need to fix after symmetrization?
-    n_pairs = len(system.amp_pairs)
-    n_conj = len(system.self_conj_amps)
-    return 2*n_pairs - n_conj
-
 def generate_srs(system):
     lattice = Lattice(system)
     sum_rules = lattice.sum_rules # M values for aux/original system, when multiplied by mu factors they become SRs
@@ -415,3 +410,8 @@ def remove_dups(system,dup_pairs):
         for i in sorted(dup_amps, reverse=True):
             del system.amp_pairs[i]
     return system
+
+def extract_sys(system):
+    n = int(system.n)
+    irreps = [map(Fraction,state) for state in system.inputs]
+    return n, irreps
