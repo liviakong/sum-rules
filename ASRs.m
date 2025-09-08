@@ -3,14 +3,46 @@
 BeginPackage["ASRs`"];
 
 
+ASRsHelp::usage="ASRsHelp[function] prints extended documentation on how to use a function."
+
 initializePythonSession::usage="initializePythonSession[session,path] checks for a valid Python session and file path and loads in the Python file.";
-defineSystem::usage="If phys is False, defineSystem[in,h,out,phys->False] takes in lists of the total U-spins in the incoming state, Hamiltonian, and outgoing state and returns a Python U-spin System object. If phys is True, the function takes in lists of particle multiplets (or CKM factors for the Hamiltonian) in the incoming state, Hamiltonian, and outgoing state and returns a Python U-spin System object and the list of particle multiplets.";
+
+defineSystem::usage="defineSystem[in,h,out] constructs a U-Spin System object in Python.";
+defineSystem::details=
+"Arguments:
+in (List): Contains U-spins (Real) OR particle multiplets (List of Strings) in the incoming state
+h (List): Contains U-spins (Real) OR CKM factors (List of Symbols) in the Hamiltonian
+out (List): Contains U-spins (Real) OR particle multiplets (List of Strings) in the outgoing state
+
+Options:
+phys (True|False): Set to False (default) to input U-spins and True to input particle multiplets/CKM factors
+
+Returns:
+system (Python System object): U-spin system represented as a Python System object
+particles (List): Contains particle multiplets (List of Strings/Symbols) in the in state, Hamiltonian, and out state. Only returned if phys->True.";
+
 generateASRs::usage="generateASRs[system,particles->{}] takes in a Python U-spin System object and optionally a list of particle multiplets and returns the updated Python U-spin System object, a list of amplitude sum rule coefficients at each order of breaking, and an association containing all amplitudes in the system.";
+
 numAmps::usage="numAmps[amplitudes] returns the total number of amplitudes in the system.";
+
 printAmps::usage="printAmps[amplitudes] prints a table of amplitudes and returns the number of amplitudes and the amplitude association.";
+
 numASRs::usage="numASRs[ASRs] returns the number of amplitude sum rules at each order of breaking.";
+
 printASRs::usage="printASRs[ASRs,amplitudes,takeProd->False,ampFormat->\"a/s n-tuple\",CKM->False,b->All] prints amplitude sum rules at each order of breaking and returns the number of sum rules at each order of breaking and the expanded or coefficient form of the sum rules, depending on user choice. Valid options for takeProd: True, False; ampFormat: \"a/s n-tuple\", \"a/s indices\", \"a/s nodes\", \"A indices\", \"A physical\"; CKM: True, False; b: an integer 0 <= b <= highest order of breaking, All, {start b (min: 0), end b (max: highest order of breaking, or All), increment}.";
-printSystem::usage="printSystem[system,ASRs,amplitudes,opts] prints information about the system's representations, a table of amplitudes, and amplitude sum rules at each order of breaking. Uses the same options as printASRs to format the amplitude sum rules.";
+
+printSystem::usage="printSystem[system,ASRs,amplitudes] prints information about the system's representations, amplitudes, and amplitude sum rules.";
+printSystem::details=
+"Arguments:
+system
+ASRs
+amplitudes
+
+Options:
+Uses the same options as printASRs to format the amplitude sum rules
+
+Returns:
+Association: <|\"n doublets\"->n,\"Irreps\"->irreps,\"n amps\"->nAmps,\"Amplitudes\"->amplitudes,\"n ASRs\"->nASRs,\"ASRs\"->writtenASRs|>";
 
 
 A=.;
@@ -19,6 +51,19 @@ s=.;
 
 
 Begin["`Private`"];
+
+
+ASRsHelp[function_Symbol]:=Module[{usage, details},
+usage=Quiet[MessageName[function,"usage"]];
+details=Quiet[MessageName[function,"details"]];
+
+If[StringQ[usage],
+(Print[usage];
+If[StringQ[details],Print[details]];
+),
+Print["No documentation found for ",function,"."];
+];
+];
 
 
 $ASRsSession=.;

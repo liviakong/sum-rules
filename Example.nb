@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     95503,       2256]
-NotebookOptionsPosition[     91176,       2175]
-NotebookOutlinePosition[     91873,       2198]
-CellTagsIndexPosition[     91768,       2193]
+NotebookDataLength[    101072,       2380]
+NotebookOptionsPosition[     96395,       2292]
+NotebookOutlinePosition[     97090,       2315]
+CellTagsIndexPosition[     96985,       2310]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,7 +21,7 @@ Notebook[{
 Cell[BoxData[
  RowBox[{"Quit", "[", "]"}]], "Input",
  CellChangeTimes->{{3.9629182620725574`*^9, 3.9629182640027447`*^9}},
- CellLabel->"In[11]:=",ExpressionUUID->"5c803102-8013-ba4d-921f-572378dd57e3"],
+ CellLabel->"In[10]:=",ExpressionUUID->"5c803102-8013-ba4d-921f-572378dd57e3"],
 
 Cell[CellGroupData[{
 
@@ -41,8 +41,8 @@ Cell[BoxData[
     RowBox[{"SetDirectory", "[", 
      RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
    RowBox[{
-    RowBox[{"Needs", "[", "\"\<ASRs`\>\"", "]"}], ";"}], "\n", 
-   "\[IndentingNewLine]", 
+    RowBox[{"Needs", "[", "\"\<ASRs`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
    RowBox[{"(*", " ", 
     RowBox[{
     "Start", " ", "a", " ", "Python", " ", "session", " ", "and", " ", 
@@ -50,16 +50,14 @@ Cell[BoxData[
     "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"session", "=", 
-     RowBox[{"StartExternalSession", "[", "\"\<Python\>\"", "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
+     RowBox[{"StartExternalSession", "[", "\"\<Python\>\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
-    "path", "=", 
-     "\"\<C:\\\\Users\\\\livia\\\\Downloads\\\\Research\\\\sum-rules\\\\Code\\\
-\\sum_rules.py\>\""}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    "path", "=", \
+"\"\<C:\\\\Users\\\\livia\\\\Downloads\\\\Research\\\\sum-rules\\\\Code\\\\\
+sum_rules.py\>\""}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
-    RowBox[{"Load", " ", "the", " ", "Python", " ", "file"}], " ", "*)"}], 
-   "\[IndentingNewLine]", 
+    RowBox[{"Load", " ", "the", " ", "Python", " ", "file"}], " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"initializePythonSession", "[", 
      RowBox[{"session", ",", "path"}], "]"}], ";"}]}]}]], "Input",
@@ -81,8 +79,8 @@ Cell[BoxData[
    3.965432687165144*^9, 3.9654326970836296`*^9}, {3.9654330615407333`*^9, 
    3.9654331399299183`*^9}, 3.9654340386187553`*^9, 3.965436720161688*^9, 
    3.9654373872146797`*^9, 3.965437716277193*^9, {3.965480465593893*^9, 
-   3.9654804721077003`*^9}},ExpressionUUID->"0b8f6c82-4860-1a46-a206-\
-7b592ef4fbdc"],
+   3.9654804721077003`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"0b8f6c82-4860-1a46-a206-7b592ef4fbdc"],
 
 Cell[CellGroupData[{
 
@@ -91,7 +89,8 @@ Cell[BoxData[
  CellChangeTimes->{{3.9654367950551815`*^9, 3.9654368006942616`*^9}, {
   3.9654379297740517`*^9, 3.9654379437010994`*^9}, {3.9654780789444427`*^9, 
   3.965478084671633*^9}, {3.9654799758883305`*^9, 3.9654800517768326`*^9}, {
-  3.965480162802109*^9, 3.965480167670271*^9}},
+  3.965480162802109*^9, 3.965480167670271*^9}, {3.9662808152434807`*^9, 
+  3.9662808213415794`*^9}, {3.9662850396582775`*^9, 3.9662850402859592`*^9}},
  CellLabel->"In[6]:=",ExpressionUUID->"30e362d4-a8ce-2540-867a-7aca70a3fd9a"],
 
 Cell[BoxData[
@@ -136,89 +135,17 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {"a", "ASRs`"},
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {"a", "ASRs`"},
                     False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
-                ButtonBox[
-                 StyleBox["generateASRs", "InformationGridButton"],
-                 Appearance->None,
-                 BaseStyle->"InformationGridLink",
-                 
-                 ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {
-                   "generateASRs", "ASRs`"}, False},
-                 ButtonNote->"ASRs`",
-                 Evaluator->Automatic], 
-                ButtonBox[
-                 StyleBox["numASRs", "InformationGridButton"],
-                 Appearance->None,
-                 BaseStyle->"InformationGridLink",
-                 
-                 ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {
-                   "numASRs", "ASRs`"}, False},
-                 ButtonNote->"ASRs`",
-                 Evaluator->Automatic], 
-                ButtonBox[
-                 StyleBox["printSystem", "InformationGridButton"],
-                 Appearance->None,
-                 BaseStyle->"InformationGridLink",
-                 
-                 ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {
-                   "printSystem", "ASRs`"}, False},
-                 ButtonNote->"ASRs`",
-                 Evaluator->Automatic]},
-               {
-                ButtonBox[
-                 StyleBox["A", "InformationGridButton"],
-                 Appearance->None,
-                 BaseStyle->"InformationGridLink",
-                 
-                 ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {"A", "ASRs`"},
-                    False},
-                 ButtonNote->"ASRs`",
-                 Evaluator->Automatic], 
-                ButtonBox[
-                 StyleBox["initializePythonSession", "InformationGridButton"],
-                 Appearance->None,
-                 BaseStyle->"InformationGridLink",
-                 
-                 ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {
-                   "initializePythonSession", "ASRs`"}, False},
-                 ButtonNote->"ASRs`",
-                 Evaluator->Automatic], 
-                ButtonBox[
-                 StyleBox["printAmps", "InformationGridButton"],
-                 Appearance->None,
-                 BaseStyle->"InformationGridLink",
-                 
-                 ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {
-                   "printAmps", "ASRs`"}, False},
-                 ButtonNote->"ASRs`",
-                 Evaluator->Automatic], 
-                ButtonBox[
-                 StyleBox["s", "InformationGridButton"],
-                 Appearance->None,
-                 BaseStyle->"InformationGridLink",
-                 
-                 ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {"s", "ASRs`"},
-                    False},
-                 ButtonNote->"ASRs`",
-                 Evaluator->Automatic]},
-               {
                 ButtonBox[
                  StyleBox["defineSystem", "InformationGridButton"],
                  Appearance->None,
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {
                    "defineSystem", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -228,7 +155,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {
                    "numAmps", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -238,10 +165,92 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-48e3d559-235a-4329-ab6b-af826219a324", {
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {
                    "printASRs", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
-                 Evaluator->Automatic], ""}
+                 Evaluator->Automatic]},
+               {
+                ButtonBox[
+                 StyleBox["A", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {"A", "ASRs`"},
+                    False},
+                 ButtonNote->"ASRs`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["generateASRs", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {
+                   "generateASRs", "ASRs`"}, False},
+                 ButtonNote->"ASRs`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["numASRs", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {
+                   "numASRs", "ASRs`"}, False},
+                 ButtonNote->"ASRs`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["printSystem", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {
+                   "printSystem", "ASRs`"}, False},
+                 ButtonNote->"ASRs`",
+                 Evaluator->Automatic]},
+               {
+                ButtonBox[
+                 StyleBox["ASRsHelp", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {
+                   "ASRsHelp", "ASRs`"}, False},
+                 ButtonNote->"ASRs`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["initializePythonSession", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {
+                   "initializePythonSession", "ASRs`"}, False},
+                 ButtonNote->"ASRs`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["printAmps", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {
+                   "printAmps", "ASRs`"}, False},
+                 ButtonNote->"ASRs`",
+                 Evaluator->Automatic], 
+                ButtonBox[
+                 StyleBox["s", "InformationGridButton"],
+                 Appearance->None,
+                 BaseStyle->"InformationGridLink",
+                 
+                 ButtonData:>{
+                  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", {"s", "ASRs`"},
+                    False},
+                 ButtonNote->"ASRs`",
+                 Evaluator->Automatic]}
               },
               DefaultBaseStyle->"Text",
               
@@ -249,10 +258,12 @@ Cell[BoxData[
                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
               GridBoxItemSize->{"Columns" -> {{
                    Scaled[0.2375]}}}],
-             ImageMargins->{{10, 0}, {0, 2}}]}
+             ImageMargins->{{10, 0}, {0, 2}},
+             ScrollPosition->{0., 0.}]}
           },
           GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}],
-         FrameMargins->{{0, 0}, {8, 0}}]}, Dynamic[Typeset`open$$],
+         FrameMargins->{{0, 0}, {8, 0}},
+         ScrollPosition->{0., 0.}]}, Dynamic[Typeset`open$$],
         ImageSize->Automatic]]}
     },
     GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
@@ -267,8 +278,9 @@ Cell[BoxData[
    BaseStyle->"InformationTitleFrame"], "InformationGridPlain"]], "Output",
  CellChangeTimes->{
   3.9654780853336277`*^9, {3.965479900596195*^9, 3.965479923567276*^9}, {
-   3.965480056892563*^9, 3.9654800676231747`*^9}, 3.9654801711502743`*^9},
- CellLabel->"Out[6]=",ExpressionUUID->"d1b50127-6e21-884c-8cef-9d9c2abc0c65"],
+   3.965480056892563*^9, 3.9654800676231747`*^9}, 3.9654801711502743`*^9, 
+   3.9662808220239353`*^9, 3.9662850414736633`*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"e3d6cc78-9c0e-e04e-ac4d-f2dd8c67b76c"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -301,13 +313,9 @@ Cell[BoxData[
           ItemBox[
            PaneBox[
             
-            StyleBox["\<\"If phys is False, \
-defineSystem[in,h,out,phys->False] takes in lists of the total U-spins in the \
-incoming state, Hamiltonian, and outgoing state and returns a Python U-spin \
-System object. If phys is True, the function takes in lists of particle \
-multiplets (or CKM factors for the Hamiltonian) in the incoming state, \
-Hamiltonian, and outgoing state and returns a Python U-spin System object and \
-the list of particle multiplets.\"\>", "InformationUsageText",
+            StyleBox["\<\"printSystem[system,ASRs,amplitudes] prints \
+information about the system's representations, amplitudes, and amplitude sum \
+rules.\"\>", "InformationUsageText",
              StripOnInput->False,
              LineSpacing->{1.5, 1.5, 3.}],
             FrameMargins->{{10, 10}, {8, 10}}],
@@ -333,98 +341,90 @@ the list of particle multiplets.\"\>", "InformationUsageText",
                TemplateBox[{"\"\[ThinSpace]\"", 
                  GridBox[{{
                     RowBox[{
-                    RowBox[{"defineSystem", "[", 
+                    RowBox[{"printSystem", "[", 
                     
                     RowBox[{
-                    "ASRs`Private`in_", ",", "ASRs`Private`h_", ",", 
-                    "ASRs`Private`out_", ",", 
-                    RowBox[{"OptionsPattern", "[", "]"}]}], "]"}], ":=", 
+                    "ASRs`Private`system_", ",", "ASRs`Private`ASRs_", ",", 
+                    "ASRs`Private`amplitudes_", ",", 
+                    RowBox[{"ASRs`Private`opts", ":", 
+                    RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
                     RowBox[{"Module", "[", 
                     RowBox[{
                     RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"ASRs`Private`phys", "=", 
-                    RowBox[{"OptionValue", "[", "ASRs`Private`phys", "]"}]}], 
-                    ",", "ASRs`Private`repSpins", ",", "ASRs`Private`uIn", 
-                    ",", "ASRs`Private`uH", ",", "ASRs`Private`uOut", ",", 
-                    "ASRs`Private`pIn", ",", "ASRs`Private`pH", ",", 
-                    "ASRs`Private`pOut", ",", "ASRs`Private`system", ",", 
-                    "ASRs`Private`particles"}], "}"}], ",", 
-                    RowBox[{
-                    RowBox[{
                     
-                    RowBox[{"ASRs`Private`repSpins", "[", 
-                    "ASRs`Private`list_", "]"}], ":=", 
-                    RowBox[{"Table", "[", 
-                    RowBox[{
-                    RowBox[{
-                    FractionBox["1", "2"], " ", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"Length", "[", 
-                    
-                    RowBox[{"ASRs`Private`list", "\[LeftDoubleBracket]", 
-                    "ASRs`Private`i", "\[RightDoubleBracket]"}], "]"}], "-", 
-                    "1"}], ")"}]}], ",", 
-                    RowBox[{"{", 
-                    RowBox[{"ASRs`Private`i", ",", 
-                    RowBox[{"Length", "[", "ASRs`Private`list", "]"}]}], 
-                    "}"}]}], "]"}]}], ";", 
-                    RowBox[{"If", "[", 
-                    RowBox[{"ASRs`Private`phys", ",", 
+                    RowBox[{"ASRs`Private`n", ",", "ASRs`Private`irreps", ",",
+                     "ASRs`Private`nAmps", ",", "ASRs`Private`nASRs", ",", 
+                    "ASRs`Private`writtenASRs"}], "}"}], ",", 
                     RowBox[{
                     RowBox[{
                     RowBox[{"{", 
-                    
-                    RowBox[{"ASRs`Private`pIn", ",", "ASRs`Private`pH", ",", 
-                    "ASRs`Private`pOut"}], "}"}], "=", 
-                    RowBox[{"{", 
-                    
-                    RowBox[{"ASRs`Private`in", ",", "ASRs`Private`h", ",", 
-                    "ASRs`Private`out"}], "}"}]}], ";", 
-                    RowBox[{
-                    RowBox[{"{", 
-                    
-                    RowBox[{"ASRs`Private`uIn", ",", "ASRs`Private`uH", ",", 
-                    "ASRs`Private`uOut"}], "}"}], "=", 
-                    RowBox[{"ASRs`Private`repSpins", "/@", 
-                    RowBox[{"{", 
-                    
-                    RowBox[{"ASRs`Private`pIn", ",", "ASRs`Private`pH", ",", 
-                    "ASRs`Private`pOut"}], "}"}]}]}], ";", 
-                    RowBox[{"ASRs`Private`particles", "=", 
-                    RowBox[{"{", 
-                    
-                    RowBox[{"ASRs`Private`pIn", ",", "ASRs`Private`pH", ",", 
-                    "ASRs`Private`pOut"}], "}"}]}], ";"}], ",", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"{", 
-                    
-                    RowBox[{"ASRs`Private`uIn", ",", "ASRs`Private`uH", ",", 
-                    "ASRs`Private`uOut"}], "}"}], "=", 
-                    RowBox[{"{", 
-                    
-                    RowBox[{"ASRs`Private`in", ",", "ASRs`Private`h", ",", 
-                    "ASRs`Private`out"}], "}"}]}], ";"}]}], "]"}], ";", 
-                    RowBox[{"ASRs`Private`system", "=", 
+                    RowBox[{"ASRs`Private`n", ",", "ASRs`Private`irreps"}], 
+                    "}"}], "=", 
                     RowBox[{"ASRs`Private`pyEval", "[", 
-                    RowBox[{"\"define_system\"", ",", 
-                    RowBox[{"{", 
+                    RowBox[{"\"extract_sys\"", ",", "ASRs`Private`system"}], 
+                    "]"}]}], ";", 
+                    RowBox[{"Print", "[", 
+                    
+                    RowBox[{"\"System\"", ",", "\"\\n\"", ",", 
+                    "\"Number of doublets: \"", ",", "ASRs`Private`n", ",", 
+                    "\"\\n\"", ",", "\"System irreps: \"", ",", 
+                    RowBox[{"Sort", "[", 
+                    RowBox[{"Flatten", "[", "ASRs`Private`irreps", "]"}], 
+                    "]"}], ",", "\"\\n\"", ",", "\"In: \"", ",", 
+                    
+                    RowBox[{"ASRs`Private`irreps", "\[LeftDoubleBracket]", 
+                    "1", "\[RightDoubleBracket]"}], ",", "\"\\n\"", ",", 
+                    "\"H: \"", ",", 
+                    
+                    RowBox[{"ASRs`Private`irreps", "\[LeftDoubleBracket]", 
+                    "2", "\[RightDoubleBracket]"}], ",", "\"\\n\"", ",", 
+                    "\"Out: \"", ",", 
+                    
+                    RowBox[{"ASRs`Private`irreps", "\[LeftDoubleBracket]", 
+                    "3", "\[RightDoubleBracket]"}]}], "]"}], ";", 
+                    RowBox[{"Print", "[", "\"-------------------------\"", 
+                    "]"}], ";", 
+                    RowBox[{"ASRs`Private`nAmps", "=", 
+                    RowBox[{
+                    
+                    RowBox[{"printAmps", "[", "ASRs`Private`amplitudes", 
+                    "]"}], "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}]}], ";", 
+                    
+                    RowBox[{"Print", "[", "\"-------------------------\"", 
+                    "]"}], ";", 
                     RowBox[{
                     RowBox[{"{", 
                     
-                    RowBox[{"ASRs`Private`uIn", ",", "ASRs`Private`uH", ",", 
-                    "ASRs`Private`uOut"}], "}"}], ",", "ASRs`Private`phys"}], 
-                    "}"}]}], "]"}]}], ";", 
-                    RowBox[{"If", "[", 
-                    RowBox[{"ASRs`Private`phys", ",", 
-                    RowBox[{"{", 
+                    RowBox[{"ASRs`Private`nASRs", ",", 
+                    "ASRs`Private`writtenASRs"}], "}"}], "=", 
+                    RowBox[{"printASRs", "[", 
                     
-                    RowBox[{"ASRs`Private`system", ",", 
-                    "ASRs`Private`particles"}], "}"}], ",", 
-                    "ASRs`Private`system"}], "]"}]}]}], "]"}]}]}, {" "}}, 
-                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                    RowBox[{"ASRs`Private`ASRs", ",", 
+                    "ASRs`Private`amplitudes", ",", 
+                    RowBox[{"Sequence", "@@", 
+                    RowBox[{"FilterRules", "[", 
+                    RowBox[{
+                    RowBox[{"{", "ASRs`Private`opts", "}"}], ",", 
+                    RowBox[{"Options", "[", "printASRs", "]"}]}], "]"}]}]}], 
+                    "]"}]}], ";", 
+                    RowBox[{"Association", "[", 
+                    RowBox[{
+                    RowBox[{"\"n doublets\"", "\[Rule]", "ASRs`Private`n"}], 
+                    ",", 
+                    RowBox[{"\"Irreps\"", "\[Rule]", "ASRs`Private`irreps"}], 
+                    ",", 
+                    RowBox[{"\"n amps\"", "\[Rule]", "ASRs`Private`nAmps"}], 
+                    ",", 
+                    
+                    RowBox[{"\"Amplitudes\"", "\[Rule]", 
+                    "ASRs`Private`amplitudes"}], ",", 
+                    RowBox[{"\"n ASRs\"", "\[Rule]", "ASRs`Private`nASRs"}], 
+                    ",", 
+                    
+                    RowBox[{"\"ASRs\"", "\[Rule]", 
+                    "ASRs`Private`writtenASRs"}]}], "]"}]}]}], "]"}]}]}, {
+                   " "}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
                   DefaultBaseStyle -> "Column", 
                   GridBoxItemSize -> {
                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]},
@@ -445,14 +445,106 @@ the list of particle multiplets.\"\>", "InformationUsageText",
                False, False, False, False, False, False}}, 
                StyleBox[GridBox[{
                   {
-                   TagBox[
-                    TooltipBox[
-                    StyleBox["\<\" Options\"\>", "InformationRowLabel",
-                    StripOnInput->False],
-                    "\"Options\"",
-                    TooltipStyle->"TextStyling"],
-                    Annotation[#, "Options", "Tooltip"]& ], 
-                   RowBox[{"ASRs`Private`phys", "\[Rule]", "False"}]},
+                   PaneSelectorBox[{True->
+                    ButtonBox[
+                    PaneSelectorBox[{False->
+                    TemplateBox[{"\[ThickSpace]", "\"\[ThickSpace]\"", 
+                    StyleBox[
+                    "\"Options\"", "InformationRowLabel", StripOnInput -> 
+                    False], 
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "DownPointerOpener"]]},
+                    "RowWithSeparators"], True->
+                    TemplateBox[{"\[ThickSpace]", "\"\[ThickSpace]\"", 
+                    StyleBox[
+                    "\"Options\"", "InformationRowLabel", StripOnInput -> 
+                    False], 
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "DownPointerOpenerHot"]]},
+                    "RowWithSeparators"]}, Dynamic[
+                    CurrentValue["MouseOver"]],
+                    FrameMargins->0,
+                    ImageSize->Automatic],
+                    Appearance->None,
+                    BaseStyle->None,
+                    
+                    ButtonFunction:>(Part[System`InformationDump`open$$, 3] = 
+                    False),
+                    Evaluator->Automatic,
+                    FrameMargins->0,
+                    ImageMargins->0,
+                    Method->"Preemptive"], False->
+                    ButtonBox[
+                    PaneSelectorBox[{False->
+                    TemplateBox[{"\[ThickSpace]", "\"\[ThickSpace]\"", 
+                    StyleBox[
+                    "\"Options\"", "InformationRowLabel", StripOnInput -> 
+                    False], 
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "RightPointerOpener"]]},
+                    "RowWithSeparators"], True->
+                    TemplateBox[{"\[ThickSpace]", "\"\[ThickSpace]\"", 
+                    StyleBox[
+                    "\"Options\"", "InformationRowLabel", StripOnInput -> 
+                    False], 
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "RightPointerOpenerHot"]]},
+                    "RowWithSeparators"]}, Dynamic[
+                    CurrentValue["MouseOver"]],
+                    FrameMargins->0,
+                    ImageSize->Automatic],
+                    Appearance->None,
+                    BaseStyle->None,
+                    
+                    ButtonFunction:>(Part[System`InformationDump`open$$, 3] = 
+                    True),
+                    Evaluator->Automatic,
+                    FrameMargins->0,
+                    ImageMargins->0,
+                    Method->"Preemptive"]}, Dynamic[
+                    FEPrivate`Part[System`InformationDump`open$$, 3]]], 
+                   PaneSelectorBox[{True->GridBox[{
+                    {
+                    RowBox[{"ASRs`Private`takeProd", "\[Rule]", "False"}]},
+                    {
+                    RowBox[{
+                    "ASRs`Private`ampFormat", 
+                    "\[Rule]", "\<\"a/s n-tuple\"\>"}]},
+                    {
+                    RowBox[{"ASRs`Private`CKM", "\[Rule]", "False"}]},
+                    {
+                    RowBox[{"ASRs`Private`b", "\[Rule]", "All"}]},
+                    {
+                    StyleBox[
+                    
+                    TemplateBox[{
+                    "\"(\"", "\"\[InvisibleSpace]\"", "4", "\" total)\""},
+                    "RowDefault"], "InformationRowOpener",
+                    StripOnInput->False]}
+                    },
+                    BaselinePosition->{Baseline, {1, 1}},
+                    DefaultBaseStyle->"Column",
+                    GridBoxAlignment->{"Columns" -> {{Left}}},
+                    
+                    GridBoxItemSize->{
+                    "Columns" -> {{Automatic}}, "Rows" -> {{1.}}}], False->
+                    RowBox[{
+                    RowBox[{"ASRs`Private`takeProd", "\[Rule]", "False"}], "\[ThinSpace]", 
+                    StyleBox["\<\"\[Ellipsis]\"\>", "InformationRowOpener",
+                    StripOnInput->False], "\[ThinSpace]", 
+                    StyleBox[
+                    
+                    TemplateBox[{
+                    "\"(\"", "\"\[InvisibleSpace]\"", "4", "\" total)\""},
+                    "RowDefault"], "InformationRowOpener",
+                    StripOnInput->False]}]}, Dynamic[
+                    FEPrivate`Part[System`InformationDump`open$$, 3]],
+                    BaselinePosition->Baseline,
+                    ImageSize->Automatic]},
                   {
                    TagBox[
                     TooltipBox[
@@ -462,7 +554,7 @@ the list of particle multiplets.\"\>", "InformationUsageText",
                     TooltipStyle->"TextStyling"],
                     
                     Annotation[#, "FullName", 
-                    "Tooltip"]& ], "\<\"ASRs`defineSystem\"\>"}
+                    "Tooltip"]& ], "\<\"ASRs`printSystem\"\>"}
                  },
                  AutoDelete->False,
                  GridBoxAlignment->{"Columns" -> {Right, Left}},
@@ -481,7 +573,6 @@ the list of particle multiplets.\"\>", "InformationUsageText",
             DefaultBaseStyle->"Column",
             GridBoxAlignment->{"Columns" -> {{Left}}},
             GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
-            
             GridBoxItemSize->{
              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
             GridBoxSpacings->{"Columns" -> {
@@ -527,7 +618,8 @@ the list of particle multiplets.\"\>", "InformationUsageText",
         },
         AutoDelete->False,
         FrameStyle->Directive[
-          GrayLevel[0.8], 
+          LightDarkSwitched[
+           GrayLevel[0.8]], 
           Thickness[Tiny]],
         GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
         GridBoxDividers->{
@@ -558,13 +650,9 @@ the list of particle multiplets.\"\>", "InformationUsageText",
           ItemBox[
            PaneBox[
             
-            StyleBox["\<\"If phys is False, \
-defineSystem[in,h,out,phys->False] takes in lists of the total U-spins in the \
-incoming state, Hamiltonian, and outgoing state and returns a Python U-spin \
-System object. If phys is True, the function takes in lists of particle \
-multiplets (or CKM factors for the Hamiltonian) in the incoming state, \
-Hamiltonian, and outgoing state and returns a Python U-spin System object and \
-the list of particle multiplets.\"\>", "InformationUsageText",
+            StyleBox["\<\"printSystem[system,ASRs,amplitudes] prints \
+information about the system's representations, amplitudes, and amplitude sum \
+rules.\"\>", "InformationUsageText",
              StripOnInput->False,
              LineSpacing->{1.5, 1.5, 3.}],
             FrameMargins->{{10, 10}, {8, 10}}],
@@ -581,12 +669,12 @@ the list of particle multiplets.\"\>", "InformationUsageText",
               
               DynamicBox[FEPrivate`FrontEndResource[
                "FEBitmaps", "DownPointerOpener"],
-               ImageSizeCache->{8., {2.346874975366518, 5.653125024633482}}], 
+               ImageSizeCache->{8., {2.140234424266964, 5.859765575733036}}], 
               True->
               
               DynamicBox[FEPrivate`FrontEndResource[
                "FEBitmaps", "DownPointerOpenerHot"],
-               ImageSizeCache->{8., {2.346874975366518, 5.653125024633482}}]},
+               ImageSizeCache->{8., {2.140234424266964, 5.859765575733036}}]},
                Dynamic[System`InformationDump`mouseOver$$]],
              Alignment->Left,
              Appearance->{"Default" -> None},
@@ -611,7 +699,8 @@ the list of particle multiplets.\"\>", "InformationUsageText",
         },
         AutoDelete->False,
         FrameStyle->Directive[
-          GrayLevel[0.8], 
+          LightDarkSwitched[
+           GrayLevel[0.8]], 
           Thickness[Tiny]],
         GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
         GridBoxDividers->{
@@ -628,55 +717,84 @@ the list of particle multiplets.\"\>", "InformationUsageText",
    StripOnInput->False],
   InformationData[<|
    "ObjectType" -> "Symbol", "Usage" -> 
-    "If phys is False, defineSystem[in,h,out,phys->False] takes in lists of \
-the total U-spins in the incoming state, Hamiltonian, and outgoing state and \
-returns a Python U-spin System object. If phys is True, the function takes in \
-lists of particle multiplets (or CKM factors for the Hamiltonian) in the \
-incoming state, Hamiltonian, and outgoing state and returns a Python U-spin \
-System object and the list of particle multiplets.", "Documentation" -> None, 
-    "OwnValues" -> None, "UpValues" -> None, "DownValues" -> 
+    "printSystem[system,ASRs,amplitudes] prints information about the \
+system's representations, amplitudes, and amplitude sum rules.", 
+    "Documentation" -> None, "OwnValues" -> None, "UpValues" -> None, 
+    "DownValues" -> 
     Information`InformationValueForm[
-     DownValues, ASRs`defineSystem, {ASRs`defineSystem[
-         Pattern[ASRs`Private`in, 
+     DownValues, ASRs`printSystem, {ASRs`printSystem[
+         Pattern[ASRs`Private`system, 
           Blank[]], 
-         Pattern[ASRs`Private`h, 
+         Pattern[ASRs`Private`ASRs, 
           Blank[]], 
-         Pattern[ASRs`Private`out, 
+         Pattern[ASRs`Private`amplitudes, 
           Blank[]], 
-         OptionsPattern[]] :> 
-       Module[{ASRs`Private`phys = OptionValue[ASRs`Private`phys], 
-          ASRs`Private`repSpins, ASRs`Private`uIn, ASRs`Private`uH, 
-          ASRs`Private`uOut, ASRs`Private`pIn, ASRs`Private`pH, 
-          ASRs`Private`pOut, ASRs`Private`system, ASRs`Private`particles}, 
-         ASRs`Private`repSpins[
-            Pattern[ASRs`Private`list, 
-             Blank[]]] := Table[(Length[
-               Part[ASRs`Private`list, ASRs`Private`i]] - 1)/2, {
-            ASRs`Private`i, 
-             Length[ASRs`Private`list]}]; 
-         If[ASRs`Private`phys, {
-             ASRs`Private`pIn, ASRs`Private`pH, ASRs`Private`pOut} = {
-             ASRs`Private`in, ASRs`Private`h, ASRs`Private`out}; {
-             ASRs`Private`uIn, ASRs`Private`uH, ASRs`Private`uOut} = 
-            Map[ASRs`Private`repSpins, {
-              ASRs`Private`pIn, ASRs`Private`pH, ASRs`Private`pOut}]; 
-           ASRs`Private`particles = {
-             ASRs`Private`pIn, ASRs`Private`pH, ASRs`Private`pOut}; 
-           Null, {ASRs`Private`uIn, ASRs`Private`uH, ASRs`Private`uOut} = {
-             ASRs`Private`in, ASRs`Private`h, ASRs`Private`out}; Null]; 
-         ASRs`Private`system = 
-          ASRs`Private`pyEval[
-           "define_system", {{
-             ASRs`Private`uIn, ASRs`Private`uH, ASRs`Private`uOut}, 
-             ASRs`Private`phys}]; 
-         If[ASRs`Private`phys, {ASRs`Private`system, ASRs`Private`particles}, 
-           ASRs`Private`system]]}], "SubValues" -> None, "DefaultValues" -> 
-    None, "NValues" -> None, "FormatValues" -> None, 
-    "Options" -> {ASRs`Private`phys -> False}, "Attributes" -> {}, "FullName" -> 
-    "ASRs`defineSystem"|>, False]]], "Print",
+         Pattern[ASRs`Private`opts, 
+          OptionsPattern[]]] :> 
+       Module[{ASRs`Private`n, ASRs`Private`irreps, ASRs`Private`nAmps, 
+          ASRs`Private`nASRs, 
+          ASRs`Private`writtenASRs}, {ASRs`Private`n, ASRs`Private`irreps} = 
+          ASRs`Private`pyEval["extract_sys", ASRs`Private`system]; 
+         Print["System", "\n", "Number of doublets: ", ASRs`Private`n, "\n", 
+           "System irreps: ", 
+           Sort[
+            Flatten[ASRs`Private`irreps]], "\n", "In: ", 
+           Part[ASRs`Private`irreps, 1], "\n", "H: ", 
+           Part[ASRs`Private`irreps, 2], "\n", "Out: ", 
+           Part[ASRs`Private`irreps, 3]]; Print["-------------------------"]; 
+         ASRs`Private`nAmps = Part[
+            ASRs`printAmps[ASRs`Private`amplitudes], 1]; 
+         Print["-------------------------"]; {
+           ASRs`Private`nASRs, ASRs`Private`writtenASRs} = 
+          ASRs`printASRs[ASRs`Private`ASRs, ASRs`Private`amplitudes, 
+            Apply[Sequence, 
+             FilterRules[{ASRs`Private`opts}, 
+              Options[ASRs`printASRs]]]]; <|
+          "n doublets" -> ASRs`Private`n, "Irreps" -> ASRs`Private`irreps, 
+           "n amps" -> ASRs`Private`nAmps, "Amplitudes" -> 
+           ASRs`Private`amplitudes, "n ASRs" -> ASRs`Private`nASRs, "ASRs" -> 
+           ASRs`Private`writtenASRs|>]}], "SubValues" -> None, 
+    "DefaultValues" -> None, "NValues" -> None, "FormatValues" -> None, 
+    "Options" -> {
+     ASRs`Private`takeProd -> False, ASRs`Private`ampFormat -> "a/s n-tuple", 
+      ASRs`Private`CKM -> False, ASRs`Private`b -> All}, "Attributes" -> {}, 
+    "FullName" -> "ASRs`printSystem"|>, False]]], "Print",
  CellTags->
-  "Info-48e3d559-235a-4329-ab6b-af826219a324",ExpressionUUID->"3a920d1e-5f83-\
-4144-a75a-a3dd8a3c2a0f"]
+  "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854",ExpressionUUID->"f0a68e10-0a13-\
+eb44-82a1-58e544d692fb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ASRsHelp", "[", "defineSystem", "]"}]], "Input",
+ CellChangeTimes->{{3.9662850571188393`*^9, 3.9662851100241814`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"a784d622-eb4c-6644-94c6-cb99b32007ed"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"defineSystem[in,h,out] constructs a U-Spin System object in \
+Python.\"\>"], "Print",
+ CellChangeTimes->{3.9662851104232807`*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"f1c1b809-a654-0a4a-823f-d037a26ecab8"],
+
+Cell[BoxData["\<\"Arguments:\\nin (List): Contains U-spins (Real) OR particle \
+multiplets (List of Strings) in the incoming state\\nh (List): Contains \
+U-spins (Real) OR CKM factors (List of Symbols) in the Hamiltonian\\nout \
+(List): Contains U-spins (Real) OR particle multiplets (List of Strings) in \
+the outgoing state\\n\\nOptions:\\nphys (True|False): Set to False (default) \
+to input U-spins and True to input particle multiplets/CKM \
+factors\\n\\nReturns:\\nsystem (Python System object): U-spin system \
+represented as a Python System object\\nparticles (List): Contains particle \
+multiplets (List of Strings/Symbols) in the in state, Hamiltonian, and out \
+state. Only returned if phys->True.\"\>"], "Print",
+ CellChangeTimes->{3.9662851104232807`*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"b5a32544-6ee6-6f46-b882-947c45d98df2"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -724,8 +842,7 @@ Cell[BoxData[
        RowBox[{"{", "}"}], ",", 
        RowBox[{"{", "1", "}"}], ",", 
        RowBox[{"{", 
-        RowBox[{"1", ",", "1"}], "}"}]}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
+        RowBox[{"1", ",", "1"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"{", 
@@ -2176,7 +2293,7 @@ Cell[BoxData[
 WindowSize->{949, 521},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 Magnification:>0.8 Inherited,
-FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"c46edf8a-1137-5b48-862d-238a0e4efcf9"
 ]
@@ -2185,14 +2302,14 @@ ExpressionUUID->"c46edf8a-1137-5b48-862d-238a0e4efcf9"
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
- "Info-48e3d559-235a-4329-ab6b-af826219a324"->{
-  Cell[11153, 272, 17636, 406, 102, "Print",ExpressionUUID->"3a920d1e-5f83-4144-a75a-a3dd8a3c2a0f",
-   CellTags->"Info-48e3d559-235a-4329-ab6b-af826219a324"]}
+ "Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854"->{
+  Cell[11806, 284, 20783, 479, 62, "Print",ExpressionUUID->"f0a68e10-0a13-eb44-82a1-58e544d692fb",
+   CellTags->"Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info-48e3d559-235a-4329-ab6b-af826219a324", 91585, 2187}
+ {"Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854", 96803, 2304}
  }
 *)
 (*NotebookFileOutline
@@ -2200,63 +2317,70 @@ Notebook[{
 Cell[554, 20, 201, 3, 22, "Input",ExpressionUUID->"5c803102-8013-ba4d-921f-572378dd57e3"],
 Cell[CellGroupData[{
 Cell[780, 27, 241, 4, 52, "Section",ExpressionUUID->"4aa9d8e1-d61b-3d45-a0f7-7c3ef4c60912"],
-Cell[1024, 33, 2622, 51, 159, "Input",ExpressionUUID->"0b8f6c82-4860-1a46-a206-7b592ef4fbdc"],
+Cell[1024, 33, 2631, 49, 159, "Input",ExpressionUUID->"0b8f6c82-4860-1a46-a206-7b592ef4fbdc"],
 Cell[CellGroupData[{
-Cell[3671, 88, 400, 6, 22, "Input",ExpressionUUID->"30e362d4-a8ce-2540-867a-7aca70a3fd9a"],
-Cell[4074, 96, 7076, 174, 101, "Output",ExpressionUUID->"d1b50127-6e21-884c-8cef-9d9c2abc0c65"],
-Cell[11153, 272, 17636, 406, 102, "Print",ExpressionUUID->"3a920d1e-5f83-4144-a75a-a3dd8a3c2a0f",
- CellTags->"Info-48e3d559-235a-4329-ab6b-af826219a324"]
-}, Open  ]]
+Cell[3680, 86, 503, 7, 22, "Input",ExpressionUUID->"30e362d4-a8ce-2540-867a-7aca70a3fd9a"],
+Cell[4186, 95, 7617, 187, 101, "Output",ExpressionUUID->"e3d6cc78-9c0e-e04e-ac4d-f2dd8c67b76c"],
+Cell[11806, 284, 20783, 479, 62, "Print",ExpressionUUID->"f0a68e10-0a13-eb44-82a1-58e544d692fb",
+ CellTags->"Info-06abbae2-dc31-4aae-b5a7-c2d226cd1854"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[28838, 684, 196, 3, 52, "Section",ExpressionUUID->"1c92be0e-8333-0744-adaf-414f3ed0c714"],
+Cell[32626, 768, 221, 3, 22, "Input",ExpressionUUID->"a784d622-eb4c-6644-94c6-cb99b32007ed"],
 Cell[CellGroupData[{
-Cell[29059, 691, 329, 5, 42, "Subsection",ExpressionUUID->"233f1844-b5c9-4c47-8c79-0b57e41b4586"],
-Cell[29391, 698, 3504, 67, 59, "Input",ExpressionUUID->"173dd782-5865-2244-98d0-103c6bd7a5cd"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[32932, 770, 329, 5, 42, "Subsection",ExpressionUUID->"eb6fa357-27b2-814c-bd4b-1bb24fef4467"],
-Cell[33264, 777, 7640, 156, 269, "Input",ExpressionUUID->"2906ac93-7539-0940-8a06-09e0422f0dc4"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[40941, 938, 211, 4, 42, "Subsection",ExpressionUUID->"fc03b489-9284-644c-8998-b8b28c7fe2eb"],
-Cell[CellGroupData[{
-Cell[41177, 946, 691, 10, 22, "Input",ExpressionUUID->"fd313e2c-303d-2443-a24f-18ed16e3d56b"],
-Cell[41871, 958, 10611, 240, 159, "Print",ExpressionUUID->"33bb22e0-97f8-de4f-9cab-626b861e41b2"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[52519, 1203, 679, 13, 22, "Input",ExpressionUUID->"2f67166e-d496-2742-8a83-9e2ec5563e2e"],
-Cell[CellGroupData[{
-Cell[53223, 1220, 339, 6, 18, "Print",ExpressionUUID->"c295e058-1b69-d648-9018-3afb566a6bf7"],
-Cell[53565, 1228, 2154, 57, 121, "Print",ExpressionUUID->"af96070b-9fa9-3842-930a-2a5e4efb3574"],
-Cell[55722, 1287, 2231, 57, 75, "Print",ExpressionUUID->"7cb7ddef-3507-8d47-9deb-cddef6e4aba1"],
-Cell[57956, 1346, 2071, 50, 51, "Print",ExpressionUUID->"5685f420-00f1-4442-a921-8416f0b22d93"]
-}, Open  ]],
-Cell[60042, 1399, 2736, 80, 69, "Output",ExpressionUUID->"1a1d80cf-6e70-d845-99ac-8725bde6c406"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[62815, 1484, 468, 11, 22, "Input",ExpressionUUID->"c43e780a-65be-8a44-a82c-02405eed1aa1"],
-Cell[63286, 1497, 607, 16, 38, "Output",ExpressionUUID->"88b1512c-f03f-4f4e-b7bb-bd453d72caae"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[63930, 1518, 772, 15, 37, "Input",ExpressionUUID->"3f16e667-46e8-5c49-84af-1ca1c676f1ad"],
-Cell[64705, 1535, 271, 4, 25, "Output",ExpressionUUID->"51293436-401f-5c41-9aee-0bee4e8f263c"],
-Cell[CellGroupData[{
-Cell[65001, 1543, 1247, 25, 87, "Print",ExpressionUUID->"1a70bc63-8ec1-2d41-ad15-707e4e33516f"],
-Cell[66251, 1570, 332, 6, 18, "Print",ExpressionUUID->"e648bc90-7996-8543-aee3-0c8ff9c771c4"],
-Cell[66586, 1578, 10685, 241, 159, "Print",ExpressionUUID->"7baa88f7-0829-7b49-9177-74928ce69fcc"],
-Cell[77274, 1821, 332, 6, 18, "Print",ExpressionUUID->"158c07d4-3a88-2148-b833-ef69d6d0c369"],
-Cell[77609, 1829, 318, 6, 18, "Print",ExpressionUUID->"5707bbbc-d0ed-834d-9476-6d4f727c2e20"],
-Cell[77930, 1837, 2146, 55, 75, "Print",ExpressionUUID->"da269791-8793-bb40-a757-197c65967013"],
-Cell[80079, 1894, 1986, 48, 51, "Print",ExpressionUUID->"de759be6-685b-af47-a375-66ce29789c1c"]
-}, Open  ]],
-Cell[82080, 1945, 8507, 209, 235, "Output",ExpressionUUID->"05f1e920-60f6-bc48-a0fd-2f2252acf2e0"]
+Cell[32872, 775, 252, 5, 18, "Print",ExpressionUUID->"f1c1b809-a654-0a4a-823f-d037a26ecab8"],
+Cell[33127, 782, 873, 13, 158, "Print",ExpressionUUID->"b5a32544-6ee6-6f46-b882-947c45d98df2"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[90648, 2161, 169, 3, 52, "Section",ExpressionUUID->"bd5524ec-b8f9-7146-b0dc-484965ffb258"],
-Cell[90820, 2166, 340, 6, 22, "Input",ExpressionUUID->"70f09735-b273-f241-ac9b-18cdea061a41"]
+Cell[34061, 802, 196, 3, 52, "Section",ExpressionUUID->"1c92be0e-8333-0744-adaf-414f3ed0c714"],
+Cell[CellGroupData[{
+Cell[34282, 809, 329, 5, 42, "Subsection",ExpressionUUID->"233f1844-b5c9-4c47-8c79-0b57e41b4586"],
+Cell[34614, 816, 3500, 66, 59, "Input",ExpressionUUID->"173dd782-5865-2244-98d0-103c6bd7a5cd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38151, 887, 329, 5, 42, "Subsection",ExpressionUUID->"eb6fa357-27b2-814c-bd4b-1bb24fef4467"],
+Cell[38483, 894, 7640, 156, 269, "Input",ExpressionUUID->"2906ac93-7539-0940-8a06-09e0422f0dc4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46160, 1055, 211, 4, 42, "Subsection",ExpressionUUID->"fc03b489-9284-644c-8998-b8b28c7fe2eb"],
+Cell[CellGroupData[{
+Cell[46396, 1063, 691, 10, 22, "Input",ExpressionUUID->"fd313e2c-303d-2443-a24f-18ed16e3d56b"],
+Cell[47090, 1075, 10611, 240, 159, "Print",ExpressionUUID->"33bb22e0-97f8-de4f-9cab-626b861e41b2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57738, 1320, 679, 13, 22, "Input",ExpressionUUID->"2f67166e-d496-2742-8a83-9e2ec5563e2e"],
+Cell[CellGroupData[{
+Cell[58442, 1337, 339, 6, 18, "Print",ExpressionUUID->"c295e058-1b69-d648-9018-3afb566a6bf7"],
+Cell[58784, 1345, 2154, 57, 121, "Print",ExpressionUUID->"af96070b-9fa9-3842-930a-2a5e4efb3574"],
+Cell[60941, 1404, 2231, 57, 75, "Print",ExpressionUUID->"7cb7ddef-3507-8d47-9deb-cddef6e4aba1"],
+Cell[63175, 1463, 2071, 50, 51, "Print",ExpressionUUID->"5685f420-00f1-4442-a921-8416f0b22d93"]
+}, Open  ]],
+Cell[65261, 1516, 2736, 80, 69, "Output",ExpressionUUID->"1a1d80cf-6e70-d845-99ac-8725bde6c406"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[68034, 1601, 468, 11, 22, "Input",ExpressionUUID->"c43e780a-65be-8a44-a82c-02405eed1aa1"],
+Cell[68505, 1614, 607, 16, 38, "Output",ExpressionUUID->"88b1512c-f03f-4f4e-b7bb-bd453d72caae"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[69149, 1635, 772, 15, 37, "Input",ExpressionUUID->"3f16e667-46e8-5c49-84af-1ca1c676f1ad"],
+Cell[69924, 1652, 271, 4, 25, "Output",ExpressionUUID->"51293436-401f-5c41-9aee-0bee4e8f263c"],
+Cell[CellGroupData[{
+Cell[70220, 1660, 1247, 25, 87, "Print",ExpressionUUID->"1a70bc63-8ec1-2d41-ad15-707e4e33516f"],
+Cell[71470, 1687, 332, 6, 18, "Print",ExpressionUUID->"e648bc90-7996-8543-aee3-0c8ff9c771c4"],
+Cell[71805, 1695, 10685, 241, 159, "Print",ExpressionUUID->"7baa88f7-0829-7b49-9177-74928ce69fcc"],
+Cell[82493, 1938, 332, 6, 18, "Print",ExpressionUUID->"158c07d4-3a88-2148-b833-ef69d6d0c369"],
+Cell[82828, 1946, 318, 6, 18, "Print",ExpressionUUID->"5707bbbc-d0ed-834d-9476-6d4f727c2e20"],
+Cell[83149, 1954, 2146, 55, 75, "Print",ExpressionUUID->"da269791-8793-bb40-a757-197c65967013"],
+Cell[85298, 2011, 1986, 48, 51, "Print",ExpressionUUID->"de759be6-685b-af47-a375-66ce29789c1c"]
+}, Open  ]],
+Cell[87299, 2062, 8507, 209, 235, "Output",ExpressionUUID->"05f1e920-60f6-bc48-a0fd-2f2252acf2e0"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[95867, 2278, 169, 3, 52, "Section",ExpressionUUID->"bd5524ec-b8f9-7146-b0dc-484965ffb258"],
+Cell[96039, 2283, 340, 6, 22, "Input",ExpressionUUID->"70f09735-b273-f241-ac9b-18cdea061a41"]
 }, Open  ]]
 }
 ]

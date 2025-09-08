@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     69734,       1483]
-NotebookOptionsPosition[     67832,       1452]
-NotebookOutlinePosition[     68264,       1469]
-CellTagsIndexPosition[     68221,       1466]
+NotebookDataLength[     75745,       1598]
+NotebookOptionsPosition[     73743,       1566]
+NotebookOutlinePosition[     74174,       1583]
+CellTagsIndexPosition[     74131,       1580]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -30,60 +30,113 @@ ec3d71bc527b"],
 Cell[BoxData[{
  RowBox[{
   RowBox[{
-   RowBox[{"initializePythonSession", "::", "usage"}], "=", 
-   "\"\<initializePythonSession[session,path] checks for a valid Python \
-session and file path and loads in the Python file.\>\""}], ";"}], "\n", 
+   RowBox[{"ASRsHelp", "::", "usage"}], 
+   "=", "\"\<ASRsHelp[function] prints extended documentation on a function's \
+arguments, options, and outputs.\>\""}], "\n"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{"defineSystem", "::", "usage"}], "=", 
-   "\"\<If phys is False, defineSystem[in,h,out,phys->False] takes in lists \
-of the total U-spins in the incoming state, Hamiltonian, and outgoing state \
-and returns a Python U-spin System object. If phys is True, the function \
-takes in lists of particle multiplets (or CKM factors for the Hamiltonian) in \
-the incoming state, Hamiltonian, and outgoing state and returns a Python \
-U-spin System object and the list of particle multiplets.\>\""}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"initializePythonSession", "::", "usage"}], 
+    "=", "\"\<initializePythonSession[session,path] checks for a valid Python \
+session and file path and loads in the Python file.\>\""}], ";"}], "\n"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{"generateASRs", "::", "usage"}], "=", 
-   "\"\<generateASRs[system,particles->{}] takes in a Python U-spin System \
-object and optionally a list of particle multiplets and returns the updated \
-Python U-spin System object, a list of amplitude sum rule coefficients at \
-each order of breaking, and an association containing all amplitudes in the \
-system.\>\""}], ";"}], "\n", 
+   RowBox[{"defineSystem", "::", "usage"}], 
+   "=", "\"\<defineSystem[in,h,out] constructs a U-Spin System object in \
+Python.\>\""}], ";"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{"numAmps", "::", "usage"}], "=", 
-   "\"\<numAmps[amplitudes] returns the total number of amplitudes in the \
-system.\>\""}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"defineSystem", "::", "details"}], "=", 
+    "\n", "\"\<Arguments:\nin (List): Contains U-spins (Real) OR particle \
+multiplets (List of Strings) in the incoming state\nh (List): Contains \
+U-spins (Real) OR CKM factors (List of Symbols) in the Hamiltonian\nout \
+(List): Contains U-spins (Real) OR particle multiplets (List of Strings) in \
+the outgoing state\n\nOptions:\nphys (True|False): Indicates whether function \
+arguments contain U-spins (False) or particle multiplets/CKM factors (True). \
+Default: phys->False.\n\nReturns:\nsystem (Python System object): U-spin \
+system represented as a Python System object\nparticles (List): Contains \
+particle multiplets (List of Strings/Symbols) in the in state, Hamiltonian, \
+and out state. Returned only if phys->True.\>\""}], ";"}], "\n"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{"printAmps", "::", "usage"}], "=", 
-   "\"\<printAmps[amplitudes] prints a table of amplitudes and returns the \
-number of amplitudes and the amplitude association.\>\""}], ";"}], "\n", 
+   RowBox[{"generateASRs", "::", "usage"}], 
+   "=", "\"\<generateASRs[system]\>\""}], ";"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{"numASRs", "::", "usage"}], "=", 
-   "\"\<numASRs[ASRs] returns the number of amplitude sum rules at each order \
-of breaking.\>\""}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"generateASRs", "::", "details"}], "=", 
+    "\n", "\"\<Arguments:\nsystem (Python System object): U-spin system \
+represented as a Python System object\n\nOptions:\nparticles (List): Contains \
+particle multiplets (List of Strings). Default: particles->{}.\n\nReturns:\n\
+system (Python System object): U-spin system represented as a Python System \
+object updated for changes made during amplitude sum rules calculations\nASRs \
+(List): Contains matrices of amplitude sum rule coefficients (Real) \
+corresponding to each order of breaking\namplitudes (Association): Contains \
+all amplitudes in the system. Association keys: \\\"Processes\\\", \
+\\\"Indices\\\", \\\"n-tuple\\\", \\\"Node\\\", \\\"q factor\\\", \\\"p \
+factor\\\", \\\"mu\\\", \\\"CG\\\".\>\""}], ";"}], "\n"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{"printASRs", "::", "usage"}], "=", 
-   "\"\<printASRs[ASRs,amplitudes,takeProd->False,ampFormat->\\\"a/s \
-n-tuple\\\",CKM->False,b->All] prints amplitude sum rules at each order of \
-breaking and returns the number of sum rules at each order of breaking and \
-the expanded or coefficient form of the sum rules, depending on user choice. \
-Valid options for takeProd: True, False; ampFormat: \\\"a/s n-tuple\\\", \
-\\\"a/s indices\\\", \\\"a/s nodes\\\", \\\"A indices\\\", \\\"A \
-physical\\\"; CKM: True, False; b: an integer 0 <= b <= highest order of \
-breaking, All, {start b (min: 0), end b (max: highest order of breaking, or \
-All), increment}.\>\""}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"numAmps", "::", "usage"}], 
+    "=", "\"\<numAmps[amplitudes] returns the total number of amplitudes in \
+the system.\>\""}], ";"}], "\n"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{"printSystem", "::", "usage"}], "=", 
-   "\"\<printSystem[system,ASRs,amplitudes,opts] prints information about the \
-system's representations, a table of amplitudes, and amplitude sum rules at \
-each order of breaking. Uses the same options as printASRs to format the \
-amplitude sum rules.\>\""}], ";"}]}], "Code",
+   RowBox[{
+    RowBox[{"printAmps", "::", "usage"}], 
+    "=", "\"\<printAmps[amplitudes] prints a table of amplitudes and returns \
+the number of amplitudes and the amplitude association.\>\""}], ";"}], 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"numASRs", "::", "usage"}], 
+    "=", "\"\<numASRs[ASRs] returns the number of amplitude sum rules at each \
+order of breaking.\>\""}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"printASRs", "::", "usage"}], 
+   "=", "\"\<printASRs[ASRs,amplitudes] prints amplitude sum rules at each \
+order of breaking.\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"printASRs", "::", "details"}], "=", 
+    "\n", "\"\<Arguments:\nASRs (List): \namplitudes (Association): \n\n\
+Options:\ntakeProd (True|False): Indicates whether to write each row of a sum \
+rules matrix as an algebraic expression of amplitudes (True) or to keep each \
+row as a list of coefficients (False). Default: takeProd->False.\nampFormat \
+(String): Specified format for displaying amplitudes. Options are a/s-type \
+amplitudes with n-tuples (\\\"a/s n-tuple\\\"), a/s-type amplitudes with \
+numbered indices (\\\"a/s indices\\\"), a/s-type amplitudes with nodes \
+(\\\"a/s nodes\\\"), A amplitudes with numbered indices (\\\"A indices\\\"), \
+and A amplitudes with physical process (\\\"A physical\\\"). Default: \
+ampFormat->\\\"a/s n-tuple\\\".\nCKM (True|False): Indicates whether to \
+include CKM factors (True) or not (False). Default: CKM->False.\nb \
+(All|Real|List): Breaking order(s) at which to print sum rules. User can \
+print sum rules to all possible orders of breaking (All), at a particular \
+order (Real /; 0 <= b <= highest order of breaking), or over a range of \
+orders of breaking ({start b (min: 0), end b (max: highest order of breaking, \
+or All), increment}). Default: b->All.\n\nReturns:\nnumber of sum rules at \
+each order of breaking\nexpanded or coefficient form of the sum rules, \
+depending on user choice\>\""}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"printSystem", "::", "usage"}], 
+   "=", "\"\<printSystem[system,ASRs,amplitudes] prints information about the \
+system's representations, amplitudes, and amplitude sum rules.\>\""}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"printSystem", "::", "details"}], "=", 
+   "\n", "\"\<Arguments:\nsystem\nASRs\namplitudes\n\nOptions:\nSame options \
+as printASRs for formatting the amplitude sum rules.\n\nReturns:\n\
+(Association): Association keys: \\\"n doublets\\\"->n, \
+\\\"Irreps\\\"->irreps, \\\"n amps\\\"->nAmps, \
+\\\"Amplitudes\\\"->amplitudes, \\\"n ASRs\\\"->nASRs, \
+\\\"ASRs\\\"->writtenASRs.\>\""}], ";"}]}], "Code",
  CellChangeTimes->{{3.9654306305147057`*^9, 3.965430687936945*^9}, {
    3.965431386784767*^9, 3.9654314041288376`*^9}, 3.965431494843601*^9, {
    3.965433459651066*^9, 3.9654336153908634`*^9}, {3.9654336612445736`*^9, 
@@ -102,7 +155,32 @@ amplitude sum rules.\>\""}], ";"}]}], "Code",
    3.96547585572822*^9, 3.9654759444997406`*^9}, {3.9654759783196945`*^9, 
    3.9654760030095177`*^9}, {3.965476046154745*^9, 3.965476046342926*^9}, {
    3.965476807708885*^9, 3.965476863496973*^9}, {3.9654798658294296`*^9, 
-   3.965479887201605*^9}},ExpressionUUID->"bfe98629-a847-9e41-92fe-\
+   3.965479887201605*^9}, {3.966277108433735*^9, 3.9662771728381863`*^9}, {
+   3.9662774716504536`*^9, 3.9662774748942986`*^9}, {3.9662777060328465`*^9, 
+   3.9662777099280834`*^9}, {3.966278145282234*^9, 3.9662782340474567`*^9}, {
+   3.9662787396963673`*^9, 3.9662787567269897`*^9}, {3.966278922529766*^9, 
+   3.966279161194292*^9}, {3.966279228589081*^9, 3.966279234317894*^9}, {
+   3.966279285534815*^9, 3.9662793235169735`*^9}, {3.9662794184552937`*^9, 
+   3.9662796195456524`*^9}, {3.966279654497282*^9, 3.966279708014412*^9}, {
+   3.9662797396910973`*^9, 3.966279881337719*^9}, {3.966280081454815*^9, 
+   3.966280168164156*^9}, 3.966280350095312*^9, {3.966280393296152*^9, 
+   3.966280578000164*^9}, {3.9662806099045773`*^9, 3.966280615664484*^9}, {
+   3.9662836697917843`*^9, 3.966283708503294*^9}, {3.9662837677166157`*^9, 
+   3.966283769939001*^9}, {3.9662840511179333`*^9, 3.966284083971283*^9}, {
+   3.966284707037195*^9, 3.9662847168562946`*^9}, {3.966284762945429*^9, 
+   3.96628482249695*^9}, {3.966284872408373*^9, 3.9662848923749886`*^9}, {
+   3.9662851597837543`*^9, 3.9662851680008507`*^9}, {3.9662852012134247`*^9, 
+   3.966285202307993*^9}, {3.9662853794698925`*^9, 3.9662854673739223`*^9}, {
+   3.966285532777197*^9, 3.9662855341198025`*^9}, {3.9663525633067436`*^9, 
+   3.9663527254860153`*^9}, {3.966352757422737*^9, 3.9663528590276184`*^9}, {
+   3.966352898604208*^9, 3.9663530290137596`*^9}, {3.9663530767139206`*^9, 
+   3.9663530777101593`*^9}, {3.966353137373062*^9, 3.9663531787451687`*^9}, {
+   3.9663532340886383`*^9, 3.966353674353443*^9}, {3.9663537355141296`*^9, 
+   3.966353746789667*^9}, {3.96635384052956*^9, 3.966353890186102*^9}, {
+   3.966353944453165*^9, 3.9663541081862698`*^9}, {3.9663541490410175`*^9, 
+   3.966354215914301*^9}, {3.9663542558120995`*^9, 3.966354271694948*^9}, {
+   3.966354407179323*^9, 
+   3.9663546445026703`*^9}},ExpressionUUID->"bfe98629-a847-9e41-92fe-\
 50acce952acb"],
 
 Cell[BoxData[{
@@ -120,6 +198,49 @@ Cell[BoxData[
  CellChangeTimes->{{3.965430802027622*^9, 3.965430802027622*^9}, 
    3.965431486173973*^9},ExpressionUUID->"df1742f8-e3ff-e24a-bbb8-\
 d2eca0a18691"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"ASRsHelp", "[", "function_Symbol", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"usage", ",", " ", "details"}], "}"}], ",", "\n", 
+     RowBox[{
+      RowBox[{"usage", "=", 
+       RowBox[{"Quiet", "[", 
+        RowBox[{"MessageName", "[", 
+         RowBox[{"function", ",", "\"\<usage\>\""}], "]"}], "]"}]}], ";", 
+      "\n", 
+      RowBox[{"details", "=", 
+       RowBox[{"Quiet", "[", 
+        RowBox[{"MessageName", "[", 
+         RowBox[{"function", ",", "\"\<details\>\""}], "]"}], "]"}]}], ";", 
+      "\n", "\n", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"StringQ", "[", "usage", "]"}], ",", "\n", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Print", "[", "usage", "]"}], ";", "\n", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"StringQ", "[", "details", "]"}], ",", 
+            RowBox[{"Print", "[", "details", "]"}]}], "]"}], ";"}], "\n", 
+         ")"}], ",", "\n", 
+        RowBox[{
+         RowBox[{"Print", "[", 
+          
+          RowBox[{"\"\<No documentation found for \>\"", ",", "function", 
+           ",", "\"\<.\>\""}], "]"}], ";"}]}], "\n", "]"}], ";"}]}], "\n", 
+    "]"}]}], ";"}]], "Code",
+ CellChangeTimes->{{3.9662841789232903`*^9, 3.9662842713772697`*^9}, {
+   3.96628434337908*^9, 3.966284367443407*^9}, 3.9662844652050858`*^9, {
+   3.9662846166666374`*^9, 3.966284650823759*^9}, {3.9662847277430096`*^9, 
+   3.966284750118519*^9}, 
+   3.9662849167883453`*^9},ExpressionUUID->"05555e7c-a6c2-684b-aab7-\
+5668dfef0f53"],
 
 Cell[BoxData[
  RowBox[{
@@ -316,11 +437,10 @@ Cell[BoxData[{
        ";", "\[IndentingNewLine]", 
       RowBox[{"colNames", "=", 
        RowBox[{"{", 
-        RowBox[{
-        "\"\<Processes\>\"", ",", "\"\<Indices\>\"", ",", "\"\<n-tuple\>\"", 
-         ",", "\"\<Node\>\"", ",", "\"\<q factor\>\"", ",", 
-         "\"\<p factor\>\"", ",", "\"\<mu\>\"", ",", "\"\<CG\>\""}], "}"}]}], 
-      ";", "\[IndentingNewLine]", 
+        RowBox[{"\"\<Processes\>\"", ",", "\"\<Indices\>\"", 
+         ",", "\"\<n-tuple\>\"", ",", "\"\<Node\>\"", ",", "\"\<q factor\>\"",
+          ",", "\"\<p factor\>\"", ",", "\"\<mu\>\"", ",", "\"\<CG\>\""}], 
+        "}"}]}], ";", "\[IndentingNewLine]", 
       RowBox[{"amplitudes", "=", 
        RowBox[{
         RowBox[{"Map", "[", 
@@ -364,8 +484,7 @@ Cell[BoxData[{
                 RowBox[{"extractParticles", "[", 
                  RowBox[{"partVal", ",", 
                   RowBox[{"#", "[", 
-                   RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], "}"}], "&"}], 
-             ",", 
+                   RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], "}"}], "&"}], ",", 
              RowBox[{"amplitudes", "[", 
               RowBox[{"[", 
                RowBox[{"All", ",", "\"\<Processes\>\""}], "]"}], "]"}]}], 
@@ -434,8 +553,7 @@ Cell[BoxData[{
                RowBox[{"StringJoin", "[", 
                 RowBox[{
                  RowBox[{"#", "[", 
-                  RowBox[{"[", "1", "]"}], "]"}], ",", "\"\< \[Rule] \>\"", 
-                 ",", 
+                  RowBox[{"[", "1", "]"}], "]"}], ",", "\"\< \[Rule] \>\"", ",", 
                  RowBox[{"#", "[", 
                   RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "}"}], "&"}], ",", 
              RowBox[{"amplitudes", "[", 
@@ -777,8 +895,8 @@ Cell[BoxData[{
         RowBox[{"OptionValue", "[", "CKM", "]"}]}], ",", 
        RowBox[{"b", "=", 
         RowBox[{"OptionValue", "[", "b", "]"}]}], ",", "physicalAmps", ",", 
-       "ampsToVector", ",", "ampVector", ",", "writtenASRs", ",", "blist", 
-       ",", "numASRsList", ",", "matForm", ",", "rule"}], "}"}], ",", 
+       "ampsToVector", ",", "ampVector", ",", "writtenASRs", ",", "blist", ",",
+        "numASRsList", ",", "matForm", ",", "rule"}], "}"}], ",", 
      "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{
@@ -808,8 +926,7 @@ Cell[BoxData[{
                  RowBox[{"\"\<CKM\>\"", ",", "1"}], "]"}], "]"}], ",", 
                RowBox[{"amp", "[", 
                 RowBox[{"[", 
-                 RowBox[{"\"\<CKM\>\"", ",", "2"}], "]"}], "]"}]}], "}"}], 
-             ",", 
+                 RowBox[{"\"\<CKM\>\"", ",", "2"}], "]"}], "]"}]}], "}"}], ",", 
              RowBox[{"{", 
               RowBox[{"1", ",", "1"}], "}"}]}], "]"}]}], ";", 
           "\[IndentingNewLine]", 
@@ -848,8 +965,7 @@ Cell[BoxData[{
           RowBox[{"vector", "=", 
            RowBox[{"Switch", "[", 
             RowBox[{
-            "ampFormat", ",", "\[IndentingNewLine]", "\"\<a/s indices\>\"", 
-             ",", 
+            "ampFormat", ",", "\[IndentingNewLine]", "\"\<a/s indices\>\"", ",", 
              RowBox[{"Map", "[", 
               RowBox[{
                RowBox[{
@@ -863,8 +979,8 @@ Cell[BoxData[{
                RowBox[{"a", "/", "s"}], "-", 
                RowBox[{
                "type", " ", "amps", " ", "with", " ", "numbered", " ", 
-                "subscripts"}]}], " ", "*)"}], "\[IndentingNewLine]", 
-             "\"\<a/s nodes\>\"", ",", 
+                "subscripts"}]}], " ", "*)"}], 
+             "\[IndentingNewLine]", "\"\<a/s nodes\>\"", ",", 
              RowBox[{"Map", "[", 
               RowBox[{
                RowBox[{
@@ -888,8 +1004,8 @@ Cell[BoxData[{
              RowBox[{"(*", " ", 
               RowBox[{
               "A", " ", "amps", " ", "with", " ", "numbered", " ", 
-               "subscripts"}], " ", "*)"}], "\[IndentingNewLine]", 
-             "\"\<A physical\>\"", ",", 
+               "subscripts"}], " ", "*)"}], 
+             "\[IndentingNewLine]", "\"\<A physical\>\"", ",", 
              RowBox[{"Map", "[", 
               RowBox[{
                RowBox[{
@@ -987,8 +1103,8 @@ Cell[BoxData[{
                  RowBox[{"Null", "->", "All"}], ",", 
                  RowBox[{"x_Integer", ":>", 
                   RowBox[{"x", "+", "1"}]}]}], "}"}]}], "]"}], ",", 
-             "\[IndentingNewLine]", "k"}], "\[IndentingNewLine]", "]"}]}], 
-          ",", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", "k"}], "\[IndentingNewLine]", "]"}]}], ",",
+           "\[IndentingNewLine]", 
           RowBox[{
            RowBox[{"{", "i_", "}"}], ":>", 
            RowBox[{"Span", "[", 
@@ -1006,8 +1122,8 @@ Cell[BoxData[{
             RowBox[{
              RowBox[{"i", "+", "1"}], ",", 
              RowBox[{"i", "+", "1"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
-          RowBox[{"All", ":>", "All"}]}], "\[IndentingNewLine]", "}"}]}]}], 
-      ";", "\[IndentingNewLine]", 
+          RowBox[{"All", ":>", "All"}]}], "\[IndentingNewLine]", "}"}]}]}], ";",
+       "\[IndentingNewLine]", 
       RowBox[{"blist", "=", 
        RowBox[{"Flatten", "@", 
         RowBox[{"{", 
@@ -1015,8 +1131,7 @@ Cell[BoxData[{
           RowBox[{"(", 
            RowBox[{
             RowBox[{"Range", "[", 
-             RowBox[{"Length", "[", "ASRs", "]"}], "]"}], "-", "1"}], ")"}], 
-          "[", 
+             RowBox[{"Length", "[", "ASRs", "]"}], "]"}], "-", "1"}], ")"}], "[", 
           RowBox[{"[", "b", "]"}], "]"}], "}"}]}]}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"numASRsList", "=", 
@@ -1056,9 +1171,8 @@ Cell[BoxData[{
            RowBox[{"blist", "[", 
             RowBox[{"[", 
              RowBox[{"#2", "[", 
-              RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], ",", 
-           "\"\<\\n\>\"", ",", "\[IndentingNewLine]", 
-           "\"\<Number of ASRs: \>\"", ",", 
+              RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}], ",", "\"\<\\n\>\"",
+            ",", "\[IndentingNewLine]", "\"\<Number of ASRs: \>\"", ",", 
            RowBox[{"numASRsList", "[", 
             RowBox[{"[", 
              RowBox[{
@@ -1118,9 +1232,9 @@ Cell[BoxData[{
         RowBox[{"\"\<extract_sys\>\"", ",", "system"}], "]"}]}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"Print", "[", 
-       RowBox[{
-       "\"\<System\>\"", ",", "\"\<\\n\>\"", ",", "\[IndentingNewLine]", 
-        "\"\<Number of doublets: \>\"", ",", "n", ",", "\"\<\\n\>\"", ",", 
+       RowBox[{"\"\<System\>\"", ",", "\"\<\\n\>\"", ",", 
+        "\[IndentingNewLine]", "\"\<Number of doublets: \>\"", ",", "n", 
+        ",", "\"\<\\n\>\"", ",", 
         "\[IndentingNewLine]", "\"\<System irreps: \>\"", ",", 
         RowBox[{"Sort", "@", 
          RowBox[{"Flatten", "@", "irreps"}]}], ",", "\"\<\\n\>\"", ",", 
@@ -1453,7 +1567,7 @@ Cell[BoxData[
 WindowSize->{960, 532},
 WindowMargins->{{-5.5, Automatic}, {Automatic, -5.5}},
 Magnification:>0.8 Inherited,
-FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"e03b12aa-5778-b240-96e5-c53c354475ef"
 ]
@@ -1469,22 +1583,23 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[554, 20, 347, 7, 40, "Code",ExpressionUUID->"d7755607-cbd2-374e-ad05-ec3d71bc527b"],
-Cell[904, 29, 4233, 76, 138, "Code",ExpressionUUID->"bfe98629-a847-9e41-92fe-50acce952acb"],
-Cell[5140, 107, 215, 7, 68, "Code",ExpressionUUID->"468dc405-e98f-d944-9530-65b2f072ecc9"],
-Cell[5358, 116, 240, 5, 40, "Code",ExpressionUUID->"df1742f8-e3ff-e24a-bbb8-d2eca0a18691"],
-Cell[5601, 123, 1182, 18, 40, "Code",ExpressionUUID->"aa64c93c-fc27-6843-b787-24caf5262f31"],
-Cell[6786, 143, 1816, 46, 194, "Code",ExpressionUUID->"3b920bb5-cb45-0245-be13-ce3c447d075c"],
-Cell[8605, 191, 471, 13, 40, "Code",ExpressionUUID->"07bc084b-f324-2545-8e8d-5c83b127bf74"],
-Cell[9079, 206, 3223, 84, 208, "Code",ExpressionUUID->"880939d3-8af6-344f-8730-7a3378b3ba8f"],
-Cell[12305, 292, 8081, 203, 335, "Code",ExpressionUUID->"5984c2c7-d660-8343-97c4-7ee157add873"],
-Cell[20389, 497, 4902, 126, 278, "Code",ExpressionUUID->"b8f38615-5711-ca47-ad73-f311a43e531b"],
-Cell[25294, 625, 385, 10, 40, "Code",ExpressionUUID->"e76c6bd5-7ca7-904b-9202-4c539d870962"],
-Cell[25682, 637, 4071, 99, 321, "Code",ExpressionUUID->"652dbf7d-bb33-d140-b908-715ec4001dc0"],
-Cell[29756, 738, 415, 12, 40, "Code",ExpressionUUID->"ddaa38d6-bebf-664b-b090-3c7a18bc0853"],
-Cell[30174, 752, 13930, 341, 756, "Code",ExpressionUUID->"9eff8145-9217-a747-a2e7-87fc757c4ea1"],
-Cell[44107, 1095, 23252, 341, 264, "Code",ExpressionUUID->"305fa45b-8615-f445-b6e5-1203379f4a95"],
-Cell[67362, 1438, 231, 5, 40, "Code",ExpressionUUID->"be57b0ef-d2fb-674c-9843-de64b41935bb"],
-Cell[67596, 1445, 232, 5, 40, "Code",ExpressionUUID->"83be7d60-31ae-0a40-ac67-460e44fe35b1"]
+Cell[904, 29, 8632, 154, 939, "Code",ExpressionUUID->"bfe98629-a847-9e41-92fe-50acce952acb"],
+Cell[9539, 185, 215, 7, 68, "Code",ExpressionUUID->"468dc405-e98f-d944-9530-65b2f072ecc9"],
+Cell[9757, 194, 240, 5, 40, "Code",ExpressionUUID->"df1742f8-e3ff-e24a-bbb8-d2eca0a18691"],
+Cell[10000, 201, 1598, 41, 180, "Code",ExpressionUUID->"05555e7c-a6c2-684b-aab7-5668dfef0f53"],
+Cell[11601, 244, 1182, 18, 40, "Code",ExpressionUUID->"aa64c93c-fc27-6843-b787-24caf5262f31"],
+Cell[12786, 264, 1816, 46, 194, "Code",ExpressionUUID->"3b920bb5-cb45-0245-be13-ce3c447d075c"],
+Cell[14605, 312, 471, 13, 40, "Code",ExpressionUUID->"07bc084b-f324-2545-8e8d-5c83b127bf74"],
+Cell[15079, 327, 3223, 84, 208, "Code",ExpressionUUID->"880939d3-8af6-344f-8730-7a3378b3ba8f"],
+Cell[18305, 413, 8042, 200, 335, "Code",ExpressionUUID->"5984c2c7-d660-8343-97c4-7ee157add873"],
+Cell[26350, 615, 4902, 126, 278, "Code",ExpressionUUID->"b8f38615-5711-ca47-ad73-f311a43e531b"],
+Cell[31255, 743, 385, 10, 40, "Code",ExpressionUUID->"e76c6bd5-7ca7-904b-9202-4c539d870962"],
+Cell[31643, 755, 4071, 99, 321, "Code",ExpressionUUID->"652dbf7d-bb33-d140-b908-715ec4001dc0"],
+Cell[35717, 856, 415, 12, 40, "Code",ExpressionUUID->"ddaa38d6-bebf-664b-b090-3c7a18bc0853"],
+Cell[36135, 870, 13879, 337, 756, "Code",ExpressionUUID->"9eff8145-9217-a747-a2e7-87fc757c4ea1"],
+Cell[50017, 1209, 23253, 341, 264, "Code",ExpressionUUID->"305fa45b-8615-f445-b6e5-1203379f4a95"],
+Cell[73273, 1552, 231, 5, 40, "Code",ExpressionUUID->"be57b0ef-d2fb-674c-9843-de64b41935bb"],
+Cell[73507, 1559, 232, 5, 40, "Code",ExpressionUUID->"83be7d60-31ae-0a40-ac67-460e44fe35b1"]
 }
 ]
 *)
