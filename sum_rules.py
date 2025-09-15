@@ -78,13 +78,14 @@ class AmplitudePair(Amplitude):
         mu (list): Written as [a,b], where the actual mu factor is sqrt(a)*b
     '''
 
-    def __init__(self,amp,out_lt,inputs):
+    def __init__(self,amp,out_lt,inputs,phys):
         super().__init__(amp.ntuple,out_lt)
         self.gen_coord = self.map_to_gen_coord()
         self.y_coord = self.map_to_y_coord()
         self.mu = self.calc_mu()
         self.indices = self.find_indices()
-        self.processes = self.find_processes(inputs)
+        self.qns = []
+        self.processes = self.find_processes_qns(inputs,phys)
     
     def map_to_gen_coord(self):
         gen_coord = []
@@ -115,35 +116,48 @@ class AmplitudePair(Amplitude):
         return [self.number,self.bin_to_dec(self.conjugate())]
     
     def particle_indices(self,inputs,ntuple):
-        u_index_lt = np.array([[len(nt_str)/2,nt_str.count('1')+1] for nt_str in ntuple])
+        u_index_lt = np.array([[len(nt_str)/2,nt_str.count('1')+1,
+                                (nt_str.count('0')-nt_str.count('1'))/2] 
+                                for nt_str in ntuple]) # [u,mathematica i,m] for each part of ntuple
 
         part_indices = []
-        for i,input in enumerate(inputs):
+        qns = []
+        for i,input in enumerate(inputs): # in, h, out
             state_indices = []
-            for u in input:
-                u_matches = np.where(u_index_lt[:,0] == u)[0]
+            state_qns = []
+            for u in input: # every u in e.g. out
+                u_matches = np.where(u_index_lt[:,0] == u)[0] # indices in u_index_lt/ntuple it matches the input u
                 index = 1
+                m = 0
 
                 if np.size(u_matches) > 0:
                     j = u_matches[0]
-                    index = u_index_lt[j,1]
+                    index = u_index_lt[j,1] # mathematica i
+                    m = u_index_lt[j,2]
                     u_index_lt = np.delete(u_index_lt,j,0)
-                
+
                 if i == 2:
-                    index = 2*u+2-index # negates for in state and H
+                    index = 2*u+2-index # keeps for out and negates for in state and H
+                    m = -m
                 
                 state_indices.append(int(index))
+                state_qns.append(float(m))
             part_indices.append(state_indices)
-        return part_indices
+            qns.append(state_qns)
+        return part_indices, [qns[0],qns[2]]
     
-    def find_processes(self,inputs):
-        if len(inputs) > 0:
-            return [self.particle_indices(inputs,self.ntuple),
-                    self.particle_indices(inputs,self.conjugate())]
+    def find_processes_qns(self,inputs,phys):
+        ntuple_out = self.particle_indices(inputs,self.ntuple)
+        conj_out = self.particle_indices(inputs,self.conjugate())
+
+        self.qns = [ntuple_out[1],conj_out[1]]
+
+        if phys:
+            return [ntuple_out[0],conj_out[0]]
         else:
             return "n/a"
     
-    def symmetrize(self,inputs):
+    def symmetrize(self,inputs,phys):
         nt_str1 = self.ntuple[1]
         m0 = -1/2
         u0 = 1/2
@@ -156,7 +170,7 @@ class AmplitudePair(Amplitude):
         self.ntuple[0:2] = [''.join(sorted(self.ntuple[0:2]))]
         self.number = self.bin_to_dec(self.ntuple)
         self.indices = self.find_indices()
-        self.processes = self.find_processes(inputs)
+        self.processes = self.find_processes_qns(inputs,phys)
 
 class System:
     '''
@@ -171,8 +185,9 @@ class System:
                           amplitudes) for the System
     '''
 
-    def __init__(self,reps,inputs=[]):
+    def __init__(self,reps,inputs,phys):
         self.inputs = inputs
+        self.phys = phys
         self.aux = False
         self.reps = self.sort_add_aux(reps)
         self.out_lt = self.out_indices()
@@ -210,7 +225,7 @@ class System:
         p = int(2*spin_sum-self.n/2)
         return p
     
-    def form_amp_pairs(self): # only forms i amplitudes to represent a-/s-type amplitudes
+    def form_amp_pairs(self): # only forms i amplitudes to represent a/s-type amplitudes
         ntuples_lt = []
         for rep in self.reps:
             ntuples_lt.append(rep.nt_strs)
@@ -224,11 +239,12 @@ class System:
         
         amp_pairs = []
         for amp in amps:
-            amp_pairs.append(AmplitudePair(amp,self.out_lt,self.inputs))
+            amp_pairs.append(AmplitudePair(amp,self.out_lt,self.inputs,self.phys))
         return amp_pairs
     
     def extract_amplitudes(self): # mathematica amplitudes
         math_amps = []
+        
         for amp in self.amp_pairs:
             ntuple = [str(coord) for coord in amp.ntuple]
             ntuple = '('+(','.join(ntuple).replace('0','-').replace('1','+'))+')'
@@ -236,13 +252,13 @@ class System:
             node = '('+(','.join(node))+')'
             p = (-1)**self.p
 
-            math_amps.append([amp.processes, amp.indices, ntuple, node, amp.q, p,
-                              amp.mu, amp.cg])
+            math_amps.append([amp.processes, amp.qns, ntuple, node, amp.indices,
+                              amp.q, p, amp.mu, amp.cg])
         return math_amps
     
     def symmetrize(self):
         for amp in self.amp_pairs:
-            amp.symmetrize(self.inputs)
+            amp.symmetrize(self.inputs,self.phys)
         self.aux = False
         return self
     
@@ -268,6 +284,18 @@ class System:
                         amp.number = self.amp_pairs[j].number
                         dup_pairs.append([j,i])
         return dup_pairs
+    
+    def remove_dups(self,dup_pairs):
+        if len(dup_pairs) > 0:
+            dup_amps = np.array(dup_pairs)[:,1]-1
+            for i in sorted(dup_amps,reverse=True):
+                del self.amp_pairs[i]
+        return self
+    
+    def extract_sys(self):
+        n = int(self.n)
+        irreps = [map(Fraction,state) for state in self.inputs]
+        return n, irreps
 
 class SumRule: ############################## might be able to modify into a set of functions??
     '''
@@ -382,7 +410,7 @@ def define_system(inputs,phys=False):
     if n_doublets % 2 != 0:
         raise ValueError('Invalid process. Number of would-be doublets is '+str(n_doublets)+'. Please enter a system with an even number of doublets.')
     
-    system = System(sys_reps,inputs) if phys else System(sys_reps)
+    system = System(sys_reps,inputs,phys)
     return system
 
 def generate_srs(system):
@@ -403,15 +431,3 @@ def generate_srs(system):
 
     sum_rules = [sr_mat.tolist() for sr_mat in sum_rules]
     return system, sum_rules, (dup_pairs+1).tolist()
-
-def remove_dups(system,dup_pairs):
-    if len(dup_pairs) > 0:
-        dup_amps = np.array(dup_pairs)[:,1]-1
-        for i in sorted(dup_amps, reverse=True):
-            del system.amp_pairs[i]
-    return system
-
-def extract_sys(system):
-    n = int(system.n)
-    irreps = [map(Fraction,state) for state in system.inputs]
-    return n, irreps
