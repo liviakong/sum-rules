@@ -27,7 +27,7 @@ For this to be possible, you must have a Python installation on your computer. T
 
 ### Option B: Manual installation
 1. Follow [Wolfram's guide](https://reference.wolfram.com/language/workflow/ConfigurePythonForExternalEvaluate.html) for installing Python and the required packages for using ExternalEvaluate. If you already have a Python installation, make sure to follow the steps to install the `pyzmq` package using the package manger `pip`. This allows Mathematica to communicate with Python.
-2. List out the Python evaluators on your computer using
+2. In Mathematica, list out the Python evaluators on your computer using
    ```
    FindExternalEvaluators["Python"]
    ```
@@ -54,7 +54,7 @@ For this to be possible, you must have a Python installation on your computer. T
    4. If you need to delete a registered evaluator, use the [UnregisterExternalEvaluator](https://reference.wolfram.com/language/ref/UnregisterExternalEvaluator.html) function.
 
 ## 2. Check your Python installation
-1. Use Mathematica to start an external Python session:
+1. Start an external Python session in Mathematica:
    ```
    StartExternalSession["Python"]
    ```
@@ -68,7 +68,7 @@ For this to be possible, you must have a Python installation on your computer. T
    ```
    pip install numpy
    ```
-2. Check that you can import NumPy:
+2. In Mathematica, check that you can import NumPy:
    ```
    ExternalEvaluate["Python","import numpy as np; print(np.__version__)"]
    ```
