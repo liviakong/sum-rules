@@ -26,12 +26,12 @@ For this to be possible, you must have a Python installation on your computer. T
 3. If the Wolfram-managed installation fails, follow the steps below for Option B.
 
 ### Option B: Manual installation
-1. Follow [Wolfram's guide](https://reference.wolfram.com/language/workflow/ConfigurePythonForExternalEvaluate.html) for installing Python and the required packages for using ExternalEvaluate. If you already have a Python installation, make sure to follow the steps to install the `pyzmq` package using the package manger `pip`. This allows Mathematica to communicate with Python.
+1. Follow [Wolfram's guide](https://reference.wolfram.com/language/workflow/ConfigurePythonForExternalEvaluate.html) for installing Python and the required packages for using `ExternalEvaluate`. If you already have a Python installation, make sure to follow the steps to install the `pyzmq` package using the package manger `pip`. This allows Mathematica to communicate with Python.
 2. In Mathematica, list out the Python evaluators on your computer using
    ```
    FindExternalEvaluators["Python"]
    ```
-   1. You may have more than one evaluator on your system---make sure to keep track of which one you are installing packages into.
+   1. You may have more than one evaluator on your system&mdash;make sure to keep track of which one you are installing packages into.
 3. Copy the path to the Python executable (either `python.exe` or `python3`) and register it:
    ```
    RegisterExternalEvaluator[
@@ -39,7 +39,7 @@ For this to be possible, you must have a Python installation on your computer. T
      <|"SystemExecutable" -> "C:\\path\\to\\python.exe"|>
    ]
    ```
-   This ensures that your computer remembers where to find the Python evaluator.
+   This ensures that your computer remembers where to find the Python installation.
    1. On Windows, remember to escape the '\\' character in the string using double backslashes as shown above.
    2. If you would like to assign a name to this installation, you can run the following instead (replace `environment name` with the desired name):
       ```
