@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     90805,       1996]
-NotebookOptionsPosition[     88503,       1961]
-NotebookOutlinePosition[     88934,       1978]
-CellTagsIndexPosition[     88891,       1975]
+NotebookDataLength[     99331,       2128]
+NotebookOptionsPosition[     97026,       2093]
+NotebookOutlinePosition[     97457,       2110]
+CellTagsIndexPosition[     97414,       2107]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -31,16 +31,26 @@ ec3d71bc527b"],
 Cell[BoxData[{
  RowBox[{
   RowBox[{
-   RowBox[{
-    RowBox[{"ASRsHelp", "::", "usage"}], 
-    "=", "\"\<ASRsHelp[function] prints extended documentation on a \
-function's arguments, options, and outputs.\>\""}], ";"}], "\n"}], "\n", 
+   RowBox[{"ASRsHelp", "::", "usage"}], 
+   "=", "\"\<ASRsHelp[function] prints extended documentation on a function's \
+arguments, options, and outputs.\>\""}], ";"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    RowBox[{"startPythonSession", "::", "usage"}], 
-    "=", "\"\<startPythonSession[session,path] checks for a valid Python \
-session and file path and loads in the Python file.\>\""}], ";"}], "\n"}], "\n", 
+   RowBox[{"ASRsHelp", "::", "details"}], "=", 
+   "\n", "\"\<Arguments:\nfunction (Symbol): The name of a function from the \
+ASRs Mathematica package\>\""}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"startPythonSession", "::", "usage"}], 
+   "=", "\"\<startPythonSession[session,path] checks for a valid Python \
+session and file path and loads in the Python file.\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"startPythonSession", "::", "details"}], "=", 
+   "\n", "\"\<Arguments:\nsession (ExternalSessionObject): An active external \
+Python session\npath (String): Path to the sum_rules.py Python file\n\n\
+Returns:\nAn ExternalFunction object indicating the sum_rules.py file has \
+been loaded into the Python session\>\""}], "\n"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"generateASRs", "::", "usage"}], 
@@ -64,44 +74,144 @@ and values:\n- \\\"n doublets\\\" (Real): Number of would-be doublets\n- \
 Number of amplitudes in the system\n- \\\"Amplitudes\\\" (Association): \
 Contains all amplitudes in the system. Keys and values:\n\t- \
 \\\"Processes\\\" (List): Contains physical processes constructed from \
-particle names (String) for a process and its U-spin conjugate procress. Only \
-appears for physical systems.\n\t- \\\"QNs\\\" (List): Contains mathematical \
-processes written using m quantum numbers (String), where m is the third \
-component of U-spin\n\t- \\\"n-tuple\\\" (String): \n\t- \\\"Node\\\" \
-(String)\n\t- \\\"Binary indices\\\" (List): Contains\n\t- \\\"q factor\\\" \
-(Real): \n\t- \\\"p factor\\\" (Real): \n\t- \\\"mu\\\" (Real): \n\t- \
+particle names (String) for a process and its U-spin conjugate process. Only \
+available for physical systems.\n\t- \\\"QNs\\\" (List): Contains processes \
+written using m quantum numbers (String), where m is the third component of \
+U-spin, for a process and its U-spin conjugate process\n\t- \\\"n-tuple\\\" \
+(String): Representation of an amplitude pair using a comma-separated tuple \
+of substrings. Each substring is comprised of '-'s and '+'s and encodes u and \
+m QNs of a component of a participating multiplet. Signs are inverted for \
+initial state and Hamiltonian components. By convention, we use one n-tuple \
+(beginning with a '-' sign) to represent an amplitude pair: an amplitude and \
+its U-spin conjugate amplitude.\n\t- \\\"Node\\\" (String): Representation of \
+an amplitude pair using the coordinate notation of the lattice used to derive \
+sum rules\n\t- \\\"Binary indices\\\" (List): Contains decimal indices (Real) \
+derived from converting the n-tuple and its U-spin conjugate into binary \
+numbers through '-' <-> 0 and '+' <-> 1\n\t- \\\"q factor\\\" (Real): \
+(-1)^q_i factor for an amplitude pair accounting for movements of \
+representations between the in state, Hamiltonian, and out state\n\t- \\\"p \
+factor\\\" (Real): (-1)^p parity factor for the system\n\t- \\\"mu\\\" \
+(Real): mu-factor for the node in the lattice used to derive sum rules\n\t- \
 \\\"CG\\\" (Real): Clebsch-Gordan coefficient from symmetrization for systems \
-without doublets. Equals 1 for all amplitudes for a system with at least one \
-doublet.\n\t- \\\"CKM\\\" (List): Contains weak interaction factors (Real) \
-from the Hamiltonian. Only appears for physical systems.\n- \\\"n ASRs\\\" \
-(List): Contains number of amplitude sum rules (Real) at each order of \
-breaking\n- \\\"ASRs\\\" (List): Contains matrices of amplitude sum rule \
+without doublets. Equal to 1 for all amplitudes for a system with at least \
+one doublet.\n\t- \\\"CKM\\\" (List): Contains weak interaction factors \
+(Real) from the Hamiltonian. Only appears for physical systems.\n- \\\"n ASRs\
+\\\" (List): Contains the number of amplitude sum rules (Real) at each order \
+of breaking\n- \\\"ASRs\\\" (List): Contains matrices of amplitude sum rule \
 coefficients (Real) corresponding to each order of breaking\>\""}], ";"}], 
   "\n"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    RowBox[{"numAmps", "::", "usage"}], 
-    "=", "\"\<numAmps[amplitudes] returns the total number of amplitudes in \
-the system.\>\""}], ";"}], "\n"}], "\n", 
+   RowBox[{"numAmps", "::", "usage"}], 
+   "=", "\"\<numAmps[amplitudes] returns the total number of amplitudes in \
+the system.\>\""}], ";"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{
-    RowBox[{"printAmps", "::", "usage"}], 
-    "=", "\"\<printAmps[amplitudes] prints a table of amplitudes.\>\""}], 
+    RowBox[{"numAmps", "::", "details"}], "=", 
+    "\n", "\"\<Arguments:\namplitudes (Association): An amplitude \
+association. See the documentation for generateASRs for details.\n\nOptions:\n\
+nPairs (True|False): Indicates whether to return the number of amplitudes \
+(False) or amplitude pairs (True). Default: nPairs: False.\n\nReturns:\nTotal \
+number of amplitudes or amplitude pairs in the system (Real)\>\""}], ";"}], 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"labelAmps", "::", "usage"}], 
+  "=", "\"\<labelAmps[amplitudes,colName,labels] adds a column of labels to \
+amplitudes.\>\""}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"labelAmps", "::", "details"}], "=", 
+    "\n", "\"\<Arguments:\namplitudes (Association): An amplitude \
+association. See the documentation for generateASRs for details.\ncolName \
+(String): Name of new column to add to amplitudes association\nlabels (List): \
+Contains labels (Any) for each amplitude or amplitude pair. Number of labels \
+must equal number of amplitudes or amplitude pairs.\n\nOptions:\nlabeling \
+(String): Labeling mode to indicate whether user is labeling single \
+amplitudes (\\\"Amplitudes\\\") or amplitude pairs (\\\"Amplitude pairs\\\"). \
+Default: labeling -> \\\"Amplitudes\\\".\n\nReturns:\namplitudes \
+(Association): The inputted amplitudes association, modified to include a new \
+column of user-defined labels. New/modified keys and values:\n- colName \
+(List|Any): Either contains user-defined labels (Any) for an amplitude and \
+its U-spin conjugate or a label (Any) for the amplitude pair\>\""}], ";"}], 
+  "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"unlabelAmps", "::", "usage"}], 
+  "=", "\"\<unlabelAmps[amplitudes,colNames] removes columns from amplitudes.\
+\>\""}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"unlabelAmps", "::", "details"}], "=", 
+    "\n", "\"\<Arguments:\namplitudes (Association): An amplitude \
+association. See the documentation for generateASRs for details.\ncolNames \
+(String|List): Name(s) of column(s) to remove from amplitudes association\n\n\
+Returns:\namplitudes (Association): The inputted amplitudes association, \
+modified to remove specified columns\>\""}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"printAmps", "::", "usage"}], 
+   "=", "\"\<printAmps[amplitudes] prints a table of amplitudes.\>\""}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"printAmps", "::", "details"}], 
+    "=", "\"\<\nArguments:\namplitudes (Association): An amplitude \
+association. See the documentation for generateASRs for details.\n\nOptions:\n\
+showFactors (True|False): Indicates whether to print internal calculation \
+factors from the sum rule algorithm in the amplitudes table (True) or not \
+(False). Not to be confused with the amplitude sum rule matrices. Default: \
+showFactors->False.\>\""}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"numASRs", "::", "usage"}], 
+   "=", "\"\<numASRs[ASRs] returns the number of amplitude sum rules at each \
+order of breaking.\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"numASRs", "::", "details"}], "=", 
+    "\n", "\"\<Arguments:\nASRs (List): Contains matrices of amplitude sum \
+rule coefficients (Real) corresponding to each order of breaking\n\nOptions:\n\
+b (All|Real|List): Breaking order(s) at which to print sum rules. User can \
+print sum rules to all possible orders of breaking (All), at a particular \
+order (Real s.t. 0 <= b <= highest order of breaking), or over a range of \
+orders of breaking ({start b (min: 0), end b (max: highest order of breaking, \
+or All), increment}). Default: b->All.\n\nReturns:\nNumber of amplitude sum \
+rules at each order of breaking (List of Reals)\>\""}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"printASRs", "::", "usage"}], 
+   "=", "\"\<printASRs[ASRs,amplitudes] prints amplitude sum rules at each \
+order of breaking.\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"printASRs", "::", "details"}], "=", 
+    "\n", "\"\<Arguments:\nASRs (List): Contains matrices of amplitude sum \
+rule coefficients (Real) corresponding to each order of breaking\namplitudes \
+(Association): An amplitude association. See the documentation for \
+generateASRs for details.\n\nOptions:\nshowASRs (True|False): Default: \
+showASRs->True.\ntakeProd (True|False): Indicates whether to write each row \
+of a sum rules matrix as an algebraic expression of amplitudes (True) or to \
+keep each row as a list of coefficients (False). Default: takeProd->True.\n\
+ampFormat (String): Specified format for displaying amplitudes. Options are \
+a/s-type amplitudes with n-tuples (\\\"a/s n-tuple\\\"), a/s-type amplitudes \
+with numbered indices (\\\"a/s indices\\\"), a/s-type amplitudes with nodes (\
+\\\"a/s nodes\\\"), A amplitudes with numbered indices (\\\"A indices\\\"), \
+and A amplitudes with physical process (\\\"A physical\\\"). Default: \
+ampFormat->\\\"a/s n-tuple\\\".\nCKM (True|False): Indicates whether to \
+include CKM factors in the sum rules (True) or not (False). Default: \
+CKM->False.\nb (All|Real|List): Breaking order(s) at which to print sum \
+rules. User can print sum rules to all possible orders of breaking (All), at \
+a particular order (Real s.t. 0 <= b <= highest order of breaking), or over a \
+range of orders of breaking ({start b (min: 0), end b (max: highest order of \
+breaking, or All), increment}). Default: b->All.\n\nReturns:\n\\\"Formatted \
+ASRs\\\" (List): Contains Lists/matrices of amplitude sum rules/amplitude sum \
+rule coefficients formatted according to sum rule printing settings\>\""}], 
    ";"}], "\n"}], "\n", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"numASRs", "::", "usage"}], 
-    "=", "\"\<numASRs[ASRs] returns the number of amplitude sum rules at each \
-order of breaking.\>\""}], ";"}], "\n"}], "\n", 
- RowBox[{
-  RowBox[{
-   RowBox[{
-    RowBox[{"printASRs", "::", "usage"}], 
-    "=", "\"\<printASRs[ASRs,amplitudes] prints amplitude sum rules at each \
-order of breaking.\>\""}], ";"}], "\n"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"printSystem", "::", "usage"}], 
@@ -110,20 +220,18 @@ representations, amplitudes, and amplitude sum rules and modifies the system \
 to include formatted sum rules.\>\""}], ";"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    RowBox[{"printSystem", "::", "details"}], "=", 
-    "\n", "\"\<Arguments:\nsystem (Association): All information about the \
-system's representations, amplitudes, and amplitude sum rules. Details about \
-keys and values available in documentation for generateASRs.\n\nOptions:\n\
-showReps (True|False): Default: showReps->True.\n-----\nshowAmps \
-(True|False): Default: showAmps->True\nshowFactors (True|False): Indicates \
-whether to print internal calculation factors from the sum rule algorithm in \
-the amplitudes table (True) or not (False). Not to be confused with the \
-amplitude sum rule matrices. Default: showFactors->False.\n-----\nshowASRs \
-(True|False): Default: showASRs->True.\ntakeProd (True|False): Indicates \
-whether to write each row of a sum rules matrix as an algebraic expression of \
-amplitudes (True) or to keep each row as a list of coefficients (False). \
-Default: takeProd->True.\nampFormat (String): Specified format for displaying \
+   RowBox[{"printSystem", "::", "details"}], "=", 
+   "\n", "\"\<Arguments:\nsystem (Association): A system association. See the \
+documentation for generateASRs for details.\n\nOptions:\nshowReps \
+(True|False): Default: showReps->True.\n-----\nshowAmps (True|False): \
+Default: showAmps->True\nshowFactors (True|False): Indicates whether to print \
+internal calculation factors from the sum rule algorithm in the amplitudes \
+table (True) or not (False). Not to be confused with the amplitude sum rule \
+matrices. Default: showFactors->False.\n-----\nshowASRs (True|False): \
+Default: showASRs->True.\ntakeProd (True|False): Indicates whether to write \
+each row of a sum rules matrix as an algebraic expression of amplitudes \
+(True) or to keep each row as a list of coefficients (False). Default: \
+takeProd->True.\nampFormat (String): Specified format for displaying \
 amplitudes. Options are a/s-type amplitudes with n-tuples (\\\"a/s \
 n-tuple\\\"), a/s-type amplitudes with numbered indices (\\\"a/s \
 indices\\\"), a/s-type amplitudes with nodes (\\\"a/s nodes\\\"), A \
@@ -136,19 +244,10 @@ all possible orders of breaking (All), at a particular order (Real s.t. 0 <= \
 b <= highest order of breaking), or over a range of orders of breaking \
 ({start b (min: 0), end b (max: highest order of breaking, or All), \
 increment}). Default: b->All.\n\nReturns:\nsystem (Association): The inputted \
-system, modified to include formatted amplitude sum rules. New/modified keys \
-and values:\n- \\\"Formatted ASRs\\\" (List): Contains Lists/matrices of \
-amplitude sum rules/amplitude sum rule coefficients formatted according to \
-sum rule printing settings.\>\""}], ";"}], "\n"}], "\n", 
- RowBox[{
-  RowBox[{
-   RowBox[{"labelAmps", "::", "usage"}], 
-   "=", "\"\<labelAmps[amplitudes,colName,labels] adds a column of labels to \
-amplitudes.\>\""}], "\n"}], "\n", 
- RowBox[{
-  RowBox[{"unlabelAmps", "::", "usage"}], 
-  "=", "\"\<unlabelAmps[amplitudes,colNames] removes columns from amplitudes.\
-\>\""}]}], "Code",
+system association, modified to include formatted amplitude sum rules. \
+New/modified keys and values:\n- \\\"Formatted ASRs\\\" (List): Contains \
+Lists/matrices of amplitude sum rules/amplitude sum rule coefficients \
+formatted according to sum rule printing settings.\>\""}], ";"}]}], "Code",
  CellChangeTimes->{{3.9654306305147057`*^9, 3.965430687936945*^9}, {
    3.965431386784767*^9, 3.9654314041288376`*^9}, 3.965431494843601*^9, {
    3.965433459651066*^9, 3.9654336153908634`*^9}, {3.9654336612445736`*^9, 
@@ -229,7 +328,40 @@ amplitudes.\>\""}], "\n"}], "\n",
    3.967757947903244*^9, 3.9677579497218056`*^9}, {3.9677579965243816`*^9, 
    3.967758018622774*^9}, {3.9677580509970703`*^9, 3.9677580807062073`*^9}, {
    3.967758110916733*^9, 3.9677581265480175`*^9}, {3.9680844574351597`*^9, 
-   3.9680844579441566`*^9}},ExpressionUUID->"bfe98629-a847-9e41-92fe-\
+   3.9680844579441566`*^9}, {3.9681606863127728`*^9, 
+   3.9681606889128666`*^9}, {3.968160825296419*^9, 3.9681608465967064`*^9}, {
+   3.9681611639559174`*^9, 3.9681612210721264`*^9}, {3.9681612953986206`*^9, 
+   3.9681612961809864`*^9}, {3.968161343749296*^9, 3.9681613532259636`*^9}, {
+   3.9681616699348392`*^9, 3.96816169811998*^9}, {3.9681617582390366`*^9, 
+   3.9681618023513927`*^9}, {3.9681618485404816`*^9, 3.9681618499367485`*^9}, 
+   3.968161933643999*^9, {3.968161964817747*^9, 3.968161976247961*^9}, {
+   3.968162027043028*^9, 3.9681620752077904`*^9}, {3.9681622155082226`*^9, 
+   3.9681622416148834`*^9}, {3.968162302125622*^9, 3.9681623029535465`*^9}, {
+   3.9681623379017735`*^9, 3.968162341730505*^9}, {3.9681624191822376`*^9, 
+   3.968162421907799*^9}, {3.9681624538600407`*^9, 3.968162454472147*^9}, {
+   3.968162485797886*^9, 3.968162518487364*^9}, 3.9681625499991646`*^9, {
+   3.9681626177457314`*^9, 3.9681626846884155`*^9}, {3.9681627586018505`*^9, 
+   3.968162814778591*^9}, {3.968162930206421*^9, 3.9681630270457306`*^9}, {
+   3.968163058557213*^9, 3.9681631259347*^9}, {3.968163167148899*^9, 
+   3.968163258334337*^9}, {3.9681633087835636`*^9, 3.968163348573292*^9}, {
+   3.968163432323889*^9, 3.9681634845481567`*^9}, {3.9681635326701508`*^9, 
+   3.968163538264988*^9}, {3.968163571650423*^9, 3.9681635725150356`*^9}, {
+   3.968163612068409*^9, 3.9681636507768555`*^9}, {3.9681636854248085`*^9, 
+   3.9681638512902317`*^9}, {3.9681638857007847`*^9, 
+   3.9681640767877216`*^9}, {3.9681641273904552`*^9, 
+   3.9681643071998653`*^9}, {3.968164406185095*^9, 3.9681644624702053`*^9}, {
+   3.9681645225446568`*^9, 3.9681650046363945`*^9}, {3.9681650812317142`*^9, 
+   3.9681650925839386`*^9}, {3.968165144880007*^9, 3.968165267806528*^9}, {
+   3.968165299523384*^9, 3.968165364828102*^9}, {3.968165449996374*^9, 
+   3.9681655419949017`*^9}, 3.9681655813085537`*^9, {3.9681656700641727`*^9, 
+   3.9681657647988663`*^9}, {3.9681658443182774`*^9, 
+   3.9681658768207664`*^9}, {3.968165907393553*^9, 3.9681659233596287`*^9}, {
+   3.9681659821739006`*^9, 3.968166001978256*^9}, {3.968166046501995*^9, 
+   3.968166052435541*^9}, {3.968166087145933*^9, 3.9681660878494015`*^9}, {
+   3.9681661301491623`*^9, 3.968166141202549*^9}, {3.9681662341428127`*^9, 
+   3.9681662893311024`*^9}, {3.9681663847500763`*^9, 
+   3.9681663869501305`*^9}, {3.9681664397234344`*^9, 
+   3.968166549413332*^9}},ExpressionUUID->"bfe98629-a847-9e41-92fe-\
 50acce952acb"],
 
 Cell[BoxData[{
@@ -1385,11 +1517,11 @@ Cell[BoxData[
          RowBox[{"Table", "[", 
           RowBox[{
            RowBox[{"Length", "[", 
-            RowBox[{"sublist", "[", 
+            RowBox[{"ASRs", "[", 
              RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
            RowBox[{"{", 
             RowBox[{"i", ",", 
-             RowBox[{"Length", "[", "sublist", "]"}]}], "}"}]}], "]"}], ",", 
+             RowBox[{"Length", "[", "ASRs", "]"}]}], "}"}]}], "]"}], ",", 
          "\[IndentingNewLine]", 
          RowBox[{"(", 
           RowBox[{
@@ -1417,8 +1549,8 @@ Cell[BoxData[
   3.968085592384865*^9}, {3.968085670014969*^9, 3.968085719030201*^9}, {
   3.9680858250102997`*^9, 3.9680858257356396`*^9}, {3.96808601767914*^9, 
   3.96808603585618*^9}, {3.968153418629385*^9, 3.968153430301914*^9}, {
-  3.968153613214527*^9, 
-  3.9681536553550434`*^9}},ExpressionUUID->"ddaa38d6-bebf-664b-b090-\
+  3.968153613214527*^9, 3.9681536553550434`*^9}, {3.96815998437488*^9, 
+  3.9681599882324333`*^9}},ExpressionUUID->"ddaa38d6-bebf-664b-b090-\
 3c7a18bc0853"],
 
 Cell[BoxData[
@@ -1978,26 +2110,26 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[554, 20, 445, 8, 40, "Code",ExpressionUUID->"d7755607-cbd2-374e-ad05-ec3d71bc527b"],
-Cell[1002, 30, 12414, 202, 939, "Code",ExpressionUUID->"bfe98629-a847-9e41-92fe-50acce952acb"],
-Cell[13419, 234, 286, 9, 68, "Code",ExpressionUUID->"468dc405-e98f-d944-9530-65b2f072ecc9"],
-Cell[13708, 245, 294, 6, 40, "Code",ExpressionUUID->"df1742f8-e3ff-e24a-bbb8-d2eca0a18691"],
-Cell[14005, 253, 1696, 42, 180, "Code",ExpressionUUID->"05555e7c-a6c2-684b-aab7-5668dfef0f53"],
-Cell[15704, 297, 1232, 19, 40, "Code",ExpressionUUID->"aa64c93c-fc27-6843-b787-24caf5262f31"],
-Cell[16939, 318, 1961, 48, 152, "Code",ExpressionUUID->"3b920bb5-cb45-0245-be13-ce3c447d075c"],
-Cell[18903, 368, 542, 16, 40, "Code",ExpressionUUID->"07bc084b-f324-2545-8e8d-5c83b127bf74"],
-Cell[19448, 386, 13831, 307, 433, "Code",ExpressionUUID->"5984c2c7-d660-8343-97c4-7ee157add873"],
-Cell[33282, 695, 2690, 65, 208, "Code",ExpressionUUID->"880939d3-8af6-344f-8730-7a3378b3ba8f"],
-Cell[35975, 762, 6861, 160, 377, "Code",ExpressionUUID->"b8f38615-5711-ca47-ad73-f311a43e531b"],
-Cell[42839, 924, 1407, 34, 54, "Code",ExpressionUUID->"e76c6bd5-7ca7-904b-9202-4c539d870962"],
-Cell[44249, 960, 7818, 160, 377, "Code",ExpressionUUID->"d3f0884b-1669-1d49-8918-ef4b8bcf66e9"],
-Cell[52070, 1122, 809, 21, 68, "Code",ExpressionUUID->"6b6e045b-b322-8a42-a08a-b172d08b7c58"],
-Cell[52882, 1145, 5859, 129, 264, "Code",ExpressionUUID->"652dbf7d-bb33-d140-b908-715ec4001dc0"],
-Cell[58744, 1276, 3135, 78, 236, "Code",ExpressionUUID->"835ed265-edbd-0343-ac5a-5fe68b21eabd"],
-Cell[61882, 1356, 2551, 65, 166, "Code",ExpressionUUID->"ddaa38d6-bebf-664b-b090-3c7a18bc0853"],
-Cell[64436, 1423, 19114, 416, 854, "Code",ExpressionUUID->"8fb53ad9-48f1-744a-a398-94d20fa92c0f"],
-Cell[83553, 1841, 4575, 106, 433, "Code",ExpressionUUID->"2197a131-6a81-2e48-8602-9fd79d754800"],
-Cell[88131, 1949, 180, 4, 40, "Code",ExpressionUUID->"2f822f98-bfdf-524f-8f12-6e99387e6417"],
-Cell[88314, 1955, 185, 4, 40, "Code",ExpressionUUID->"4ce7445f-e663-9240-be66-c08c579c3c16"]
+Cell[1002, 30, 20896, 334, 1880, "Code",ExpressionUUID->"bfe98629-a847-9e41-92fe-50acce952acb"],
+Cell[21901, 366, 286, 9, 68, "Code",ExpressionUUID->"468dc405-e98f-d944-9530-65b2f072ecc9"],
+Cell[22190, 377, 294, 6, 40, "Code",ExpressionUUID->"df1742f8-e3ff-e24a-bbb8-d2eca0a18691"],
+Cell[22487, 385, 1696, 42, 180, "Code",ExpressionUUID->"05555e7c-a6c2-684b-aab7-5668dfef0f53"],
+Cell[24186, 429, 1232, 19, 40, "Code",ExpressionUUID->"aa64c93c-fc27-6843-b787-24caf5262f31"],
+Cell[25421, 450, 1961, 48, 152, "Code",ExpressionUUID->"3b920bb5-cb45-0245-be13-ce3c447d075c"],
+Cell[27385, 500, 542, 16, 40, "Code",ExpressionUUID->"07bc084b-f324-2545-8e8d-5c83b127bf74"],
+Cell[27930, 518, 13831, 307, 433, "Code",ExpressionUUID->"5984c2c7-d660-8343-97c4-7ee157add873"],
+Cell[41764, 827, 2690, 65, 208, "Code",ExpressionUUID->"880939d3-8af6-344f-8730-7a3378b3ba8f"],
+Cell[44457, 894, 6861, 160, 377, "Code",ExpressionUUID->"b8f38615-5711-ca47-ad73-f311a43e531b"],
+Cell[51321, 1056, 1407, 34, 54, "Code",ExpressionUUID->"e76c6bd5-7ca7-904b-9202-4c539d870962"],
+Cell[52731, 1092, 7818, 160, 377, "Code",ExpressionUUID->"d3f0884b-1669-1d49-8918-ef4b8bcf66e9"],
+Cell[60552, 1254, 809, 21, 68, "Code",ExpressionUUID->"6b6e045b-b322-8a42-a08a-b172d08b7c58"],
+Cell[61364, 1277, 5859, 129, 264, "Code",ExpressionUUID->"652dbf7d-bb33-d140-b908-715ec4001dc0"],
+Cell[67226, 1408, 3135, 78, 236, "Code",ExpressionUUID->"835ed265-edbd-0343-ac5a-5fe68b21eabd"],
+Cell[70364, 1488, 2592, 65, 166, "Code",ExpressionUUID->"ddaa38d6-bebf-664b-b090-3c7a18bc0853"],
+Cell[72959, 1555, 19114, 416, 854, "Code",ExpressionUUID->"8fb53ad9-48f1-744a-a398-94d20fa92c0f"],
+Cell[92076, 1973, 4575, 106, 433, "Code",ExpressionUUID->"2197a131-6a81-2e48-8602-9fd79d754800"],
+Cell[96654, 2081, 180, 4, 40, "Code",ExpressionUUID->"2f822f98-bfdf-524f-8f12-6e99387e6417"],
+Cell[96837, 2087, 185, 4, 40, "Code",ExpressionUUID->"4ce7445f-e663-9240-be66-c08c579c3c16"]
 }
 ]
 *)
