@@ -77,7 +77,7 @@ For this to be possible, you must have a Python installation on your computer. T
 
 
 ## 3. Install NumPy
-1. The Python script requires the NumPy package to run. If you followed Option A, your installation should already include NumPy. Otherwise, you may have to manually install it. See if you can import NumPy (the next step). If this fails, enter the following on your terminal or command prompt:
+1. The Python script requires the NumPy package to run. If you followed Option A, your installation should already include NumPy. Otherwise, you may have to manually install it. See if you can import NumPy (the next step). If this fails, enter the following in your terminal or command prompt:
    ```
    pip install numpy
    ```
