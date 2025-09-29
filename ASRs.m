@@ -24,15 +24,15 @@ system (Association): All information about the system's representations, amplit
 - \"n amps\" (Real): Number of amplitudes in the system
 - \"Amplitudes\" (Association): Contains all amplitudes in the system. Keys and values:
 	- \"Processes\" (List): Contains physical processes constructed from particle names (String) for a process and its U-spin conjugate procress. Only appears for physical systems.
-	- \"QNs\" (List): Contains mathematical processes written using m (the third component of U-spin) quantum numbers (String)
-	- \"n-tuple\"
-	- \"Node\"
-	- \"Binary indices\"
-	- \"q factor\"
-	- \"p factor\"
-	- \"mu\"
-	- \"CG\"
-	- \"CKM\" Only appears for physical systems.
+	- \"QNs\" (List): Contains mathematical processes written using m quantum numbers (String), where m is the third component of U-spin
+	- \"n-tuple\" (String): 
+	- \"Node\" (String)
+	- \"Binary indices\" (List): Contains
+	- \"q factor\" (Real): 
+	- \"p factor\" (Real): 
+	- \"mu\" (Real): 
+	- \"CG\" (Real): Clebsch-Gordan coefficient from symmetrization for systems without doublets. Equals 1 for all amplitudes for a system with at least one doublet.
+	- \"CKM\" (List): Contains weak interaction factors (Real) from the Hamiltonian. Only appears for physical systems.
 - \"n ASRs\" (List): Contains number of amplitude sum rules (Real) at each order of breaking
 - \"ASRs\" (List): Contains matrices of amplitude sum rule coefficients (Real) corresponding to each order of breaking";
 
@@ -59,7 +59,7 @@ showASRs (True|False): Default: showASRs->True.
 takeProd (True|False): Indicates whether to write each row of a sum rules matrix as an algebraic expression of amplitudes (True) or to keep each row as a list of coefficients (False). Default: takeProd->True.
 ampFormat (String): Specified format for displaying amplitudes. Options are a/s-type amplitudes with n-tuples (\"a/s n-tuple\"), a/s-type amplitudes with numbered indices (\"a/s indices\"), a/s-type amplitudes with nodes (\"a/s nodes\"), A amplitudes with numbered indices (\"A indices\"), and A amplitudes with physical process (\"A physical\"). Default: ampFormat->\"a/s n-tuple\".
 CKM (True|False): Indicates whether to include CKM factors in the sum rules (True) or not (False). Default: CKM->False.
-b (All|Real|List): Breaking order(s) at which to print sum rules. User can print sum rules to all possible orders of breaking (All), at a particular order (Real /; 0 <= b <= highest order of breaking), or over a range of orders of breaking ({start b (min: 0), end b (max: highest order of breaking, or All), increment}). Default: b->All.
+b (All|Real|List): Breaking order(s) at which to print sum rules. User can print sum rules to all possible orders of breaking (All), at a particular order (Real s.t. 0 <= b <= highest order of breaking), or over a range of orders of breaking ({start b (min: 0), end b (max: highest order of breaking, or All), increment}). Default: b->All.
 
 Returns:
 system (Association): The inputted system, modified to include formatted amplitude sum rules. New/modified keys and values:
@@ -111,7 +111,7 @@ pyEval[expr_,args_:<||>]:=ExternalEvaluate[$ASRsSession,<|"Command"->expr,"Argum
 (* Extracts amplitudes from Python System object *)
 Options[extractAmps]={partVal->{}};
 extractAmps[system_,OptionsPattern[]]:=Module[{amplitudes,colNames,extractParticles,partVal=OptionValue[partVal]},
-amplitudes=pyEval["System.extract_amplitudes",system];
+amplitudes=pyEval["extract_amps",system];
 colNames={"Processes","QNs","n-tuple","Node","Binary indices","q factor","p factor","mu","CG"};
 amplitudes=Map[AssociationThread[colNames,#]&]@amplitudes;
 
@@ -121,16 +121,16 @@ If[Length[partVal]>0,
 (amplitudes[[All,"Processes"]]=Map[{extractParticles[partVal,#[[1]]],extractParticles[partVal,#[[2]]]}&,amplitudes[[All,"Processes"]]];
 amplitudes[[All,"CKM"]]=Map[#[[2]]&,amplitudes[[All,"Processes"]],{2}];
 amplitudes[[All,"Processes"]]=Map[{#[[1]],#[[3]]}&,amplitudes[[All,"Processes"]],{2}];
-amplitudes[[All,"Processes"]]=Map[{StringRiffle[#[[1]]," "],StringRiffle[#[[2]]," "]}&,amplitudes[[All,"Processes"]],{2}];
+amplitudes[[All,"Processes"]]=Map[StringRiffle,amplitudes[[All,"Processes"]],{-2}];
 amplitudes[[All,"Processes"]]=Map[{StringJoin[#[[1]]," \[Rule] ",#[[2]]]}&,amplitudes[[All,"Processes"]],{2}];
 amplitudes[[All,"Processes"]]=Flatten/@amplitudes[[All,"Processes"]];
 ),
 amplitudes=KeyDrop[#,"Processes"]&/@amplitudes;
 ];
 
-amplitudes[[All,"QNs"]]=Map[ToString[Rationalize[#],StandardForm]&,amplitudes[[All,"QNs"]],{-1}];
-amplitudes[[All,"QNs"]]=Map[{StringRiffle[#[[1]]," "],StringRiffle[#[[2]]," "]}&,amplitudes[[All,"QNs"]],{2}];
-amplitudes[[All,"QNs"]]=Map[{StringJoin[#[[1]]," \[Rule] ",#[[2]]]}&,amplitudes[[All,"QNs"]],{2}];
+amplitudes[[All,"QNs"]]=Map[If[#>0,"+"<>ToString[Rationalize[#],StandardForm],ToString[Rationalize[#],StandardForm]]&,amplitudes[[All,"QNs"]],{-1}];
+amplitudes[[All,"QNs"]]=Map[StringRiffle,amplitudes[[All,"QNs"]],{-2}];
+amplitudes[[All,"QNs"]]=Map[{StringJoin[#[[1]],ToString[Overscript[" \[Rule] ",#[[2]]],StandardForm],#[[3]]]}&,amplitudes[[All,"QNs"]],{2}];
 amplitudes[[All,"QNs"]]=Flatten/@amplitudes[[All,"QNs"]];
 
 amplitudes[[All,"mu"]]=Map[Sqrt[#[[1]]]*#[[2]]&,amplitudes[[All,"mu"]]]; (* mu factors *)
@@ -167,12 +167,12 @@ ASRs=Map[# . factorsMat&,ASRs]; (* SRs for symmetrized system *)
 (* Correct for duplicate amplitudes from symmetrization *)
 Do[ASRs[[b]][[All,dupPairs[[All,1]]]]+=ASRs[[b]][[All,dupPairs[[All,2]]]],{b,Length[ASRs]}]; (* adds together cols of duplicate amp pairs *)
 ASRs=Transpose[Delete[Transpose[#],List/@dupPairs[[All,2]]]]&/@ASRs; (* deletes duplicate cols *)
-system=pyEval["System.remove_dups",{system,dupPairs}];
+system=pyEval["remove_dups",{system,dupPairs}];
 amplitudes=extractAmps[system,partVal->particles];
 
 ASRs=Map[Cases[Except@{0..}],Map[RowReduce,ASRs]];
 
-{n,irreps}=pyEval["System.extract_sys",system];
+{n,irreps}=pyEval["extract_sys",system];
 nAmps=numAmps[amplitudes];
 nASRs=numASRs[ASRs];
 system=<|"n doublets"->n,"Irreps"->irreps,"n amps"->nAmps,"Amplitudes"->amplitudes,"n ASRs"->nASRs,"ASRs"->ASRs|>;
@@ -188,15 +188,19 @@ numAmps[amplitudes_,nPairs_:False]:=If[!nPairs,Length@DeleteDuplicates@Flatten@a
 (* Adds a column to amplitudes *)
 SetAttributes[labelAmps,HoldFirst];
 Options[labelAmps]={labeling->"Amplitudes"};
-labelAmps[amplitudes_,colName_String,labels_List,OptionsPattern[]]:=Module[{nAmps,labeling=OptionValue[labeling],pairs,labelVals},
+labelAmps[amplitudes_,colName_String,labels_List,OptionsPattern[]]:=Module[{pairs,nAmps,labelVals,labeling=OptionValue[labeling],indices,labelIndices},
 pairs=If[labeling=="Amplitudes",False,True];
 nAmps=numAmps[amplitudes,pairs];
 If[nAmps==Length@Flatten[labels],Null,Message[labelAmps::arglen,labels,nAmps,Length@Flatten[labels]];Return[$Failed]];
 
 labelVals=Which[
-labeling=="Amplitude pairs",labels,
-labeling=="Amplitudes"&&VectorQ[labels],Partition[labels,2],
-labeling=="Amplitudes",labels,
+labeling=="Amplitude pairs",
+labels,
+labeling=="Amplitudes",
+(indices=amplitudes[[All,"Binary indices"]];
+labelIndices=Sort[Join[Range[nAmps],Table[If[indices[[i,1]]==indices[[i,2]],2*i-1,Nothing],{i,Length[indices]}]]];
+Partition[Table[Flatten[labels][[i]],{i,labelIndices}],2]
+),
 True,Message[labelAmps::badmode,labeling];Return[$Failed]
 ];
 
@@ -210,24 +214,16 @@ labelAmps::badmode="Unknown labeling mode `1`. Use \"Amplitudes\" or \"Amplitude
 
 (* Removes columns from amplitudes *)
 SetAttributes[unlabelAmps,HoldFirst];
-unlabelAmps[amplitudes_,colNames_List]:=(amplitudes=KeyDrop[colNames]/@amplitudes);
+unlabelAmps[amplitudes_,colNames_]:=(amplitudes=KeyDrop[colNames]/@amplitudes);
 
 
 (* Prints a table of amplitudes *)
 Options[printAmps]={showFactors->False};
-printAmps[amplitudes_,OptionsPattern[]]:=Module[{amplitudesVal=amplitudes,indices,selfConjs,nAmps,showFactors=OptionValue[showFactors]},
-(* Delete self-conjugate duplicates from display *)
-If[KeyExistsQ[amplitudesVal[[1]],"Processes"],
-(indices=amplitudesVal[[All,"Binary indices"]];
-selfConjs=Table[If[indices[[i,1]]==indices[[i,2]],i,Nothing],{i,Length[indices]}];
-
-amplitudesVal[[selfConjs,"Processes"]]=DeleteDuplicates/@amplitudesVal[[selfConjs,"Processes"]];
-amplitudesVal[[selfConjs,"CKM"]]=DeleteDuplicates/@amplitudesVal[[selfConjs,"CKM"]];
-),
-Null
-];
-
-amplitudesVal[[All,"Binary indices"]]=DeleteDuplicates/@Table[amplitudesVal[[i,"Binary indices"]],{i,Length[amplitudesVal]}];
+printAmps[amplitudes_,OptionsPattern[]]:=Module[{amplitudesVal=amplitudes,indices,selfConj,nAmps,showFactors=OptionValue[showFactors]},
+(* Delete self-conjugate duplicate values from display *)
+indices=amplitudesVal[[All,"Binary indices"]];
+selfConj=Table[If[indices[[i,1]]==indices[[i,2]],i,Nothing],{i,Length[indices]}];
+amplitudesVal[[selfConj]]=Map[If[ListQ[#],#[[1]],#]&,amplitudesVal[[selfConj]],{2}];
 
 nAmps=numAmps[amplitudesVal];
 
@@ -240,13 +236,35 @@ TableForm[Prepend[Values/@amplitudesVal,Keys[amplitudesVal[[1]]]]]
 ];
 
 
+(* Returns a list of the orders of breaking *)
+listbOrders[b_,nOrders_]:=Module[{bVal=b,bList},
+bVal=b/.{
+{i_,j_,k_:1}:>Span[
+Replace[i,{Null->1,x_Integer:>x+1}],
+Replace[j,{Null->All,x_Integer:>x+1}],
+k
+],
+{i_}:>Span[Replace[i,{Null->1,x_Integer:>x+1}],All],
+i_Integer:>Span[i+1,i+1],
+All:>All
+};
+bList=Flatten@{(Range[nOrders]-1)[[bVal]]};
+bList
+]
+
+
 (* Returns the number of amplitude sum rules at each order of breaking *)
-numASRs[ASRs_]:=Table[Length[ASRs[[i]]],{i,Length[ASRs]}];
+Options[numASRs]={b->All};
+numASRs[ASRs_,OptionsPattern[]]:=Module[{b=OptionValue[b],indices,sublist},
+indices=listbOrders[b,Length[ASRs]]+1;
+sublist=ASRs[[indices]];
+Table[Length[sublist[[i]]],{i,Length[sublist]}]
+];
 
 
 (* Prints amplitude sum rules at each order of breaking *)
 Options[printASRs]={showASRs->True,takeProd->True,ampFormat->"a/s n-tuple",CKM->False,b->All};
-printASRs[ASRs_,amplitudes_,OptionsPattern[]]:=Module[{showASRs=OptionValue[showASRs],takeProd=OptionValue[takeProd],ampFormat=OptionValue[ampFormat],CKM=OptionValue[CKM],b=OptionValue[b],physicalAmps,ampsToVector,ampVector,writtenASRs,blist,numASRsList,matForm,rule},
+printASRs[ASRs_,amplitudes_,OptionsPattern[]]:=Module[{showASRs=OptionValue[showASRs],takeProd=OptionValue[takeProd],ampFormat=OptionValue[ampFormat],CKM=OptionValue[CKM],b=OptionValue[b],physicalAmps,ampsToVector,ampVector,writtenASRs,bList,numASRsList,matForm,rule},
 physicalAmps[amp_,asType_,col_,CKM_]:=Module[{asSign,CKMfactors},
 asSign=If[SymbolName[asType]=="a",-1,+1];
 CKMfactors=If[CKM,{amp[["CKM",1]],amp[["CKM",2]]},{1,1}];
@@ -259,7 +277,7 @@ If[ampFormat=="A physical"&&!KeyExistsQ[amps[[1]],"Processes"],Message[printASRs
 
 vector=Switch[ampFormat,
 "a/s n-tuple",Map[asType[#]&,amps[[All,"n-tuple"]]], (* a/s-type amps with n-tuples; default option *)
-"a/s nodes",Map[asType[#]&,amps[[All,"Node"]]], (* a/s-type amps with nodes *)
+"a/s nodes",Map[asType[#]&,amps[[All,"Node"]]], (*a/s-type amps with nodes*)
 "a/s indices",Map[asType[#]&,amps[[All,"Binary indices",1]]], (* a/s-type amps with numbered subscripts *)
 "A physical",Map[physicalAmps[#,asType,"Processes",CKM]&,amps], (* A amps with physical processes *)
 "A QNs",Map[physicalAmps[#,asType,"QNs",CKM]&,amps], (* A amps with QNs *)
@@ -278,17 +296,7 @@ MapIndexed[If[OddQ[First[#2]],Prepend[#1,ampVector[[1]]],Prepend[#1,ampVector[[2
 ];
 
 (* Cosmetics for printing *)
-b=b/.{
-{i_,j_,k_:1}:>Span[
-Replace[i,{Null->1,x_Integer:>x+1}],
-Replace[j,{Null->All,x_Integer:>x+1}],
-k
-],
-{i_}:>Span[Replace[i,{Null->1,x_Integer:>x+1}],All],
-i_Integer:>Span[i+1,i+1],
-All:>All
-};
-blist=Flatten@{(Range[Length[ASRs]]-1)[[b]]};
+bList=listbOrders[b,Length[ASRs]];
 numASRsList=numASRs[ASRs];
 matForm:=If[takeProd,MatrixForm[#]&,MatrixForm[#[[2;;]],TableHeadings->{None,#[[1]]}]&];
 rule=If[ampFormat=="A physical"||ampFormat=="A QNs",
@@ -299,14 +307,15 @@ x_Symbol[i_]/;x=!=List:>Subscript[x,i]
 If[showASRs,
 (Print["Sum rules"];
 MapIndexed[
-Print["b = ",blist[[#2[[1]]]],"\n",
-"Number of ASRs: ",numASRsList[[blist[[#2[[1]]]]+1]],"\n",
+Print["b = ",bList[[#2[[1]]]],"\n",
+"Number of ASRs: ",numASRsList[[bList[[#2[[1]]]]+1]],"\n",
 matForm@If[takeProd,#1/.rule,ReplacePart[#1,1->(#1[[1]]/.rule)]]
 ]&,
-writtenASRs[[b]]
+writtenASRs[[bList+1]]
 ];
 ),
-Null];
+Null
+];
 
 writtenASRs
 ];
@@ -323,7 +332,7 @@ Print["System: ",Sort@Flatten@irreps];
 
 If[showReps,
 (Print["-------------------------"];
-Print["Number of doublets: ",system[["n doublets"]],"\n",
+Print["Number of would-be doublets: ",system[["n doublets"]],"\n",
 "In: ",irreps[[1]],"\n",
 "H: ",irreps[[2]],"\n",
 "Out: ",irreps[[3]]

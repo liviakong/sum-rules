@@ -144,7 +144,7 @@ class AmplitudePair(Amplitude):
                 state_qns.append(float(m))
             part_indices.append(state_indices)
             qns.append(state_qns)
-        return part_indices, [qns[0],qns[2]]
+        return part_indices, qns
     
     def find_processes_qns(self,inputs,phys):
         ntuple_out = self.particle_indices(inputs,self.ntuple)
@@ -242,7 +242,7 @@ class System:
             amp_pairs.append(AmplitudePair(amp,self.out_lt,self.inputs,self.phys))
         return amp_pairs
     
-    def extract_amplitudes(self): # mathematica amplitudes
+    def extract_amps(self): # mathematica amplitudes
         math_amps = []
         
         for amp in self.amp_pairs:
@@ -431,3 +431,12 @@ def generate_srs(system):
 
     sum_rules = [sr_mat.tolist() for sr_mat in sum_rules]
     return system, sum_rules, (dup_pairs+1).tolist()
+
+def extract_amps(system):
+    return system.extract_amps()
+
+def remove_dups(system,dup_pairs):
+    return system.remove_dups(dup_pairs)
+
+def extract_sys(system):
+    return system.extract_sys()
