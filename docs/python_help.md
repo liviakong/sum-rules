@@ -49,7 +49,7 @@ For this to be possible, you must have a Python installation on your computer. T
    ```
    This ensures that your computer remembers where to find the Python installation.
    1. On Windows, remember to escape the '\\' character in the string using double backslashes as shown above.
-   2. If you would like to assign a name to this installation, you can run the following instead (replace `environment name` with the desired name):
+   2. If you would like to assign a name during registration, you can run the following instead (replace `environment name` with the desired name):
       ```
       RegisterExternalEvaluator[
         "Python",
@@ -77,7 +77,7 @@ For this to be possible, you must have a Python installation on your computer. T
 
 
 ## 3. Install NumPy
-1. The Python script requires the NumPy package to run. If you followed Option A, your installation should already include NumPy. Otherwise, you will have to manually install it. Enter the following on your terminal or command prompt:
+1. The Python script requires the NumPy package to run. If you followed Option A, your installation should already include NumPy. Otherwise, you may have to manually install it. See if you can import NumPy (the next step). If this fails, enter the following in your terminal or command prompt:
    ```
    pip install numpy
    ```
