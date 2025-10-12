@@ -15,7 +15,7 @@ class Multiplet:
 
     def __init__(self,spin,space):
         self.spin = spin
-        self.space = space # necessary to indicate in and h???
+        self.space = space
         self.nt_strs = self.form_str()
 
     def form_str(self):
@@ -70,18 +70,16 @@ class Amplitude:
     def __eq__(self,other):
         return self.ntuple == other.ntuple
 
-class AmplitudePair(Amplitude):
+class AmplitudePair(Amplitude): # finish docs
     '''
     Attributes:
         gen_coord (list): Node (coords are ints) corresponding to the AmplitudePair
-        y_coord (NumPy array): y coordinate (coords are ints) used to find mu
         mu (list): Written as [a,b], where the actual mu factor is sqrt(a)*b
     '''
 
     def __init__(self,amp,out_lt,inputs,phys):
         super().__init__(amp.ntuple,out_lt)
         self.gen_coord = self.map_to_gen_coord()
-        self.y_coord = self.map_to_y_coord()
         self.mu = self.calc_mu()
         self.indices = self.find_indices()
         self.qns = []
@@ -95,13 +93,7 @@ class AmplitudePair(Amplitude):
                 gen_coord += [i+1]*n_minus
         return gen_coord
     
-    def map_to_y_coord(self):
-        y_coord = []
-        for nt_str in self.ntuple[1:]:
-            y_coord.append(nt_str.count('0'))
-        return np.array(y_coord)
-    
-    def calc_mu(self): # simplify with y_coord? -- might be able to delete y_coord entirely
+    def calc_mu(self):
         mu_j_sqrts = []
         mu_j_facts = []
         for nt_str in self.ntuple[1:]:
@@ -172,7 +164,7 @@ class AmplitudePair(Amplitude):
         self.indices = self.find_indices()
         self.processes = self.find_processes_qns(inputs,phys)
 
-class System:
+class System: # only one self_conj_amp at most (if any), finish docs
     '''
     Attributes:
         aux (bool): True only if the System contains an auxiliary doublet
@@ -194,7 +186,7 @@ class System:
         self.n = self.find_n()
         self.p = self.find_p()
         self.amp_pairs = self.form_amp_pairs()
-        self.self_conj_amps = self.find_self_conj_amps()
+        self.self_conj_amp = self.find_self_conj_amp()
     
     def sort_add_aux(self,reps):
         sorted_reps = sorted(reps,key=lambda x: x.spin)
@@ -262,13 +254,13 @@ class System:
         self.aux = False
         return self
     
-    def find_self_conj_amps(self):
-        self_conj_amps = []
+    def find_self_conj_amp(self):
+        self_conj_amp = []
         for i,amp in enumerate(self.amp_pairs):
             if amp.ntuple == amp.conjugate():
-                self_conj_amps.append(i)
-        self.self_conj_amps = self_conj_amps
-        return self_conj_amps
+                self_conj_amp.append(i)
+        self.self_conj_amp = self_conj_amp
+        return self_conj_amp
     
     def find_dup_pairs(self):
         dup_pairs = []
@@ -292,15 +284,14 @@ class System:
                 del self.amp_pairs[i]
         return self
     
-    def extract_sys(self):
+    def extract_sys(self): # mathematica system
         n = int(self.n)
         irreps = [map(Fraction,state) for state in self.inputs]
         return n, irreps
 
-class SumRule: ############################## might be able to modify into a set of functions??
+class SumRule:
     '''
     Attributes:
-        b (int): Dimension of subspace and breaking order of SumRule
         subspace (list): Contains nodes (strs)
         amp_pairs (list): Contains AmplitudePairs corresponding to nodes (can
                           include duplicates)
@@ -310,7 +301,6 @@ class SumRule: ############################## might be able to modify into a set
     '''
 
     def __init__(self,b,subspace,lattice):
-        #self.b = b
         self.subspace = self.remove_zeros(lattice,subspace)
         self.amp_pairs = [lattice[node] for node in self.subspace]
         self.M_values = self.unit(lattice) if (b == 0) else self.count_amps(lattice)
@@ -338,14 +328,16 @@ class SumRule: ############################## might be able to modify into a set
             M_values.append(sr_amps.count(amp))
         return M_values
 
-class Lattice: ###### modify sum_rules attribute (list of np matrices) if using .M_values method
+class Lattice:
     '''
     Attributes:
         d (int): Lattice dimension
         l (int): Length of each dimension
         lattice (dict): Contains all non-zero nodes (strs) as keys. Values are
                         AmplitudePairs corresponding to nodes.
-        sum_rules (list): Contains lists of SumRules by order of breaking
+        sum_rules (list): Contains lists of M values (1D NumPy arrays of ints)
+                          by order of breaking. Multiplying M values by mu and
+                          CG factors give SRs.
     '''
 
     def __init__(self,system):
@@ -394,13 +386,15 @@ def define_system(inputs,phys=False):
     Parameters:
         inputs (list): Contains lists of the total U-spins (flts) in the incoming
                        state, Hamiltonian, and outgoing state.
+        phys (bool): Indicates whether inputted system is physical (True) or
+                     purely group-theoretical (False). Default: phys=False.
 
     Returns:
         system (System): System formed from non-trivial (u > 0) reps in input
     '''
 
     sys_reps = []
-    states = ['in','h','out'] ###################### might not need in and h, just make a boolean for out
+    states = ['in','h','out'] # keeping h as separate space for the future
     for i,input in enumerate(inputs):
         reps = [rep for rep in input if rep != 0]
         reps = [Multiplet(rep,states[i]) for rep in reps]
@@ -414,20 +408,42 @@ def define_system(inputs,phys=False):
     return system
 
 def generate_srs(system):
+    '''
+    Parameters:
+        system (System): System formed from non-trivial (u > 0) reps in input
+
+    Returns:
+        system (System): Modified system to account for symmetrization (if applicable)
+        sum_rules (list): Contains lists of M values (lists of ints) by order
+                          of breaking. Multiplying M values by mu and CG factors
+                          give SRs.
+        dup_pairs (list): Contains index pairs [i,l] of duplicate conjugate pairs
+                          from symmetrization using Mathematica indexing
+    '''
+
     lattice = Lattice(system)
     sum_rules = lattice.sum_rules # M values for aux/original system, when multiplied by mu factors they become SRs
 
     if system.aux:
         system.symmetrize()
     
-    # Set identically 0 amplitudes to 0 in SRs, edits for duplicate amplitudes from symmetrization
-    self_conj_amps = system.find_self_conj_amps() #column indices of self conj amps within amp_pairs list
-    dup_pairs = np.array(system.find_dup_pairs())
-    for i,sr_mat in enumerate(sum_rules): #vanishing amplitudes are a-type for even p, s-type for odd p
-        if (i % 2) == (system.p % 2):
-            sr_mat[:,self_conj_amps] = 0
-            if len(dup_pairs) > 0:
-                sr_mat[:,dup_pairs[:,1]] = -sr_mat[:,dup_pairs[:,1]] #negated dup amplitudes are a-type for even p, etc
+    # Symmetrization corrections
+    # Set identically 0 amplitudes to 0 in SRs, negation for some duplicate amplitudes
+    self_conj_amp = system.find_self_conj_amp() # column index of self conj amp within amp_pairs list
+    dup_pairs = system.find_dup_pairs() # index pairs [i,l] of duplicate conjugate pairs
+    q_match = np.array([system.amp_pairs[pair[0]].q == system.amp_pairs[pair[1]].q 
+                        for pair in dup_pairs])
+    dup_pairs = np.array(dup_pairs)
+    b_start = [0,1] if (system.p % 2 == 0) else [1,0] # [a,s] if p even else [s,a]
+
+    for sr_mat in sum_rules[b_start[0]::2]: # 1) set self conj col to 0; 2) negate dup cols where qmatch
+        sr_mat[:,self_conj_amp] = 0 # vanishing amplitudes are a-type for even p, s-type for odd p
+        if (len(dup_pairs) > 0):
+            sr_mat[:,dup_pairs[q_match][:,1]] = -sr_mat[:,dup_pairs[q_match][:,1]] # negate dup amps where qmatch
+    
+    for sr_mat in sum_rules[b_start[1]::2]: # negate dup cols where not qmatch
+        if (len(dup_pairs) > 0):
+            sr_mat[:,dup_pairs[~q_match][:,1]] = -sr_mat[:,dup_pairs[~q_match][:,1]]
 
     sum_rules = [sr_mat.tolist() for sr_mat in sum_rules]
     return system, sum_rules, (dup_pairs+1).tolist()
