@@ -285,9 +285,10 @@ class System: # only one self_conj_amp at most (if any), finish docs
         return self
     
     def extract_sys(self): # mathematica system
+        aux = self.aux
         n = int(self.n)
         irreps = [map(Fraction,state) for state in self.inputs]
-        return n, irreps
+        return aux, n, irreps
 
 class SumRule:
     '''
@@ -447,12 +448,3 @@ def generate_srs(system):
 
     sum_rules = [sr_mat.tolist() for sr_mat in sum_rules]
     return system, sum_rules, (dup_pairs+1).tolist()
-
-def extract_amps(system):
-    return system.extract_amps()
-
-def remove_dups(system,dup_pairs):
-    return system.remove_dups(dup_pairs)
-
-def extract_sys(system):
-    return system.extract_sys()

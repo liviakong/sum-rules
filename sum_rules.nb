@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     99797,       2134]
-NotebookOptionsPosition[     97492,       2099]
-NotebookOutlinePosition[     97923,       2116]
-CellTagsIndexPosition[     97880,       2113]
+NotebookDataLength[    100996,       2157]
+NotebookOptionsPosition[     98691,       2122]
+NotebookOutlinePosition[     99122,       2139]
+CellTagsIndexPosition[     99079,       2136]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -548,8 +548,8 @@ Cell[BoxData[
        RowBox[{
         RowBox[{"amplitudes", "=", 
          RowBox[{"pyEval", "[", 
-          RowBox[{"\"\<extract_amps\>\"", ",", "system"}], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
+          RowBox[{"\"\<System.extract_amps\>\"", ",", "system"}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
         RowBox[{"colNames", "=", 
          RowBox[{"{", 
           
@@ -825,8 +825,9 @@ Cell[BoxData[
    3.9679362188831177`*^9, 3.96793624703714*^9}, {3.9679365750404987`*^9, 
    3.9679365813305607`*^9}, {3.9679368757815323`*^9, 3.967936892052561*^9}, {
    3.9679369277319164`*^9, 3.9679369352249546`*^9}, {3.967937293035408*^9, 
-   3.9679373215209007`*^9}, {3.9679374756224937`*^9, 
-   3.967937484680094*^9}},ExpressionUUID->"5984c2c7-d660-8343-97c4-\
+   3.9679373215209007`*^9}, {3.9679374756224937`*^9, 3.967937484680094*^9}, {
+   3.969824363740185*^9, 
+   3.9698243651743965`*^9}},ExpressionUUID->"5984c2c7-d660-8343-97c4-\
 7ee157add873"],
 
 Cell[BoxData[
@@ -913,8 +914,9 @@ Cell[BoxData[{
       RowBox[{"system", ",", 
        RowBox[{"phys", "=", 
         RowBox[{"OptionValue", "[", "phys", "]"}]}], ",", "particles", ",", 
-       "ASRs", ",", "amplitudes", ",", "dupPairs", ",", "factorsMat", ",", 
-       "n", ",", "irreps", ",", "nAmps", ",", "nASRs"}], "}"}], ",", "\n", 
+       "aux", ",", "ASRs", ",", "amplitudes", ",", "dupPairs", ",", 
+       "factorsMat", ",", "n", ",", "irreps", ",", "nAmps", ",", "nASRs"}], 
+      "}"}], ",", "\n", 
      RowBox[{
       RowBox[{
        RowBox[{"{", 
@@ -924,6 +926,11 @@ Cell[BoxData[{
       RowBox[{"(*", " ", 
        RowBox[{"constructs", " ", "Python", " ", "System", " ", "object"}], 
        " ", "*)"}], "\n", "\n", 
+      RowBox[{"aux", "=", 
+       RowBox[{
+        RowBox[{"pyEval", "[", 
+         RowBox[{"\"\<System.extract_sys\>\"", ",", "system"}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], ";", "\n", "\n", 
       RowBox[{
        RowBox[{"{", 
         RowBox[{"system", ",", "ASRs", ",", "dupPairs"}], "}"}], "=", 
@@ -1004,7 +1011,7 @@ Cell[BoxData[{
        RowBox[{"deletes", " ", "duplicate", " ", "cols"}], " ", "*)"}], "\n", 
       RowBox[{"system", "=", 
        RowBox[{"pyEval", "[", 
-        RowBox[{"\"\<remove_dups\>\"", ",", 
+        RowBox[{"\"\<System.remove_dups\>\"", ",", 
          RowBox[{"{", 
           RowBox[{"system", ",", "dupPairs"}], "}"}]}], "]"}]}], ";", 
       "\[IndentingNewLine]", 
@@ -1012,7 +1019,7 @@ Cell[BoxData[{
        RowBox[{"extractAmps", "[", 
         RowBox[{"system", ",", 
          RowBox[{"partVal", "->", "particles"}]}], "]"}]}], ";", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", "\n", 
       RowBox[{"ASRs", "=", 
        RowBox[{"Map", "[", 
         RowBox[{
@@ -1020,18 +1027,27 @@ Cell[BoxData[{
           RowBox[{"Except", "@", 
            RowBox[{"{", 
             RowBox[{"0", ".."}], "}"}]}], "]"}], ",", 
-         RowBox[{"Map", "[", 
-          RowBox[{"RowReduce", ",", "ASRs"}], "]"}]}], "]"}]}], ";", 
-      "\[IndentingNewLine]", "\n", 
+         RowBox[{"If", "[", 
+          RowBox[{"aux", ",", 
+           RowBox[{"Map", "[", 
+            RowBox[{"RowReduce", ",", "ASRs"}], "]"}], ",", "ASRs"}], "]"}]}],
+         "]"}]}], ";", " ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "only", " ", "row", " ", "reduces", " ", "if", " ", "symmetrization", " ",
+         "was", " ", "required"}], " ", "*)"}], "\n", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"{", 
         RowBox[{"n", ",", "irreps"}], "}"}], "=", 
-       RowBox[{"pyEval", "[", 
-        RowBox[{"\"\<extract_sys\>\"", ",", "system"}], "]"}]}], ";", "\n", 
+       RowBox[{
+        RowBox[{"pyEval", "[", 
+         RowBox[{"\"\<System.extract_sys\>\"", ",", "system"}], "]"}], "[", 
+        RowBox[{"[", 
+         RowBox[{"2", ";;"}], "]"}], "]"}]}], ";", "\n", 
       RowBox[{"nAmps", "=", 
        RowBox[{"numAmps", "[", "amplitudes", "]"}]}], ";", "\n", 
       RowBox[{"nASRs", "=", 
-       RowBox[{"numASRs", "[", "ASRs", "]"}]}], ";", "\n", 
+       RowBox[{"numASRs", "[", "ASRs", "]"}]}], ";", "\n", "\n", 
       RowBox[{"system", "=", 
        RowBox[{"<|", 
         RowBox[{
@@ -1040,7 +1056,7 @@ Cell[BoxData[{
          RowBox[{"\"\<n amps\>\"", "->", "nAmps"}], ",", 
          RowBox[{"\"\<Amplitudes\>\"", "->", "amplitudes"}], ",", 
          RowBox[{"\"\<n ASRs\>\"", "->", "nASRs"}], ",", 
-         RowBox[{"\"\<ASRs\>\"", "->", "ASRs"}]}], "|>"}]}], ";", "\n", "\n", 
+         RowBox[{"\"\<ASRs\>\"", "->", "ASRs"}]}], "|>"}]}], ";", "\n", 
       "system"}]}], "\[IndentingNewLine]", "]"}]}], ";"}]}], "Code",
  CellChangeTimes->{{3.96547339632358*^9, 3.965473424966324*^9}, 
    3.965473678537565*^9, {3.9663704810984497`*^9, 3.9663705740647907`*^9}, {
@@ -1054,8 +1070,15 @@ Cell[BoxData[{
    3.9663754752416916`*^9, 3.9663755260716343`*^9}, {3.966376166493292*^9, 
    3.966376176514143*^9}, {3.966813808118252*^9, 3.966813808158779*^9}, {
    3.966892451289791*^9, 3.9668924624586487`*^9}, {3.9668927060052357`*^9, 
-   3.9668927070370502`*^9}, {3.966974491341345*^9, 
-   3.966974499108799*^9}},ExpressionUUID->"b8f38615-5711-ca47-ad73-\
+   3.9668927070370502`*^9}, {3.966974491341345*^9, 3.966974499108799*^9}, {
+   3.9696565937770596`*^9, 3.969656608332382*^9}, {3.9698236248689785`*^9, 
+   3.9698236318811493`*^9}, {3.9698237751570797`*^9, 3.969823791915119*^9}, {
+   3.969823963080391*^9, 3.9698239675466576`*^9}, {3.969824124026436*^9, 
+   3.9698241874309177`*^9}, {3.969824227009157*^9, 3.9698242482928696`*^9}, {
+   3.9698243961070366`*^9, 3.9698244257476425`*^9}, {3.969824459079674*^9, 
+   3.9698244614640884`*^9}, {3.969824644076483*^9, 3.9698246658296375`*^9}, {
+   3.969824726019333*^9, 3.969824730125698*^9}, {3.969825712686264*^9, 
+   3.969825720511711*^9}},ExpressionUUID->"b8f38615-5711-ca47-ad73-\
 f311a43e531b"],
 
 Cell[BoxData[
@@ -2123,19 +2146,19 @@ Cell[22835, 389, 1696, 42, 180, "Code",ExpressionUUID->"05555e7c-a6c2-684b-aab7-
 Cell[24534, 433, 1232, 19, 40, "Code",ExpressionUUID->"aa64c93c-fc27-6843-b787-24caf5262f31"],
 Cell[25769, 454, 1961, 48, 152, "Code",ExpressionUUID->"3b920bb5-cb45-0245-be13-ce3c447d075c"],
 Cell[27733, 504, 542, 16, 40, "Code",ExpressionUUID->"07bc084b-f324-2545-8e8d-5c83b127bf74"],
-Cell[28278, 522, 13831, 307, 433, "Code",ExpressionUUID->"5984c2c7-d660-8343-97c4-7ee157add873"],
-Cell[42112, 831, 2690, 65, 208, "Code",ExpressionUUID->"880939d3-8af6-344f-8730-7a3378b3ba8f"],
-Cell[44805, 898, 6861, 160, 377, "Code",ExpressionUUID->"b8f38615-5711-ca47-ad73-f311a43e531b"],
-Cell[51669, 1060, 1407, 34, 54, "Code",ExpressionUUID->"e76c6bd5-7ca7-904b-9202-4c539d870962"],
-Cell[53079, 1096, 7818, 160, 377, "Code",ExpressionUUID->"d3f0884b-1669-1d49-8918-ef4b8bcf66e9"],
-Cell[60900, 1258, 809, 21, 68, "Code",ExpressionUUID->"6b6e045b-b322-8a42-a08a-b172d08b7c58"],
-Cell[61712, 1281, 5859, 129, 264, "Code",ExpressionUUID->"652dbf7d-bb33-d140-b908-715ec4001dc0"],
-Cell[67574, 1412, 3135, 78, 236, "Code",ExpressionUUID->"835ed265-edbd-0343-ac5a-5fe68b21eabd"],
-Cell[70712, 1492, 2592, 65, 166, "Code",ExpressionUUID->"ddaa38d6-bebf-664b-b090-3c7a18bc0853"],
-Cell[73307, 1559, 19232, 418, 854, "Code",ExpressionUUID->"8fb53ad9-48f1-744a-a398-94d20fa92c0f"],
-Cell[92542, 1979, 4575, 106, 433, "Code",ExpressionUUID->"2197a131-6a81-2e48-8602-9fd79d754800"],
-Cell[97120, 2087, 180, 4, 40, "Code",ExpressionUUID->"2f822f98-bfdf-524f-8f12-6e99387e6417"],
-Cell[97303, 2093, 185, 4, 40, "Code",ExpressionUUID->"4ce7445f-e663-9240-be66-c08c579c3c16"]
+Cell[28278, 522, 13890, 308, 433, "Code",ExpressionUUID->"5984c2c7-d660-8343-97c4-7ee157add873"],
+Cell[42171, 832, 2690, 65, 208, "Code",ExpressionUUID->"880939d3-8af6-344f-8730-7a3378b3ba8f"],
+Cell[44864, 899, 8001, 182, 405, "Code",ExpressionUUID->"b8f38615-5711-ca47-ad73-f311a43e531b"],
+Cell[52868, 1083, 1407, 34, 54, "Code",ExpressionUUID->"e76c6bd5-7ca7-904b-9202-4c539d870962"],
+Cell[54278, 1119, 7818, 160, 377, "Code",ExpressionUUID->"d3f0884b-1669-1d49-8918-ef4b8bcf66e9"],
+Cell[62099, 1281, 809, 21, 68, "Code",ExpressionUUID->"6b6e045b-b322-8a42-a08a-b172d08b7c58"],
+Cell[62911, 1304, 5859, 129, 264, "Code",ExpressionUUID->"652dbf7d-bb33-d140-b908-715ec4001dc0"],
+Cell[68773, 1435, 3135, 78, 236, "Code",ExpressionUUID->"835ed265-edbd-0343-ac5a-5fe68b21eabd"],
+Cell[71911, 1515, 2592, 65, 166, "Code",ExpressionUUID->"ddaa38d6-bebf-664b-b090-3c7a18bc0853"],
+Cell[74506, 1582, 19232, 418, 854, "Code",ExpressionUUID->"8fb53ad9-48f1-744a-a398-94d20fa92c0f"],
+Cell[93741, 2002, 4575, 106, 433, "Code",ExpressionUUID->"2197a131-6a81-2e48-8602-9fd79d754800"],
+Cell[98319, 2110, 180, 4, 40, "Code",ExpressionUUID->"2f822f98-bfdf-524f-8f12-6e99387e6417"],
+Cell[98502, 2116, 185, 4, 40, "Code",ExpressionUUID->"4ce7445f-e663-9240-be66-c08c579c3c16"]
 }
 ]
 *)

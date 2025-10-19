@@ -178,7 +178,7 @@ pyEval[expr_,args_:<||>]:=ExternalEvaluate[$ASRsSession,<|"Command"->expr,"Argum
 (* Extracts amplitudes from Python System object *)
 Options[extractAmps]={partVal->{}};
 extractAmps[system_,OptionsPattern[]]:=Module[{amplitudes,colNames,extractParticles,partVal=OptionValue[partVal]},
-amplitudes=pyEval["extract_amps",system];
+amplitudes=pyEval["System.extract_amps",system];
 colNames={"Processes","QNs","n-tuple","Node","Binary indices","q factor","p factor","mu","CG"};
 amplitudes=Map[AssociationThread[colNames,#]&]@amplitudes;
 
@@ -222,8 +222,10 @@ system=pyEval["define_system",{reps,phys}];
 
 
 Options[generateASRs]={phys->False};
-generateASRs[in_,h_,out_,OptionsPattern[]]:=Module[{system,phys=OptionValue[phys],particles,ASRs,amplitudes,dupPairs,factorsMat,n,irreps,nAmps,nASRs},
+generateASRs[in_,h_,out_,OptionsPattern[]]:=Module[{system,phys=OptionValue[phys],particles,aux,ASRs,amplitudes,dupPairs,factorsMat,n,irreps,nAmps,nASRs},
 {system,particles}=defineSystem[in,h,out,phys]; (* constructs Python System object *)
+
+aux=pyEval["System.extract_sys",system][[1]];
 
 {system,ASRs,dupPairs}=pyEval["generate_srs",system]; (* M values for symmetrized system, contains duplicate amplitudes *)
 amplitudes=extractAmps[system];
@@ -234,16 +236,16 @@ ASRs=Map[# . factorsMat&,ASRs]; (* SRs for symmetrized system *)
 (* Correct for duplicate amplitudes from symmetrization *)
 Do[ASRs[[b]][[All,dupPairs[[All,1]]]]+=ASRs[[b]][[All,dupPairs[[All,2]]]],{b,Length[ASRs]}]; (* adds together cols of duplicate amp pairs *)
 ASRs=Transpose[Delete[Transpose[#],List/@dupPairs[[All,2]]]]&/@ASRs; (* deletes duplicate cols *)
-system=pyEval["remove_dups",{system,dupPairs}];
+system=pyEval["System.remove_dups",{system,dupPairs}];
 amplitudes=extractAmps[system,partVal->particles];
 
-ASRs=Map[Cases[Except@{0..}],Map[RowReduce,ASRs]];
+ASRs=Map[Cases[Except@{0..}],If[aux,Map[RowReduce,ASRs],ASRs]]; (* only row reduces if symmetrization was required *)
 
-{n,irreps}=pyEval["extract_sys",system];
+{n,irreps}=pyEval["System.extract_sys",system][[2;;]];
 nAmps=numAmps[amplitudes];
 nASRs=numASRs[ASRs];
-system=<|"n doublets"->n,"Irreps"->irreps,"n amps"->nAmps,"Amplitudes"->amplitudes,"n ASRs"->nASRs,"ASRs"->ASRs|>;
 
+system=<|"n doublets"->n,"Irreps"->irreps,"n amps"->nAmps,"Amplitudes"->amplitudes,"n ASRs"->nASRs,"ASRs"->ASRs|>;
 system
 ];
 
