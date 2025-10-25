@@ -11,8 +11,8 @@ _Note: Some slightly older versions (Mathematica 11.2+, Python 3.4+) may work, b
 Within Mathematica, the `ExternalEvaluate` function is used to call Python code, and the `StartExternalSession` function is used to initialize a persistent Python session so that multiple calls of `ExternalEvaluate` share the same state (ex. variables, imports).
 
 For this to be possible, you must have a Python installation on your computer. There are two routes:
-* Option A (preferred): You do not already have a Python installation on your computer, or you would prefer to keep your Python installation(s) independent of Mathematica's processes.
-* Option B: You would like to configure your existing Python installation(s) for Mathematica, or Option A fails to install Python.
+* **Option A (preferred)**: You do not already have a Python installation on your computer, _or_ you would prefer to keep your Python installation(s) independent of Mathematica's processes.
+* **Option B**: You would like to configure your existing Python installation(s) for Mathematica, _or_ Option A fails to install Python.
 
 
 ### Option A: Wolfram-managed installation (preferred)
@@ -21,14 +21,9 @@ For this to be possible, you must have a Python installation on your computer. T
    StartExternalSession["Python"]
    ```
    
-2. You may receive an error and be prompted to install Python. Run
-   ```
-   ExternalEvaluate["Python","Install"]
-   ```
-   to install a Wolfram-managed Miniconda Python environment.
-   1. If you are using Mathematica 12.0+, the program may attempt to do this automatically.
-   
-3. If the Wolfram-managed installation fails, follow the steps below for Option B.
+2. If this runs successfully, proceed to Step 2. Otherwise, Mathematica may prompt you to install Python. If instructions are provided, follow them to install Python.
+   1. If you are using Mathematica 12.0+, the program may attempt to automatically install Python for you.
+   2. If the Wolfram-managed installation fails or no instructions are provided, follow the steps below for Option B.
 
 
 ### Option B: Manual installation
@@ -49,17 +44,7 @@ For this to be possible, you must have a Python installation on your computer. T
    ```
    This ensures that your computer remembers where to find the Python installation.
    1. On Windows, remember to escape the '\\' character in the string using double backslashes as shown above.
-   2. If you would like to assign a name during registration, you can run the following instead (replace `environment name` with the desired name):
-      ```
-      RegisterExternalEvaluator[
-        "Python",
-        <|
-          "SystemExecutable" -> "C:\\path\\to\\python.exe",
-          "Name" -> "environment name"
-        |>
-      ]
-      ```
-   3. If you need to delete a registered evaluator, use the [UnregisterExternalEvaluator](https://reference.wolfram.com/language/ref/UnregisterExternalEvaluator.html) function.
+   2. If you need to delete a registered evaluator, use the [UnregisterExternalEvaluator](https://reference.wolfram.com/language/ref/UnregisterExternalEvaluator.html) function.
 
 
 
@@ -77,12 +62,14 @@ For this to be possible, you must have a Python installation on your computer. T
 
 
 ## 3. Install NumPy
-1. The Python script requires the NumPy package to run. If you followed Option A, your installation should already include NumPy. Otherwise, you may have to manually install it. See if you can import NumPy (the next step). If this fails, enter the following in your terminal or command prompt:
-   ```
-   pip install numpy
-   ```
-   
-2. In Mathematica, check that you can import NumPy:
+The Python script requires the NumPy package to run. If you followed Option A, your installation should already include NumPy. Otherwise, you may have to manually install it.
+
+1. In Mathematica, see if you can import NumPy:
    ```
    ExternalEvaluate["Python","import numpy as np; print(np.__version__)"]
+   ```
+   
+2. If this runs successfully, your computer is ready to run the Mathematica package. Otherwise, enter the following in your terminal or command prompt to add NumPy to your Python installation:
+   ```
+   pip install numpy
    ```
