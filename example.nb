@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    145591,       3068]
-NotebookOptionsPosition[    140707,       2983]
-NotebookOutlinePosition[    141409,       3006]
-CellTagsIndexPosition[    141303,       3001]
+NotebookDataLength[    131574,       2729]
+NotebookOptionsPosition[    126138,       2630]
+NotebookOutlinePosition[    126840,       2653]
+CellTagsIndexPosition[    126734,       2648]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -32,6 +32,14 @@ Cell["Import files and initialize the Python session", "Section",
   3.965425568920616*^9, 
   3.96542556923048*^9}},ExpressionUUID->"4aa9d8e1-d61b-3d45-a0f7-\
 7c3ef4c60912"],
+
+Cell["\<\
+Download ASRs.m and sum_rules.py and ensure both files are in the same \
+directory as example.nb.\
+\>", "Text",
+ CellChangeTimes->{{3.970833433495434*^9, 
+  3.970833456755224*^9}},ExpressionUUID->"6f7fadec-9014-0d49-9fb3-\
+019c3849d5a0"],
 
 Cell[CellGroupData[{
 
@@ -100,10 +108,13 @@ Cell[BoxData[
             PaneBox[
              ButtonBox[
               DynamicBox[
-               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
-              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
-              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
-              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"], 
+               ImageSizeCache -> {
+                9.771663484610617, {0., 9.771663484610617}}], Appearance -> 
+              None, BaseStyle -> {}, 
+              ButtonFunction :> (Typeset`open$$ = True), Evaluator -> 
+              Automatic, Method -> "Preemptive"], 
+             Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
                Automatic, 
                 3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
@@ -214,14 +225,12 @@ Q3penCaTA4wPcw+Mn7H5VfHWqSIO6sGsiyf9UsbgG2itFL5wRAyuHsYH+zvH
 AM6PATlsjSGcbwwKeGUjhzV2QIfZSzn8sSo41zHJyKGuBxgRlfIOGUo5FVWs
 xg62s0Pnr85VcljVFOg5l8HYoX15+CkjFlW4+l23uv6mlms4/OIH2uhs5BAg
 J5bl+1kLYj/QPlh8w9wD4wMA37PnHw==
-                  "]}]}}, {
-              ImageSize -> 
-               Dynamic[{
-                 Automatic, 
-                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
-                   Magnification])}], AspectRatio -> Automatic, 
-               ImageSize -> {20., 20.}, PlotRange -> {{0., 20.}, {0., 20.}}}],
-              LightDarkAutoColorRules -> {}, StripOnInput -> False], 
+                  "]}]}}, AspectRatio -> Automatic, ImageSize -> 
+              Dynamic[{
+                Automatic, 
+                 3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}], PlotRange -> {{0., 20.}, {0., 20.}}], 
+             StripOnInput -> False, LightDarkAutoColorRules -> {}], 
             GridBox[{{
                RowBox[{
                  TagBox["\"System: \"", "SummaryItemAnnotation"], 
@@ -240,26 +249,29 @@ J5bl+1kLYj/QPlh8w9wD4wMA37PnHw==
                  TagBox["\"IsClass: \"", "SummaryItemAnnotation"], 
                  "\[InvisibleSpace]", 
                  TagBox["False", "SummaryItem"]}], "\[SpanFromLeft]"}}, 
-             GridBoxAlignment -> {
-              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-             False, GridBoxItemSize -> {
-              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
-              BaseStyle -> {
+             AutoDelete -> False, 
+             BaseStyle -> {
               ShowStringCharacters -> False, NumberMarks -> False, 
-               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {
+              "Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}}, AutoDelete -> 
+          False, BaselinePosition -> {1, 1}, 
           GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-          AutoDelete -> False, 
           GridBoxItemSize -> {
-           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-          BaselinePosition -> {1, 1}], True -> GridBox[{{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True -> 
+        GridBox[{{
             PaneBox[
              ButtonBox[
               DynamicBox[
                FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
-              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
-              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
-              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+              Appearance -> None, BaseStyle -> {}, 
+              ButtonFunction :> (Typeset`open$$ = False), Evaluator -> 
+              Automatic, Method -> "Preemptive"], 
+             Alignment -> {Center, Center}, ImageSize -> 
              Dynamic[{
                Automatic, 
                 3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
@@ -370,14 +382,12 @@ Q3penCaTA4wPcw+Mn7H5VfHWqSIO6sGsiyf9UsbgG2itFL5wRAyuHsYH+zvH
 AM6PATlsjSGcbwwKeGUjhzV2QIfZSzn8sSo41zHJyKGuBxgRlfIOGUo5FVWs
 xg62s0Pnr85VcljVFOg5l8HYoX15+CkjFlW4+l23uv6mlms4/OIH2uhs5BAg
 J5bl+1kLYj/QPlh8w9wD4wMA37PnHw==
-                  "]}]}}, {
-              ImageSize -> 
-               Dynamic[{
-                 Automatic, 
-                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
-                   Magnification])}], AspectRatio -> Automatic, 
-               ImageSize -> {20., 20.}, PlotRange -> {{0., 20.}, {0., 20.}}}],
-              LightDarkAutoColorRules -> {}, StripOnInput -> False], 
+                  "]}]}}, AspectRatio -> Automatic, ImageSize -> 
+              Dynamic[{
+                Automatic, 
+                 3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}], PlotRange -> {{0., 20.}, {0., 20.}}], 
+             StripOnInput -> False, LightDarkAutoColorRules -> {}], 
             GridBox[{{
                RowBox[{
                  TagBox["\"System: \"", "SummaryItemAnnotation"], 
@@ -411,26 +421,26 @@ J5bl+1kLYj/QPlh8w9wD4wMA37PnHw==
                RowBox[{
                  TagBox["\"Status: \"", "SummaryItemAnnotation"], 
                  "\[InvisibleSpace]", 
-                 TagBox["\"Evaluated\"", "SummaryItem"]}]}}, 
-             GridBoxAlignment -> {
-              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
-             False, GridBoxItemSize -> {
-              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
-              BaseStyle -> {
+                 TagBox["\"Evaluated\"", "SummaryItem"]}]}}, AutoDelete -> 
+             False, BaseStyle -> {
               ShowStringCharacters -> False, NumberMarks -> False, 
-               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {
+              "Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}}, AutoDelete -> 
+          False, BaselinePosition -> {1, 1}, 
           GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-          AutoDelete -> False, 
           GridBoxItemSize -> {
-           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-          BaselinePosition -> {1, 1}]}, 
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, 
        Dynamic[Typeset`open$$], ImageSize -> Automatic]},
      "SummaryPanel"],
     DynamicModuleValues:>{}], "]"}],
   ExternalFunction[
-   ExternalSessionObject["driirf-hypoiys-133pzbseun5mm"], 
-   ExternalOperation["GetReference", 2539165092736], <|
+   ExternalSessionObject["scoungs-throtz-0r2yjhhm1lwo3"], 
+   ExternalOperation["GetReference", 2827469097856], <|
    "Arguments" -> {"system"}, "IsModule" -> False, "IsClass" -> False, 
     "IsFunction" -> True, "IsMethod" -> False, "IsCallable" -> True|>],
   Editable->False,
@@ -453,8 +463,9 @@ J5bl+1kLYj/QPlh8w9wD4wMA37PnHw==
    3.970423733206255*^9, 3.9704247299753284`*^9, 3.970425485121687*^9, 
    3.9704280005074005`*^9, 3.970603520473341*^9, 3.970765441770609*^9, 
    3.9707678989447613`*^9, 3.9707683522552834`*^9, 3.970772570487278*^9, 
-   3.9707734993745975`*^9, 3.9707738864011784`*^9, 3.970783889482813*^9},
- CellLabel->"Out[5]=",ExpressionUUID->"7e68fee3-d0fd-f641-a4c0-e90c4921bdfb"]
+   3.9707734993745975`*^9, 3.9707738864011784`*^9, 3.970783889482813*^9, 
+   3.970833202494478*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"25fd11e7-68b5-0543-a396-b2b298058cb3"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -462,12 +473,13 @@ Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"?", "ASRs`*"}]], "Input",
  CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQAWIQzXMkMb+i+61jirlYAYjmOGrxF0Rn5H/7B6IfWNyb
+1:eJxTTMoPSmViYGAQBWIQzXMkMb+i+61jirlYAYjmOGrxF0Rn5H/7B6IfWNyb
 3gOkWeqmzgDRJrl/WnqB9IXbFX0g+sGqyDkg+k7RVzA949TzXpHet44W71b1
 geg5Al/nigHpKWqc80D0iZBkHYm+t45/9IvAtEhl6WMQLcHTDKYXmH3YKwmk
 fxxi2weiO+bHqxoB6R3TM8G0iNmSehD95fo2MB3D+DXbGEiHyAvlgOgDlnNN
 Y0DyxjvA9BH2+LZ0IC0jXgamt1ScP9wFsv/WAzDtUhj00nrCW0ee/+lgOmWd
-FcumSW8dz2QEgGmfufNf/JoCdDfDZjDdwJPhunjqW8cX+0rANAAQlqfr
+FcumSW8dz2QEgGmfufNf/JoCdDfDZjDdwJPhunjqW8cX+0rAdEBHVOdhIG1j
+0QCmAdUesDA=
   "],
  CellLabel->"In[6]:=",ExpressionUUID->"30e362d4-a8ce-2540-867a-7aca70a3fd9a"],
 
@@ -513,7 +525,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {"a", "ASRs`"},
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {"a", "ASRs`"},
                     False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -523,7 +535,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "generateA2SRs", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -533,7 +545,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "numAmps", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -543,7 +555,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "printSRs", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -553,7 +565,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "startPythonSession", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic]},
@@ -564,7 +576,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {"A", "ASRs`"},
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {"A", "ASRs`"},
                     False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -574,7 +586,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "generateASRs", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -584,7 +596,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "numSRs", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -594,7 +606,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "printSystem", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -604,7 +616,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "unlabelAmps", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic]},
@@ -615,7 +627,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "ASRsHelp", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -625,7 +637,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "labelAmps", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -635,7 +647,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {
                    "printAmps", "ASRs`"}, False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], 
@@ -645,7 +657,7 @@ Cell[BoxData[
                  BaseStyle->"InformationGridLink",
                  
                  ButtonData:>{
-                  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", {"s", "ASRs`"},
+                  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", {"s", "ASRs`"},
                     False},
                  ButtonNote->"ASRs`",
                  Evaluator->Automatic], ""}
@@ -656,10 +668,12 @@ Cell[BoxData[
                "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
               GridBoxItemSize->{"Columns" -> {{
                    Scaled[0.19]}}}],
-             ImageMargins->{{10, 0}, {0, 2}}]}
+             ImageMargins->{{10, 0}, {0, 2}},
+             ScrollPosition->{0., 0.}]}
           },
           GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}],
-         FrameMargins->{{0, 0}, {8, 0}}]}, Dynamic[Typeset`open$$],
+         FrameMargins->{{0, 0}, {8, 0}},
+         ScrollPosition->{0., 0.}]}, Dynamic[Typeset`open$$],
         ImageSize->Automatic]]}
     },
     GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
@@ -683,8 +697,9 @@ Cell[BoxData[
    3.966958608856886*^9, 3.9669750285852165`*^9, 3.9669754692997894`*^9, 
    3.967047199395426*^9, 3.967934283920807*^9, 3.969224739140074*^9, 
    3.970422598371063*^9, 3.9704247547582397`*^9, 3.97042572789266*^9, 
-   3.9707674040186424`*^9, 3.970772594972555*^9, 3.970773540899206*^9},
- CellLabel->"Out[6]=",ExpressionUUID->"a8864ce2-5517-5c4d-a535-e1d17943c19b"],
+   3.9707674040186424`*^9, 3.970772594972555*^9, 3.970773540899206*^9, 
+   3.9708335007742214`*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"c555277c-1d90-3b4e-bf02-16e66e4c23a3"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -717,9 +732,8 @@ Cell[BoxData[
           ItemBox[
            PaneBox[
             
-            StyleBox["\<\"printSystem[system] prints information about the \
-system's representations, amplitudes, and sum rules and modifies the system \
-to include formatted sum rules.\"\>", "InformationUsageText",
+            StyleBox["\<\"printSRs[system] prints amplitude or squared \
+amplitude sum rules at each order of breaking.\"\>", "InformationUsageText",
              StripOnInput->False,
              LineSpacing->{1.5, 1.5, 3.}],
             FrameMargins->{{10, 10}, {8, 10}}],
@@ -745,7 +759,7 @@ to include formatted sum rules.\"\>", "InformationUsageText",
                TemplateBox[{"\"\[ThinSpace]\"", 
                  GridBox[{{
                     RowBox[{
-                    RowBox[{"printSystem", "[", 
+                    RowBox[{"printSRs", "[", 
                     RowBox[{"ASRs`Private`system_", ",", 
                     RowBox[{"ASRs`Private`opts", ":", 
                     RowBox[{"OptionsPattern", "[", "]"}]}]}], "]"}], ":=", 
@@ -755,108 +769,437 @@ to include formatted sum rules.\"\>", "InformationUsageText",
                     RowBox[{
                     RowBox[{"ASRs`Private`sysVal", "=", 
                     RowBox[{"Evaluate", "[", "ASRs`Private`system", "]"}]}], 
+                    ",", "ASRs`Private`SRs", ",", "ASRs`Private`amplitudes", 
                     ",", 
-                    RowBox[{"ASRs`Private`showReps", "=", 
+                    RowBox[{"ASRs`Private`showSRs", "=", 
                     
-                    RowBox[{"OptionValue", "[", "ASRs`Private`showReps", 
+                    RowBox[{"OptionValue", "[", "ASRs`Private`showSRs", 
                     "]"}]}], ",", 
-                    RowBox[{"ASRs`Private`showAmps", "=", 
+                    RowBox[{"ASRs`Private`expandSRs", "=", 
                     
-                    RowBox[{"OptionValue", "[", "ASRs`Private`showAmps", 
+                    RowBox[{"OptionValue", "[", "ASRs`Private`expandSRs", 
                     "]"}]}], ",", 
-                    RowBox[{"ASRs`Private`showASRs", "=", 
+                    RowBox[{"ASRs`Private`ampFormat", "=", 
                     
-                    RowBox[{"OptionValue", "[", "ASRs`Private`showASRs", 
+                    RowBox[{"OptionValue", "[", "ASRs`Private`ampFormat", 
                     "]"}]}], ",", 
-                    RowBox[{"ASRs`Private`showA2SRs", "=", 
+                    RowBox[{"ASRs`Private`CKM", "=", 
+                    RowBox[{"OptionValue", "[", "ASRs`Private`CKM", "]"}]}], 
+                    ",", 
+                    RowBox[{"ASRs`Private`b", "=", 
+                    RowBox[{"OptionValue", "[", "ASRs`Private`b", "]"}]}], 
+                    ",", 
+                    RowBox[{"ASRs`Private`squared", "=", 
                     
-                    RowBox[{"OptionValue", "[", "ASRs`Private`showA2SRs", 
-                    "]"}]}], ",", "ASRs`Private`irreps", ",", 
-                    "ASRs`Private`writtenSRs"}], "}"}], ",", 
+                    RowBox[{"OptionValue", "[", "ASRs`Private`squared", 
+                    "]"}]}], ",", "ASRs`Private`pwr", ",", 
+                    "ASRs`Private`physicalAmps", ",", 
+                    "ASRs`Private`ampsToVector", ",", 
+                    "ASRs`Private`ampVector", ",", "ASRs`Private`writtenSRs", 
+                    ",", "ASRs`Private`bList", ",", "ASRs`Private`numSRsList",
+                     ",", "ASRs`Private`matForm", ",", "ASRs`Private`rule"}], 
+                    "}"}], ",", 
                     RowBox[{
-                    RowBox[{"ASRs`Private`irreps", "=", 
+                    RowBox[{"ASRs`Private`SRs", "=", 
+                    RowBox[{"If", "[", 
+                    RowBox[{"ASRs`Private`squared", ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"KeyExistsQ", "[", 
+                    RowBox[{"ASRs`Private`sysVal", ",", "\"A2SRs\""}], "]"}], 
+                    ",", 
                     
                     RowBox[{"ASRs`Private`sysVal", "\[LeftDoubleBracket]", 
-                    "\"Irreps\"", "\[RightDoubleBracket]"}]}], ";", 
-                    RowBox[{"Print", "[", 
-                    RowBox[{"\"System: \"", ",", 
-                    RowBox[{"Sort", "[", 
-                    RowBox[{"Flatten", "[", "ASRs`Private`irreps", "]"}], 
-                    "]"}]}], "]"}], ";", 
-                    RowBox[{"If", "[", 
-                    RowBox[{"ASRs`Private`showReps", ",", 
+                    "\"A2SRs\"", "\[RightDoubleBracket]"}], ",", 
                     RowBox[{
-                    
-                    RowBox[{"Print", "[", "\"-------------------------\"", 
+                    RowBox[{"Message", "[", 
+                    StyleBox[
+                    RowBox[{"printSRs", "::", "missingkey"}], "MessageName"], 
                     "]"}], ";", 
-                    RowBox[{"Print", "[", 
-                    RowBox[{"\"Number of would-be doublets: \"", ",", 
+                    RowBox[{"Return", "[", "$Failed", "]"}]}]}], "]"}], ",", 
                     
                     RowBox[{"ASRs`Private`sysVal", "\[LeftDoubleBracket]", 
-                    "\"n doublets\"", "\[RightDoubleBracket]"}], ",", 
-                    "\"\\n\"", ",", "\"In: \"", ",", 
+                    "\"ASRs\"", "\[RightDoubleBracket]"}]}], "]"}]}], ";", 
+                    RowBox[{"ASRs`Private`amplitudes", "=", 
                     
-                    RowBox[{"ASRs`Private`irreps", "\[LeftDoubleBracket]", 
-                    "1", "\[RightDoubleBracket]"}], ",", "\"\\n\"", ",", 
-                    "\"H: \"", ",", 
-                    
-                    RowBox[{"ASRs`Private`irreps", "\[LeftDoubleBracket]", 
-                    "2", "\[RightDoubleBracket]"}], ",", "\"\\n\"", ",", 
-                    "\"Out: \"", ",", 
-                    
-                    RowBox[{"ASRs`Private`irreps", "\[LeftDoubleBracket]", 
-                    "3", "\[RightDoubleBracket]"}]}], "]"}], ";"}], ",", 
-                    "Null"}], "]"}], ";", 
+                    RowBox[{"ASRs`Private`sysVal", "\[LeftDoubleBracket]", 
+                    "\"Amplitudes\"", "\[RightDoubleBracket]"}]}], ";", 
+                    RowBox[{"ASRs`Private`pwr", "=", 
                     RowBox[{"If", "[", 
-                    RowBox[{"ASRs`Private`showAmps", ",", 
+                    RowBox[{"ASRs`Private`squared", ",", "2", ",", "1"}], 
+                    "]"}]}], ";", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`physicalAmps", "[", 
+                    
+                    RowBox[{"ASRs`Private`amp_", ",", "ASRs`Private`asType_", 
+                    ",", "ASRs`Private`col_", ",", "ASRs`Private`CKM_"}], 
+                    "]"}], ":=", 
+                    RowBox[{"Module", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"ASRs`Private`asSign", ",", 
+                    "ASRs`Private`CKMfactors"}], "}"}], ",", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`asSign", "=", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"SymbolName", "[", "ASRs`Private`asType", "]"}], 
+                    "\[Equal]", "\"a\""}], ",", 
+                    RowBox[{"-", "1"}], ",", 
+                    RowBox[{"+", "1"}]}], "]"}]}], ";", 
+                    RowBox[{"ASRs`Private`CKMfactors", "=", 
+                    RowBox[{"If", "[", 
+                    RowBox[{"ASRs`Private`CKM", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`amp", "\[LeftDoubleBracket]", 
+                    RowBox[{"\"CKM\"", ",", "1"}], "\[RightDoubleBracket]"}], 
+                    ",", 
+                    RowBox[{"ASRs`Private`amp", "\[LeftDoubleBracket]", 
+                    RowBox[{"\"CKM\"", ",", "2"}], 
+                    "\[RightDoubleBracket]"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "1"}], "}"}]}], "]"}]}], ";", 
+                    RowBox[{
+                    FractionBox[
+                    RowBox[{"A", "[", 
+                    RowBox[{"ASRs`Private`amp", "\[LeftDoubleBracket]", 
+                    RowBox[{"ASRs`Private`col", ",", "1"}], 
+                    "\[RightDoubleBracket]"}], "]"}], 
+                    
+                    RowBox[{"ASRs`Private`CKMfactors", "\[LeftDoubleBracket]",
+                     "1", "\[RightDoubleBracket]"}]], "+", 
+                    FractionBox[
+                    RowBox[{"ASRs`Private`asSign", " ", 
+                    
+                    RowBox[{"ASRs`Private`sysVal", "\[LeftDoubleBracket]", 
+                    "\"p factor\"", "\[RightDoubleBracket]"}], " ", 
+                    RowBox[{"A", "[", 
+                    RowBox[{"ASRs`Private`amp", "\[LeftDoubleBracket]", 
+                    RowBox[{"ASRs`Private`col", ",", "2"}], 
+                    "\[RightDoubleBracket]"}], "]"}]}], 
+                    
+                    RowBox[{"ASRs`Private`CKMfactors", "\[LeftDoubleBracket]",
+                     "2", "\[RightDoubleBracket]"}]]}]}]}], "]"}]}], ";", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`ampsToVector", "[", 
+                    
+                    RowBox[{"ASRs`Private`amps_", ",", "ASRs`Private`asType_",
+                     ",", "ASRs`Private`ampFormat_", ",", "ASRs`Private`CKM_",
+                     ",", "ASRs`Private`pwr_"}], "]"}], ":=", 
+                    RowBox[{"Module", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"ASRs`Private`vector", ",", "ASRs`Private`x", ",",
+                     "ASRs`Private`label"}], "}"}], ",", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
                     RowBox[{
                     
-                    RowBox[{"Print", "[", "\"-------------------------\"", 
+                    RowBox[{"ASRs`Private`ampFormat", "\[Equal]", 
+                    "\"A physical\""}], "&&", 
+                    RowBox[{"!", 
+                    RowBox[{"KeyExistsQ", "[", 
+                    RowBox[{
+                    
+                    RowBox[{"ASRs`Private`amps", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], ",", "\"Processes\""}], 
+                    "]"}]}]}], ",", 
+                    RowBox[{
+                    RowBox[{"Message", "[", 
+                    StyleBox[
+                    RowBox[{"printSRs", "::", "invalidformat"}], 
+                    "MessageName"], "]"}], ";", 
+                    RowBox[{"Return", "[", "$Failed", "]"}]}], ",", "Null"}], 
                     "]"}], ";", 
-                    RowBox[{"printAmps", "[", 
-                    RowBox[{"ASRs`Private`sysVal", ",", 
-                    RowBox[{"Sequence", "@@", 
-                    RowBox[{"FilterRules", "[", 
                     RowBox[{
-                    RowBox[{"{", "ASRs`Private`opts", "}"}], ",", 
-                    RowBox[{"Options", "[", "printAmps", "]"}]}], "]"}]}]}], 
-                    "]"}], ";"}], ",", "Null"}], "]"}], ";", 
+                    RowBox[{"{", 
+                    RowBox[{"ASRs`Private`x", ",", "ASRs`Private`label"}], 
+                    "}"}], "=", 
+                    RowBox[{"StringSplit", "[", 
+                    
+                    RowBox[{"ASRs`Private`ampFormat", ",", 
+                    "WhitespaceCharacter", ",", "2"}], "]"}]}], ";", 
+                    RowBox[{"ASRs`Private`vector", "=", 
+                    RowBox[{"Switch", "[", 
+                    
+                    RowBox[{"ASRs`Private`ampFormat", ",", "\"a/s n-tuple\"", 
+                    ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`asType", "[", "#1", "]"}], "&"}], 
+                    ")"}], "/@", 
+                    RowBox[{"ASRs`Private`amps", "\[LeftDoubleBracket]", 
+                    RowBox[{"All", ",", "\"n-tuple\""}], 
+                    "\[RightDoubleBracket]"}]}], ",", "\"a/s nodes\"", ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`asType", "[", "#1", "]"}], "&"}], 
+                    ")"}], "/@", 
+                    RowBox[{"ASRs`Private`amps", "\[LeftDoubleBracket]", 
+                    RowBox[{"All", ",", "\"Node\""}], 
+                    "\[RightDoubleBracket]"}]}], ",", "\"a/s indices\"", ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`asType", "[", "#1", "]"}], "&"}], 
+                    ")"}], "/@", 
+                    RowBox[{"ASRs`Private`amps", "\[LeftDoubleBracket]", 
+                    RowBox[{"All", ",", "\"Binary indices\"", ",", "1"}], 
+                    "\[RightDoubleBracket]"}]}], ",", "\"A physical\"", ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`physicalAmps", "[", 
+                    
+                    RowBox[{"#1", ",", "ASRs`Private`asType", ",", 
+                    "\"Processes\"", ",", "ASRs`Private`CKM"}], "]"}], "&"}], 
+                    ")"}], "/@", "ASRs`Private`amps"}], ",", "\"A QNs\"", ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`physicalAmps", "[", 
+                    
+                    RowBox[{"#1", ",", "ASRs`Private`asType", ",", "\"QNs\"", 
+                    ",", "ASRs`Private`CKM"}], "]"}], "&"}], ")"}], "/@", 
+                    "ASRs`Private`amps"}], ",", "\"A indices\"", ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`physicalAmps", "[", 
+                    
+                    RowBox[{"#1", ",", "ASRs`Private`asType", ",", 
+                    "\"Binary indices\"", ",", "ASRs`Private`CKM"}], "]"}], 
+                    "&"}], ")"}], "/@", "ASRs`Private`amps"}], ",", 
+                    RowBox[{"_String", "/;", 
+                    RowBox[{"KeyExistsQ", "[", 
+                    RowBox[{
+                    
+                    RowBox[{"ASRs`Private`amps", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], ",", "ASRs`Private`label"}], 
+                    "]"}]}], ",", 
                     RowBox[{"If", "[", 
-                    RowBox[{"ASRs`Private`showASRs", ",", 
-                    
-                    RowBox[{"Print", "[", "\"-------------------------\"", 
-                    "]"}], ",", "Null"}], "]"}], ";", 
-                    RowBox[{"printSRs", "[", 
-                    RowBox[{"ASRs`Private`sysVal", ",", 
-                    RowBox[{"Sequence", "@@", 
-                    RowBox[{"FilterRules", "[", 
                     RowBox[{
-                    RowBox[{"{", "ASRs`Private`opts", "}"}], ",", 
-                    RowBox[{"Options", "[", "printSRs", "]"}]}], "]"}]}], ",", 
+                    RowBox[{"ASRs`Private`x", "\[Equal]", "\"a/s\""}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`asType", "[", "#1", "]"}], "&"}], 
+                    ")"}], "/@", 
+                    RowBox[{"ASRs`Private`amps", "\[LeftDoubleBracket]", 
+                    RowBox[{"All", ",", "ASRs`Private`label"}], 
+                    "\[RightDoubleBracket]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`physicalAmps", "[", 
                     
-                    RowBox[{"ASRs`Private`showSRs", "\[Rule]", 
-                    "ASRs`Private`showASRs"}]}], "]"}], ";", 
+                    RowBox[{"#1", ",", "ASRs`Private`asType", ",", 
+                    "ASRs`Private`label", ",", "ASRs`Private`CKM"}], "]"}], 
+                    "&"}], ")"}], "/@", "ASRs`Private`amps"}]}], "]"}], ",", 
+                    "_", ",", 
+                    RowBox[{
+                    RowBox[{"Message", "[", 
+                    StyleBox[
+                    RowBox[{"printSRs", "::", "invalidformat"}], 
+                    "MessageName"], "]"}], ";", 
+                    RowBox[{"Return", "[", "$Failed", "]"}]}]}], "]"}]}], ";", 
+                    SuperscriptBox[
+                    "ASRs`Private`vector", "ASRs`Private`pwr"]}]}], "]"}]}], 
+                    ";", 
+                    RowBox[{"ASRs`Private`ampVector", "=", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"ASRs`Private`ampsToVector", "[", 
+                    
+                    RowBox[{"ASRs`Private`amplitudes", ",", "a", ",", 
+                    "ASRs`Private`ampFormat", ",", "ASRs`Private`CKM", ",", 
+                    "ASRs`Private`pwr"}], "]"}], ",", 
+                    RowBox[{"ASRs`Private`ampsToVector", "[", 
+                    
+                    RowBox[{"ASRs`Private`amplitudes", ",", "s", ",", 
+                    "ASRs`Private`ampFormat", ",", "ASRs`Private`CKM", ",", 
+                    "ASRs`Private`pwr"}], "]"}]}], "}"}]}], ";", 
+                    RowBox[{"ASRs`Private`writtenSRs", "=", 
                     RowBox[{"If", "[", 
-                    RowBox[{"ASRs`Private`showA2SRs", ",", 
+                    RowBox[{"ASRs`Private`expandSRs", ",", 
+                    RowBox[{"MapIndexed", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"#1", "\[Equal]", 
+                    RowBox[{"{", "}"}]}], ",", 
+                    RowBox[{"{", "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"OddQ", "[", 
+                    RowBox[{"First", "[", "#2", "]"}], "]"}], ",", 
+                    RowBox[{"#1", ".", 
                     
-                    RowBox[{"Print", "[", "\"-------------------------\"", 
-                    "]"}], ",", "Null"}], "]"}], ";", 
-                    RowBox[{"printSRs", "[", 
+                    RowBox[{"ASRs`Private`ampVector", "\[LeftDoubleBracket]", 
+                    "1", "\[RightDoubleBracket]"}]}], ",", 
+                    RowBox[{"#1", ".", 
+                    
+                    RowBox[{"ASRs`Private`ampVector", "\[LeftDoubleBracket]", 
+                    "2", "\[RightDoubleBracket]"}]}]}], "]"}]}], "]"}], "&"}],
+                     ",", "ASRs`Private`SRs"}], "]"}], ",", 
+                    RowBox[{"MapIndexed", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"#1", "\[Equal]", 
+                    RowBox[{"{", "}"}]}], ",", 
+                    RowBox[{"{", "}"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"OddQ", "[", 
+                    RowBox[{"First", "[", "#2", "]"}], "]"}], ",", 
+                    RowBox[{"Prepend", "[", 
+                    RowBox[{"#1", ",", 
+                    
+                    RowBox[{"ASRs`Private`ampVector", "\[LeftDoubleBracket]", 
+                    "1", "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                    RowBox[{"Prepend", "[", 
+                    RowBox[{"#1", ",", 
+                    
+                    RowBox[{"ASRs`Private`ampVector", "\[LeftDoubleBracket]", 
+                    "2", "\[RightDoubleBracket]"}]}], "]"}]}], "]"}]}], "]"}],
+                     "&"}], ",", "ASRs`Private`SRs"}], "]"}]}], "]"}]}], ";", 
+                    RowBox[{"ASRs`Private`bList", "=", 
+                    RowBox[{"ASRs`Private`listbOrders", "[", 
+                    RowBox[{"ASRs`Private`b", ",", 
+                    RowBox[{"Length", "[", "ASRs`Private`SRs", "]"}]}], 
+                    "]"}]}], ";", 
+                    RowBox[{"ASRs`Private`numSRsList", "=", 
+                    RowBox[{
+                    RowBox[{"numSRs", "[", 
                     RowBox[{"ASRs`Private`sysVal", ",", 
                     RowBox[{"Sequence", "@@", 
                     RowBox[{"FilterRules", "[", 
                     RowBox[{
                     RowBox[{"{", "ASRs`Private`opts", "}"}], ",", 
-                    RowBox[{"Options", "[", "printSRs", "]"}]}], "]"}]}], ",", 
+                    RowBox[{"Options", "[", "numSRs", "]"}]}], "]"}]}]}], 
+                    "]"}], "\[LeftDoubleBracket]", 
+                    RowBox[{"ASRs`Private`bList", "+", "1"}], 
+                    "\[RightDoubleBracket]"}]}], ";", 
+                    RowBox[{"ASRs`Private`matForm", ":=", 
+                    RowBox[{"If", "[", 
+                    RowBox[{"ASRs`Private`expandSRs", ",", 
+                    RowBox[{
+                    RowBox[{"MatrixForm", "[", "#1", "]"}], "&"}], ",", 
+                    RowBox[{
+                    RowBox[{"MatrixForm", "[", 
+                    RowBox[{
+                    RowBox[{"#1", "\[LeftDoubleBracket]", 
+                    RowBox[{"2", ";;", "All"}], "\[RightDoubleBracket]"}], 
+                    ",", 
+                    RowBox[{"TableHeadings", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"None", ",", 
                     
-                    RowBox[{"ASRs`Private`showSRs", "\[Rule]", 
-                    "ASRs`Private`showA2SRs"}], ",", 
-                    RowBox[{"ASRs`Private`squared", "\[Rule]", "True"}]}], 
+                    RowBox[{"#1", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}]}], "}"}]}]}], "]"}], "&"}]}], 
+                    "]"}]}], ";", 
+                    RowBox[{"ASRs`Private`rule", "=", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    
+                    RowBox[{"ASRs`Private`ampFormat", "\[Equal]", 
+                    "\"A physical\""}], "||", 
+                    
+                    RowBox[{"ASRs`Private`ampFormat", "\[Equal]", 
+                    "\"A QNs\""}]}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    
+                    RowBox[{"ASRs`Private`x_Symbol", "[", "ASRs`Private`i_", 
+                    "]"}], "/;", 
+                    RowBox[{"ASRs`Private`x", "=!=", "List"}]}], 
+                    "\[RuleDelayed]", 
+                    RowBox[{
+                    RowBox[{"ToString", "[", "ASRs`Private`x", "]"}], "<>", 
+                    "\"(\"", "<>", "ASRs`Private`i", "<>", "\")\""}]}], ",", 
+                    RowBox[{
+                    RowBox[{
+                    
+                    RowBox[{"ASRs`Private`x_Symbol", "[", "ASRs`Private`i_", 
+                    "]"}], "/;", 
+                    RowBox[{"ASRs`Private`x", "=!=", "List"}]}], 
+                    "\[RuleDelayed]", 
+                    SubscriptBox["ASRs`Private`x", "ASRs`Private`i"]}]}], 
+                    "]"}]}], ";", 
+                    RowBox[{"If", "[", 
+                    RowBox[{"ASRs`Private`showSRs", ",", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{"ASRs`Private`squared", ",", 
+                    
+                    RowBox[{"Print", "[", "\"Squared amplitude sum rules\"", 
+                    "]"}], ",", 
+                    RowBox[{"Print", "[", "\"Amplitude sum rules\"", "]"}]}], 
                     "]"}], ";", 
+                    RowBox[{"MapIndexed", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Print", "[", 
+                    RowBox[{"\"b = \"", ",", 
+                    RowBox[{"ASRs`Private`bList", "\[LeftDoubleBracket]", 
                     
-                    RowBox[{"ASRs`Private`system", "=", 
-                    "ASRs`Private`sysVal"}], ";", "ASRs`Private`sysVal"}]}], 
-                    "]"}]}]}, {" "}}, 
+                    RowBox[{"#2", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], "\[RightDoubleBracket]"}], ",",
+                     "\"\\n\"", ",", "\"Number of SRs: \"", ",", 
+                    RowBox[{"ASRs`Private`numSRsList", "\[LeftDoubleBracket]", 
+                    
+                    RowBox[{"#2", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], "\[RightDoubleBracket]"}], ",",
+                     "\"\\n\"", ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"#1", "\[Equal]", 
+                    RowBox[{"{", "}"}]}], ",", 
+                    "\"No sum rules at this order.\"", ",", 
+                    RowBox[{"ASRs`Private`matForm", "[", 
+                    RowBox[{"If", "[", 
+                    RowBox[{"ASRs`Private`expandSRs", ",", 
+                    
+                    RowBox[{"#1", "/.", "\[VeryThinSpace]", 
+                    "ASRs`Private`rule"}], ",", 
+                    RowBox[{"ReplacePart", "[", 
+                    RowBox[{"#1", ",", 
+                    RowBox[{"1", "\[Rule]", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    
+                    RowBox[{"#1", "\[LeftDoubleBracket]", "1", 
+                    "\[RightDoubleBracket]"}], "/.", "\[VeryThinSpace]", 
+                    "ASRs`Private`rule"}], ")"}]}]}], "]"}]}], "]"}], "]"}]}],
+                     "]"}]}], "]"}], "&"}], ",", 
+                    RowBox[{"ASRs`Private`writtenSRs", "\[LeftDoubleBracket]", 
+                    RowBox[{"ASRs`Private`bList", "+", "1"}], 
+                    "\[RightDoubleBracket]"}]}], "]"}], ";"}], ",", "Null"}], 
+                    "]"}], ";", 
+                    RowBox[{"If", "[", 
+                    RowBox[{"ASRs`Private`squared", ",", 
+                    RowBox[{
+                    
+                    RowBox[{"ASRs`Private`system", "\[LeftDoubleBracket]", 
+                    "\"Formatted A2SRs\"", "\[RightDoubleBracket]"}], "=", 
+                    "ASRs`Private`writtenSRs"}], ",", 
+                    RowBox[{
+                    
+                    RowBox[{"ASRs`Private`system", "\[LeftDoubleBracket]", 
+                    "\"Formatted ASRs\"", "\[RightDoubleBracket]"}], "=", 
+                    "ASRs`Private`writtenSRs"}]}], "]"}], ";", 
+                    "ASRs`Private`writtenSRs"}]}], "]"}]}]}, {" "}}, 
                   GridBoxAlignment -> {"Columns" -> {{Left}}}, 
                   DefaultBaseStyle -> "Column", 
                   GridBoxItemSize -> {
@@ -942,16 +1285,6 @@ to include formatted sum rules.\"\>", "InformationUsageText",
                     FEPrivate`Part[System`InformationDump`open$$, 3]]], 
                    PaneSelectorBox[{True->GridBox[{
                     {
-                    RowBox[{"ASRs`Private`showReps", "\[Rule]", "True"}]},
-                    {
-                    RowBox[{"ASRs`Private`showAmps", "\[Rule]", "True"}]},
-                    {
-                    RowBox[{"ASRs`Private`showASRs", "\[Rule]", "True"}]},
-                    {
-                    RowBox[{"ASRs`Private`showA2SRs", "\[Rule]", "False"}]},
-                    {
-                    RowBox[{"ASRs`Private`showFactors", "\[Rule]", "False"}]},
-                    {
                     RowBox[{"ASRs`Private`showSRs", "\[Rule]", "True"}]},
                     {
                     RowBox[{"ASRs`Private`expandSRs", "\[Rule]", "True"}]},
@@ -969,7 +1302,7 @@ to include formatted sum rules.\"\>", "InformationUsageText",
                     StyleBox[
                     
                     TemplateBox[{
-                    "\"(\"", "\"\[InvisibleSpace]\"", "11", "\" total)\""},
+                    "\"(\"", "\"\[InvisibleSpace]\"", "6", "\" total)\""},
                     "RowDefault"], "InformationRowOpener",
                     StripOnInput->False]}
                     },
@@ -980,13 +1313,13 @@ to include formatted sum rules.\"\>", "InformationUsageText",
                     GridBoxItemSize->{
                     "Columns" -> {{Automatic}}, "Rows" -> {{1.}}}], False->
                     RowBox[{
-                    RowBox[{"ASRs`Private`showReps", "\[Rule]", "True"}], "\[ThinSpace]", 
+                    RowBox[{"ASRs`Private`showSRs", "\[Rule]", "True"}], "\[ThinSpace]", 
                     StyleBox["\<\"\[Ellipsis]\"\>", "InformationRowOpener",
                     StripOnInput->False], "\[ThinSpace]", 
                     StyleBox[
                     
                     TemplateBox[{
-                    "\"(\"", "\"\[InvisibleSpace]\"", "11", "\" total)\""},
+                    "\"(\"", "\"\[InvisibleSpace]\"", "6", "\" total)\""},
                     "RowDefault"], "InformationRowOpener",
                     StripOnInput->False]}]}, Dynamic[
                     FEPrivate`Part[System`InformationDump`open$$, 3]],
@@ -1010,7 +1343,7 @@ to include formatted sum rules.\"\>", "InformationUsageText",
                     TooltipStyle->"TextStyling"],
                     
                     Annotation[#, "FullName", 
-                    "Tooltip"]& ], "\<\"ASRs`printSystem\"\>"}
+                    "Tooltip"]& ], "\<\"ASRs`printSRs\"\>"}
                  },
                  AutoDelete->False,
                  GridBoxAlignment->{"Columns" -> {Right, Left}},
@@ -1107,13 +1440,11 @@ to include formatted sum rules.\"\>", "InformationUsageText",
           ItemBox[
            PaneBox[
             
-            StyleBox["\<\"printSystem[system] prints information about the \
-system's representations, amplitudes, and sum rules and modifies the system \
-to include formatted sum rules.\"\>", "InformationUsageText",
+            StyleBox["\<\"printSRs[system] prints amplitude or squared \
+amplitude sum rules at each order of breaking.\"\>", "InformationUsageText",
              StripOnInput->False,
              LineSpacing->{1.5, 1.5, 3.}],
-            FrameMargins->{{10, 10}, {8, 10}},
-            ScrollPosition->{0., 0.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
            BaseStyle->"InformationUsageSubtitleBackground",
            StripOnInput->False], 
           ItemBox["\<\"\"\>",
@@ -1178,81 +1509,198 @@ to include formatted sum rules.\"\>", "InformationUsageText",
    StripOnInput->False],
   InformationData[<|
    "ObjectType" -> "Symbol", "Usage" -> 
-    "printSystem[system] prints information about the system's \
-representations, amplitudes, and sum rules and modifies the system to include \
-formatted sum rules.", "Documentation" -> None, "OwnValues" -> None, 
-    "UpValues" -> None, "DownValues" -> 
-    Information`InformationValueForm[
-     DownValues, ASRs`printSystem, {ASRs`printSystem[
+    "printSRs[system] prints amplitude or squared amplitude sum rules at each \
+order of breaking.", "Documentation" -> None, "OwnValues" -> None, "UpValues" -> 
+    None, "DownValues" -> 
+    Information`InformationValueForm[DownValues, ASRs`printSRs, {ASRs`printSRs[
          Pattern[ASRs`Private`system, 
           Blank[]], 
          Pattern[ASRs`Private`opts, 
           OptionsPattern[]]] :> 
        Module[{ASRs`Private`sysVal = Evaluate[ASRs`Private`system], 
-          ASRs`Private`showReps = OptionValue[ASRs`Private`showReps], 
-          ASRs`Private`showAmps = OptionValue[ASRs`Private`showAmps], 
-          ASRs`Private`showASRs = OptionValue[ASRs`Private`showASRs], 
-          ASRs`Private`showA2SRs = OptionValue[ASRs`Private`showA2SRs], 
-          ASRs`Private`irreps, ASRs`Private`writtenSRs}, 
-         ASRs`Private`irreps = Part[ASRs`Private`sysVal, "Irreps"]; 
-         Print["System: ", 
-           Sort[
-            Flatten[ASRs`Private`irreps]]]; 
-         If[ASRs`Private`showReps, Print["-------------------------"]; 
-           Print["Number of would-be doublets: ", 
-             Part[ASRs`Private`sysVal, "n doublets"], "\n", "In: ", 
-             Part[ASRs`Private`irreps, 1], "\n", "H: ", 
-             Part[ASRs`Private`irreps, 2], "\n", "Out: ", 
-             Part[ASRs`Private`irreps, 3]]; Null, Null]; 
-         If[ASRs`Private`showAmps, Print["-------------------------"]; 
-           ASRs`printAmps[ASRs`Private`sysVal, 
+          ASRs`Private`SRs, ASRs`Private`amplitudes, ASRs`Private`showSRs = 
+          OptionValue[ASRs`Private`showSRs], ASRs`Private`expandSRs = 
+          OptionValue[ASRs`Private`expandSRs], ASRs`Private`ampFormat = 
+          OptionValue[ASRs`Private`ampFormat], ASRs`Private`CKM = 
+          OptionValue[ASRs`Private`CKM], ASRs`Private`b = 
+          OptionValue[ASRs`Private`b], ASRs`Private`squared = 
+          OptionValue[ASRs`Private`squared], ASRs`Private`pwr, 
+          ASRs`Private`physicalAmps, ASRs`Private`ampsToVector, 
+          ASRs`Private`ampVector, ASRs`Private`writtenSRs, ASRs`Private`bList,
+           ASRs`Private`numSRsList, ASRs`Private`matForm, ASRs`Private`rule}, 
+         ASRs`Private`SRs = If[ASRs`Private`squared, 
+            If[
+             KeyExistsQ[ASRs`Private`sysVal, "A2SRs"], 
+             Part[ASRs`Private`sysVal, "A2SRs"], Message[
+               MessageName[ASRs`printSRs, "missingkey"]]; Return[$Failed]], 
+            Part[ASRs`Private`sysVal, "ASRs"]]; 
+         ASRs`Private`amplitudes = Part[ASRs`Private`sysVal, "Amplitudes"]; 
+         ASRs`Private`pwr = If[ASRs`Private`squared, 2, 1]; 
+         ASRs`Private`physicalAmps[
+            Pattern[ASRs`Private`amp, 
+             Blank[]], 
+            Pattern[ASRs`Private`asType, 
+             Blank[]], 
+            Pattern[ASRs`Private`col, 
+             Blank[]], 
+            Pattern[ASRs`Private`CKM, 
+             Blank[]]] := 
+          Module[{ASRs`Private`asSign, ASRs`Private`CKMfactors}, 
+            ASRs`Private`asSign = 
+             If[SymbolName[ASRs`Private`asType] == "a", -1, 
+               Plus[1]]; ASRs`Private`CKMfactors = If[ASRs`Private`CKM, {
+                Part[ASRs`Private`amp, "CKM", 1], 
+                Part[ASRs`Private`amp, "CKM", 2]}, {1, 1}]; ASRs`A[
+                Part[ASRs`Private`amp, ASRs`Private`col, 1]]/Part[
+              ASRs`Private`CKMfactors, 1] + 
+             ASRs`Private`asSign Part[ASRs`Private`sysVal, "p factor"] (ASRs`A[
+                 Part[ASRs`Private`amp, ASRs`Private`col, 2]]/Part[
+               ASRs`Private`CKMfactors, 2])]; ASRs`Private`ampsToVector[
+            Pattern[ASRs`Private`amps, 
+             Blank[]], 
+            Pattern[ASRs`Private`asType, 
+             Blank[]], 
+            Pattern[ASRs`Private`ampFormat, 
+             Blank[]], 
+            Pattern[ASRs`Private`CKM, 
+             Blank[]], 
+            Pattern[ASRs`Private`pwr, 
+             Blank[]]] := 
+          Module[{ASRs`Private`vector, ASRs`Private`x, ASRs`Private`label}, If[
+              And[ASRs`Private`ampFormat == "A physical", 
+               Not[
+                KeyExistsQ[
+                 Part[ASRs`Private`amps, 1], "Processes"]]], Message[
+                MessageName[ASRs`printSRs, "invalidformat"]]; Return[$Failed],
+               Null]; {ASRs`Private`x, ASRs`Private`label} = 
+             StringSplit[ASRs`Private`ampFormat, WhitespaceCharacter, 2]; 
+            ASRs`Private`vector = 
+             Switch[ASRs`Private`ampFormat, "a/s n-tuple", 
+               Map[ASRs`Private`asType[#]& , 
+                Part[ASRs`Private`amps, All, "n-tuple"]], "a/s nodes", 
+               Map[ASRs`Private`asType[#]& , 
+                Part[ASRs`Private`amps, All, "Node"]], "a/s indices", 
+               Map[ASRs`Private`asType[#]& , 
+                Part[ASRs`Private`amps, All, "Binary indices", 1]], 
+               "A physical", 
+               Map[
+               ASRs`Private`physicalAmps[#, ASRs`Private`asType, "Processes", 
+                 ASRs`Private`CKM]& , ASRs`Private`amps], "A QNs", 
+               Map[
+               ASRs`Private`physicalAmps[#, ASRs`Private`asType, "QNs", 
+                 ASRs`Private`CKM]& , ASRs`Private`amps], "A indices", 
+               Map[
+               ASRs`Private`physicalAmps[#, ASRs`Private`asType, 
+                 "Binary indices", ASRs`Private`CKM]& , ASRs`Private`amps], 
+               Condition[
+                Blank[String], 
+                KeyExistsQ[
+                 Part[ASRs`Private`amps, 1], ASRs`Private`label]], 
+               If[ASRs`Private`x == "a/s", 
+                Map[ASRs`Private`asType[#]& , 
+                 Part[ASRs`Private`amps, All, ASRs`Private`label]], 
+                Map[
+                ASRs`Private`physicalAmps[#, ASRs`Private`asType, 
+                  ASRs`Private`label, ASRs`Private`CKM]& , 
+                 ASRs`Private`amps]], 
+               Blank[], Message[
+                 MessageName[ASRs`printSRs, "invalidformat"]]; 
+               Return[$Failed]]; ASRs`Private`vector^ASRs`Private`pwr]; 
+         ASRs`Private`ampVector = {
+            ASRs`Private`ampsToVector[
+            ASRs`Private`amplitudes, ASRs`a, ASRs`Private`ampFormat, 
+             ASRs`Private`CKM, ASRs`Private`pwr], 
+            ASRs`Private`ampsToVector[
+            ASRs`Private`amplitudes, ASRs`s, ASRs`Private`ampFormat, 
+             ASRs`Private`CKM, ASRs`Private`pwr]}; 
+         ASRs`Private`writtenSRs = If[ASRs`Private`expandSRs, 
+            MapIndexed[If[# == {}, {}, 
+              If[
+               OddQ[
+                First[#2]], 
+               Dot[#, 
+                Part[ASRs`Private`ampVector, 1]], 
+               Dot[#, 
+                Part[ASRs`Private`ampVector, 2]]]]& , ASRs`Private`SRs], 
+            MapIndexed[If[# == {}, {}, 
+              If[
+               OddQ[
+                First[#2]], 
+               Prepend[#, 
+                Part[ASRs`Private`ampVector, 1]], 
+               Prepend[#, 
+                Part[ASRs`Private`ampVector, 2]]]]& , ASRs`Private`SRs]]; 
+         ASRs`Private`bList = ASRs`Private`listbOrders[ASRs`Private`b, 
+            Length[ASRs`Private`SRs]]; ASRs`Private`numSRsList = Part[
+            ASRs`numSRs[ASRs`Private`sysVal, 
              Apply[Sequence, 
               FilterRules[{ASRs`Private`opts}, 
-               Options[ASRs`printAmps]]]]; Null, Null]; 
-         If[ASRs`Private`showASRs, 
-           Print["-------------------------"], Null]; 
-         ASRs`printSRs[ASRs`Private`sysVal, 
-           Apply[Sequence, 
-            FilterRules[{ASRs`Private`opts}, 
-             Options[ASRs`printSRs]]], ASRs`Private`showSRs -> 
-           ASRs`Private`showASRs]; If[ASRs`Private`showA2SRs, 
-           Print["-------------------------"], Null]; 
-         ASRs`printSRs[ASRs`Private`sysVal, 
-           Apply[Sequence, 
-            FilterRules[{ASRs`Private`opts}, 
-             Options[ASRs`printSRs]]], ASRs`Private`showSRs -> 
-           ASRs`Private`showA2SRs, ASRs`Private`squared -> True]; 
-         ASRs`Private`system = ASRs`Private`sysVal; ASRs`Private`sysVal]}], 
-    "SubValues" -> None, "DefaultValues" -> None, "NValues" -> None, 
-    "FormatValues" -> None, 
+               Options[ASRs`numSRs]]]], ASRs`Private`bList + 1]; 
+         ASRs`Private`matForm := 
+          If[ASRs`Private`expandSRs, MatrixForm[#]& , MatrixForm[
+             Part[#, 
+              Span[2, All]], TableHeadings -> {None, 
+               Part[#, 1]}]& ]; ASRs`Private`rule = If[
+            Or[
+            ASRs`Private`ampFormat == "A physical", ASRs`Private`ampFormat == 
+             "A QNs"], Condition[
+              Pattern[ASRs`Private`x, 
+               Blank[Symbol]][
+               Pattern[ASRs`Private`i, 
+                Blank[]]], ASRs`Private`x =!= List] :> 
+            ToString[ASRs`Private`x] <> "(" <> ASRs`Private`i <> ")", 
+            Condition[
+              Pattern[ASRs`Private`x, 
+               Blank[Symbol]][
+               Pattern[ASRs`Private`i, 
+                Blank[]]], ASRs`Private`x =!= List] :> 
+            Subscript[ASRs`Private`x, ASRs`Private`i]]; 
+         If[ASRs`Private`showSRs, If[ASRs`Private`squared, 
+             Print["Squared amplitude sum rules"], 
+             Print["Amplitude sum rules"]]; MapIndexed[Print["b = ", 
+              Part[ASRs`Private`bList, 
+               Part[#2, 1]], "\n", "Number of SRs: ", 
+              Part[ASRs`Private`numSRsList, 
+               Part[#2, 1]], "\n", 
+              If[# == {}, "No sum rules at this order.", 
+               ASRs`Private`matForm[
+                If[ASRs`Private`expandSRs, 
+                 ReplaceAll[#, ASRs`Private`rule], 
+                 ReplacePart[#, 1 -> ReplaceAll[
+                    Part[#, 1], ASRs`Private`rule]]]]]]& , 
+             Part[ASRs`Private`writtenSRs, ASRs`Private`bList + 1]]; Null, 
+           Null]; If[
+          ASRs`Private`squared, Part[ASRs`Private`system, "Formatted A2SRs"] = 
+           ASRs`Private`writtenSRs, 
+           Part[ASRs`Private`system, "Formatted ASRs"] = 
+           ASRs`Private`writtenSRs]; ASRs`Private`writtenSRs]}], "SubValues" -> 
+    None, "DefaultValues" -> None, "NValues" -> None, "FormatValues" -> None, 
     "Options" -> {
-     ASRs`Private`showReps -> True, ASRs`Private`showAmps -> True, 
-      ASRs`Private`showASRs -> True, ASRs`Private`showA2SRs -> False, 
-      ASRs`Private`showFactors -> False, ASRs`Private`showSRs -> True, 
-      ASRs`Private`expandSRs -> True, ASRs`Private`ampFormat -> "a/s n-tuple",
-       ASRs`Private`CKM -> False, ASRs`Private`b -> All, ASRs`Private`squared -> 
-      False}, "Attributes" -> {HoldFirst}, "FullName" -> "ASRs`printSystem"|>,
-    False]]], "Print",
+     ASRs`Private`showSRs -> True, ASRs`Private`expandSRs -> True, 
+      ASRs`Private`ampFormat -> "a/s n-tuple", ASRs`Private`CKM -> False, 
+      ASRs`Private`b -> All, ASRs`Private`squared -> False}, 
+    "Attributes" -> {HoldFirst}, "FullName" -> "ASRs`printSRs"|>, 
+   False]]], "Print",
  CellTags->
-  "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2",ExpressionUUID->"a516796c-f28c-\
-b24f-b277-453ea4a27b82"]
+  "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8",ExpressionUUID->"cdb9c181-9cc5-\
+5f41-8650-f13b836ad384"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"ASRsHelp", "[", "printSystem", "]"}]], "Input",
+ RowBox[{"ASRsHelp", "[", "generateASRs", "]"}]], "Input",
  CellChangeTimes->{{3.9662850571188393`*^9, 3.9662851100241814`*^9}, {
   3.966813047901142*^9, 3.966813050298216*^9}, {3.966813085501869*^9, 
   3.966813088741974*^9}, {3.966890790198841*^9, 3.9668907921558247`*^9}, {
-  3.9687821564927864`*^9, 3.9687821665743046`*^9}},
- CellLabel->"In[7]:=",ExpressionUUID->"a784d622-eb4c-6644-94c6-cb99b32007ed"],
+  3.9687821564927864`*^9, 3.9687821665743046`*^9}, {3.970833631800371*^9, 
+  3.970833633969206*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"a784d622-eb4c-6644-94c6-cb99b32007ed"],
 
 Cell[CellGroupData[{
 
-Cell[BoxData["\<\"printSystem[system] prints information about the system's \
-representations, amplitudes, and sum rules and modifies the system to include \
-formatted sum rules.\"\>"], "Print",
+Cell[BoxData["\<\"generateASRs[in,h,out] finds all amplitudes and amplitude \
+sum rules (ASRs) for a given system.\"\>"], "Print",
  CellChangeTimes->{
   3.966814533802061*^9, 3.9668157348757133`*^9, 3.9668657136589565`*^9, 
    3.966866434052801*^9, {3.966890766153881*^9, 3.9668907951357613`*^9}, 
@@ -1260,41 +1708,49 @@ formatted sum rules.\"\>"], "Print",
    3.9669750314208145`*^9, 3.967934291351141*^9, 3.968782062749695*^9, 
    3.968782166907076*^9, 3.9692247450647984`*^9, 3.970422600695265*^9, 
    3.970424821987028*^9, 3.970425777760298*^9, 3.970772733790407*^9, 
-   3.970773554496784*^9},
+   3.970773554496784*^9, {3.9708336142250614`*^9, 3.9708336347090244`*^9}},
  CellLabel->
   "During evaluation of \
-In[7]:=",ExpressionUUID->"4578bff8-2f46-9b48-b5a0-41b3b98ba7bd"],
+In[8]:=",ExpressionUUID->"c8b9d46d-c03a-9448-b394-4123c3977d87"],
 
-Cell[BoxData["\<\"Arguments:\\nsystem (Association): A system association. \
-See the documentation for generateASRs for details.\\n\\nOptions:\\nshowReps \
-(True|False): Default: showReps->True.\\n-----\\nshowAmps (True|False): \
-Default: showAmps->True.\\nshowFactors (True|False): Indicates whether to \
-print internal calculation factors from the sum rule algorithm in the \
-amplitudes table (True) or not (False). Not to be confused with the amplitude \
-sum rule matrices. Default: showFactors->False.\\n-----\\nshowASRs \
-(True|False): Default: showASRs->True. Note: ASRs and A2SRs use the same \
-formatting options.\\nshowA2SRs (True|False): Default: showA2SRs->False. \
-Note: ASRs and A2SRs use the same formatting options.\\nexpandSRs \
-(True|False): Indicates whether to write each row of a sum rules matrix as an \
-algebraic expression of (squared) amplitudes (True) or to keep each row as a \
-list of coefficients (False). Default: expandSRs->True.\\nampFormat (String): \
-Specified format for displaying (squared) amplitudes. Options are a/s-type \
-amplitudes with n-tuples (\\\"a/s n-tuple\\\"), a/s-type amplitudes with \
-numbered indices (\\\"a/s indices\\\"), a/s-type amplitudes with nodes \
-(\\\"a/s nodes\\\"), A amplitudes with numbered indices (\\\"A indices\\\"), \
-and A amplitudes with physical process (\\\"A physical\\\"). Default: \
-ampFormat->\\\"a/s n-tuple\\\".\\nCKM (True|False): Indicates whether to \
-include CKM factors in the sum rules (True) or not (False). Default: \
-CKM->False.\\nb (All|Real|List): Breaking order(s) at which to print sum \
-rules. User can print sum rules to all possible orders of breaking (All), at \
-a particular order (Real s.t. 0 <= b <= highest order of breaking), or over a \
-range of orders of breaking ({start b (min: 0), end b (max: highest order of \
-breaking, or All), increment}). Default: b->All.\\n\\nReturns:\\nsystem \
-(Association): The inputted system association, modified to include formatted \
-amplitude sum rules. New/modified keys and values:\\n- \\\"Formatted ASRs\\\" \
-(or \\\"Formatted A2SRs\\\") (List): Contains Lists of (squared) amplitude \
-sum rules/matrices of (squared) amplitude sum rule coefficients formatted \
-according to the sum rule printing settings.\"\>"], "Print",
+Cell[BoxData["\<\"Arguments:\\nin (List): Contains U-spins (Real) OR particle \
+multiplets (List of Strings) in the incoming state.\\nh (List): Contains \
+U-spins (Real) OR CKM factors (List of Symbols) in the Hamiltonian.\\nout \
+(List): Contains U-spins (Real) OR particle multiplets (List of Strings) in \
+the outgoing state.\\n\\nOptions:\\nphys (True|False): Indicates whether \
+function arguments contain U-spins (False) or particle multiplets/CKM factors \
+(True). Default: phys->False.\\n\\nReturns:\\nsystem (Association): All \
+information about the system's representations, amplitudes, and amplitude sum \
+rules. Keys and values:\\n- \\\"Irreps\\\" (List): Inputted U-spin \
+representations (List of Reals) in {incoming reps, H reps, outgoing reps} \
+format.\\n- \\\"n doublets\\\" (Real): Number of would-be doublets.\\n- \\\"p \
+factor\\\" (Real): (-1)^p parity factor for the system determining forms of \
+a/s-type amplitudes.\\n- \\\"n amps\\\" (Real): Number of amplitudes in the \
+system.\\n- \\\"Amplitudes\\\" (Association): Contains all amplitudes in the \
+system. Keys and values:\\n\\t- \\\"Processes\\\" (List): Contains physical \
+processes constructed from particle names (String) for a process and its \
+U-spin conjugate process. Only available for physical systems.\\n\\t- \\\"QNs\
+\\\" (List): Contains processes written using m quantum numbers (String), \
+where m is the third component of U-spin, for a process and its U-spin \
+conjugate process.\\n\\t- \\\"n-tuple\\\" (String): Representation of an \
+amplitude pair using a comma-separated tuple of substrings. Each substring is \
+comprised of '-'s and '+'s and encodes u and m QNs of a component of a \
+participating multiplet. Signs are inverted for initial state and Hamiltonian \
+components. By convention, one n-tuple (beginning with a '-' sign) is used to \
+represent an amplitude pair: an amplitude and its U-spin conjugate amplitude.\
+\\n\\t- \\\"Node\\\" (String): Representation of an amplitude pair using the \
+coordinate notation of the lattice used to derive sum rules.\\n\\t- \
+\\\"Binary indices\\\" (List): Contains indices (Real), written in base 10, \
+derived from converting the n-tuple and its U-spin conjugate into binary \
+numbers through '-' <-> 0 and '+' <-> 1.\\n\\t- \\\"mu\\\" (Real): mu-factor \
+for the node in the lattice used to derive sum rules.\\n\\t- \\\"CG\\\" \
+(Real): Clebsch-Gordan coefficient from symmetrization for systems without \
+doublets. Equal to 1 for all amplitudes for a system with at least one \
+doublet.\\n\\t- \\\"CKM\\\" (List): Contains weak interaction factors (Real) \
+from the Hamiltonian. Only appears for physical systems.\\n- \\\"n ASRs\\\" \
+(List): Contains the number of amplitude sum rules (Real) at each order of \
+breaking.\\n- \\\"ASRs\\\" (List): Contains matrices of amplitude sum rule \
+coefficients (Real) corresponding to each order of breaking.\"\>"], "Print",
  CellChangeTimes->{
   3.966814533802061*^9, 3.9668157348757133`*^9, 3.9668657136589565`*^9, 
    3.966866434052801*^9, {3.966890766153881*^9, 3.9668907951357613`*^9}, 
@@ -1302,10 +1758,10 @@ according to the sum rule printing settings.\"\>"], "Print",
    3.9669750314208145`*^9, 3.967934291351141*^9, 3.968782062749695*^9, 
    3.968782166907076*^9, 3.9692247450647984`*^9, 3.970422600695265*^9, 
    3.970424821987028*^9, 3.970425777760298*^9, 3.970772733790407*^9, 
-   3.970773554496784*^9},
+   3.970773554496784*^9, {3.9708336142250614`*^9, 3.970833634710024*^9}},
  CellLabel->
   "During evaluation of \
-In[7]:=",ExpressionUUID->"21b737bf-19b5-fd4a-81e5-4af37df1cda8"]
+In[8]:=",ExpressionUUID->"0ab186d7-d313-3647-851b-6a7aa94385b4"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -1350,14 +1806,11 @@ Cell[BoxData[
   RowBox[{"system", "=", 
    RowBox[{"generateA2SRs", "[", 
     RowBox[{
-     RowBox[{"{", "0", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", "/", "2"}], "}"}], ",", 
      RowBox[{"{", "0", "}"}], ",", 
      RowBox[{"{", 
-      RowBox[{
-       FractionBox["1", "2"], ",", 
-       FractionBox["1", "2"], ",", 
-       FractionBox["3", "2"], ",", 
-       FractionBox["3", "2"]}], "}"}]}], "]"}]}], ";"}]], "Input",
+      RowBox[{"3", "/", "2"}], "}"}]}], "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.969224983343693*^9, 3.9692249838875904`*^9}, {
    3.9692250530274086`*^9, 3.969225073848091*^9}, {3.9692251188291225`*^9, 
    3.969225173623308*^9}, {3.9692253083784637`*^9, 3.969225310959175*^9}, {
@@ -1398,8 +1851,8 @@ Cell[BoxData[
    3.970775062209158*^9, 3.9707750985947895`*^9}, {3.970783935446926*^9, 
    3.970783940783388*^9}, {3.970783978386423*^9, 3.97078401616481*^9}, 
    3.9707840635155334`*^9, {3.970784104060175*^9, 3.9707841469052105`*^9}, 
-   3.97078468884577*^9},ExpressionUUID->"4767e7db-4575-4f42-9392-\
-7e7b8bd3244c"]
+   3.97078468884577*^9, {3.9708358479030056`*^9, 3.970835851491272*^9}},
+ CellLabel->"In[61]:=",ExpressionUUID->"4767e7db-4575-4f42-9392-7e7b8bd3244c"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1513,8 +1966,9 @@ Cell[BoxData[{
    3.966899167689247*^9}, {3.9669579987526417`*^9, 3.9669580030312843`*^9}, {
    3.966958251141964*^9, 3.966958326524931*^9}, {3.9669583711848392`*^9, 
    3.9669583729914627`*^9}, {3.9669587396718693`*^9, 3.966958740484947*^9}, {
-   3.966958785645008*^9, 3.96695879176153*^9}},
- CellLabel->"In[22]:=",ExpressionUUID->"2906ac93-7539-0940-8a06-09e0422f0dc4"],
+   3.966958785645008*^9, 3.96695879176153*^9}, {3.9708346146972866`*^9, 
+   3.970834625556612*^9}},ExpressionUUID->"2906ac93-7539-0940-8a06-\
+09e0422f0dc4"],
 
 Cell[TextData[{
  "List the multiplets in the in state, Hamiltonian, and out state and set \
@@ -1546,8 +2000,9 @@ Cell[BoxData[
       RowBox[{"Pp", ",", "Pm"}], "}"}], ",", 
      RowBox[{"phys", "->", "True"}]}], "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.9669590119069405`*^9, 3.966959013895281*^9}, 
-   3.966959100679802*^9, 3.9707841677828846`*^9},
- CellLabel->"In[28]:=",ExpressionUUID->"f89e5676-e569-8149-847e-19fccab62bd3"],
+   3.966959100679802*^9, 3.9707841677828846`*^9, {3.970834559670086*^9, 
+   3.9708345653119583`*^9}},ExpressionUUID->"f89e5676-e569-8149-847e-\
+19fccab62bd3"],
 
 Cell[BoxData[
  RowBox[{
@@ -1562,7 +2017,7 @@ Cell[BoxData[
  CellChangeTimes->{
   3.966959102600504*^9, {3.967934777779537*^9, 3.9679347781127415`*^9}, 
    3.9679379819824505`*^9, 3.9692232208732185`*^9, 3.9707845055687866`*^9},
- CellLabel->"In[33]:=",ExpressionUUID->"23c22558-42b8-504f-8378-6a6fa5d1e732"]
+ CellLabel->"In[27]:=",ExpressionUUID->"23c22558-42b8-504f-8378-6a6fa5d1e732"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1577,18 +2032,144 @@ b8b28c7fe2eb"],
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"printSystem", "[", 
-  RowBox[{"system", ",", 
-   RowBox[{"showA2SRs", "->", "True"}], ",", 
-   RowBox[{"ampFormat", "->", "\"\<A physical\>\""}], ",", 
-   RowBox[{"CKM", "->", "True"}]}], "]"}]], "Input",
+ RowBox[{"ASRsHelp", "[", "labelAmps", "]"}]], "Input",
+ CellChangeTimes->{{3.9708341365400276`*^9, 3.970834140257166*^9}, {
+  3.970835126805193*^9, 3.970835129593872*^9}},
+ CellLabel->"In[41]:=",ExpressionUUID->"e30815b3-75cc-0643-bae0-1c87bd9918f2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"labelAmps[system,colName,labels] modifies system to add a \
+column of user-defined labels to system[[\\\"Amplitudes\\\"]].\"\>"], "Print",
+ CellChangeTimes->{3.9708341408964176`*^9, 3.9708351299186535`*^9},
+ CellLabel->
+  "During evaluation of \
+In[41]:=",ExpressionUUID->"b7782754-65c8-d142-ac8f-13f56f04c29d"],
+
+Cell[BoxData["\<\"Arguments:\\nsystem (Association): A system association. \
+See the documentation for generateASRs for details.\\ncolName (String): Name \
+of new column to add to amplitudes association.\\nlabels (List): Contains \
+labels (Any) for each amplitude or amplitude pair. Number of labels must \
+equal number of amplitudes or amplitude pairs.\\n\\nOptions:\\nlabeling \
+(String): Labeling mode to indicate whether user is labeling single \
+amplitudes (\\\"Amplitudes\\\") or amplitude pairs (\\\"Amplitude pairs\\\"). \
+Default: labeling -> \
+\\\"Amplitudes\\\".\\n\\nReturns:\\nsystem[[\\\"Amplitudes\\\"]] \
+(Association): The modified amplitudes association which includes a new \
+column of user-defined labels. New/modified keys and values:\\n- colName \
+(List|Any): Either contains user-defined labels (Any) for an amplitude and \
+its U-spin conjugate or a single label (Any) for an amplitude pair.\"\>"], \
+"Print",
+ CellChangeTimes->{3.9708341408964176`*^9, 3.9708351299221897`*^9},
+ CellLabel->
+  "During evaluation of \
+In[41]:=",ExpressionUUID->"f507ec16-bc74-364c-8794-6136a48487b7"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"labelAmps", "[", 
+  RowBox[{"system", ",", "\"\<labels\>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "\[CapitalDelta]", ",", "\[CapitalSigma]", ",", "\[CapitalXi]", ",", 
+     "\[CapitalOmega]"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.970835117133671*^9, 3.9708351612378807`*^9}, {
+  3.9708353617302437`*^9, 3.9708353845776863`*^9}, {3.97083587050832*^9, 
+  3.970835994391136*^9}, {3.9708360897332115`*^9, 3.970836117441677*^9}},
+ CellLabel->"In[65]:=",ExpressionUUID->"5879e285-daca-344b-be27-2a7b4e2e097d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"labels\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\[CapitalDelta]", ",", "\[CapitalSigma]"}], "}"}]}], ",", 
+     RowBox[{"\<\"QNs\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\<\"+\\!\\(\\*FractionBox[\\\"3\\\", \
+\\\"2\\\"]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \\\"\\\
+\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\"}]\\\
+\\\\\\)\\\\\\\"\\\"]\\)+\\!\\(\\*FractionBox[\\\"3\\\", \\\"2\\\"]\\)\"\>", 
+        ",", "\<\"\\!\\(\\*RowBox[{\\\"-\\\", FractionBox[\\\"3\\\", \
+\\\"2\\\"]}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \\\"\
+\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\"}]\
+\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\"-\\\", FractionBox[\\\"3\\\", \
+\\\"2\\\"]}]\\)\"\>"}], "}"}]}], ",", 
+     RowBox[{"\<\"n-tuple\"\>", "\[Rule]", "\<\"(---,+++)\"\>"}], ",", 
+     RowBox[{"\<\"Node\"\>", "\[Rule]", "\<\"(1,1)\"\>"}], ",", 
+     RowBox[{"\<\"Binary indices\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"7", ",", "56"}], "}"}]}], ",", 
+     RowBox[{"\<\"mu\"\>", "\[Rule]", "2"}], ",", 
+     RowBox[{"\<\"CG\"\>", "\[Rule]", "1"}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"labels\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\[CapitalXi]", ",", "\[CapitalOmega]"}], "}"}]}], ",", 
+     RowBox[{"\<\"QNs\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\<\"+\\!\\(\\*FractionBox[\\\"1\\\", \
+\\\"2\\\"]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \\\"\\\
+\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\"}]\\\
+\\\\\\)\\\\\\\"\\\"]\\)+\\!\\(\\*FractionBox[\\\"1\\\", \\\"2\\\"]\\)\"\>", 
+        ",", "\<\"\\!\\(\\*RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"2\\\"]}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \\\"\
+\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\"}]\
+\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"2\\\"]}]\\)\"\>"}], "}"}]}], ",", 
+     RowBox[{"\<\"n-tuple\"\>", "\[Rule]", "\<\"(--+,-++)\"\>"}], ",", 
+     RowBox[{"\<\"Node\"\>", "\[Rule]", "\<\"(1,2)\"\>"}], ",", 
+     RowBox[{"\<\"Binary indices\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"11", ",", "25"}], "}"}]}], ",", 
+     RowBox[{"\<\"mu\"\>", "\[Rule]", 
+      SqrtBox["6"]}], ",", 
+     RowBox[{"\<\"CG\"\>", "\[Rule]", 
+      SqrtBox[
+       FractionBox["2", "3"]]}]}], "\[RightAssociation]"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.970836029358198*^9, 3.9708361187794113`*^9},
+ CellLabel->"Out[65]=",ExpressionUUID->"5d48296d-c28f-a748-9d98-f5900619b600"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"A", "=", "m"}]], "Input",
+ CellChangeTimes->{{3.970836123456133*^9, 3.9708361240538483`*^9}},
+ CellLabel->"In[66]:=",ExpressionUUID->"c78d7365-766f-9a48-b668-b1a542c1d044"],
+
+Cell[BoxData["m"], "Output",
+ CellChangeTimes->{3.970836126151392*^9},
+ CellLabel->"Out[66]=",ExpressionUUID->"85b5299a-a415-8541-95f2-d2c552057150"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"printSystem", "[", 
+   RowBox[{"system", ",", 
+    RowBox[{"ampFormat", "->", "\"\<A labels\>\""}]}], "]"}], ";"}]], "Input",
  CellChangeTimes->{{3.9687822420762596`*^9, 3.9687823101360035`*^9}, 
    3.968782346425108*^9, {3.969428054384716*^9, 3.9694280849435596`*^9}, {
    3.970604308531105*^9, 3.9706043314208984`*^9}, {3.970673008838331*^9, 
    3.970673046023081*^9}, {3.9706732173404007`*^9, 3.9706732213228073`*^9}, {
    3.9707841778799706`*^9, 3.9707841896430035`*^9}, {3.9707842809943256`*^9, 
-   3.9707842870498962`*^9}},
- CellLabel->"In[34]:=",ExpressionUUID->"aeb4ec86-8c7f-c448-9f2b-3502bbecd93a"],
+   3.9707842870498962`*^9}, {3.970833827840706*^9, 3.970833832546404*^9}, {
+   3.970834162722782*^9, 3.9708342301042957`*^9}, {3.9708343661573296`*^9, 
+   3.970834383887869*^9}, {3.9708346430052814`*^9, 3.970834677934992*^9}, {
+   3.970834722683708*^9, 3.970834761586075*^9}, {3.970834884365877*^9, 
+   3.9708348942337036`*^9}, {3.9708352378631134`*^9, 3.970835332004238*^9}, {
+   3.9708356310175705`*^9, 3.9708356311531906`*^9}, {3.970835679124752*^9, 
+   3.9708357007523785`*^9}, {3.970835764078472*^9, 3.9708357651062393`*^9}, {
+   3.970836044817215*^9, 3.9708360502992096`*^9}, 3.9708361660912514`*^9},
+ CellLabel->"In[68]:=",ExpressionUUID->"aeb4ec86-8c7f-c448-9f2b-3502bbecd93a"],
 
 Cell[CellGroupData[{
 
@@ -1596,77 +2177,100 @@ Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"System: \"\>", "\[InvisibleSpace]", 
    RowBox[{"{", 
-    RowBox[{"0", ",", "1", ",", "1", ",", "1"}], "}"}]}],
-  SequenceForm["System: ", {0, 1, 1, 1}],
+    RowBox[{"0", ",", 
+     FractionBox["3", "2"], ",", 
+     FractionBox["3", "2"]}], "}"}]}],
+  SequenceForm["System: ", {0, 
+    Rational[3, 2], 
+    Rational[3, 2]}],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}},
+   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}, 
+   3.9708338523284397`*^9, 3.9708341816683426`*^9, 3.970834232525776*^9, 
+   3.9708343949189606`*^9, 3.9708345942860775`*^9, 3.9708346811628265`*^9, {
+   3.97083473249724*^9, 3.9708347619564114`*^9}, {3.9708348871986523`*^9, 
+   3.9708348945443344`*^9}, 3.9708353365892696`*^9, 3.9708353890803604`*^9, 
+   3.97083563156489*^9, 3.9708357011428757`*^9, 3.9708357411160316`*^9, 
+   3.9708360514969616`*^9, 3.9708361310447598`*^9, 3.970836166740263*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"971d37a5-d8b0-ba46-911a-817ef6e908fc"],
+In[68]:=",ExpressionUUID->"722c82d5-4aa7-2746-bc22-781f87d3f882"],
 
 Cell[BoxData["\<\"-------------------------\"\>"], "Print",
  CellChangeTimes->{
   3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}},
+   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}, 
+   3.9708338523284397`*^9, 3.9708341816683426`*^9, 3.970834232525776*^9, 
+   3.9708343949189606`*^9, 3.9708345942860775`*^9, 3.9708346811628265`*^9, {
+   3.97083473249724*^9, 3.9708347619564114`*^9}, {3.9708348871986523`*^9, 
+   3.9708348945443344`*^9}, 3.9708353365892696`*^9, 3.9708353890803604`*^9, 
+   3.97083563156489*^9, 3.9708357011428757`*^9, 3.9708357411160316`*^9, 
+   3.9708360514969616`*^9, 3.9708361310447598`*^9, 3.970836166743765*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"09f85087-0b52-6b4a-935c-70d79c5f303e"],
+In[68]:=",ExpressionUUID->"1ff58c0f-f7e2-af45-aaff-dd0f1881acca"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Number of would-be doublets: \"\>", "\[InvisibleSpace]", "6", 
    "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", "\<\"In: \"\>", "\[InvisibleSpace]", 
-   RowBox[{"{", "0", "}"}], "\[InvisibleSpace]", "\<\"\\n\"\>", 
+   RowBox[{"{", 
+    FractionBox["3", "2"], "}"}], "\[InvisibleSpace]", "\<\"\\n\"\>", 
    "\[InvisibleSpace]", "\<\"H: \"\>", "\[InvisibleSpace]", 
-   RowBox[{"{", "1", "}"}], "\[InvisibleSpace]", "\<\"\\n\"\>", 
+   RowBox[{"{", "0", "}"}], "\[InvisibleSpace]", "\<\"\\n\"\>", 
    "\[InvisibleSpace]", "\<\"Out: \"\>", "\[InvisibleSpace]", 
    RowBox[{"{", 
-    RowBox[{"1", ",", "1"}], "}"}]}],
-  SequenceForm[
-  "Number of would-be doublets: ", 6, "\n", "In: ", {0}, "\n", "H: ", {1}, 
-   "\n", "Out: ", {1, 1}],
+    FractionBox["3", "2"], "}"}]}],
+  SequenceForm["Number of would-be doublets: ", 6, "\n", "In: ", {
+    Rational[3, 2]}, "\n", "H: ", {0}, "\n", "Out: ", {
+    Rational[3, 2]}],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}},
+   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}, 
+   3.9708338523284397`*^9, 3.9708341816683426`*^9, 3.970834232525776*^9, 
+   3.9708343949189606`*^9, 3.9708345942860775`*^9, 3.9708346811628265`*^9, {
+   3.97083473249724*^9, 3.9708347619564114`*^9}, {3.9708348871986523`*^9, 
+   3.9708348945443344`*^9}, 3.9708353365892696`*^9, 3.9708353890803604`*^9, 
+   3.97083563156489*^9, 3.9708357011428757`*^9, 3.9708357411160316`*^9, 
+   3.9708360514969616`*^9, 3.9708361310447598`*^9, 3.970836166747925*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"f9e02124-182c-2b47-a6ca-e17b40643501"],
+In[68]:=",ExpressionUUID->"c8181dd8-839a-b84f-b3d5-1893ca17037c"],
 
 Cell[BoxData["\<\"-------------------------\"\>"], "Print",
  CellChangeTimes->{
   3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}},
+   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}, 
+   3.9708338523284397`*^9, 3.9708341816683426`*^9, 3.970834232525776*^9, 
+   3.9708343949189606`*^9, 3.9708345942860775`*^9, 3.9708346811628265`*^9, {
+   3.97083473249724*^9, 3.9708347619564114`*^9}, {3.9708348871986523`*^9, 
+   3.9708348945443344`*^9}, 3.9708353365892696`*^9, 3.9708353890803604`*^9, 
+   3.97083563156489*^9, 3.9708357011428757`*^9, 3.9708357411160316`*^9, 
+   3.9708360514969616`*^9, 3.9708361310447598`*^9, 3.97083616674893*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"21593e40-2fc6-bb44-a186-53d4edee18ed"],
+In[68]:=",ExpressionUUID->"996076e5-1db5-9241-9f68-9543b8e02885"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"Amplitude table\"\>", "\[InvisibleSpace]", "\<\"\\n\"\>", 
    "\[InvisibleSpace]", "\<\"Number of amplitudes: \"\>", "\[InvisibleSpace]",
-    "7", "\[InvisibleSpace]", "\<\"\\n\"\>", 
+    "4", "\[InvisibleSpace]", "\<\"\\n\"\>", 
    "\[InvisibleSpace]", "\<\"a/s definitions: \\!\\(\\*SubscriptBox[\\(a\\), \
 \\(i\\)]\\) = \\!\\(\\*SubscriptBox[\\(A\\), \\(i\\)]\\) \"\>", 
-   "\[InvisibleSpace]", "\<\"+\"\>", 
+   "\[InvisibleSpace]", "\<\"-\"\>", 
    "\[InvisibleSpace]", "\<\" \\!\\(\\*SubscriptBox[\\(A\\), \\(l\\)]\\), \\!\
 \\(\\*SubscriptBox[\\(s\\), \\(i\\)]\\) = \\!\\(\\*SubscriptBox[\\(A\\), \\(i\
-\\)]\\) \"\>", "\[InvisibleSpace]", "\<\"-\"\>", 
+\\)]\\) \"\>", "\[InvisibleSpace]", "\<\"+\"\>", 
    "\[InvisibleSpace]", "\<\" \\!\\(\\*SubscriptBox[\\(A\\), \\(l\\)]\\)\"\>",
     "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
    InterpretationBox[GridBox[{
-      {"\<\"Processes\"\>", "\<\"QNs\"\>", "\<\"n-tuple\"\>", "\<\"Node\"\>", \
-"\<\"CKM\"\>"},
+      {"\<\"labels\"\>", "\<\"QNs\"\>", "\<\"n-tuple\"\>", "\<\"Node\"\>"},
       {GridBox[{
-         {"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>"},
-         {"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>"}
+         {"\[CapitalDelta]"},
+         {"\[CapitalSigma]"}
         },
         GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
         GridBoxSpacings->{"Columns" -> {
@@ -1676,15 +2280,15 @@ Cell[BoxData[
             Offset[0.2], {
              Offset[0.1]}, 
             Offset[0.2]}}], GridBox[{
-         {"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\
-\\\" \[Rule] \\\\\\\"\\\", \\\"\\\\\\\"+\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\
-\\\\\\\\\\\\\"1\\\\\\\\\\\\\\\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\
-\"0\\\"}]\\) +\\!\\(\\*RowBox[{\\\"1\\\"}]\\)\"\>"},
-         {"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\
-\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"-\\\\\\\\\\\\\\\
-\", \\\\\\\\\\\\\\\"1\\\\\\\\\\\\\\\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*\
-RowBox[{\\\"0\\\"}]\\) \\!\\(\\*RowBox[{\\\"-\\\", \\\"1\\\"}]\\)\"\>"}
+         {"\<\"+\\!\\(\\*FractionBox[\\\"3\\\", \
+\\\"2\\\"]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \\\"\\\
+\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\"}]\\\
+\\\\\\)\\\\\\\"\\\"]\\)+\\!\\(\\*FractionBox[\\\"3\\\", \\\"2\\\"]\\)\"\>"},
+         {"\<\"\\!\\(\\*RowBox[{\\\"-\\\", FractionBox[\\\"3\\\", \
+\\\"2\\\"]}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \\\"\
+\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\"}]\
+\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\"-\\\", FractionBox[\\\"3\\\", \
+\\\"2\\\"]}]\\)\"\>"}
         },
         GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
         GridBoxSpacings->{"Columns" -> {
@@ -1693,25 +2297,10 @@ RowBox[{\\\"0\\\"}]\\) \\!\\(\\*RowBox[{\\\"-\\\", \\\"1\\\"}]\\)\"\>"}
             Offset[0.27999999999999997`]}, "Rows" -> {
             Offset[0.2], {
              Offset[0.1]}, 
-            Offset[0.2]}}], "\<\"(--,-+,++)\"\>", "\<\"(1,2)\"\>", GridBox[{
-         {"f11"},
-         {"f1m1"}
-        },
-        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.7]}, 
-            Offset[0.27999999999999997`]}, "Rows" -> {
-            Offset[0.2], {
-             Offset[0.1]}, 
-            Offset[0.2]}}]},
+            Offset[0.2]}}], "\<\"(---,+++)\"\>", "\<\"(1,1)\"\>"},
       {GridBox[{
-         {"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>"},
-         {"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>"}
+         {"\[CapitalXi]"},
+         {"\[CapitalOmega]"}
         },
         GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
         GridBoxSpacings->{"Columns" -> {
@@ -1721,15 +2310,15 @@ RowBox[{\\\"0\\\"}]\\) \\!\\(\\*RowBox[{\\\"-\\\", \\\"1\\\"}]\\)\"\>"}
             Offset[0.2], {
              Offset[0.1]}, 
             Offset[0.2]}}], GridBox[{
-         {"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\
-\\\" \[Rule] \\\\\\\"\\\", \\\"\\\\\\\"+\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\
-\\\\\\\\\\\\\"1\\\\\\\\\\\\\\\"}]\\\\\\\\)\\\\\\\"\\\"]\\)+\\!\\(\\*RowBox[{\\\
-\"1\\\"}]\\) \\!\\(\\*RowBox[{\\\"0\\\"}]\\)\"\>"},
-         {"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\
-\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"-\\\\\\\\\\\\\\\
-\", \\\\\\\\\\\\\\\"1\\\\\\\\\\\\\\\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*\
-RowBox[{\\\"-\\\", \\\"1\\\"}]\\) \\!\\(\\*RowBox[{\\\"0\\\"}]\\)\"\>"}
+         {"\<\"+\\!\\(\\*FractionBox[\\\"1\\\", \
+\\\"2\\\"]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \\\"\\\
+\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\"}]\\\
+\\\\\\)\\\\\\\"\\\"]\\)+\\!\\(\\*FractionBox[\\\"1\\\", \\\"2\\\"]\\)\"\>"},
+         {"\<\"\\!\\(\\*RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"2\\\"]}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \\\"\
+\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\"}]\
+\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \
+\\\"2\\\"]}]\\)\"\>"}
         },
         GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
         GridBoxSpacings->{"Columns" -> {
@@ -1738,83 +2327,7 @@ RowBox[{\\\"-\\\", \\\"1\\\"}]\\) \\!\\(\\*RowBox[{\\\"0\\\"}]\\)\"\>"}
             Offset[0.27999999999999997`]}, "Rows" -> {
             Offset[0.2], {
              Offset[0.1]}, 
-            Offset[0.2]}}], "\<\"(--,++,-+)\"\>", "\<\"(1,3)\"\>", GridBox[{
-         {"f11"},
-         {"f1m1"}
-        },
-        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.7]}, 
-            Offset[0.27999999999999997`]}, "Rows" -> {
-            Offset[0.2], {
-             Offset[0.1]}, 
-            Offset[0.2]}}]},
-      {GridBox[{
-         {"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>"},
-         {"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>"}
-        },
-        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.7]}, 
-            Offset[0.27999999999999997`]}, "Rows" -> {
-            Offset[0.2], {
-             Offset[0.1]}, 
-            Offset[0.2]}}], GridBox[{
-         {"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\
-\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\
-\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\"-\\\", \\\"1\\\"}]\\) \
-+\\!\\(\\*RowBox[{\\\"1\\\"}]\\)\"\>"},
-         {"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\
-\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\
-\"}]\\\\\\\\)\\\\\\\"\\\"]\\)+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) \
-\\!\\(\\*RowBox[{\\\"-\\\", \\\"1\\\"}]\\)\"\>"}
-        },
-        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.7]}, 
-            Offset[0.27999999999999997`]}, "Rows" -> {
-            Offset[0.2], {
-             Offset[0.1]}, 
-            Offset[0.2]}}], "\<\"(-+,--,++)\"\>", "\<\"(2,2)\"\>", GridBox[{
-         {"f10"},
-         {"f10"}
-        },
-        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.7]}, 
-            Offset[0.27999999999999997`]}, "Rows" -> {
-            Offset[0.2], {
-             Offset[0.1]}, 
-            Offset[0.2]}}]},
-      {"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \\!\\(\\*SubscriptBox[\\(\
-\[Phi]\\), \\(u\\)]\\)\"\>", \
-"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\"\\\\\\\" \
-\[Rule] \\\\\\\"\\\", \\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\
-\\\\\\\"0\\\\\\\\\\\\\\\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\"0\\\"\
-}]\\) \\!\\(\\*RowBox[{\\\"0\\\"}]\\)\"\>", "\<\"(-+,-+,-+)\"\>", \
-"\<\"(2,3)\"\>", GridBox[{
-         {"f10"}
-        },
-        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.7]}, 
-            Offset[0.27999999999999997`]}, "Rows" -> {
-            Offset[0.2], {
-             Offset[0.1]}, 
-            Offset[0.2]}}]}
+            Offset[0.2]}}], "\<\"(--+,-++)\"\>", "\<\"(1,2)\"\>"}
      },
      GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
      GridBoxSpacings->{"Columns" -> {
@@ -1825,297 +2338,186 @@ RowBox[{\\\"-\\\", \\\"1\\\"}]\\) \\!\\(\\*RowBox[{\\\"0\\\"}]\\)\"\>"}
           Offset[0.4]}, 
          Offset[0.2]}}],
     TableForm[{{
-      "Processes", "QNs", "n-tuple", "Node", "CKM"}, {{
-       "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\)", 
-        "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \(_\
-\)]\)"}, {
-       "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
-\"\\\"+\\\\!\\\\(\\\\*RowBox[{\\\\\\\"1\\\\\\\"}]\\\\)\\\"\"]\)\!\(\*RowBox[{\
-\"0\"}]\) +\!\(\*RowBox[{\"1\"}]\)", 
-        "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \"\
-\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"-\\\\\\\", \\\\\\\"1\\\\\\\"}]\\\\)\\\"\"]\
-\)\!\(\*RowBox[{\"0\"}]\) \!\(\*RowBox[{\"-\", \"1\"}]\)"}, "(--,-+,++)", 
-       "(1,2)", {{$CellContext`f11}, {$CellContext`f1m1}}}, {{
-       "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SuperscriptBox[\(K\
-\), \(0\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\)", 
-        "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\)"}, {
-       "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
-\"\\\"+\\\\!\\\\(\\\\*RowBox[{\\\\\\\"1\\\\\\\"}]\\\\)\\\"\"]\)+\!\(\*RowBox[{\
-\"1\"}]\) \!\(\*RowBox[{\"0\"}]\)", 
-        "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \"\
-\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"-\\\\\\\", \\\\\\\"1\\\\\\\"}]\\\\)\\\"\"]\
-\)\!\(\*RowBox[{\"-\", \"1\"}]\) \!\(\*RowBox[{\"0\"}]\)"}, "(--,++,-+)", 
-       "(1,3)", {{$CellContext`f11}, {$CellContext`f1m1}}}, {{
-       "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\)", 
-        "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \(_\)]\)"}, {
-       "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
+      "labels", "QNs", "n-tuple", 
+       "Node"}, {{$CellContext`\[CapitalDelta], \
+$CellContext`\[CapitalSigma]}, {
+       "+\!\(\*FractionBox[\"3\", \"2\"]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \
+\\\"\", \"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)+\!\(\*\
+FractionBox[\"3\", \"2\"]\)", 
+        "\!\(\*RowBox[{\"-\", FractionBox[\"3\", \
+\"2\"]}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
 \"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)\!\(\*RowBox[{\"\
--\", \"1\"}]\) +\!\(\*RowBox[{\"1\"}]\)", 
-        "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \"\
-\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)+\!\(\*RowBox[{\"\
-1\"}]\) \!\(\*RowBox[{\"-\", \"1\"}]\)"}, "(-+,--,++)", 
-       "(2,2)", {{$CellContext`f10}, {$CellContext`f10}}}, {
-      "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\)", 
-       "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
+-\", FractionBox[\"3\", \"2\"]}]\)"}, "(---,+++)", 
+       "(1,1)"}, {{$CellContext`\[CapitalXi], $CellContext`\[CapitalOmega]}, {
+       "+\!\(\*FractionBox[\"1\", \"2\"]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \
+\\\"\", \"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)+\!\(\*\
+FractionBox[\"1\", \"2\"]\)", 
+        "\!\(\*RowBox[{\"-\", FractionBox[\"1\", \
+\"2\"]}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
 \"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)\!\(\*RowBox[{\"\
-0\"}]\) \!\(\*RowBox[{\"0\"}]\)", "(-+,-+,-+)", 
-       "(2,3)", {$CellContext`f10}}}]]}],
+-\", FractionBox[\"1\", \"2\"]}]\)"}, "(--+,-++)", "(1,2)"}}]]}],
   SequenceForm[
-  "Amplitude table", "\n", "Number of amplitudes: ", 7, "\n", 
+  "Amplitude table", "\n", "Number of amplitudes: ", 4, "\n", 
    "a/s definitions: \!\(\*SubscriptBox[\(a\), \(i\)]\) = \!\(\*SubscriptBox[\
-\(A\), \(i\)]\) ", "+", 
+\(A\), \(i\)]\) ", "-", 
    " \!\(\*SubscriptBox[\(A\), \(l\)]\), \!\(\*SubscriptBox[\(s\), \(i\)]\) = \
-\!\(\*SubscriptBox[\(A\), \(i\)]\) ", "-", 
+\!\(\*SubscriptBox[\(A\), \(i\)]\) ", "+", 
    " \!\(\*SubscriptBox[\(A\), \(l\)]\)", "\n", 
    TableForm[{{
-     "Processes", "QNs", "n-tuple", "Node", "CKM"}, {{
-      "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\)", 
-       "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \(_\
-\)]\)"}, {
-      "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \"\\\
-\"+\\\\!\\\\(\\\\*RowBox[{\\\\\\\"1\\\\\\\"}]\\\\)\\\"\"]\)\!\(\*RowBox[{\"0\"\
-}]\) +\!\(\*RowBox[{\"1\"}]\)", 
-       "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
-\"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"-\\\\\\\", \
-\\\\\\\"1\\\\\\\"}]\\\\)\\\"\"]\)\!\(\*RowBox[{\"0\"}]\) \!\(\*RowBox[{\"-\", \
-\"1\"}]\)"}, "(--,-+,++)", 
-      "(1,2)", {{$CellContext`f11}, {$CellContext`f1m1}}}, {{
-      "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\)",
-        "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\)"}, {
-      "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \"\\\
-\"+\\\\!\\\\(\\\\*RowBox[{\\\\\\\"1\\\\\\\"}]\\\\)\\\"\"]\)+\!\(\*RowBox[{\"1\
-\"}]\) \!\(\*RowBox[{\"0\"}]\)", 
-       "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
-\"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"-\\\\\\\", \
-\\\\\\\"1\\\\\\\"}]\\\\)\\\"\"]\)\!\(\*RowBox[{\"-\", \"1\"}]\) \
-\!\(\*RowBox[{\"0\"}]\)"}, "(--,++,-+)", 
-      "(1,3)", {{$CellContext`f11}, {$CellContext`f1m1}}}, {{
-      "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\)", 
-       "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SuperscriptBox[\(K\
-\), \(0\)]\) \!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \
-\(_\)]\)"}, {
-      "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \"\\\
-\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)\!\(\*RowBox[{\"-\",\
- \"1\"}]\) +\!\(\*RowBox[{\"1\"}]\)", 
-       "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
-\"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)+\!\(\*RowBox[{\
-\"1\"}]\) \!\(\*RowBox[{\"-\", \"1\"}]\)"}, "(-+,--,++)", 
-      "(2,2)", {{$CellContext`f10}, {$CellContext`f10}}}, {
-     "\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SubscriptBox[\(\[Eta]\), \(u\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\
-\)", "\!\(\*RowBox[{\"0\"}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
+     "labels", "QNs", "n-tuple", 
+      "Node"}, {{$CellContext`\[CapitalDelta], $CellContext`\[CapitalSigma]}, \
+{"+\!\(\*FractionBox[\"3\", \"2\"]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \
+\\\"\", \"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)+\!\(\*\
+FractionBox[\"3\", \"2\"]\)", 
+       "\!\(\*RowBox[{\"-\", FractionBox[\"3\", \
+\"2\"]}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
 \"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)\!\(\*RowBox[{\"\
-0\"}]\) \!\(\*RowBox[{\"0\"}]\)", "(-+,-+,-+)", 
-      "(2,3)", {$CellContext`f10}}}]],
+-\", FractionBox[\"3\", \"2\"]}]\)"}, "(---,+++)", 
+      "(1,1)"}, {{$CellContext`\[CapitalXi], $CellContext`\[CapitalOmega]}, {
+      "+\!\(\*FractionBox[\"1\", \"2\"]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \
+\\\"\", \"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)+\!\(\*\
+FractionBox[\"1\", \"2\"]\)", 
+       "\!\(\*RowBox[{\"-\", FractionBox[\"1\", \
+\"2\"]}]\)\!\(\*OverscriptBox[\"\\\" \[Rule] \\\"\", \
+\"\\\"\\\\!\\\\(\\\\*RowBox[{\\\\\\\"0\\\\\\\"}]\\\\)\\\"\"]\)\!\(\*RowBox[{\"\
+-\", FractionBox[\"1\", \"2\"]}]\)"}, "(--+,-++)", "(1,2)"}}]],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078641815`*^9}},
+   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}, 
+   3.9708338523284397`*^9, 3.9708341816683426`*^9, 3.970834232525776*^9, 
+   3.9708343949189606`*^9, 3.9708345942860775`*^9, 3.9708346811628265`*^9, {
+   3.97083473249724*^9, 3.9708347619564114`*^9}, {3.9708348871986523`*^9, 
+   3.9708348945443344`*^9}, 3.9708353365892696`*^9, 3.9708353890803604`*^9, 
+   3.97083563156489*^9, 3.9708357011428757`*^9, 3.9708357411160316`*^9, 
+   3.9708360514969616`*^9, 3.9708361310447598`*^9, 3.970836166750929*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"ecc110d5-5f57-b94d-ba01-0f48a9058490"],
+In[68]:=",ExpressionUUID->"af47351e-afa5-9241-9543-dedaeca3da84"],
 
 Cell[BoxData["\<\"-------------------------\"\>"], "Print",
  CellChangeTimes->{
   3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.970784507868574*^9}},
+   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}, 
+   3.9708338523284397`*^9, 3.9708341816683426`*^9, 3.970834232525776*^9, 
+   3.9708343949189606`*^9, 3.9708345942860775`*^9, 3.9708346811628265`*^9, {
+   3.97083473249724*^9, 3.9708347619564114`*^9}, {3.9708348871986523`*^9, 
+   3.9708348945443344`*^9}, 3.9708353365892696`*^9, 3.9708353890803604`*^9, 
+   3.97083563156489*^9, 3.9708357011428757`*^9, 3.9708357411160316`*^9, 
+   3.9708360514969616`*^9, 3.9708361310447598`*^9, 3.9708361667574844`*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"0880bdcb-5557-6c4c-afff-3ce8d51622b8"],
+In[68]:=",ExpressionUUID->"0190499e-66a3-a741-a1ca-f139bbb3d619"],
 
 Cell[BoxData["\<\"Amplitude sum rules\"\>"], "Print",
  CellChangeTimes->{
   3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.970784507868574*^9}},
+   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}, 
+   3.9708338523284397`*^9, 3.9708341816683426`*^9, 3.970834232525776*^9, 
+   3.9708343949189606`*^9, 3.9708345942860775`*^9, 3.9708346811628265`*^9, {
+   3.97083473249724*^9, 3.9708347619564114`*^9}, {3.9708348871986523`*^9, 
+   3.9708348945443344`*^9}, 3.9708353365892696`*^9, 3.9708353890803604`*^9, 
+   3.97083563156489*^9, 3.9708357011428757`*^9, 3.9708357411160316`*^9, 
+   3.9708360514969616`*^9, 3.9708361310447598`*^9, 3.970836166758505*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"e6a94fc3-bffd-df42-a9e6-41bfd344b331"],
+In[68]:=",ExpressionUUID->"bf575e88-e4f4-eb4f-ae56-7fe50676e939"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"b = \"\>", "\[InvisibleSpace]", "0", 
    "\[InvisibleSpace]", "\<\"\\n\"\>", 
-   "\[InvisibleSpace]", "\<\"Number of SRs: \"\>", "\[InvisibleSpace]", "4", 
+   "\[InvisibleSpace]", "\<\"Number of SRs: \"\>", "\[InvisibleSpace]", "2", 
    "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
    TagBox[
-    RowBox[{"(", "\[NoBreak]", GridBox[{
-       {
-        RowBox[{
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f11"], "+", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f1m1"]}]},
-       {
-        RowBox[{
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "f11"], "+", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "f1m1"]}]},
-       {
-        RowBox[{
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f10"], "+", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f10"]}]},
-       {
-        FractionBox[
+    RowBox[{"(", "\[NoBreak]", 
+     TagBox[GridBox[{
+        {
          RowBox[{
-         "2", " ", "\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>"}], "f10"]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.7]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}], "\[NoBreak]", ")"}],
+          SubscriptBox["m", "\[CapitalDelta]"], "-", 
+          SubscriptBox["m", "\[CapitalSigma]"]}]},
+        {
+         RowBox[{
+          SubscriptBox["m", "\[CapitalXi]"], "-", 
+          SubscriptBox["m", "\[CapitalOmega]"]}]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.5599999999999999]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}],
+      Column], "\[NoBreak]", ")"}],
     Function[BoxForm`e$, 
      MatrixForm[BoxForm`e$]]]}],
-  SequenceForm["b = ", 0, "\n", "Number of SRs: ", 4, "\n", 
-   MatrixForm[{{
-     "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SuperscriptBox[\(K\), \
-\(*\(0\)\)]\))"/$CellContext`f11 + 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \(_\
-\)]\))"/$CellContext`f1m1}, {
-     "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SuperscriptBox[\(K\
-\), \(0\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\))"/$CellContext`f11 + 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\))"/$CellContext`f1m1}, {
-     "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\))"/$CellContext`f10 + 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \
-\(_\)]\))"/$CellContext`f10}, {
-     2 "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \
-\(u\)]\))"/$CellContext`f10}}]],
+  SequenceForm["b = ", 0, "\n", "Number of SRs: ", 2, "\n", 
+   MatrixForm[{
+    Subscript[$CellContext`m, $CellContext`\[CapitalDelta]] - 
+     Subscript[$CellContext`m, $CellContext`\[CapitalSigma]], 
+     Subscript[$CellContext`m, $CellContext`\[CapitalXi]] - 
+     Subscript[$CellContext`m, $CellContext`\[CapitalOmega]]}]],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.97078450787236*^9}},
+   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}, 
+   3.9708338523284397`*^9, 3.9708341816683426`*^9, 3.970834232525776*^9, 
+   3.9708343949189606`*^9, 3.9708345942860775`*^9, 3.9708346811628265`*^9, {
+   3.97083473249724*^9, 3.9708347619564114`*^9}, {3.9708348871986523`*^9, 
+   3.9708348945443344`*^9}, 3.9708353365892696`*^9, 3.9708353890803604`*^9, 
+   3.97083563156489*^9, 3.9708357011428757`*^9, 3.9708357411160316`*^9, 
+   3.9708360514969616`*^9, 3.9708361310447598`*^9, 3.970836166760481*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"abd1e6ab-06e8-8c41-9f3c-2b86475744f7"],
+In[68]:=",ExpressionUUID->"f00801b4-ab99-2148-8739-e42b406745b4"],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"b = \"\>", "\[InvisibleSpace]", "1", 
    "\[InvisibleSpace]", "\<\"\\n\"\>", 
-   "\[InvisibleSpace]", "\<\"Number of SRs: \"\>", "\[InvisibleSpace]", "2", 
+   "\[InvisibleSpace]", "\<\"Number of SRs: \"\>", "\[InvisibleSpace]", "1", 
    "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
    TagBox[
-    RowBox[{"(", "\[NoBreak]", GridBox[{
-       {
-        RowBox[{
-         RowBox[{"-", 
-          
-          FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f10"]}], "+", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f10"], "+", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f11"], "-", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f1m1"]}]},
-       {
-        RowBox[{
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f10"], "-", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f10"], "+", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "f11"], "-", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "f1m1"]}]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.7]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    RowBox[{"(", "\[NoBreak]", 
+     TagBox[GridBox[{
+        {
+         RowBox[{
+          SubscriptBox["m", "\[CapitalDelta]"], "-", 
+          SubscriptBox["m", "\[CapitalXi]"], "+", 
+          SubscriptBox["m", "\[CapitalSigma]"], "-", 
+          SubscriptBox["m", "\[CapitalOmega]"]}]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.5599999999999999]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}],
+      Column], "\[NoBreak]", ")"}],
     Function[BoxForm`e$, 
      MatrixForm[BoxForm`e$]]]}],
-  SequenceForm["b = ", 1, "\n", "Number of SRs: ", 2, "\n", 
-   MatrixForm[{{-
-       "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\))"/$CellContext`f10 + 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \
-\(_\)]\))"/$CellContext`f10 + 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SuperscriptBox[\(K\), \
-\(*\(0\)\)]\))"/$CellContext`f11 - 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \(_\
-\)]\))"/$CellContext`f1m1}, {
-     "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\))"/$CellContext`f10 - 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \
-\(_\)]\))"/$CellContext`f10 + 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \
-\(u\)]\))"/$CellContext`f11 - 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\))"/$CellContext`f1m1}}]],
+  SequenceForm["b = ", 1, "\n", "Number of SRs: ", 1, "\n", 
+   MatrixForm[{
+    Subscript[$CellContext`m, $CellContext`\[CapitalDelta]] - 
+     Subscript[$CellContext`m, $CellContext`\[CapitalXi]] + 
+     Subscript[$CellContext`m, $CellContext`\[CapitalSigma]] - 
+     Subscript[$CellContext`m, $CellContext`\[CapitalOmega]]}]],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.97078450787236*^9}},
+   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}, 
+   3.9708338523284397`*^9, 3.9708341816683426`*^9, 3.970834232525776*^9, 
+   3.9708343949189606`*^9, 3.9708345942860775`*^9, 3.9708346811628265`*^9, {
+   3.97083473249724*^9, 3.9708347619564114`*^9}, {3.9708348871986523`*^9, 
+   3.9708348945443344`*^9}, 3.9708353365892696`*^9, 3.9708353890803604`*^9, 
+   3.97083563156489*^9, 3.9708357011428757`*^9, 3.9708357411160316`*^9, 
+   3.9708360514969616`*^9, 3.9708361310447598`*^9, 3.970836166761488*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"fdf8709c-2f8f-6542-9ba3-49f7fc13196f"],
+In[68]:=",ExpressionUUID->"698236b9-6a2b-4742-9a9f-a6c8211058a1"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -2124,844 +2526,89 @@ Cell[BoxData[
    "\[InvisibleSpace]", "\<\"Number of SRs: \"\>", "\[InvisibleSpace]", "1", 
    "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
    TagBox[
-    RowBox[{"(", "\[NoBreak]", GridBox[{
-       {
-        RowBox[{
-         RowBox[{"-", 
-          
-          FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f10"]}], "-", 
-         FractionBox[
-          RowBox[{
-          "2", " ", "\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>"}], "f10"], "-", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f10"], "+", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f11"], "+", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "f11"], "+", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "f1m1"], "+", 
-         FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f1m1"]}]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.7]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    RowBox[{"(", "\[NoBreak]", 
+     TagBox[GridBox[{
+        {
+         RowBox[{
+          SubscriptBox["m", "\[CapitalDelta]"], "-", 
+          SubscriptBox["m", "\[CapitalSigma]"], "-", 
+          RowBox[{"3", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["m", "\[CapitalXi]"], "-", 
+             SubscriptBox["m", "\[CapitalOmega]"]}], ")"}]}]}]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.5599999999999999]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}],
+      Column], "\[NoBreak]", ")"}],
     Function[BoxForm`e$, 
      MatrixForm[BoxForm`e$]]]}],
   SequenceForm["b = ", 2, "\n", "Number of SRs: ", 1, "\n", 
-   MatrixForm[{{-
-       "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\))"/$CellContext`f10 - 2 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\))"/$CellContext`f10 - 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \
-\(_\)]\))"/$CellContext`f10 + 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SuperscriptBox[\(K\), \
-\(*\(0\)\)]\))"/$CellContext`f11 + 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \
-\(u\)]\))"/$CellContext`f11 + 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\))"/$CellContext`f1m1 + 
-      "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \(_\
-\)]\))"/$CellContext`f1m1}}]],
+   MatrixForm[{
+    Subscript[$CellContext`m, $CellContext`\[CapitalDelta]] - 
+     Subscript[$CellContext`m, $CellContext`\[CapitalSigma]] - 
+     3 (Subscript[$CellContext`m, $CellContext`\[CapitalXi]] - 
+      Subscript[$CellContext`m, $CellContext`\[CapitalOmega]])}]],
   Editable->False]], "Print",
  CellChangeTimes->{
   3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.97078450787236*^9}},
+   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078534946`*^9}, 
+   3.9708338523284397`*^9, 3.9708341816683426`*^9, 3.970834232525776*^9, 
+   3.9708343949189606`*^9, 3.9708345942860775`*^9, 3.9708346811628265`*^9, {
+   3.97083473249724*^9, 3.9708347619564114`*^9}, {3.9708348871986523`*^9, 
+   3.9708348945443344`*^9}, 3.9708353365892696`*^9, 3.9708353890803604`*^9, 
+   3.97083563156489*^9, 3.9708357011428757`*^9, 3.9708357411160316`*^9, 
+   3.9708360514969616`*^9, 3.9708361310447598`*^9, 3.9708361667640057`*^9},
  CellLabel->
   "During evaluation of \
-In[34]:=",ExpressionUUID->"cf7e801e-7274-4f4e-9376-b768eda218a3"],
-
-Cell[BoxData["\<\"-------------------------\"\>"], "Print",
- CellChangeTimes->{
-  3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.970784507882736*^9}},
- CellLabel->
-  "During evaluation of \
-In[34]:=",ExpressionUUID->"2e8aff7b-d69a-9a47-9c3b-e4491fb0233a"],
-
-Cell[BoxData["\<\"Squared amplitude sum rules\"\>"], "Print",
- CellChangeTimes->{
-  3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.970784507882736*^9}},
- CellLabel->
-  "During evaluation of \
-In[34]:=",ExpressionUUID->"03ec250a-7cb5-3144-8cc3-fa82e27bf16e"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"b = \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\"\\n\"\>", 
-   "\[InvisibleSpace]", "\<\"Number of SRs: \"\>", "\[InvisibleSpace]", "4", 
-   "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
-   TagBox[
-    RowBox[{"(", "\[NoBreak]", GridBox[{
-       {
-        SuperscriptBox[
-         RowBox[{"(", 
-          RowBox[{
-           
-           FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f11"], "+", 
-           
-           FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f1m1"]}], ")"}], "2"]},
-       {
-        SuperscriptBox[
-         RowBox[{"(", 
-          RowBox[{
-           
-           FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "f11"], "+", 
-           
-           FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "f1m1"]}], ")"}], "2"]},
-       {
-        SuperscriptBox[
-         RowBox[{"(", 
-          RowBox[{
-           
-           FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f10"], "+", 
-           
-           FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f10"]}], ")"}], "2"]},
-       {
-        FractionBox[
-         RowBox[{"4", " ", 
-          
-          SuperscriptBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "2"]}], 
-         SuperscriptBox["f10", "2"]]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.7]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}], "\[NoBreak]", ")"}],
-    Function[BoxForm`e$, 
-     MatrixForm[BoxForm`e$]]]}],
-  SequenceForm["b = ", 0, "\n", "Number of SRs: ", 4, "\n", 
-   MatrixForm[{{(
-       "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SuperscriptBox[\(K\), \
-\(*\(0\)\)]\))"/$CellContext`f11 + 
-       "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \(_\
-\)]\))"/$CellContext`f1m1)^2}, {(
-       "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \
-\(u\)]\))"/$CellContext`f11 + 
-       "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\))"/$CellContext`f1m1)^2}, {(
-       "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\))"/$CellContext`f10 + 
-       "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \
-\(_\)]\))"/$CellContext`f10)^2}, {
-     4 "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\))"^2 \
-$CellContext`f10^(-2)}}]],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.970784507882736*^9}},
- CellLabel->
-  "During evaluation of \
-In[34]:=",ExpressionUUID->"f523584c-9784-4845-a60f-2a02c176870e"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"b = \"\>", "\[InvisibleSpace]", "1", 
-   "\[InvisibleSpace]", "\<\"\\n\"\>", 
-   "\[InvisibleSpace]", "\<\"Number of SRs: \"\>", "\[InvisibleSpace]", "2", 
-   "\[InvisibleSpace]", "\<\"\\n\"\>", "\[InvisibleSpace]", 
-   TagBox[
-    RowBox[{"(", "\[NoBreak]", GridBox[{
-       {
-        RowBox[{
-         RowBox[{"-", 
-          SuperscriptBox[
-           RowBox[{"(", 
-            RowBox[{
-             
-             FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f10"], "-", 
-             
-             FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f10"]}], ")"}], "2"]}], "+", 
-         SuperscriptBox[
-          RowBox[{"(", 
-           RowBox[{
-            
-            FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "f11"], "-", 
-            
-            FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\))\"\>", "f1m1"]}], ")"}], 
-          "2"]}]},
-       {
-        RowBox[{
-         RowBox[{"-", 
-          SuperscriptBox[
-           RowBox[{"(", 
-            RowBox[{
-             
-             FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f10"], "-", 
-             
-             FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f10"]}], ")"}], "2"]}], "+", 
-         SuperscriptBox[
-          RowBox[{"(", 
-           RowBox[{
-            
-            FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\))\"\>", "f11"], "-", 
-            
-            FractionBox["\<\"A(\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \
-\\(_\\)]\\))\"\>", "f1m1"]}], ")"}], "2"]}]}
-      },
-      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
-      GridBoxSpacings->{"Columns" -> {
-          Offset[0.27999999999999997`], {
-           Offset[0.7]}, 
-          Offset[0.27999999999999997`]}, "Rows" -> {
-          Offset[0.2], {
-           Offset[0.4]}, 
-          Offset[0.2]}}], "\[NoBreak]", ")"}],
-    Function[BoxForm`e$, 
-     MatrixForm[BoxForm`e$]]]}],
-  SequenceForm["b = ", 1, "\n", "Number of SRs: ", 2, "\n", 
-   MatrixForm[{{-(
-         "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\))"/$CellContext`f10 - 
-         "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \
-\(_\)]\))"/$CellContext`f10)^2 + (
-        "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SuperscriptBox[\
-\(K\), \(0\)]\) \!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\))"/$CellContext`f11 - 
-        "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SubscriptBox[\(\[Phi]\), \(u\)]\))"/$CellContext`f1m1)^2}, {-(
-         "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(0\)], \(_\)]\) \
-\!\(\*SuperscriptBox[\(K\), \(*\(0\)\)]\))"/$CellContext`f10 - 
-         "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \
-\!\(\*SuperscriptBox[\(K\), \(0\)]\) \
-\!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \
-\(_\)]\))"/$CellContext`f10)^2 + (
-        "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*SuperscriptBox[\(K\), \
-\(*\(0\)\)]\))"/$CellContext`f11 - 
-        "A(\!\(\*SuperscriptBox[\(D\), \(0\)]\) \[Rule] \!\(\*SubscriptBox[\(\
-\[Eta]\), \(u\)]\) \!\(\*OverscriptBox[SuperscriptBox[\(K\), \(*\(0\)\)], \(_\
-\)]\))"/$CellContext`f1m1)^2}}]],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078931274`*^9}},
- CellLabel->
-  "During evaluation of \
-In[34]:=",ExpressionUUID->"0996d83e-a684-fe4b-9e42-abe308ef74e8"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{"\<\"b = \"\>", "\[InvisibleSpace]", "2", 
-   "\[InvisibleSpace]", "\<\"\\n\"\>", 
-   "\[InvisibleSpace]", "\<\"Number of SRs: \"\>", "\[InvisibleSpace]", "0", 
-   "\[InvisibleSpace]", "\<\"\\n\"\>", 
-   "\[InvisibleSpace]", "\<\"No sum rules at this order.\"\>"}],
-  SequenceForm[
-  "b = ", 2, "\n", "Number of SRs: ", 0, "\n", "No sum rules at this order."],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.970673046497017*^9, 3.9706732220151463`*^9, 3.9707841900497513`*^9, 
-   3.9707842874624233`*^9, {3.9707844938037224`*^9, 3.9707845078931274`*^9}},
- CellLabel->
-  "During evaluation of \
-In[34]:=",ExpressionUUID->"15a81cc3-6054-4140-a2a0-9ec459dc1ced"]
+In[68]:=",ExpressionUUID->"00b60b9f-93cc-9b4c-b4af-4d3d9c25f85c"]
+}, Open  ]]
 }, Open  ]],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
- RowBox[{"\[LeftAssociation]", 
+ RowBox[{
+  RowBox[{"system", "[", 
+   RowBox[{"[", "\"\<test\>\"", "]"}], "]"}], "=", 
   RowBox[{
-   RowBox[{"\<\"Irreps\"\>", "\[Rule]", 
-    RowBox[{"{", 
+   RowBox[{"(", 
+    RowBox[{
      RowBox[{
-      RowBox[{"{", "0", "}"}], ",", 
-      RowBox[{"{", "1", "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}], ",", 
-   RowBox[{"\<\"n doublets\"\>", "\[Rule]", "6"}], ",", 
-   RowBox[{"\<\"p factor\"\>", "\[Rule]", 
-    RowBox[{"-", "1"}]}], ",", 
-   RowBox[{"\<\"n amps\"\>", "\[Rule]", "7"}], ",", 
-   RowBox[{"\<\"Amplitudes\"\>", "\[Rule]", 
-    RowBox[{"{", 
+      RowBox[{"system", "[", 
+       RowBox[{"[", "\"\<ASRs\>\"", "]"}], "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ",", "1"}], "]"}], "]"}], "+", 
      RowBox[{
-      RowBox[{"\[LeftAssociation]", 
-       RowBox[{
-        RowBox[{"\<\"Processes\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          
-          RowBox[{"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", 
-           ",", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \\!\
-\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>"}], "}"}]}], ",", 
-        RowBox[{"\<\"QNs\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          
-          RowBox[{"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\
-\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"+\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"1\\\\\\\\\\\\\
-\\\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\"0\\\"}]\\) \
-+\\!\\(\\*RowBox[{\\\"1\\\"}]\\)\"\>", 
-           ",", "\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\
-\"\\\\\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"-\\\\\\\\\\\\\\\
-\", \\\\\\\\\\\\\\\"1\\\\\\\\\\\\\\\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*\
-RowBox[{\\\"0\\\"}]\\) \\!\\(\\*RowBox[{\\\"-\\\", \\\"1\\\"}]\\)\"\>"}], 
-          "}"}]}], ",", 
-        RowBox[{"\<\"n-tuple\"\>", "\[Rule]", "\<\"(--,-+,++)\"\>"}], ",", 
-        RowBox[{"\<\"Node\"\>", "\[Rule]", "\<\"(1,2)\"\>"}], ",", 
-        RowBox[{"\<\"Binary indices\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{"7", ",", "52"}], "}"}]}], ",", 
-        RowBox[{"\<\"mu\"\>", "\[Rule]", 
-         SqrtBox["2"]}], ",", 
-        RowBox[{"\<\"CG\"\>", "\[Rule]", "1"}], ",", 
-        RowBox[{"\<\"CKM\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"{", "f11", "}"}], ",", 
-           RowBox[{"{", "f1m1", "}"}]}], "}"}]}]}], "\[RightAssociation]"}], ",", 
-      RowBox[{"\[LeftAssociation]", 
-       RowBox[{
-        RowBox[{"\<\"Processes\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          
-          RowBox[{"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", 
-           ",", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \\!\
-\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>"}], "}"}]}], ",", 
-        RowBox[{"\<\"QNs\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          
-          RowBox[{"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\
-\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"+\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"1\\\\\\\\\\\\\
-\\\"}]\\\\\\\\)\\\\\\\"\\\"]\\)+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) \
-\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\"\>", 
-           ",", "\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\
-\"\\\\\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"-\\\\\\\\\\\\\\\
-\", \\\\\\\\\\\\\\\"1\\\\\\\\\\\\\\\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*\
-RowBox[{\\\"-\\\", \\\"1\\\"}]\\) \\!\\(\\*RowBox[{\\\"0\\\"}]\\)\"\>"}], 
-          "}"}]}], ",", 
-        RowBox[{"\<\"n-tuple\"\>", "\[Rule]", "\<\"(--,++,-+)\"\>"}], ",", 
-        RowBox[{"\<\"Node\"\>", "\[Rule]", "\<\"(1,3)\"\>"}], ",", 
-        RowBox[{"\<\"Binary indices\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{"13", ",", "49"}], "}"}]}], ",", 
-        RowBox[{"\<\"mu\"\>", "\[Rule]", 
-         SqrtBox["2"]}], ",", 
-        RowBox[{"\<\"CG\"\>", "\[Rule]", "1"}], ",", 
-        RowBox[{"\<\"CKM\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"{", "f11", "}"}], ",", 
-           RowBox[{"{", "f1m1", "}"}]}], "}"}]}]}], "\[RightAssociation]"}], ",", 
-      RowBox[{"\[LeftAssociation]", 
-       RowBox[{
-        RowBox[{"\<\"Processes\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          
-          RowBox[{"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", 
-           ",", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \\!\
-\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>"}], "}"}]}], ",", 
-        RowBox[{"\<\"QNs\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          
-          RowBox[{"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\
-\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\
-\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\"-\\\", \\\"1\\\"}]\\) \
-+\\!\\(\\*RowBox[{\\\"1\\\"}]\\)\"\>", 
-           ",", "\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\
-\"\\\\\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\
-\"}]\\\\\\\\)\\\\\\\"\\\"]\\)+\\!\\(\\*RowBox[{\\\"1\\\"}]\\) \
-\\!\\(\\*RowBox[{\\\"-\\\", \\\"1\\\"}]\\)\"\>"}], "}"}]}], ",", 
-        RowBox[{"\<\"n-tuple\"\>", "\[Rule]", "\<\"(-+,--,++)\"\>"}], ",", 
-        RowBox[{"\<\"Node\"\>", "\[Rule]", "\<\"(2,2)\"\>"}], ",", 
-        RowBox[{"\<\"Binary indices\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{"19", ",", "28"}], "}"}]}], ",", 
-        RowBox[{"\<\"mu\"\>", "\[Rule]", "2"}], ",", 
-        RowBox[{"\<\"CG\"\>", "\[Rule]", 
-         FractionBox["1", 
-          SqrtBox["2"]]}], ",", 
-        RowBox[{"\<\"CKM\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"{", "f10", "}"}], ",", 
-           RowBox[{"{", "f10", "}"}]}], "}"}]}]}], "\[RightAssociation]"}], ",", 
-      RowBox[{"\[LeftAssociation]", 
-       RowBox[{
-        RowBox[{"\<\"Processes\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          
-          RowBox[{"\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \\!\\(\\*SubscriptBox[\\(\
-\[Phi]\\), \\(u\\)]\\)\"\>", 
-           ",", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \\!\
-\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>"}], "}"}]}], ",", 
-        RowBox[{"\<\"QNs\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          
-          RowBox[{"\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\
-\\\"\\\\\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\
-\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\"0\\\"}]\\) \
-\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\"\>", 
-           ",", "\<\"\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\\!\\(\\*OverscriptBox[\\\
-\"\\\\\\\" \[Rule] \\\\\\\"\\\", \
-\\\"\\\\\\\"\\\\\\\\!\\\\\\\\(\\\\\\\\*RowBox[{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\
-\"}]\\\\\\\\)\\\\\\\"\\\"]\\)\\!\\(\\*RowBox[{\\\"0\\\"}]\\) \
-\\!\\(\\*RowBox[{\\\"0\\\"}]\\)\"\>"}], "}"}]}], ",", 
-        RowBox[{"\<\"n-tuple\"\>", "\[Rule]", "\<\"(-+,-+,-+)\"\>"}], ",", 
-        RowBox[{"\<\"Node\"\>", "\[Rule]", "\<\"(2,3)\"\>"}], ",", 
-        RowBox[{"\<\"Binary indices\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{"21", ",", "21"}], "}"}]}], ",", 
-        RowBox[{"\<\"mu\"\>", "\[Rule]", "2"}], ",", 
-        RowBox[{"\<\"CG\"\>", "\[Rule]", 
-         FractionBox["1", 
-          SqrtBox["2"]]}], ",", 
-        RowBox[{"\<\"CKM\"\>", "\[Rule]", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"{", "f10", "}"}], ",", 
-           RowBox[{"{", "f10", "}"}]}], "}"}]}]}], "\[RightAssociation]"}]}], 
-     "}"}]}], ",", 
-   RowBox[{"\<\"n ASRs\"\>", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"4", ",", "2", ",", "1"}], "}"}]}], ",", 
-   RowBox[{"\<\"ASRs\"\>", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"1", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"1", ",", "0", ",", 
-          RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", "1", ",", "1", ",", "0"}], "}"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"{", 
-        RowBox[{"1", ",", "1", ",", 
-         RowBox[{"-", "1"}], ",", 
-         RowBox[{"-", "1"}]}], "}"}], "}"}]}], "}"}]}], ",", 
-   RowBox[{"\<\"n A2SRs\"\>", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"4", ",", "2", ",", "0"}], "}"}]}], ",", 
-   RowBox[{"\<\"A2SRs\"\>", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"1", ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"0", ",", "1", ",", 
-          RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"1", ",", "0", ",", 
-          RowBox[{"-", "1"}], ",", "0"}], "}"}]}], "}"}], ",", 
-      RowBox[{"{", "}"}]}], "}"}]}], ",", 
-   RowBox[{"\<\"n thetas\"\>", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"0", ",", "1", ",", "3"}], "}"}]}], ",", 
-   RowBox[{"\<\"Theta ranks\"\>", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], ",", 
-   RowBox[{"\<\"Thetas\"\>", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"{", "0", "}"}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", "0", "}"}], ",", 
-        RowBox[{"{", "0", "}"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"-", "1"}], ",", 
-         RowBox[{"-", "1"}], ",", "1"}], "}"}], "}"}]}], "}"}]}], ",", 
-   RowBox[{"\<\"Formatted ASRs\"\>", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f1m1"], "+", 
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f11"]}], 
-         "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "f1m1"], "+", 
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "f11"]}], "}"}], 
-        ",", 
-        RowBox[{"{", 
-         RowBox[{
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f10"], "+", 
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f10"]}], "}"}], ",", 
-        RowBox[{"{", 
-         FractionBox[
-          RowBox[{"2", " ", 
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}]}], "f10"], 
-         "}"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"-", 
-           FractionBox[
-            RowBox[{
-            "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f10"]}], "-", 
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f1m1"], "+", 
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f11"], "+", 
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f10"]}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"-", 
-           FractionBox[
-            RowBox[{
-            "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "f1m1"]}], "+", 
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f10"], "-", 
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f10"], "+", 
-          FractionBox[
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "f11"]}], 
-         "}"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"{", 
-        RowBox[{
-         FractionBox[
-          RowBox[{
-          "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "f1m1"], "-", 
-         FractionBox[
-          RowBox[{
-          "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f10"], "+", 
-         FractionBox[
-          RowBox[{
-          "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f1m1"], "-", 
-         FractionBox[
-          RowBox[{"2", " ", 
-           RowBox[{
-           "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}]}], "f10"], "+", 
-         FractionBox[
-          RowBox[{
-          "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f11"], "-", 
-         FractionBox[
-          RowBox[{
-          "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f10"], "+", 
-         FractionBox[
-          RowBox[{
-          "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \[Rule] \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "f11"]}], "}"}], 
-       "}"}]}], "}"}]}], ",", 
-   RowBox[{"\<\"Formatted A2SRs\"\>", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         SuperscriptBox[
-          RowBox[{"(", 
-           RowBox[{
-            FractionBox[
-             RowBox[{
-             "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f1m1"], "+", 
-            FractionBox[
-             RowBox[{
-             "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f11"]}], 
-           ")"}], "2"], "}"}], ",", 
-        RowBox[{"{", 
-         SuperscriptBox[
-          RowBox[{"(", 
-           RowBox[{
-            FractionBox[
-             RowBox[{
-             "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "f1m1"], "+", 
-            FractionBox[
-             RowBox[{
-             "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "f11"]}], ")"}], 
-          "2"], "}"}], ",", 
-        RowBox[{"{", 
-         SuperscriptBox[
-          RowBox[{"(", 
-           RowBox[{
-            FractionBox[
-             RowBox[{
-             "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f10"], "+", 
-            FractionBox[
-             RowBox[{
-             "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f10"]}], ")"}], "2"], "}"}], ",", 
-        RowBox[{"{", 
-         FractionBox[
-          RowBox[{"4", " ", 
-           SuperscriptBox[
-            RowBox[{
-            "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "2"]}], 
-          SuperscriptBox["f10", "2"]], "}"}]}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"-", 
-           SuperscriptBox[
-            RowBox[{"(", 
-             RowBox[{
-              FractionBox[
-               RowBox[{
-               "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f10"], "-", 
-              FractionBox[
-               RowBox[{
-               "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f10"]}], ")"}], "2"]}], "+", 
-          SuperscriptBox[
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{"-", 
-              FractionBox[
-               RowBox[{
-               "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "f1m1"]}], "+", 
-             FractionBox[
-              RowBox[{
-              "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*SubscriptBox[\\(\[Phi]\\), \\(u\\)]\\)\"\>", "]"}], "f11"]}], ")"}], 
-           "2"]}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{
-          SuperscriptBox[
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{"-", 
-              FractionBox[
-               RowBox[{
-               "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f1m1"]}], "+", 
-             FractionBox[
-              RowBox[{
-              "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SubscriptBox[\\(\[Eta]\\), \\(u\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f11"]}], 
-            ")"}], "2"], "-", 
-          SuperscriptBox[
-           RowBox[{"(", 
-            RowBox[{
-             FractionBox[
-              RowBox[{
-              "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(0\\)], \\(_\\)]\\) \
-\\!\\(\\*SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)]\\)\"\>", "]"}], "f10"], "-", 
-             FractionBox[
-              RowBox[{
-              "A", "[", "\<\"\\!\\(\\*SuperscriptBox[\\(D\\), \\(0\\)]\\) \
-\[Rule] \\!\\(\\*SuperscriptBox[\\(K\\), \\(0\\)]\\) \
-\\!\\(\\*OverscriptBox[SuperscriptBox[\\(K\\), \\(*\\(0\\)\\)], \\(_\\)]\\)\"\
-\>", "]"}], "f10"]}], ")"}], "2"]}], "}"}]}], "}"}], ",", 
-      RowBox[{"{", "}"}]}], "}"}]}]}], "\[RightAssociation]"}]], "Output",
+      RowBox[{"system", "[", 
+       RowBox[{"[", "\"\<ASRs\>\"", "]"}], "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}], ".", 
+   RowBox[{
+    RowBox[{"system", "[", 
+     RowBox[{"[", "\"\<Amplitudes\>\"", "]"}], "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "\"\<testlabels\>\""}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.970834944651785*^9, 3.970834983764246*^9}, {
+  3.97083506082263*^9, 3.9708350846856136`*^9}, {3.9708351703977833`*^9, 
+  3.970835201914076*^9}},
+ CellLabel->"In[45]:=",ExpressionUUID->"3fdca2a4-06c2-cf4e-b8c0-855317094053"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"A1", "+", "A3"}], ",", 
+   RowBox[{"A2", "+", "A4"}]}], "}"}]], "Output",
  CellChangeTimes->{
-  3.9687823132329464`*^9, 3.968782346880413*^9, {3.9694280340568275`*^9, 
-   3.969428085954714*^9}, 3.9694290001377754`*^9, 3.9706038266530933`*^9, {
-   3.9706043183571186`*^9, 3.970604358617853*^9}, 3.9706716207621784`*^9, {
-   3.9706730094078026`*^9, 3.9706730465275574`*^9}, 3.970673222055851*^9, 
-   3.970784190070488*^9, 3.970784287492899*^9, {3.9707844939208775`*^9, 
-   3.9707845078931274`*^9}},
- CellLabel->"Out[34]=",ExpressionUUID->"855531e7-2b3a-7f47-93dc-8110d71fc40f"]
+  3.9708349855269527`*^9, {3.9708350768911743`*^9, 3.97083508536961*^9}, {
+   3.970835172884577*^9, 3.9708352176472073`*^9}},
+ CellLabel->"Out[45]=",ExpressionUUID->"7204eef6-e7ba-1541-a0f1-721168e8367a"]
 }, Open  ]]
 }, Open  ]],
 
@@ -2993,14 +2640,14 @@ ExpressionUUID->"c46edf8a-1137-5b48-862d-238a0e4efcf9"
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
- "Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2"->{
-  Cell[34260, 688, 24373, 549, 70, "Print",ExpressionUUID->"a516796c-f28c-b24f-b277-453ea4a27b82",
-   CellTags->"Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2"]}
+ "Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8"->{
+  Cell[34687, 703, 45490, 982, 70, "Print",ExpressionUUID->"cdb9c181-9cc5-5f41-8650-f13b836ad384",
+   CellTags->"Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2", 141121, 2995}
+ {"Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8", 126552, 2642}
  }
 *)
 (*NotebookFileOutline
@@ -3008,67 +2655,81 @@ Notebook[{
 Cell[554, 20, 303, 5, 25, "Input",ExpressionUUID->"5c803102-8013-ba4d-921f-572378dd57e3"],
 Cell[CellGroupData[{
 Cell[882, 29, 241, 4, 59, "Section",ExpressionUUID->"4aa9d8e1-d61b-3d45-a0f7-7c3ef4c60912"],
+Cell[1126, 35, 247, 6, 30, "Text",ExpressionUUID->"6f7fadec-9014-0d49-9fb3-019c3849d5a0"],
 Cell[CellGroupData[{
-Cell[1148, 37, 3045, 52, 179, "Input",ExpressionUUID->"0b8f6c82-4860-1a46-a206-7b592ef4fbdc"],
-Cell[4196, 91, 20509, 365, 53, "Output",ExpressionUUID->"7e68fee3-d0fd-f641-a4c0-e90c4921bdfb"]
+Cell[1398, 45, 3045, 52, 179, "Input",ExpressionUUID->"0b8f6c82-4860-1a46-a206-7b592ef4fbdc"],
+Cell[4446, 99, 20567, 368, 53, "Output",ExpressionUUID->"25fd11e7-68b5-0543-a396-b2b298058cb3"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24742, 461, 532, 10, 25, "Input",ExpressionUUID->"30e362d4-a8ce-2540-867a-7aca70a3fd9a"],
-Cell[25277, 473, 8980, 213, 114, "Output",ExpressionUUID->"a8864ce2-5517-5c4d-a535-e1d17943c19b"],
-Cell[34260, 688, 24373, 549, 70, "Print",ExpressionUUID->"a516796c-f28c-b24f-b277-453ea4a27b82",
- CellTags->"Info-3608883b-0ddd-4f3e-a270-6fdbea2736c2"]
+Cell[25050, 472, 549, 11, 25, "Input",ExpressionUUID->"30e362d4-a8ce-2540-867a-7aca70a3fd9a"],
+Cell[25602, 485, 9082, 216, 114, "Output",ExpressionUUID->"c555277c-1d90-3b4e-bf02-16e66e4c23a3"],
+Cell[34687, 703, 45490, 982, 70, "Print",ExpressionUUID->"cdb9c181-9cc5-5f41-8650-f13b836ad384",
+ CellTags->"Info-2b1bc819-f8eb-4401-9aae-7f410196e0a8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[58670, 1242, 418, 6, 25, "Input",ExpressionUUID->"a784d622-eb4c-6644-94c6-cb99b32007ed"],
+Cell[80214, 1690, 468, 7, 25, "Input",ExpressionUUID->"a784d622-eb4c-6644-94c6-cb99b32007ed"],
 Cell[CellGroupData[{
-Cell[59113, 1252, 779, 13, 35, "Print",ExpressionUUID->"4578bff8-2f46-9b48-b5a0-41b3b98ba7bd"],
-Cell[59895, 1267, 2851, 40, 415, "Print",ExpressionUUID->"21b737bf-19b5-fd4a-81e5-4af37df1cda8"]
+Cell[80707, 1701, 765, 12, 19, "Print",ExpressionUUID->"c8b9d46d-c03a-9448-b394-4123c3977d87"],
+Cell[81475, 1715, 3551, 48, 525, "Print",ExpressionUUID->"0ab186d7-d313-3647-851b-6a7aa94385b4"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[62807, 1314, 196, 3, 59, "Section",ExpressionUUID->"1c92be0e-8333-0744-adaf-414f3ed0c714"],
+Cell[85087, 1770, 196, 3, 59, "Section",ExpressionUUID->"1c92be0e-8333-0744-adaf-414f3ed0c714"],
 Cell[CellGroupData[{
-Cell[63028, 1321, 329, 5, 47, "Subsection",ExpressionUUID->"233f1844-b5c9-4c47-8c79-0b57e41b4586"],
-Cell[63360, 1328, 626, 17, 33, "Text",ExpressionUUID->"24bc30dc-2f04-984a-b974-a03b2cd4ff6e"],
-Cell[63989, 1347, 3415, 54, 38, "Input",ExpressionUUID->"4767e7db-4575-4f42-9392-7e7b8bd3244c"]
+Cell[85308, 1777, 329, 5, 47, "Subsection",ExpressionUUID->"233f1844-b5c9-4c47-8c79-0b57e41b4586"],
+Cell[85640, 1784, 626, 17, 33, "Text",ExpressionUUID->"24bc30dc-2f04-984a-b974-a03b2cd4ff6e"],
+Cell[86269, 1803, 3388, 51, 25, "Input",ExpressionUUID->"4767e7db-4575-4f42-9392-7e7b8bd3244c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[67441, 1406, 329, 5, 47, "Subsection",ExpressionUUID->"eb6fa357-27b2-814c-bd4b-1bb24fef4467"],
-Cell[67773, 1413, 647, 12, 89, "Text",ExpressionUUID->"b2816cc7-43f9-2e40-bb49-cf7596829baa"],
-Cell[68423, 1427, 5347, 89, 130, "Input",ExpressionUUID->"2906ac93-7539-0940-8a06-09e0422f0dc4"],
-Cell[73773, 1518, 669, 17, 30, "Text",ExpressionUUID->"5976c5b0-437f-ed4a-b035-b659365aa2db"],
-Cell[74445, 1537, 496, 12, 25, "Input",ExpressionUUID->"f89e5676-e569-8149-847e-19fccab62bd3"],
-Cell[74944, 1551, 549, 13, 25, "Input",ExpressionUUID->"23c22558-42b8-504f-8378-6a6fa5d1e732"]
+Cell[89694, 1859, 329, 5, 47, "Subsection",ExpressionUUID->"eb6fa357-27b2-814c-bd4b-1bb24fef4467"],
+Cell[90026, 1866, 647, 12, 89, "Text",ExpressionUUID->"b2816cc7-43f9-2e40-bb49-cf7596829baa"],
+Cell[90676, 1880, 5377, 90, 130, "Input",ExpressionUUID->"2906ac93-7539-0940-8a06-09e0422f0dc4"],
+Cell[96056, 1972, 669, 17, 30, "Text",ExpressionUUID->"5976c5b0-437f-ed4a-b035-b659365aa2db"],
+Cell[96728, 1991, 526, 13, 25, "Input",ExpressionUUID->"f89e5676-e569-8149-847e-19fccab62bd3"],
+Cell[97257, 2006, 549, 13, 25, "Input",ExpressionUUID->"23c22558-42b8-504f-8378-6a6fa5d1e732"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[75542, 1570, 256, 4, 59, "Section",ExpressionUUID->"fc03b489-9284-644c-8998-b8b28c7fe2eb"],
+Cell[97855, 2025, 256, 4, 59, "Section",ExpressionUUID->"fc03b489-9284-644c-8998-b8b28c7fe2eb"],
 Cell[CellGroupData[{
-Cell[75823, 1578, 711, 12, 25, "Input",ExpressionUUID->"aeb4ec86-8c7f-c448-9f2b-3502bbecd93a"],
+Cell[98136, 2033, 265, 4, 25, "Input",ExpressionUUID->"e30815b3-75cc-0643-bae0-1c87bd9918f2"],
 Cell[CellGroupData[{
-Cell[76559, 1594, 508, 12, 19, "Print",ExpressionUUID->"971d37a5-d8b0-ba46-911a-817ef6e908fc"],
-Cell[77070, 1608, 335, 6, 19, "Print",ExpressionUUID->"09f85087-0b52-6b4a-935c-70d79c5f303e"],
-Cell[77408, 1616, 943, 19, 67, "Print",ExpressionUUID->"f9e02124-182c-2b47-a6ca-e17b40643501"],
-Cell[78354, 1637, 335, 6, 19, "Print",ExpressionUUID->"21593e40-2fc6-bb44-a186-53d4edee18ed"],
-Cell[78692, 1645, 14763, 286, 206, "Print",ExpressionUUID->"ecc110d5-5f57-b94d-ba01-0f48a9058490"],
-Cell[93458, 1933, 333, 6, 19, "Print",ExpressionUUID->"0880bdcb-5557-6c4c-afff-3ce8d51622b8"],
-Cell[93794, 1941, 327, 6, 19, "Print",ExpressionUUID->"e6a94fc3-bffd-df42-a9e6-41bfd344b331"],
-Cell[94124, 1949, 3939, 80, 155, "Print",ExpressionUUID->"abd1e6ab-06e8-8c41-9f3c-2b86475744f7"],
-Cell[98066, 2031, 4371, 86, 95, "Print",ExpressionUUID->"fdf8709c-2f8f-6542-9ba3-49f7fc13196f"],
-Cell[102440, 2119, 3932, 77, 64, "Print",ExpressionUUID->"cf7e801e-7274-4f4e-9376-b768eda218a3"],
-Cell[106375, 2198, 333, 6, 19, "Print",ExpressionUUID->"2e8aff7b-d69a-9a47-9c3b-e4491fb0233a"],
-Cell[106711, 2206, 335, 6, 19, "Print",ExpressionUUID->"03ec250a-7cb5-3144-8cc3-fa82e27bf16e"],
-Cell[107049, 2214, 4304, 95, 161, "Print",ExpressionUUID->"f523584c-9784-4845-a60f-2a02c176870e"],
-Cell[111356, 2311, 4911, 106, 99, "Print",ExpressionUUID->"0996d83e-a684-fe4b-9e42-abe308ef74e8"],
-Cell[116270, 2419, 710, 15, 51, "Print",ExpressionUUID->"15a81cc3-6054-4140-a2a0-9ec459dc1ced"]
-}, Open  ]],
-Cell[116995, 2437, 23135, 526, 659, "Output",ExpressionUUID->"855531e7-2b3a-7f47-93dc-8110d71fc40f"]
+Cell[98426, 2041, 329, 5, 19, "Print",ExpressionUUID->"b7782754-65c8-d142-ac8f-13f56f04c29d"],
+Cell[98758, 2048, 1105, 17, 241, "Print",ExpressionUUID->"f507ec16-bc74-364c-8794-6136a48487b7"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[140179, 2969, 169, 3, 59, "Section",ExpressionUUID->"bd5524ec-b8f9-7146-b0dc-484965ffb258"],
-Cell[140351, 2974, 340, 6, 25, "Input",ExpressionUUID->"70f09735-b273-f241-ac9b-18cdea061a41"]
+Cell[99912, 2071, 542, 10, 25, "Input",ExpressionUUID->"5879e285-daca-344b-be27-2a7b4e2e097d"],
+Cell[100457, 2083, 2790, 53, 83, "Output",ExpressionUUID->"5d48296d-c28f-a748-9d98-f5900619b600"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[103284, 2141, 196, 3, 25, "Input",ExpressionUUID->"c78d7365-766f-9a48-b668-b1a542c1d044"],
+Cell[103483, 2146, 149, 2, 28, "Output",ExpressionUUID->"85b5299a-a415-8541-95f2-d2c552057150"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[103669, 2153, 1221, 18, 25, "Input",ExpressionUUID->"aeb4ec86-8c7f-c448-9f2b-3502bbecd93a"],
+Cell[CellGroupData[{
+Cell[104915, 2175, 1029, 22, 33, "Print",ExpressionUUID->"722c82d5-4aa7-2746-bc22-781f87d3f882"],
+Cell[105947, 2199, 785, 12, 19, "Print",ExpressionUUID->"1ff58c0f-f7e2-af45-aaff-dd0f1881acca"],
+Cell[106735, 2213, 1440, 26, 98, "Print",ExpressionUUID->"c8181dd8-839a-b84f-b3d5-1893ca17037c"],
+Cell[108178, 2241, 784, 12, 19, "Print",ExpressionUUID->"996076e5-1db5-9241-9f68-9543b8e02885"],
+Cell[108965, 2255, 7275, 140, 169, "Print",ExpressionUUID->"af47351e-afa5-9241-9543-dedaeca3da84"],
+Cell[116243, 2397, 787, 12, 19, "Print",ExpressionUUID->"0190499e-66a3-a741-a1ca-f139bbb3d619"],
+Cell[117033, 2411, 779, 12, 19, "Print",ExpressionUUID->"bf575e88-e4f4-eb4f-ae56-7fe50676e939"],
+Cell[117815, 2425, 2117, 47, 63, "Print",ExpressionUUID->"f00801b4-ab99-2148-8739-e42b406745b4"],
+Cell[119935, 2474, 2093, 45, 51, "Print",ExpressionUUID->"698236b9-6a2b-4742-9a9f-a6c8211058a1"],
+Cell[122031, 2521, 2192, 48, 51, "Print",ExpressionUUID->"00b60b9f-93cc-9b4c-b4af-4d3d9c25f85c"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[124272, 2575, 936, 25, 25, "Input",ExpressionUUID->"3fdca2a4-06c2-cf4e-b8c0-855317094053"],
+Cell[125211, 2602, 350, 8, 28, "Output",ExpressionUUID->"7204eef6-e7ba-1541-a0f1-721168e8367a"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[125610, 2616, 169, 3, 59, "Section",ExpressionUUID->"bd5524ec-b8f9-7146-b0dc-484965ffb258"],
+Cell[125782, 2621, 340, 6, 25, "Input",ExpressionUUID->"70f09735-b273-f241-ac9b-18cdea061a41"]
 }, Open  ]]
 }
 ]
