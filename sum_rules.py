@@ -242,10 +242,9 @@ class System: # only one self_conj_amp at most (if any), finish docs
             ntuple = '('+(','.join(ntuple).replace('0','-').replace('1','+'))+')'
             node = [str(coord) for coord in amp.gen_coord]
             node = '('+(','.join(node))+')'
-            p = (-1)**self.p
 
             math_amps.append([amp.processes, amp.qns, ntuple, node, amp.indices,
-                              amp.q, p, amp.mu, amp.cg])
+                              amp.q, amp.mu, amp.cg])
         return math_amps
     
     def symmetrize(self):
@@ -284,11 +283,12 @@ class System: # only one self_conj_amp at most (if any), finish docs
                 del self.amp_pairs[i]
         return self
     
-    def extract_sys(self): # mathematica system
+    def extract_sys(self,reps=False): # mathematica system
         aux = self.aux
+        irreps = [map(Fraction,state) for state in self.inputs] if reps else 0
         n = int(self.n)
-        irreps = [map(Fraction,state) for state in self.inputs]
-        return aux, n, irreps
+        p = (-1)**self.p
+        return aux, irreps, n, p
 
 class SumRule:
     '''
@@ -336,9 +336,9 @@ class Lattice:
         l (int): Length of each dimension
         lattice (dict): Contains all non-zero nodes (strs) as keys. Values are
                         AmplitudePairs corresponding to nodes.
-        sum_rules (list): Contains lists of M values (1D NumPy arrays of ints)
-                          by order of breaking. Multiplying M values by mu and
-                          CG factors give SRs.
+        sum_rules (list): Contains 2D NumPy arrays of M values (ints) by order
+                          of breaking. Multiplying M values by mu and CG factors
+                          give SRs.
     '''
 
     def __init__(self,system):
@@ -425,26 +425,22 @@ def generate_srs(system):
     lattice = Lattice(system)
     sum_rules = lattice.sum_rules # M values for aux/original system, when multiplied by mu factors they become SRs
 
-    if system.aux:
+    needs_sym = system.aux
+
+    if needs_sym:
         system.symmetrize()
     
     # Symmetrization corrections
-    # Set identically 0 amplitudes to 0 in SRs, negation for some duplicate amplitudes
-    self_conj_amp = system.find_self_conj_amp() # column index of self conj amp within amp_pairs list
-    dup_pairs = system.find_dup_pairs() # index pairs [i,l] of duplicate conjugate pairs
-    q_match = np.array([system.amp_pairs[pair[0]].q == system.amp_pairs[pair[1]].q 
-                        for pair in dup_pairs])
-    dup_pairs = np.array(dup_pairs)
-    b_start = [0,1] if (system.p % 2 == 0) else [1,0] # [a,s] if p even else [s,a]
+    dup_pairs = np.array(system.find_dup_pairs()) # index pairs [i,l] of duplicate conjugate pairs
 
-    for sr_mat in sum_rules[b_start[0]::2]: # 1) set self conj col to 0; 2) negate dup cols where qmatch
-        sr_mat[:,self_conj_amp] = 0 # vanishing amplitudes are a-type for even p, s-type for odd p
-        if (len(dup_pairs) > 0):
-            sr_mat[:,dup_pairs[q_match][:,1]] = -sr_mat[:,dup_pairs[q_match][:,1]] # negate dup amps where qmatch
-    
-    for sr_mat in sum_rules[b_start[1]::2]: # negate dup cols where not qmatch
-        if (len(dup_pairs) > 0):
-            sr_mat[:,dup_pairs[~q_match][:,1]] = -sr_mat[:,dup_pairs[~q_match][:,1]]
+    if needs_sym: # set identically 0 amp to 0 in SRs, negate duplicate cols
+        self_conj_amp = system.find_self_conj_amp() # column index of self conj amp within amp_pairs list
+        b_start = (system.p % 2) # a if p even, else s
+
+        for sr_mat in sum_rules[b_start::2]:
+            sr_mat[:,self_conj_amp] = 0 # vanishing amp is a-type for even p, s-type for odd p
+            if (len(dup_pairs) > 0):
+                sr_mat[:,dup_pairs[:,1]] = -sr_mat[:,dup_pairs[:,1]] # negated dup cols are a-type for even p, s-type for odd p
 
     sum_rules = [sr_mat.tolist() for sr_mat in sum_rules]
     return system, sum_rules, (dup_pairs+1).tolist()
