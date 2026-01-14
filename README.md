@@ -1,19 +1,19 @@
-# Instructions for using the package
+# Instructions for using the FlaSR package
 
 Please follow our [guide](docs/python_help.md) to ensure your computer is properly configured to run Python code from Mathematica. This only needs to be done the first time you run the package.
 
-1. Download `ASRs.m` and `sum_rules.py` and place both files into the same directory as your Mathematica notebook.
+1. Download `FlaSR.m` and `FlaSR.py` and place both files into the same directory as your Mathematica notebook.
 
 2. Import the Mathematica package (note: the ` in the string is necessary):
    ```
    SetDirectory[NotebookDirectory[]];
-   Needs["ASRs`"];
+   Needs["FlaSR`"];
    ```
 
-3. This Mathematica package uses Python code from the `sum_rules.py` file to expedite calculations. In your Mathematica notebook, start an external session to execute Python code, and define the path to the `sum_rules.py` Python file:
+3. This Mathematica package uses Python code from the `FlaSR.py` file to expedite calculations. In your Mathematica notebook, start an external session to execute Python code, and define the path to the `FlaSR.py` Python file:
    ```
    session = StartExternalSession["Python"];
-   path = "sum_rules.py";
+   path = "FlaSR.py";
    ```
 
 4. Load the Python file:
@@ -28,17 +28,17 @@ Please follow our [guide](docs/python_help.md) to ensure your computer is proper
 
 6. View a detailed output of the system's representations, amplitudes, and amplitude sum rules:
    ```
-   printSystem[system];
+   printSystem[system,{1,"n-tuples",a,s}];
    ```
 
 # Help
 
 To view the complete list of functions and variables in this package, type in
    ```
-   ?ASRs`*
+   ?FlaSR`*
    ```
 
 For details on a function's arguments, options, and outputs, run
    ```
-   ASRsHelp[function];
+   FlaSRHelp[function];
    ```
