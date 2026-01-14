@@ -34,7 +34,7 @@ class Multiplet:
 class Amplitude:
     '''
     Attributes:
-        ntuple (list): ntuple of strings of '0's and '1's
+        ntuple (list): n-tuple of strings of '0's and '1's
         number (int): i index used to refer to a particular Amplitude
         q (int): (-1)^q_i factor (i.e. q = -1 or +1 only) accounting for movements
                  of reps between states
@@ -70,28 +70,34 @@ class Amplitude:
     def __eq__(self,other):
         return self.ntuple == other.ntuple
 
-class AmplitudePair(Amplitude): # finish docs
+class AmplitudePair(Amplitude):
     '''
     Attributes:
-        gen_coord (list): Node (coords are ints) corresponding to the AmplitudePair
+        node (list): Node (coords are ints) corresponding to the AmplitudePair
         mu (list): Written as [a,b], where the actual mu factor is sqrt(a)*b
+        indices (list): Binary indices [i,l] of the amplitude and its U-spin conjugate
+        qns (list): Contains lists [m QNs] for each of in, H, and out
+        processes (list|str): For physical systems, contains [i for accessing
+                              elements of multiplets to correspond with m QNs]
+                              for each of in, H, and out (using Mathematica
+                              indexing). For group-theoretical systems, it is 'n/a'.
     '''
 
     def __init__(self,amp,out_lt,inputs,phys):
         super().__init__(amp.ntuple,out_lt)
-        self.gen_coord = self.map_to_gen_coord()
+        self.node = self.map_to_node()
         self.mu = self.calc_mu()
         self.indices = self.find_indices()
         self.qns = []
         self.processes = self.find_processes_qns(inputs,phys)
     
-    def map_to_gen_coord(self):
-        gen_coord = []
+    def map_to_node(self):
+        node = []
         for i,nt_str in enumerate(self.ntuple[1:]):
             n_minus = nt_str.count('0')
             if n_minus != 0:
-                gen_coord += [i+1]*n_minus
-        return gen_coord
+                node += [i+1]*n_minus
+        return node
     
     def calc_mu(self):
         mu_j_sqrts = []
@@ -164,17 +170,22 @@ class AmplitudePair(Amplitude): # finish docs
         self.indices = self.find_indices()
         self.processes = self.find_processes_qns(inputs,phys)
 
-class System: # only one self_conj_amp at most (if any), finish docs
+class System:
     '''
     Attributes:
+        inputs (list): Contains [u] for each of in, H, and out, i.e. U-spin
+                       representation inputs (int)
+        phys (bool): True only for physical systems (with particle multiplets)
         aux (bool): True only if the System contains an auxiliary doublet
         reps (list): Contains Multiplets arranged from lowest to highest u. For 
-                     Systems without doublets, contains an auxiliary u = 1/2 Multiplet.  ## turn into np array
-        out_lt (list): Contains indices of 'out' space Multiplets in self.reps ### can prob just use an np array mask
+                     Systems without doublets, contains an auxiliary u = 1/2 Multiplet.
+        out_lt (list): Contains indices of 'out' space Multiplets in self.reps
         n (int): Number of doublets needed to construct the System
-        p (int): p factor whose parity is used to relate U-spin conjugate pairs #### enforce int?
+        p (int): p factor whose parity is used to relate U-spin conjugate pairs
         amp_pairs (list): Contains all AmplitudePairs (representing a-/s-type
                           amplitudes) for the System
+        self_conj_amp (list): Contains index (int) of the self-conjugate amplitude
+                              in a symmetrized system if it exists; otherwise empty
     '''
 
     def __init__(self,reps,inputs,phys):
@@ -238,12 +249,16 @@ class System: # only one self_conj_amp at most (if any), finish docs
         math_amps = []
         
         for amp in self.amp_pairs:
-            ntuple = [str(coord) for coord in amp.ntuple]
-            ntuple = '('+(','.join(ntuple).replace('0','-').replace('1','+'))+')'
-            node = [str(coord) for coord in amp.gen_coord]
+            math_ntuples = []
+            for ntuple in [amp.ntuple,amp.conjugate()]:
+                math_ntuple = [str(coord) for coord in ntuple]
+                math_ntuple = '('+(','.join(math_ntuple).replace('0','-').replace('1','+'))+')'
+                math_ntuples.append(math_ntuple)
+            
+            node = [str(coord) for coord in amp.node]
             node = '('+(','.join(node))+')'
 
-            math_amps.append([amp.processes, amp.qns, ntuple, node, amp.indices,
+            math_amps.append([amp.processes, amp.qns, math_ntuples, node, amp.indices,
                               amp.q, amp.mu, amp.cg])
         return math_amps
     
@@ -290,55 +305,16 @@ class System: # only one self_conj_amp at most (if any), finish docs
         p = (-1)**self.p
         return aux, irreps, n, p
 
-class SumRule:
-    '''
-    Attributes:
-        subspace (list): Contains nodes (strs)
-        amp_pairs (list): Contains AmplitudePairs corresponding to nodes (can
-                          include duplicates)
-        M_values (list): Contains multiplicative factors (ints) encoding number
-                         of times a node repeats in a SumRule. Ordered according
-                         to System.amp_pairs.
-    '''
-
-    def __init__(self,b,subspace,lattice):
-        self.subspace = self.remove_zeros(lattice,subspace)
-        self.amp_pairs = [lattice[node] for node in self.subspace]
-        self.M_values = self.unit(lattice) if (b == 0) else self.count_amps(lattice)
-    
-    def remove_zeros(self,lattice,subspace):
-        new_subspace = []
-        for node in subspace:
-            if node in lattice.keys():
-                new_subspace.append(node)
-        return new_subspace
-
-    def unit(self,lattice):
-        all_amps = list(lattice.values()) # technically not ordered though...
-        M_values = [0]*len(all_amps)
-        i = all_amps.index(self.amp_pairs[0])
-        M_values[i] = 1
-        return M_values
-
-    def count_amps(self,lattice):
-        sr_amps = self.amp_pairs
-        sys_amps = list(lattice.values()) # technically not ordered though...
-        
-        M_values = []
-        for amp in sys_amps:
-            M_values.append(sr_amps.count(amp))
-        return M_values
-
 class Lattice:
     '''
     Attributes:
         d (int): Lattice dimension
         l (int): Length of each dimension
-        lattice (dict): Contains all non-zero nodes (strs) as keys. Values are
-                        AmplitudePairs corresponding to nodes.
+        lattice (list): Contains all unique nodes (1D NumPy arrays of ints)
+                        corresponding to all AmplitudePairs in the system
         sum_rules (list): Contains 2D NumPy arrays of M values (ints) by order
                           of breaking. Multiplying M values by mu and CG factors
-                          give SRs.
+                          give ASRs.
     '''
 
     def __init__(self,system):
@@ -348,10 +324,27 @@ class Lattice:
         self.sum_rules = self.find_sum_rules()
     
     def nodes(self,system):
-        lattice = {}
+        lattice = []
         for amp in system.amp_pairs:
-            lattice[','.join(str(x) for x in amp.gen_coord)] = amp
+            lattice.append(np.array(amp.node))
         return lattice
+
+    def gram_schmidt(self,A,tol=1e-12): # keeps LI rows of matrix using gram-schmidt; avoids need for row reduction
+        A = np.asarray(A,dtype=float)
+        Q = np.zeros((0,A.shape[1]),dtype=float)
+        ind_rows = []
+
+        for i in range(A.shape[0]):
+            row = A[i].copy()
+            if Q.shape[0] > 0:
+                residual = row-Q.T@(Q@row)
+            else:
+                residual = row
+            norm_residual = np.linalg.norm(residual)
+            if norm_residual > tol*np.linalg.norm(row):
+                ind_rows.append(i)
+                Q = np.vstack([Q,residual/norm_residual])
+        return ind_rows
 
     def find_sum_rules(self):
         d = self.d
@@ -360,7 +353,7 @@ class Lattice:
         sum_rules = []
         
         # b = 0 case
-        sum_rules.append(np.array([SumRule(0,[node],latt).M_values for node in latt]))
+        sum_rules.append(np.identity(len(latt),dtype=int)) # identity matrix for b = 0 SRs
 
         # b >= 1 cases, full lattice in NumPy array form
         if d > 0:
@@ -369,16 +362,20 @@ class Lattice:
             np_latt = np.sort(np_latt,axis=1)
 
             for b in range(1,d+1):
-                np_latt = np_latt.reshape(l**(d-b),l**b,d) # each element is a list of coordinates within a shared b-dim subspace
+                np_latt = np_latt.reshape(l**(d-b),l**b,d) # each element is an array of coordinates [a b ...] within a shared b-dim subspace
                 np_b_subspaces = np.unique(np_latt,axis=0)
 
-                b_srs = []
-                for subspace in np_b_subspaces:
-                    subspace = [','.join(map(str,coord)) for coord in subspace]
-                    b_sr = SumRule(b,subspace,latt).M_values
-                    if any(M != 0 for M in b_sr):
-                        b_srs.append(b_sr)
-                sum_rules.append(np.array(b_srs))
+                amps = np.array(latt) # arr dim: num of amps x d
+                matches = (np_b_subspaces[:,None,:,:] == amps[None,:,None,:]).all(axis=-1) # arr dim: num of SRs x num of amps x l
+                b_srs = matches.sum(axis=-1) # arr dim: num of SRs x num of amps
+
+                ind_rows = self.gram_schmidt(b_srs) # remove LD rows from b_srs matrix
+                b_srs = b_srs[ind_rows]
+
+                nonzero_rows = np.any(b_srs != 0,axis=1) # remove rows of 0s from b_srs matrix (redundant...)
+                b_srs = b_srs[nonzero_rows]
+                
+                sum_rules.append(b_srs)
 
         return sum_rules
 
@@ -391,7 +388,7 @@ def define_system(inputs,phys=False):
                      purely group-theoretical (False). Default: phys=False.
 
     Returns:
-        system (System): System formed from non-trivial (u > 0) reps in input
+        system (System): System object formed from non-trivial (u > 0) reps in input
     '''
 
     sys_reps = []
@@ -401,17 +398,13 @@ def define_system(inputs,phys=False):
         reps = [Multiplet(rep,states[i]) for rep in reps]
         sys_reps += reps
     
-    n_doublets = sum([2*rep.spin for rep in sys_reps])
-    if n_doublets % 2 != 0:
-        raise ValueError('Invalid process. Number of would-be doublets is '+str(n_doublets)+'. Please enter a system with an even number of doublets.')
-    
     system = System(sys_reps,inputs,phys)
     return system
 
 def generate_srs(system):
     '''
     Parameters:
-        system (System): System formed from non-trivial (u > 0) reps in input
+        system (System): System object formed from non-trivial (u > 0) reps in input
 
     Returns:
         system (System): Modified system to account for symmetrization (if applicable)
