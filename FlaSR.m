@@ -378,8 +378,8 @@ bList
 
 
 (* Returns the number of amplitude or squared amplitude sum rules at each order of breaking *)
-Options[numSRs]={b->All,squared->False};
-numSRs[system_,OptionsPattern[]]:=Module[{squared=OptionValue[squared],b=OptionValue[b],SRs,indices,sublist},
+Options[numSRs]={b->All};
+numSRs[system_,squared_:False,OptionsPattern[]]:=Module[{b=OptionValue[b],SRs,indices,sublist},
 SRs=If[squared,
 If[KeyExistsQ[system,"A2SRs"],system[["A2SRs"]],(Message[numSRs::missingkey];Return[$Failed])],
 system[["ASRs"]]
@@ -471,7 +471,7 @@ vecList
 (* Print SRs with formatting and SR info *)
 printWrittenSRs[]:=Module[{bList,numSRsList,matForm,rule},
 bList=listbOrders[b,Length[SRs]];
-numSRsList=numSRs[sysVal,Sequence@@FilterRules[{opts},Options[numSRs]]][[bList+1]];
+numSRsList=numSRs[sysVal,squared,Sequence@@FilterRules[{opts},Options[numSRs]]][[bList+1]];
 matForm:=If[expandSRs,MatrixForm[#]&,MatrixForm[#[[2;;]],TableHeadings->{None,#[[1]]}]&];
 rule=If[label=="Processes"||label=="QNs",
 expr_Symbol[i_]/;expr=!=List:>StringJoin[ToString[expr],"(",i,")"],
