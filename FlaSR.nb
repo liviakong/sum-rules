@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    182579,       3655]
-NotebookOptionsPosition[    180254,       3620]
-NotebookOutlinePosition[    180685,       3637]
-CellTagsIndexPosition[    180642,       3634]
+NotebookDataLength[    182571,       3656]
+NotebookOptionsPosition[    180250,       3621]
+NotebookOutlinePosition[    180677,       3638]
+CellTagsIndexPosition[    180634,       3635]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -268,12 +268,12 @@ to print sum rules. Default: showSRs->True.\nexpandSRs (True|False): \
 Indicates whether to display each row of a sum rules matrix as an algebraic \
 expression of amplitudes (True) or to keep each row as a list of coefficients \
 (False). Default: expandSRs->False.\nCKM (True|False): Indicates whether to \
-include CKM factors in the sum rules (True) or not (False). Default: \
-CKM->False.\nb (All|Real|List): Breaking order(s) at which to print sum \
-rules. User can print sum rules to all possible orders of breaking (All), at \
-a particular order (Real s.t. 0 <= b <= highest order of breaking), or over a \
-range of orders of breaking ({start b (min: 0), end b (max: highest order of \
-breaking, or All), increment}). Default: b->All.\n\nReturns:\nsystem[[\\\"SR \
+include CKM factors in the sum rules. Default: CKM->False.\nb \
+(All|Real|List): Breaking order(s) at which to print sum rules. User can \
+print sum rules to all possible orders of breaking (All), at a particular \
+order (Real s.t. 0 <= b <= highest order of breaking), or over a range of \
+orders of breaking ({start b (min: 0), end b (max: highest order of breaking, \
+or All), increment}). Default: b->All.\n\nReturns:\nsystem[[\\\"SR \
 extract\\\"]] (List): A new key in the system association containing sum rule \
 coefficient matrices at the selected b.\nOther new/modified keys and values \
 of system:\n- \\\"Amp vector\\\" (List): Either is a vector of formatted A \
@@ -302,7 +302,7 @@ sum rule matrices. Default: showFactors->False.\n-----\nshowASRs \
 while both ampType and amp2Type can be separately specified, the other \
 formatting options (e.g., ampFormat) will be shared for printing both ASRs \
 and A2SRs.\nshowA2SRs (True|False): Indicates whether to print A2SRs. \
-Default: showA2SRs->False. Note: while both ampType and amp2Type can be \
+Default: showA2SRs->True. Note: while both ampType and amp2Type can be \
 separately specified, the other formatting options (e.g., ampFormat) will be \
 shared for printing both ASRs and A2SRs.\nampType (List): Contains 1 or 2 \
 symbol(s) to select amplitude type. Convention is to set ampType->{A} or \
@@ -318,25 +318,24 @@ names (\\\"Processes\\\", only available for A amps), quantum numbers \
 or user-defined labels for a column of the amplitudes table (name of column \
 of amplitudes table containing custom labels). Default: \
 ampFormat->\\\"n-tuples\\\" unless the system is a physical system, in which \
-case ampFormat->\\\"Processes\\\".\nshowSRs (True|False): Indicates whether \
-to print sum rules. Default: showSRs->True.\nexpandSRs (True|False): \
-Indicates whether to display each row of a sum rules matrix as an algebraic \
-expression of amplitudes (True) or to keep each row as a list of coefficients \
-(False). Default: expandSRs->False.\nCKM (True|False): Indicates whether to \
-include CKM factors in the sum rules (True) or not (False). Default: \
-CKM->False.\nb (All|Real|List): Breaking order(s) at which to print sum \
-rules. User can print sum rules to all possible orders of breaking (All), at \
-a particular order (Real s.t. 0 <= b <= highest order of breaking), or over a \
-range of orders of breaking ({start b (min: 0), end b (max: highest order of \
-breaking, or All), increment}). Default: b->All.\n\nReturns:\nsystem \
-(Association): The inputted system association, modified to include formatted \
-sum rule coefficient matrices and amplitude vector(s). New/modified keys and \
-values:\n- \\\"SR extract\\\" (List): Contains sum rule coefficient matrices \
-at the selected b. If only ampType (amp2Type) is specified, contains only ASR \
-(A2SR) coefficients. If both ampType and amp2Type are specified, contains \
-A2SR coefficients.\n- \\\"Amp vector\\\" (List): Either is a vector of \
-formatted A amplitudes (Symbols) or contains formatted vectors for a and s \
-amplitudes (List of Symbols) for the system.\>\""}], ";"}]}], "Code",
+case ampFormat->\\\"Processes\\\".\nexpandSRs (True|False): Indicates whether \
+to display each row of a sum rules matrix as an algebraic expression of \
+amplitudes (True) or to keep each row as a list of coefficients (False). \
+Default: expandSRs->False.\nCKM (True|False): Indicates whether to include \
+CKM factors in the sum rules. Default: CKM->False.\nb (All|Real|List): \
+Breaking order(s) at which to print sum rules. User can print sum rules to \
+all possible orders of breaking (All), at a particular order (Real s.t. 0 <= \
+b <= highest order of breaking), or over a range of orders of breaking \
+({start b (min: 0), end b (max: highest order of breaking, or All), \
+increment}). Default: b->All.\n\nReturns:\nsystem (Association): The inputted \
+system association, modified to include formatted sum rule coefficient \
+matrices and amplitude vector(s). New/modified keys and values:\n- \\\"SR \
+extract\\\" (List): Contains sum rule coefficient matrices at the selected b. \
+If only ampType (amp2Type) is specified, contains only ASR (A2SR) \
+coefficients. If both ampType and amp2Type are specified, contains A2SR \
+coefficients.\n- \\\"Amp vector\\\" (List): Either is a vector of formatted A \
+amplitudes (Symbols) or contains formatted vectors for a and s amplitudes \
+(List of Symbols) for the system.\>\""}], ";"}]}], "Code",
  CellChangeTimes->{{3.9654306305147057`*^9, 3.965430687936945*^9}, {
    3.965431386784767*^9, 3.9654314041288376`*^9}, 3.965431494843601*^9, {
    3.965433459651066*^9, 3.9654336153908634`*^9}, {3.9654336612445736`*^9, 
@@ -505,8 +504,10 @@ amplitudes (List of Symbols) for the system.\>\""}], ";"}]}], "Code",
    3.9815824791836815`*^9, 3.981582487472969*^9}, {3.981582717712757*^9, 
    3.981582744526327*^9}, {3.9815827907482643`*^9, 3.9815828284857254`*^9}, {
    3.9815953636058483`*^9, 3.9815953866114883`*^9}, {3.9815954168539906`*^9, 
-   3.9815956481041718`*^9}, {3.981595685487686*^9, 
-   3.9815957008193455`*^9}},ExpressionUUID->"51db2644-e329-f04e-b541-\
+   3.9815956481041718`*^9}, {3.981595685487686*^9, 3.9815957008193455`*^9}, 
+   3.9815967964523296`*^9, {3.981597407313919*^9, 3.9815974077564735`*^9}, {
+   3.981597446601082*^9, 
+   3.9815974530526505`*^9}},ExpressionUUID->"51db2644-e329-f04e-b541-\
 5eaf84d668fe"],
 
 Cell[BoxData[
@@ -3618,8 +3619,8 @@ Cell[BoxData[
   3.966814470703684*^9}},ExpressionUUID->"4ce7445f-e663-9240-be66-\
 c08c579c3c16"]
 },
-WindowSize->{960, 532},
-WindowMargins->{{-5.5, Automatic}, {Automatic, -5.5}},
+WindowSize->{949, 526.5},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 Magnification:>0.8 Inherited,
 FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
 StyleDefinitions->"Default.nb",
@@ -3637,26 +3638,26 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[554, 20, 498, 9, 40, "Code",ExpressionUUID->"d7755607-cbd2-374e-ad05-ec3d71bc527b"],
-Cell[1055, 31, 31391, 478, 2414, "Code",ExpressionUUID->"51db2644-e329-f04e-b541-5eaf84d668fe"],
-Cell[32449, 511, 294, 6, 40, "Code",ExpressionUUID->"df1742f8-e3ff-e24a-bbb8-d2eca0a18691"],
-Cell[32746, 519, 1971, 44, 180, "Code",ExpressionUUID->"05555e7c-a6c2-684b-aab7-5668dfef0f53"],
-Cell[34720, 565, 1233, 19, 40, "Code",ExpressionUUID->"aa64c93c-fc27-6843-b787-24caf5262f31"],
-Cell[35956, 586, 1963, 48, 152, "Code",ExpressionUUID->"3b920bb5-cb45-0245-be13-ce3c447d075c"],
-Cell[37922, 636, 543, 16, 40, "Code",ExpressionUUID->"07bc084b-f324-2545-8e8d-5c83b127bf74"],
-Cell[38468, 654, 14174, 312, 433, "Code",ExpressionUUID->"5984c2c7-d660-8343-97c4-7ee157add873"],
-Cell[52645, 968, 4151, 94, 307, "Code",ExpressionUUID->"880939d3-8af6-344f-8730-7a3378b3ba8f"],
-Cell[56799, 1064, 12251, 267, 475, "Code",ExpressionUUID->"b8f38615-5711-ca47-ad73-f311a43e531b"],
-Cell[69053, 1333, 12256, 281, 679, "Code",ExpressionUUID->"177df5f8-cd48-a340-9004-9eace09315f3"],
-Cell[81312, 1616, 1958, 44, 124, "Code",ExpressionUUID->"e76c6bd5-7ca7-904b-9202-4c539d870962"],
-Cell[83273, 1662, 8718, 177, 419, "Code",ExpressionUUID->"d3f0884b-1669-1d49-8918-ef4b8bcf66e9"],
-Cell[91994, 1841, 1862, 42, 138, "Code",ExpressionUUID->"6b6e045b-b322-8a42-a08a-b172d08b7c58"],
-Cell[93859, 1885, 8161, 172, 300, "Code",ExpressionUUID->"652dbf7d-bb33-d140-b908-715ec4001dc0"],
-Cell[102023, 2059, 3243, 79, 236, "Code",ExpressionUUID->"835ed265-edbd-0343-ac5a-5fe68b21eabd"],
-Cell[105269, 2140, 4505, 101, 264, "Code",ExpressionUUID->"ddaa38d6-bebf-664b-b090-3c7a18bc0853"],
-Cell[109777, 2243, 62130, 1203, 2050, "Code",ExpressionUUID->"8fb53ad9-48f1-744a-a398-94d20fa92c0f"],
-Cell[171910, 3448, 7969, 158, 489, "Code",ExpressionUUID->"2197a131-6a81-2e48-8602-9fd79d754800"],
-Cell[179882, 3608, 180, 4, 40, "Code",ExpressionUUID->"2f822f98-bfdf-524f-8f12-6e99387e6417"],
-Cell[180065, 3614, 185, 4, 40, "Code",ExpressionUUID->"4ce7445f-e663-9240-be66-c08c579c3c16"]
+Cell[1055, 31, 31387, 479, 2400, "Code",ExpressionUUID->"51db2644-e329-f04e-b541-5eaf84d668fe"],
+Cell[32445, 512, 294, 6, 40, "Code",ExpressionUUID->"df1742f8-e3ff-e24a-bbb8-d2eca0a18691"],
+Cell[32742, 520, 1971, 44, 180, "Code",ExpressionUUID->"05555e7c-a6c2-684b-aab7-5668dfef0f53"],
+Cell[34716, 566, 1233, 19, 40, "Code",ExpressionUUID->"aa64c93c-fc27-6843-b787-24caf5262f31"],
+Cell[35952, 587, 1963, 48, 152, "Code",ExpressionUUID->"3b920bb5-cb45-0245-be13-ce3c447d075c"],
+Cell[37918, 637, 543, 16, 40, "Code",ExpressionUUID->"07bc084b-f324-2545-8e8d-5c83b127bf74"],
+Cell[38464, 655, 14174, 312, 433, "Code",ExpressionUUID->"5984c2c7-d660-8343-97c4-7ee157add873"],
+Cell[52641, 969, 4151, 94, 307, "Code",ExpressionUUID->"880939d3-8af6-344f-8730-7a3378b3ba8f"],
+Cell[56795, 1065, 12251, 267, 475, "Code",ExpressionUUID->"b8f38615-5711-ca47-ad73-f311a43e531b"],
+Cell[69049, 1334, 12256, 281, 679, "Code",ExpressionUUID->"177df5f8-cd48-a340-9004-9eace09315f3"],
+Cell[81308, 1617, 1958, 44, 124, "Code",ExpressionUUID->"e76c6bd5-7ca7-904b-9202-4c539d870962"],
+Cell[83269, 1663, 8718, 177, 419, "Code",ExpressionUUID->"d3f0884b-1669-1d49-8918-ef4b8bcf66e9"],
+Cell[91990, 1842, 1862, 42, 138, "Code",ExpressionUUID->"6b6e045b-b322-8a42-a08a-b172d08b7c58"],
+Cell[93855, 1886, 8161, 172, 300, "Code",ExpressionUUID->"652dbf7d-bb33-d140-b908-715ec4001dc0"],
+Cell[102019, 2060, 3243, 79, 236, "Code",ExpressionUUID->"835ed265-edbd-0343-ac5a-5fe68b21eabd"],
+Cell[105265, 2141, 4505, 101, 264, "Code",ExpressionUUID->"ddaa38d6-bebf-664b-b090-3c7a18bc0853"],
+Cell[109773, 2244, 62130, 1203, 2050, "Code",ExpressionUUID->"8fb53ad9-48f1-744a-a398-94d20fa92c0f"],
+Cell[171906, 3449, 7969, 158, 489, "Code",ExpressionUUID->"2197a131-6a81-2e48-8602-9fd79d754800"],
+Cell[179878, 3609, 180, 4, 40, "Code",ExpressionUUID->"2f822f98-bfdf-524f-8f12-6e99387e6417"],
+Cell[180061, 3615, 185, 4, 40, "Code",ExpressionUUID->"4ce7445f-e663-9240-be66-c08c579c3c16"]
 }
 ]
 *)
