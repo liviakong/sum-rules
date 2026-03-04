@@ -3,6 +3,16 @@
 ## List of functions
 
 - [FlaSRHelp](#FlaSRHelp): FlaSRHelp[function] prints extended documentation on a function's arguments, options, and outputs.
+- [startPythonSession](#startPythonSession): startPythonSession[session,path] checks for a valid Python session and file path and loads in the Python file.
+- [generateASRs](#generateASRs): generateASRs[in,h,out] finds all amplitudes and amplitude sum rules (ASRs) for a given system.
+- [generateSRs](#generateSRs): generateSRs[in,h,out] finds all amplitudes, amplitude sum rules (ASRs), and squared amplitude sum rules (A2SRs) for a given system.
+- [numAmps](#numAmps): numAmps[system,nPairs:False] returns the total number of amplitudes in the system.
+- [labelAmps](#labelAmps): labelAmps[system,colName,labels] modifies system to add a column of user-defined labels to system[[\"Amplitudes\"]].
+- [unlabelAmps](#unlabelAmps): unlabelAmps[system,colNames] modifies system to remove columns from system[[\"Amplitudes\"]].
+- [printAmps](#printAmps): printAmps[system] prints the system's amplitudes and a/s, Δ/Σ amplitude definitions.
+- [numSRs](#numSRs): numSRs[system,squared:False] returns the number of amplitude or squared amplitude sum rules at each order of breaking.
+- [printSRs](#printSRs): printSRs[system,ampType->{a,s}/{A} OR amp2Type->{Δ,Σ}/{A}] prints amplitude or squared amplitude sum rules at each order of breaking.
+- [printSystem](#printSystem): printSystem[system,ampType->{a,s}/{A}, amp2Type->{Δ,Σ}/{A}] prints information about the system's representations, amplitudes, and sum rules and modifies the system to include formatted sum rules.
 
 ## Documentation
 ### FlaSRHelp
