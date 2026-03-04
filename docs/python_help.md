@@ -1,6 +1,6 @@
 # Instructions for running Python code from Mathematica
 
-This Mathematica package uses Python code from the `sum_rules.py` file to expedite calculations. Please follow this guide to ensure you have correctly configured your computer to run Python code from Mathematica.
+This Mathematica package uses Python code from the `FlaSR.py` file to expedite calculations. Please follow this guide to ensure you have correctly configured your computer to run Python code from Mathematica.
 
 Requirements: Mathematica 12.0+, Python 3.8+  
 _Note: Some slightly older versions (Mathematica 11.2+, Python 3.4+) may work, but support is limited._
