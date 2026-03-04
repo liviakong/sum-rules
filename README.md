@@ -21,14 +21,14 @@ Please follow our [guide](docs/python_help.md) to ensure your computer is proper
    startPythonSession[session,path];
    ```
 
-5. Generate the amplitude sum rules for a U-spin system. For example, a system with representations u = 0 in the in state, u = 1 in the Hamiltonian, and u = 1/2 and u = 1/2 in the out state is called as
+5. Generate the sum rules for a U-spin system. For example, a system with representations u = 0 in the in state, u = 1 in the Hamiltonian, and u = 1/2 and u = 1/2 in the out state is called as
    ```
-   system = generateASRs[{0},{1},{1/2,1/2}];
+   system = generateSRs[{0},{1},{1/2,1/2}];
    ```
 
-6. View a detailed output of the system's representations, amplitudes, and amplitude sum rules:
+6. View a detailed output of the system's representations, amplitudes, and sum rules (refer to the paper for a detailed explanation of amplitude bases):
    ```
-   printSystem[system,{1,"n-tuples",a,s}];
+   printSystem[system,ampType->{a,s},amp2Type->{Δ,Σ}];
    ```
 
 # Help
