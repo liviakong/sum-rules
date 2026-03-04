@@ -144,9 +144,9 @@ CKM (True|False): Indicates whether to include CKM factors in the sum rules (Tru
 b (All|Real|List): Breaking order(s) at which to print sum rules. User can print sum rules to all possible orders of breaking (All), at a particular order (Real s.t. 0 <= b <= highest order of breaking), or over a range of orders of breaking ({start b (min: 0), end b (max: highest order of breaking, or All), increment}). Default: b->All.
 
 Returns:
-system[[\"SR extract\"]] (List): A new key in the system association containing Lists of (squared) amplitude sum rules/matrices of (squared) amplitude sum rule coefficients formatted according to the sum rule printing settings.
+system[[\"SR extract\"]] (List): A new key in the system association containing sum rule coefficient matrices at the selected b.
 Other new/modified keys and values of system:
-- \"Amp vector\" (List): Either is a vector of formatted A amplitudes (Symbols) or contains a formatted vector for a and s amplitudes (List of Symbols) for the system.";
+- \"Amp vector\" (List): Either is a vector of formatted A amplitudes (Symbols) or contains formatted vectors for a and s amplitudes (List of Symbols) for the system.";
 
 printSystem::usage="printSystem[system,ampType->{a,s}/{A}, amp2Type->{\[CapitalDelta],\[CapitalSigma]}/{A}] prints information about the system's representations, amplitudes, and sum rules and modifies the system to include formatted sum rules.";
 printSystem::details=
@@ -171,8 +171,8 @@ b (All|Real|List): Breaking order(s) at which to print sum rules. User can print
 
 Returns:
 system (Association): The inputted system association, modified to include formatted sum rule coefficient matrices and amplitude vector(s). New/modified keys and values:
-- \"SR extract\" (List): Contains Lists of (squared) amplitude sum rules/matrices of (squared) amplitude sum rule coefficients formatted according to the sum rule printing settings.
-- \"Amp vector\" (List): Either is a vector of formatted A amplitudes (Symbols) or contains a formatted vector for a and s amplitudes (List of Symbols) for the system.";
+- \"SR extract\" (List): Contains sum rule coefficient matrices at the selected b. If only ampType (amp2Type) is specified, contains only ASR (A2SR) coefficients. If both ampType and amp2Type are specified, contains A2SR coefficients.
+- \"Amp vector\" (List): Either is a vector of formatted A amplitudes (Symbols) or contains formatted vectors for a and s amplitudes (List of Symbols) for the system.";
 
 
 Begin["`Private`"];
