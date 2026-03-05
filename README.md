@@ -1,6 +1,6 @@
 # Instructions for using the FlaSR package
 
-Please follow our [guide](docs/python_help.md) to ensure your computer is properly configured to run Python code from Mathematica. This only needs to be done the first time you run the package.
+Please follow our [guide](docs/python_help.md) to ensure your computer is properly configured to run Python code from Mathematica. This only needs to be done the first time you run the package. You can use our package by downloading the `example.nb` file and running the cells there or by following the steps below.
 
 1. Download `FlaSR.m` and `FlaSR.py` and place both files into the same directory as your Mathematica notebook.
 
