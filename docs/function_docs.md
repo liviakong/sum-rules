@@ -162,7 +162,7 @@ Options:
 - ampFormat (String): Specified format for displaying amplitudes. Options are physical process names (\"Processes\", only available for A amps), quantum numbers (\"QNs\"), n-tuples (\"n-tuples\"), coordinate notation (\"Coords\", only available for a/s amps), numbered indices (\"Binary indices\"), or user-defined labels for a column of the amplitudes table (name of column of amplitudes table containing custom labels). Default: ampFormat->\"n-tuples\" unless the system is a physical system, in which case ampFormat->\"Processes\".
 - showSRs (True|False): Indicates whether to print sum rules. Default: showSRs->True.
 - expandSRs (True|False): Indicates whether to display each row of a sum rules matrix as an algebraic expression of amplitudes (True) or to keep each row as a list of coefficients (False). Default: expandSRs->False.
-- CKM (True|False): Indicates whether to include CKM factors in the sum rules (True) or not (False). Default: CKM->False.
+- CKM (True|False): Indicates whether to include CKM factors in the sum rules. Default: CKM->False.
 - b (All|Real|List): Breaking order(s) at which to print sum rules. User can print sum rules to all possible orders of breaking (All), at a particular order (Real s.t. 0 <= b <= highest order of breaking), or over a range of orders of breaking ({start b (min: 0), end b (max: highest order of breaking, or All), increment}). Default: b->All.
 
 Returns:
@@ -183,16 +183,15 @@ Options:
 - showFactors (True|False): Indicates whether to print internal calculation factors from the sum rule algorithm in the amplitudes table (True) or not (False). Not to be confused with the amplitude sum rule matrices. Default: showFactors->False.
 ---
 - showASRs (True|False): Indicates whether to print ASRs. Default: showASRs->True. Note: while both ampType and amp2Type can be separately specified, the other formatting options (e.g., ampFormat) will be shared for printing both ASRs and A2SRs.
-- showA2SRs (True|False): Indicates whether to print A2SRs. Default: showA2SRs->False. Note: while both ampType and amp2Type can be separately specified, the other formatting options (e.g., ampFormat) will be shared for printing both ASRs and A2SRs.
+- showA2SRs (True|False): Indicates whether to print A2SRs. Default: showA2SRs->True. Note: while both ampType and amp2Type can be separately specified, the other formatting options (e.g., ampFormat) will be shared for printing both ASRs and A2SRs.
 - ampType (List): Contains 1 or 2 symbol(s) to select amplitude type. Convention is to set ampType->{A} or {a,s} for A amplitudes or a/s amplitudes. Default: ampType->None.
 - amp2Type (List): Contains 1 or 2 symbol(s) to select squared amplitude type. Convention is to set amp2Type->{A} or {Δ,Σ} for |A|^2 amplitudes or Δ/Σ amplitudes. Default: amp2Type->None.
 - ampFormat (String): Specified format for displaying amplitudes. Options are physical process names (\"Processes\", only available for A amps), quantum numbers (\"QNs\"), n-tuples (\"n-tuples\"), coordinate notation (\"Coords\", only available for a/s amps), numbered indices (\"Binary indices\"), or user-defined labels for a column of the amplitudes table (name of column of amplitudes table containing custom labels). Default: ampFormat->\"n-tuples\" unless the system is a physical system, in which case ampFormat->\"Processes\".
-- showSRs (True|False): Indicates whether to print sum rules. Default: showSRs->True.
 - expandSRs (True|False): Indicates whether to display each row of a sum rules matrix as an algebraic expression of amplitudes (True) or to keep each row as a list of coefficients (False). Default: expandSRs->False.
-- CKM (True|False): Indicates whether to include CKM factors in the sum rules (True) or not (False). Default: CKM->False.
+- CKM (True|False): Indicates whether to include CKM factors in the sum rules. Default: CKM->False.
 - b (All|Real|List): Breaking order(s) at which to print sum rules. User can print sum rules to all possible orders of breaking (All), at a particular order (Real s.t. 0 <= - b <= highest order of breaking), or over a range of orders of breaking ({start b (min: 0), end b (max: highest order of breaking, or All), increment}). Default: b->All.
 
 Returns:
 - system (Association): The inputted system association, modified to include formatted sum rule coefficient matrices and amplitude vector(s). New/modified keys and values:
-	- \"SR extract\" (List): Contains Lists of (squared) amplitude sum rules/matrices of (squared) amplitude sum rule coefficients formatted according to the sum rule printing settings.
-	- \"Amp vector\" (List): Either is a vector of formatted A amplitudes (Symbols) or contains a formatted vector for a and s amplitudes (List of Symbols) for the system.
+	- \"SR extract\" (List): Contains sum rule coefficient matrices at the selected b. If only ampType (amp2Type) is specified, contains only ASR (A2SR) coefficients. If both ampType and amp2Type are specified, contains A2SR coefficients.
+	- \"Amp vector\" (List): Either is a vector of formatted A amplitudes (Symbols) or contains formatted vectors for a and s amplitudes (List of Symbols) for the system.stem.

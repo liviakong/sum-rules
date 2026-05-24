@@ -1,6 +1,6 @@
 # Instructions for using the FlaSR package
 
-Please follow our [guide](docs/python_help.md) to ensure your computer is properly configured to run Python code from Mathematica. This only needs to be done the first time you run the package.
+Please follow our [guide](docs/python_help.md) to ensure your computer is properly configured to run Python code from Mathematica. This only needs to be done the first time you run the package. You can use our package by downloading the `example.nb` file and running the cells there or by following the steps below.
 
 1. Download `FlaSR.m` and `FlaSR.py` and place both files into the same directory as your Mathematica notebook.
 
@@ -30,6 +30,7 @@ Please follow our [guide](docs/python_help.md) to ensure your computer is proper
    ```
    printSystem[system,ampType->{a,s},amp2Type->{Δ,Σ}];
    ```
+   The program will output information about the system's representations, amplitudes, amplitude sum rules, and squared amplitude sum rules. A sum rule holding up to order b is broken at order b+1, i.e. by corrections of O(ε<sup>b+1</sup>), where ε is the small symmetry-breaking parameter (~0.3 for U-spin).
 
 # Help
 
@@ -42,3 +43,4 @@ For details on a function's arguments, options, and outputs, run
    ```
    FlaSRHelp[function];
    ```
+This documentation is also available on our [function documentation](docs/function_docs.md) page.
