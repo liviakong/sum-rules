@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    214404,       4313]
-NotebookOptionsPosition[    211974,       4277]
-NotebookOutlinePosition[    212405,       4294]
-CellTagsIndexPosition[    212362,       4291]
+NotebookDataLength[    214790,       4322]
+NotebookOptionsPosition[    212360,       4286]
+NotebookOutlinePosition[    212791,       4303]
+CellTagsIndexPosition[    212748,       4300]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4131,24 +4131,27 @@ Cell[BoxData[{
        RowBox[{"showASRs", "=", 
         RowBox[{"OptionValue", "[", "showASRs", "]"}]}], ",", 
        RowBox[{"showA2SRs", "=", 
-        RowBox[{"OptionValue", "[", "showA2SRs", "]"}]}], ",", "irreps"}], 
-      "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"OptionValue", "[", "showA2SRs", "]"}]}], ",", "printLine", ",",
+        "irreps"}], "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{
+      RowBox[{
+       RowBox[{"printLine", "[", "]"}], ":=", 
+       RowBox[{"Print", "[", "\"\<-------------------------\>\"", "]"}]}], ";",
+       "\[IndentingNewLine]", 
       RowBox[{"irreps", "=", 
        RowBox[{"sysVal", "[", 
         RowBox[{"[", "\"\<Irreps\>\"", "]"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"Print", "[", 
-       RowBox[{"\"\<System: \>\"", ",", 
-        RowBox[{"Sort", "@", 
-         RowBox[{"Flatten", "@", "irreps"}]}]}], "]"}], ";", 
       "\[IndentingNewLine]", "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
        RowBox[{"showReps", ",", "\[IndentingNewLine]", 
         RowBox[{"(", 
          RowBox[{
-          RowBox[{"Print", "[", "\"\<-------------------------\>\"", "]"}], ";",
-           "\[IndentingNewLine]", 
+          RowBox[{"Print", "[", 
+           RowBox[{"\"\<System: \>\"", ",", 
+            RowBox[{"Sort", "@", 
+             RowBox[{"Flatten", "@", "irreps"}]}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"printLine", "[", "]"}], ";", "\[IndentingNewLine]", 
           RowBox[{"Print", "[", 
            RowBox[{"\"\<Number of would-be doublets: \>\"", ",", 
             RowBox[{"sysVal", "[", 
@@ -4167,60 +4170,62 @@ Cell[BoxData[{
       "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
        RowBox[{"showAmps", ",", "\[IndentingNewLine]", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"Print", "[", "\"\<-------------------------\>\"", "]"}], ";",
-           "\[IndentingNewLine]", 
-          RowBox[{"printAmps", "[", 
-           RowBox[{"sysVal", ",", 
-            RowBox[{"Sequence", "@@", 
-             RowBox[{"FilterRules", "[", 
-              RowBox[{
-               RowBox[{"{", "opts", "}"}], ",", 
-               RowBox[{"Options", "[", "printAmps", "]"}]}], "]"}]}]}], "]"}],
-           ";"}], "\[IndentingNewLine]", ")"}], ",", "\[IndentingNewLine]", 
-        "Null"}], "\[IndentingNewLine]", "]"}], ";", "\n", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{"showReps", ",", 
+           RowBox[{"printLine", "[", "]"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"printAmps", "[", 
+          RowBox[{"sysVal", ",", 
+           RowBox[{"Sequence", "@@", 
+            RowBox[{"FilterRules", "[", 
+             RowBox[{
+              RowBox[{"{", "opts", "}"}], ",", 
+              RowBox[{"Options", "[", "printAmps", "]"}]}], "]"}]}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
       "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
        RowBox[{"showASRs", ",", "\[IndentingNewLine]", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"Print", "[", "\"\<-------------------------\>\"", "]"}], ";",
-           "\[IndentingNewLine]", 
-          RowBox[{"printSRs", "[", 
-           RowBox[{"sysVal", ",", 
-            RowBox[{"Sequence", "@@", 
-             RowBox[{"FilterRules", "[", 
-              RowBox[{
-               RowBox[{"FilterRules", "[", 
-                RowBox[{
-                 RowBox[{"{", "opts", "}"}], ",", 
-                 RowBox[{"Except", "[", "amp2Type", "]"}]}], "]"}], ",", 
-               RowBox[{"Options", "[", "printSRs", "]"}]}], "]"}]}], ",", 
-            RowBox[{"showSRs", "->", "showASRs"}], ",", 
-            RowBox[{"amp2Type", "->", "None"}]}], "]"}], ";"}], 
-         "\[IndentingNewLine]", ")"}], ",", "\[IndentingNewLine]", "Null"}], 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"showReps", "||", "showAmps"}], ",", 
+           RowBox[{"printLine", "[", "]"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"printSRs", "[", 
+          RowBox[{"sysVal", ",", 
+           RowBox[{"Sequence", "@@", 
+            RowBox[{"FilterRules", "[", 
+             RowBox[{
+              RowBox[{"FilterRules", "[", 
+               RowBox[{
+                RowBox[{"{", "opts", "}"}], ",", 
+                RowBox[{"Except", "[", "amp2Type", "]"}]}], "]"}], ",", 
+              RowBox[{"Options", "[", "printSRs", "]"}]}], "]"}]}], ",", 
+           RowBox[{"showSRs", "->", "showASRs"}], ",", 
+           RowBox[{"amp2Type", "->", "None"}]}], "]"}], ";"}]}], 
        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
       "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
        RowBox[{"showA2SRs", ",", "\[IndentingNewLine]", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"Print", "[", "\"\<-------------------------\>\"", "]"}], ";",
-           "\[IndentingNewLine]", 
-          RowBox[{"printSRs", "[", 
-           RowBox[{"sysVal", ",", 
-            RowBox[{"Sequence", "@@", 
-             RowBox[{"FilterRules", "[", 
-              RowBox[{
-               RowBox[{"FilterRules", "[", 
-                RowBox[{
-                 RowBox[{"{", "opts", "}"}], ",", 
-                 RowBox[{"Except", "[", "ampType", "]"}]}], "]"}], ",", 
-               RowBox[{"Options", "[", "printSRs", "]"}]}], "]"}]}], ",", 
-            RowBox[{"showSRs", "->", "showA2SRs"}], ",", 
-            RowBox[{"ampType", "->", "None"}]}], "]"}], ";"}], 
-         "\[IndentingNewLine]", ")"}], ",", "\[IndentingNewLine]", "Null"}], 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"showReps", "||", "showAmps", "||", "showASRs"}], ",", 
+           RowBox[{"printLine", "[", "]"}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"printSRs", "[", 
+          RowBox[{"sysVal", ",", 
+           RowBox[{"Sequence", "@@", 
+            RowBox[{"FilterRules", "[", 
+             RowBox[{
+              RowBox[{"FilterRules", "[", 
+               RowBox[{
+                RowBox[{"{", "opts", "}"}], ",", 
+                RowBox[{"Except", "[", "ampType", "]"}]}], "]"}], ",", 
+              RowBox[{"Options", "[", "printSRs", "]"}]}], "]"}]}], ",", 
+           RowBox[{"showSRs", "->", "showA2SRs"}], ",", 
+           RowBox[{"ampType", "->", "None"}]}], "]"}], ";"}]}], 
        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
       "\[IndentingNewLine]", 
       RowBox[{"system", "=", "sysVal"}], ";", "\[IndentingNewLine]", 
@@ -4260,7 +4265,11 @@ Cell[BoxData[{
    3.978623825425722*^9}, 3.9786244816906567`*^9, {3.978624594346224*^9, 
    3.9786246008547153`*^9}, {3.978625186127537*^9, 3.978625236004595*^9}, {
    3.9786252699124165`*^9, 3.9786252812644043`*^9}, {3.9786257775497036`*^9, 
-   3.954955848664341*^9}},ExpressionUUID->"2197a131-6a81-2e48-8602-\
+   3.954955848664341*^9}, {3.9572803198580627`*^9, 3.957280325983095*^9}, {
+   3.9572803709933796`*^9, 3.957280440326315*^9}, {3.9572805045174465`*^9, 
+   3.957280635315098*^9}, {3.9572807511703777`*^9, 3.9572807805554333`*^9}, {
+   3.9572809391256866`*^9, 3.957280966618868*^9}, {3.9572810350798645`*^9, 
+   3.9572811023049564`*^9}},ExpressionUUID->"2197a131-6a81-2e48-8602-\
 9fd79d754800"],
 
 Cell[BoxData[
@@ -4312,9 +4321,9 @@ Cell[122191, 2483, 8257, 173, 300, "Code",ExpressionUUID->"652dbf7d-bb33-d140-b9
 Cell[130451, 2658, 3243, 79, 236, "Code",ExpressionUUID->"835ed265-edbd-0343-ac5a-5fe68b21eabd"],
 Cell[133697, 2739, 4539, 103, 264, "Code",ExpressionUUID->"ddaa38d6-bebf-664b-b090-3c7a18bc0853"],
 Cell[138239, 2844, 64932, 1251, 2064, "Code",ExpressionUUID->"8fb53ad9-48f1-744a-a398-94d20fa92c0f"],
-Cell[203174, 4097, 8425, 166, 602, "Code",ExpressionUUID->"2197a131-6a81-2e48-8602-9fd79d754800"],
-Cell[211602, 4265, 180, 4, 40, "Code",ExpressionUUID->"2f822f98-bfdf-524f-8f12-6e99387e6417"],
-Cell[211785, 4271, 185, 4, 40, "Code",ExpressionUUID->"4ce7445f-e663-9240-be66-c08c579c3c16"]
+Cell[203174, 4097, 8811, 175, 531, "Code",ExpressionUUID->"2197a131-6a81-2e48-8602-9fd79d754800"],
+Cell[211988, 4274, 180, 4, 40, "Code",ExpressionUUID->"2f822f98-bfdf-524f-8f12-6e99387e6417"],
+Cell[212171, 4280, 185, 4, 40, "Code",ExpressionUUID->"4ce7445f-e663-9240-be66-c08c579c3c16"]
 }
 ]
 *)

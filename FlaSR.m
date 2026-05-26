@@ -672,12 +672,13 @@ printSRs::missingkey="This system does not contain the A2SRs key.";
 
 SetAttributes[printSystem,HoldFirst];
 Options[printSystem]=Join[{showReps->True,showAmps->True,showASRs->True,showA2SRs->True},Options[printAmps],Options[printSRs]];
-printSystem[system_,opts:OptionsPattern[]]:=Module[{sysVal=Evaluate[system],showReps=OptionValue[showReps],showAmps=OptionValue[showAmps],showASRs=OptionValue[showASRs],showA2SRs=OptionValue[showA2SRs],irreps},
+printSystem[system_,opts:OptionsPattern[]]:=Module[{sysVal=Evaluate[system],showReps=OptionValue[showReps],showAmps=OptionValue[showAmps],showASRs=OptionValue[showASRs],showA2SRs=OptionValue[showA2SRs],printLine,irreps},
+printLine[]:=Print["-------------------------"];
 irreps=sysVal[["Irreps"]];
-Print["System: ",Sort@Flatten@irreps];
 
 If[showReps,
-(Print["-------------------------"];
+(Print["System: ",Sort@Flatten@irreps];
+printLine[];
 Print["Number of would-be doublets: ",sysVal[["n doublets"]],"\n",
 "In: ",irreps[[1]],"\n",
 "H: ",irreps[[2]],"\n",
@@ -688,24 +689,18 @@ Null
 ];
 
 If[showAmps,
-(Print["-------------------------"];
+If[showReps,printLine[]];
 printAmps[sysVal,Sequence@@FilterRules[{opts},Options[printAmps]]];
-),
-Null
 ];
 
 If[showASRs,
-(Print["-------------------------"];
+If[showReps||showAmps,printLine[]];
 printSRs[sysVal,Sequence@@FilterRules[FilterRules[{opts},Except[amp2Type]],Options[printSRs]],showSRs->showASRs,amp2Type->None];
-),
-Null
 ];
 
 If[showA2SRs,
-(Print["-------------------------"];
+If[showReps||showAmps||showASRs,printLine[]];
 printSRs[sysVal,Sequence@@FilterRules[FilterRules[{opts},Except[ampType]],Options[printSRs]],showSRs->showA2SRs,ampType->None];
-),
-Null
 ];
 
 system=sysVal;
