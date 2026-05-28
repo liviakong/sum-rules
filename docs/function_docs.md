@@ -99,7 +99,6 @@ Returns:
 		- \"mu\" (Real): mu-factor for the coordinate in the lattice used to derive sum rules.
 		- \"CG\" (Real): Clebsch-Gordan coefficient from symmetrization for systems without doublets. Equal to 1 for all amplitudes for a system with at least one doublet.
 		- \"CKM\" (List): Contains weak interaction factors (Real) from the Hamiltonian. Only appears for physical systems.
-		- \"Multiplet indices\" 
 	- \"n ASRs\" (List): Contains the number of amplitude sum rules (Real) at each order of breaking.
 	- \"ASRs\" (List): Contains matrices of amplitude sum rule coefficients (Real) corresponding to each order of breaking.
 	- \"Unique amp pairs\" (List): Contains indices (Real) of amplitude pairs corresponding to unique channels after integration. Only appears for physical systems with obs->\"Int\".
@@ -129,7 +128,7 @@ Arguments:
 - labels (List): Contains labels (String) for each amplitude or amplitude pair. Number of labels must equal number of amplitudes or amplitude pairs.
 
 Options:
-- labeling (String): Labeling mode to indicate whether user is labeling single amplitudes (\"Amplitudes\") or amplitude pairs (\"Amplitude pairs\"). Default: labeling -> \"Amplitudes\".
+- labeling (String): Labeling mode to indicate whether user is labeling single amplitudes (\"Amplitudes\") or amplitude pairs (\"Amplitude pairs\"). Default: labeling->\"Amplitudes\".
 
 Returns:
 - system[[\"Amplitudes\"]] (List): The modified amplitudes table which includes a new column of user-defined labels. New/modified keys and values of amplitudes associations:
@@ -212,6 +211,6 @@ Options:
 - amp2Quad (True|False): Indicates whether the symbol in amp2Type is quadratically (True) or linearly (False) dependent on A. Default: amp2Quad->False.
 
 Returns:
-- system (Association): The inputted system association, modified to include formatted sum rule coefficient matrices and amplitude vector(s). New/modified keys and values:
-	- \"SR extract\" (List): Contains sum rule coefficient matrices at the selected b. If only ampType (amp2Type) is specified, contains only ASR (A2SR) coefficients. If both ampType and amp2Type are specified, contains A2SR coefficients. Initialized to None by generateSRs and redefined after running printSystem.
-	- \"Amp vector\" (List): Either is a vector of formatted A-type amplitudes (Symbols) or contains formatted vectors for a- and s-type amplitudes (List of Symbols) for the system. Initialized to None by generateSRs and redefined after running printSystem.
+- system (Association): The inputted system association, modified to include formatted sum rule coefficient matrices and amplitude vector(s). Modified keys and values:
+	- \"SR extract\" (List): Contains sum rule coefficient matrices at the selected b. If only ampType (amp2Type) is specified, contains only ASR (A2SR) coefficients. If both ampType and amp2Type are specified, contains A2SR coefficients.
+	- \"Amp vector\" (List): Either is a vector of formatted A-type amplitudes (Symbols) or contains formatted vectors for a- and s-type amplitudes (List of Symbols) for the system.
